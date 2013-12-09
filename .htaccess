@@ -29,5 +29,3 @@
 AddDefaultCharset utf-8
 
 #DirectoryIndex site_offline.php
-
-#ErrorDocument 404 /pages/notfound.html
