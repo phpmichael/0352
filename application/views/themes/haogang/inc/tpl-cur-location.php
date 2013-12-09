@@ -1,0 +1,1 @@
+<div class="breadcrumbs"><?=$current_location_str?></div>

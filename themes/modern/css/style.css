@@ -1,0 +1,351 @@
+body {
+	/*background: #B29269 url(../images/img01.jpg) repeat-x left top;*/
+	font-size: 13px;
+	text-align: justify;
+}
+
+body, th, td, input, textarea, select, option {
+	font-family: "Trebuchet MS", "Times New Roman", Arial, Times, serif;
+	color: #61492D;
+}
+
+h1, h2, h3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #80614D;
+}
+
+h1 {
+	letter-spacing: -2px;
+	font-size: 3em;
+}
+
+h2 {
+	letter-spacing: -1px;
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p, ul, ol {
+	line-height: 200%;
+}
+
+blockquote {
+	margin: 15px 0px;
+ 	padding: 5px 7px 5px 40px;  	
+    font-weight: normal;
+	font-size: 17px;
+	line-height: 1.6em;
+	font-style: italic;
+	font-family: Georgia, 'Times New Roman', Times, serif;		
+	color: #B29269;	
+	border: 1px solid #E3D1BA; 
+	background: #F5EFE9;
+}
+
+blockquote p, blockquote ul, blockquote ol {
+	line-height: normal;
+	font-style: italic;
+}
+
+a {
+	color: #85612E;
+}
+
+a:hover {
+	color: #85612E;
+}
+
+hr {
+	display: none;
+}
+
+#wrapper {
+	width: 1260px;
+	margin: 0 auto;
+	padding: 0;
+	background: url(../images/img03.jpg) repeat-y left top;
+}
+
+#wrapper-top {
+	padding-top: 30px;
+	background: url(../images/img02.jpg) no-repeat left top;
+}
+
+#wrapper-btm {
+	background: url(../images/img04.jpg) no-repeat left bottom;
+	padding-bottom: 30px;
+}
+
+/* Header */
+
+#header {
+	width: 1172px;
+	height: 150px;
+	margin: 0 auto;
+	padding: 30px 0 0 0;
+	background: #5C3F1C;
+}
+
+#header h1, #header p {
+	margin: 0;
+}
+
+#header h1 {
+	float: left;
+	font-size: 52px;
+	padding: 57px 0 0 15px;
+	color: #F79F1A;
+}
+
+#header p {
+	float: left;
+	padding: 70px 0 0 10px;
+	font-size: 26px;
+	font-weight: normal;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #C4AC8D;
+	text-transform: lowercase;
+}
+
+#header a {
+	text-decoration: none;
+	color: #F79F1A;
+}
+
+/* Page */
+
+#page {
+	width: 1160px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 930px;
+	margin: 0;
+	color: #666666;
+}
+
+.post {
+	padding: 0px 0 0 0;
+}
+
+.title {
+	padding: 0 20px 5px 0px;
+	font-size: 26px;
+	border-bottom: 2px #CFBAA1 solid;
+	margin-right: 20px;
+}
+
+.title a {
+	text-decoration: none;
+	color: #B29269;
+}
+
+.pagetitle {
+}
+
+.byline {
+	margin: -25px 20px 0 0px;
+	color: #B29269;
+}
+
+.meta {
+	text-align: left;
+	color: #B29269;
+	padding: 5px 20px 5px 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	margin-right: 20px;
+	border: 1px solid #E3D1BA; 
+	background: #F5EFE9;
+}
+
+.meta .more {
+}
+
+.meta .comments {
+}
+
+.meta a {
+	color: #B29269;
+}
+
+.navigation {
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.posts {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+.posts li {
+}
+
+.posts h3 {
+	margin: 0;
+	font-weight: bold;
+}
+
+.posts p {
+	margin: 0;
+	line-height: normal;
+}
+
+.posts a {
+}
+
+.entry {
+	margin: 0;
+	padding: 17px 20px 5px 0px;
+}
+
+.last {
+	border: none;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 230px;
+	margin-bottom: 10px;
+	color: #B29269;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li ul {
+	margin: 0 0 20px 30px;
+	padding: 0;
+}
+
+#sidebar li li {
+	margin: 0 0 0 0;
+	margin: 0 0 0 0;
+	background: url(../images/img08.gif) no-repeat left 50%;
+	line-height: 35px;
+	border-bottom: 1px #CFBAA1 solid;
+}
+
+#sidebar h2 {
+	margin: 0 0 0 20px; 
+	height: 35px;
+	font-size: 18px;
+	color: #80614D;
+	border-bottom: 2px #CFBAA1 solid;
+}
+
+#sidebar a {
+	text-decoration: none;
+}
+
+#sidebar a:hover {
+	text-decoration: none;
+}
+
+/* Search */
+
+#search input {
+	display: none;
+}
+
+#search input#s {
+	display: block;
+	width: 230px;
+	padding: 2px 5px;
+	border: 1px solid #3DD1FF;
+	background: #FFFFFF url(../images/img05.gif) repeat-x;
+}
+
+#search br {
+	display: none;
+}
+
+/* Calendar */
+
+#calendar {
+}
+
+#calendar h2 {
+	margin-bottom: 15px;
+}
+
+#calendar table {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#calendar caption {
+	width: 100%;
+	text-align: center;
+}
+
+#next {
+	text-align: right;
+}
+
+#prev {
+	text-align: left;
+}
+
+/* Footer */
+
+#footer {
+	width: 1172px;
+	margin: 0 auto;
+	height: 50px;
+	text-align: center;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background: #5C3F1C;
+	margin-bottom: 27px;
+}
+
+#footer p {
+	padding-top: 15px;
+}
+
+#footer p a {
+	color: #CFBAA1;
+}
+
+img { border: none; }
+
+img.left {
+	float: left;
+	margin: 3px 20px 30px 0px;
+}
+
+img.right {
+	float: right;
+	margin: 3px 0px 10px 30px;
+}

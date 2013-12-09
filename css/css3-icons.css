@@ -1,0 +1,2631 @@
+/* ----------------------------------------------------------------------------------------------------------------------------
+== ICONS STYLES
+** ---------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon {
+    /*position:relative;*/
+    position:absolute;
+    z-index:1;
+    overflow:hidden;
+    /*padding:0;*/
+    line-height:150%;
+    margin:-0.5em 0 0.25em;
+}
+
+.css3-icon a:link, 
+.css3-icon a:visited {
+    display:block;
+    border:0;
+    padding-left:28px;
+    /*color:#02B6F1;*/
+}
+
+.css3-icon a:hover, 
+.css3-icon a:focus, 
+.css3-icon a:active {
+    /*color:#730800;*/
+    background:transparent;
+}
+
+.css3-icon:before, 
+.css3-icon:after,
+.css3-icon a:before, 
+.css3-icon a:after {
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+}
+
+.css3-icon a:before, 
+.css3-icon a:after {
+    margin:-8px 0 0;
+    background:#02B6F1;
+}
+
+.css3-icon a:hover:before, 
+.css3-icon a:focus:before, 
+.css3-icon a:active:before {
+    background:#730800;
+}
+
+/* Not links */
+
+.css3-icon-player,
+.css3-icon-headphones,
+.css3-icon-ribbon,
+.css3-icon-views,
+.css3-icon-location,
+.css3-icon-info,
+.css3-icon-help,
+.css3-icon-pie,
+.css3-icon-success,
+.css3-icon-success-alt,
+.css3-icon-warning,
+.css3-icon-denied {
+    padding-left:28px;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------
+== USER INTERACTIONS
+** ---------------------------------------------------------------------------------------------------------------------------- */
+
+/* SEARCH
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-search a:before {
+    width:6px;
+    height:6px;
+    border:3px solid #02B6F1;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:12px;
+    -moz-border-radius:12px;
+    border-radius:12px;
+}
+
+.css3-icon-search a:after {
+    left:10px;
+    width:3px;
+    height:7px;
+    margin-top:0;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-search a:hover:before, 
+.css3-icon-search a:focus:before, 
+.css3-icon-search a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-search a:hover:after, 
+.css3-icon-search a:focus:after, 
+.css3-icon-search a:active:after {
+    background:#730800;
+}
+
+/* COMMENT
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-comment a:before {
+    width:16px;
+    height:10px;
+    margin-top:-8px;
+    /* css3 */
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px; 
+}
+
+.css3-icon-comment a:after {
+    left:8px;
+    border:2px solid transparent;
+    border-top-color:#02B6F1;
+    border-left-color:#02B6F1;
+    margin-top:2px;
+    background:transparent;
+}
+
+.css3-icon-comment a:hover:after, 
+.css3-icon-comment a:focus:after, 
+.css3-icon-comment a:active:after {
+    border-top-color:#730800;
+    border-left-color:#730800;
+}
+
+/* LIKE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-like a:before, 
+.css3-icon-like a:after {
+    width:14px;
+    height:9px;
+    margin-top:-6px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-border-top-left-radius:8px;
+    -webkit-border-bottom-left-radius:8px;
+    -moz-border-radius:6px 0 0 6px;
+    border-radius:6px 0 0 6px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg); 
+}
+
+.css3-icon-like a:after {
+    left:4px;
+    /* css3 */
+    -webkit-transform:rotate(135deg);
+    -moz-transform:rotate(135deg);
+    -o-transform:rotate(135deg);
+    transform:rotate(135deg);
+}
+
+.css3-icon-like a:hover:after, 
+.css3-icon-like a:focus:after, 
+.css3-icon-like a:active:after {
+    background:#730800;
+}
+
+
+/* ADD
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-add a:before {
+    width:16px; 
+    height:16px; 
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+.css3-icon-add a:after {
+    left:3px; 
+    width:10px; 
+    height:2px; 
+    margin-top:-1px; 
+    background:#fff;
+}
+
+.css3-icon-add:before {
+    z-index:10; 
+    left:7px; 
+    width:2px; 
+    height:10px; 
+    margin-top:-5px;
+    background:#fff;
+}
+
+/* Alternative style */
+
+.css3-icon-add-alt a:before {
+    left:6px; 
+    width:5px; 
+    height:15px; 
+    margin-top:-7px;
+    background:#02B6F1;
+}
+
+.css3-icon-add-alt a:after {
+    left:1px; 
+    width:15px; 
+    height:5px; 
+    margin-top:-2px; 
+    background:#02B6F1;
+}
+
+.css3-icon-add-alt a:hover:after, 
+.css3-icon-add-alt a:focus:after, 
+.css3-icon-add-alt a:active:after {
+    background:#730800;
+}
+
+/* REMOVE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-remove a:before {
+    width:16px; 
+    height:16px; 
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-remove a:after {
+    left:3px; 
+    width:10px; 
+    height:2px; 
+    margin-top:-1px; 
+    background:#fff;
+}
+
+/* Alternative style */
+
+.css3-icon-remove-alt a:before {
+    left:1px; 
+    width:15px; 
+    height:5px; 
+    margin-top:-2px; 
+    background:#02B6F1;
+}
+
+/* DELETE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-delete a:before {
+    width:16px; 
+    height:16px; 
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+.css3-icon-delete a:after {
+    left:3px; 
+    width:10px; 
+    height:2px; 
+    margin-top:-1px; 
+    background:#fff;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-delete:before {
+    z-index:10; 
+    left:7px; 
+    width:2px; 
+    height:10px; 
+    margin-top:-5px;
+    background:#fff;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+/* Alternative style */
+
+.css3-icon-delete-alt a:before {
+    left:6px; 
+    width:5px; 
+    height:15px; 
+    margin-top:-7px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-delete-alt a:after {
+    left:1px; 
+    width:15px; 
+    height:5px; 
+    margin-top:-2px; 
+    background:#02B6F1;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-delete-alt a:hover:after, 
+.css3-icon-delete-alt a:focus:after, 
+.css3-icon-delete-alt a:active:after {
+    background:#730800;
+}
+
+/* REPORT
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-report a:before {
+    left:3px;
+    width:7px;
+    height:7px;
+    margin-top:-5px;
+    border-width:7px 0 0 2px;
+    border-style:solid;
+    border-color:#02B6F1;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:skewY(-8deg);
+    -moz-transform:skewY(-8deg);
+    -o-transform:skewY(-8deg);
+    transform:skewY(-8deg);
+}
+
+.css3-icon-report a:after {
+    left:9px;
+    width:6px;
+    height:7px;
+    margin-top:-3px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-transform:skewY(-6deg);
+    -moz-transform:skewY(-6deg);
+    -o-transform:skewY(-6deg);
+    transform:skewY(-6deg);
+}
+
+.css3-icon-report a:hover:before, 
+.css3-icon-report a:focus:before, 
+.css3-icon-report a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-report a:hover:after, 
+.css3-icon-report a:focus:after, 
+.css3-icon-report a:active:after {
+    background:#730800;
+}
+
+/* TRASH
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-trash:after {
+    left:6px;
+    width:1px;
+    height:7px;
+    border-right:3px double #02B6F1;
+    border-left:1px solid #02B6F1;
+    margin-top:-2px;
+}
+
+.css3-icon-trash a:before {
+    left:2px;
+    width:9px;
+    height:11px;
+    margin-top:-6px;
+    border:2px solid #02B6F1;
+    background:transparent;
+}
+
+.css3-icon-trash a:after {
+    left:5px;
+    width:3px;
+    height:2px;
+    margin-top:-9px;
+    border:2px solid #02B6F1;
+    border-bottom:0;
+    background:transparent;
+    /* css3 */
+    -webkit-border-top-left-radius:2px;
+    -webkit-border-top-right-radius:2px;
+    -moz-border-radius:2px 2px 0 0;
+    border-radius:2px 2px 0 0;
+}
+
+.css3-icon-trash:hover:after,
+.css3-icon-trash a:hover:before, 
+.css3-icon-trash a:focus:before, 
+.css3-icon-trash a:active:before,
+.css3-icon-trash a:hover:after, 
+.css3-icon-trash a:focus:after, 
+.css3-icon-trash a:active:after {
+    border-color:#730800;
+    background:transparent;
+}
+
+/* LOCK / UNLOCK
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-lock:before,
+.css3-icon-lock:after,
+.css3-icon-unlock:before,
+.css3-icon-unlock:after {
+    z-index:10; 
+    left:8px;
+    width:3px;
+    height:3px;
+    margin-top:-2px;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+}
+
+.css3-icon-lock:before,
+.css3-icon-unlock:before {
+    left:9px;
+    width:1px;
+    height:4px;
+    margin-top:0px;
+}
+
+.css3-icon-lock a:before,
+.css3-icon-unlock a:before {
+    left:3px;
+    width:13px;
+    height:10px;
+    margin-top:-4px;
+}
+
+.css3-icon-lock a:after,
+.css3-icon-unlock a:after {
+    left:5px;
+    width:5px;
+    height:5px;
+    border:2px solid #02B6F1;
+    border-bottom:0;
+    margin-top:-11px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:5px 5px 0 0;
+    -moz-border-radius:5px 5px 0 0;
+    border-radius:5px 5px 0 0;
+}
+
+.css3-icon-unlock a:after {
+    left:12px;
+}
+
+.css3-icon-lock a:hover:after, 
+.css3-icon-lock a:focus:after, 
+.css3-icon-lock a:active:after,
+.css3-icon-unlock a:hover:after, 
+.css3-icon-unlock a:focus:after, 
+.css3-icon-unlock a:active:after {
+    border-color:#730800;
+}
+
+/* UPDATE STATUS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-update:before {
+    left:10px;
+    border-width:2px 0 2px 2px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-1px;
+}
+
+.css3-icon-update a:before {
+    left:4px;
+    width:10px;
+    height:10px;
+    border:2px solid #02B6F1;
+    margin-top:-6px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+}
+
+.css3-icon-update a:after {
+    left:10px;
+    width:10px;
+    height:3px;
+    border:1px solid #fff;
+    margin-top:-6px;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-update:hover:before {
+    border-left-color:#730800;
+}
+
+.css3-icon-update a:hover:before,
+.css3-icon-update a:focus:before,
+.css3-icon-update a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-update a:hover:after,
+.css3-icon-update a:focus:after,
+.css3-icon-update a:active:after {
+    background:#730800;
+}
+
+/* RETWEET
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-retweet:before, 
+.css3-icon-retweet a:before {
+    border-style:solid;
+    border-color:transparent;
+    background:transparent;
+}
+
+.css3-icon-retweet:before {
+    z-index:-1;
+    left:12px; 
+    margin-top:2px; 
+    border-width:5px 5px 0;
+    border-left-color:#fff;
+    border-top-color:#02B6F1;
+}
+
+.css3-icon-retweet a:before {
+    left:-1px; 
+    margin-top:-7px; 
+    border-width:0 5px 5px;
+    border-right-color:#fff;
+    border-bottom-color:#02B6F1;
+}
+
+.css3-icon-retweet a:after {
+    z-index:-2;
+    left:3px;
+    width:10px;
+    height:6px;
+    margin-top:-6px;
+    border:3px solid #02B6F1;
+    background:transparent;
+}
+
+.css3-icon-retweet:hover:before {
+    border-top-color:#730800;
+}
+
+.css3-icon-retweet a:hover:before, 
+.css3-icon-retweet a:focus:before, 
+.css3-icon-retweet a:active:before {
+    border-bottom-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-retweet a:hover:after, 
+.css3-icon-retweet a:focus:after, 
+.css3-icon-retweet a:active:after {
+    border-color:#730800;
+}
+
+/* SAVE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-save:before,
+.css3-icon-save a:before {
+    left:6px;
+    border-width:10px 0 10px 8px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-9px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(22.css3-icon-5deg);
+    -moz-transform:rotate(23deg);
+    -o-transform:rotate(22.css3-icon-5deg);
+    transform:rotate(22.css3-icon-5deg);
+}
+
+.css3-icon-save a:before {
+    left:6px;
+    /* css3 */
+    -webkit-transform:rotate(157.css3-icon-5deg);
+    -moz-transform:rotate(160deg);
+    -o-transform:rotate(157.css3-icon-5deg);
+    transform:rotate(157.css3-icon-5deg);
+}
+
+.css3-icon-save a:after {
+    border-width:8px 10px 0;
+    border-style:solid;
+    border-color:#02B6F1 transparent;
+    margin-top:-3px;
+    background:transparent;
+}
+
+.css3-icon-save:hover:before,
+.css3-icon-save:focus:before,
+.css3-icon-save:active:before,
+.css3-icon-save a:hover:before,
+.css3-icon-save a:focus:before,
+.css3-icon-save a:active:before {
+    border-left-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-save a:hover:after,
+.css3-icon-save a:focus:after,
+.css3-icon-save a:active:after {
+    border-top-color:#730800;
+    background:transparent;
+}
+
+/* EDIT
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-edit a:before {
+    left:3px;
+    width:5px;
+    height:5px;
+    margin-top:2px;
+    background:#02B6F1;
+    -webkit-transform:skew(-10deg, -10deg);
+    -moz-transform:skew(-10deg, -10deg);
+    -o-transform:skew(-10deg, -10deg);
+    transform:skew(-10deg, -10deg);
+}
+
+.css3-icon-edit a:after {
+    left:3px;
+    width:13px;
+    height:6px;
+    border-left:1px solid #fff;
+    margin-top:-3px;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-edit a:hover:before,
+.css3-icon-edit a:focus:before,
+.css3-icon-edit a:active:before,
+.css3-icon-edit a:hover:after,
+.css3-icon-edit a:focus:after,
+.css3-icon-edit a:active:after {
+    background:#730800;
+}
+
+/* DOWNLOAD
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-download a:before {
+    width:14px;
+    height:8px;
+    border:3px solid #02B6F1;
+    border-top:0;
+    margin-top:-5px;
+    background:transparent;
+}
+
+.css3-icon-download a:after {
+    left:5px;
+    border-width:5px 5px 0;
+    border-style:solid;
+    border-color:#02B6F1 transparent;
+    margin-top:-5px;
+    background:transparent;
+}
+
+.css3-icon-download a:hover:before, 
+.css3-icon-download a:focus:before, 
+.css3-icon-download a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-download a:hover:after, 
+.css3-icon-download a:focus:after, 
+.css3-icon-download a:active:after {
+    border-color:#730800 transparent;
+}
+
+/* ARROWS (up/down/back/forward)
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-arrow a:before {
+    width:16px; 
+    height:16px; 
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+.css3-icon-arrow a:after {
+    left:8px;
+    border-width:5px 0 5px 6px;
+    border-style:solid;
+    border-color:transparent #fff;
+    margin-top:-5px;
+    background:transparent;
+}
+
+.css3-icon-arrow:before {
+    z-index:10; 
+    left:3px; 
+    width:5px; 
+    height:4px; 
+    margin-top:-2px;
+    background:#fff;
+}
+
+.css3-icon-arrow.css3-icon-back a:after {
+    left:2px;
+    border-width:5px 6px 5px 0;
+}
+
+.css3-icon-arrow.css3-icon-back:before {
+    left:8px;
+}
+
+.css3-icon-arrow.css3-icon-up a:after, 
+.css3-icon-arrow.css3-icon-down a:after {
+    left:3px;
+    border-width:0 5px 6px;
+    border-color:#fff transparent;
+    margin-top:-6px;
+}
+
+.css3-icon-arrow.css3-icon-up:before, 
+.css3-icon-arrow.css3-icon-down:before {
+    left:6px;
+    width:4px;
+    height:5px;
+    margin-top:0;
+}
+
+.css3-icon-arrow.css3-icon-down a:after {
+    border-width:6px 5px 0;
+    margin-top:0;
+}
+
+.css3-icon-arrow.css3-icon-down:before {
+    margin-top:-5px;
+}
+
+/* Alternative style */
+
+.css3-icon-arrow-alt a:before {
+    left:8px;
+    border-width:7px 0 7px 8px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-7px;
+    background:transparent;
+}
+
+.css3-icon-arrow-alt a:after {
+    left:0; 
+    width:8px; 
+    height:6px; 
+    margin-top:-3px;
+    background:#02B6F1;
+}
+
+.css3-icon-arrow-alt a:hover:before, 
+.css3-icon-arrow-alt a:focus:before, 
+.css3-icon-arrow-alt a:active:before {
+    border-color:transparent #730800;
+    background:transparent;
+}
+
+.css3-icon-arrow-alt a:hover:after, 
+.css3-icon-arrow-alt a:focus:after, 
+.css3-icon-arrow-alt a:active:after {
+    background:#730800;
+}
+
+.css3-icon-arrow-alt.css3-icon-back a:before {
+    left:0;
+    border-width:7px 8px 7px 0;
+}
+
+.css3-icon-arrow-alt.css3-icon-back a:after {
+    left:8px; 
+}
+
+.css3-icon-arrow-alt.css3-icon-up a:before,
+.css3-icon-arrow-alt.css3-icon-down a:before {
+    left:1px;
+    margin-top:-8px;
+    border-width:0 7px 8px;
+    border-color:#02B6F1 transparent;
+}
+
+.css3-icon-arrow-alt.css3-icon-up a:after, 
+.css3-icon-arrow-alt.css3-icon-down a:after {
+    left:5px; 
+    width:6px; 
+    height:8px; 
+    margin-top:0;
+}
+
+.css3-icon-arrow-alt.css3-icon-down a:before {
+    left:1px;
+    margin-top:0;
+    border-width:8px 7px 0;
+}
+
+.css3-icon-arrow-alt.css3-icon-down a:after {
+    margin-top:-8px;
+}
+
+.css3-icon-arrow-alt.css3-icon-up a:hover:before, 
+.css3-icon-arrow-alt.css3-icon-up a:focus:before, 
+.css3-icon-arrow-alt.css3-icon-up a:active:before,
+.css3-icon-arrow-alt.css3-icon-down a:hover:before, 
+.css3-icon-arrow-alt.css3-icon-down a:focus:before, 
+.css3-icon-arrow-alt.css3-icon-down a:active:before {
+    border-color:#730800 transparent;
+}
+
+/* Alternative style 2 */
+
+.css3-icon-arrow-alt2 a:before {
+    left:8px;
+    width:7px;
+    height:7px;
+    border-width:0 3px 3px 0;
+    border-style:solid;
+    border-color:#02B6F1;
+    margin-top:-5px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-arrow-alt2 a:after {
+    left:3px; 
+    width:13px; 
+    height:4px; 
+    margin-top:-2px;
+    background:#02B6F1;
+}
+
+.css3-icon-arrow-alt2 a:hover:before, 
+.css3-icon-arrow-alt2 a:focus:before, 
+.css3-icon-arrow-alt2 a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-arrow-alt2 a:hover:after, 
+.css3-icon-arrow-alt2 a:focus:after, 
+.css3-icon-arrow-alt2 a:active:after {
+    background:#730800;
+}
+
+.css3-icon-arrow-alt2.css3-icon-back a:before {
+    left:4px;
+    border-width:0 0 3px 3px;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-arrow-alt2.css3-icon-back a:after {
+    left:5px; 
+}
+
+.css3-icon-arrow-alt2.css3-icon-back a:hover:before, 
+.css3-icon-arrow-alt2.css3-icon-back a:focus:before, 
+.css3-icon-arrow-alt2.css3-icon-back a:active:before {
+    border-right-color:#730800;
+}
+
+.css3-icon-arrow-alt2.css3-icon-up a:before {
+    left:4px;
+    border-width:3px 0 0 3px;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-arrow-alt2.css3-icon-up a:after, 
+.css3-icon-arrow-alt2.css3-icon-down a:after {
+    left:7px; 
+    width:4px; 
+    height:13px; 
+    margin-top:-4px;
+}
+
+.css3-icon-arrow-alt2.css3-icon-down a:before {
+    left:4px;
+    border-width:0 0 3px 3px;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-arrow-alt2.css3-icon-down a:after {
+    margin-top:-8px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------
+== MISC
+** ---------------------------------------------------------------------------------------------------------------------------- */
+
+/* HOME
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-home a:before {
+    left:1px;
+    border-style:solid;
+    border-color:transparent;
+    border-width:8px 7px;
+    border-bottom-color:#02B6F1;
+    margin-top:-16px;
+    background:transparent;
+}
+
+.css3-icon-home a:after {
+    left:3px; 
+    width:2px; 
+    height:4px; 
+    border-style:solid;
+    border-color:#02B6F1 #02B6F1 transparent;
+    border-width:3px 4px 0;
+    margin-top:0;
+    background:transparent;
+}
+
+.css3-icon-home a:hover:before, 
+.css3-icon-home a:focus:before, 
+.css3-icon-home a:active:before {
+    border-bottom-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-home a:hover:after, 
+.css3-icon-home a:focus:after, 
+.css3-icon-home a:active:after {
+    border-color:#730800 #730800 transparent;
+}
+
+/* PHOTO
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-photo a:before {
+    left:2px;
+    width:16px;
+    height:12px;
+    margin-top:-6px;
+}
+
+.css3-icon-photo a:after {
+    left:6px;
+    width:8px;
+    height:2px;
+    margin-top:-8px;
+}
+
+.css3-icon-photo:after {
+    left:6px;
+    width:8px;
+    height:8px;
+    margin-top:-4px;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:8px; 
+    -moz-border-radius:8px; 
+    border-radius:8px; 
+}
+
+.css3-icon-photo a:hover:after, 
+.css3-icon-photo a:focus:after, 
+.css3-icon-photo a:active:after {
+    background:#730800;
+}
+
+/* VIDEO
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-video a:before {
+    left:2px;
+    width:14px; 
+    height:12px;
+    margin-top:-6px;
+    /* css3 */
+    -webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    border-radius:2px; 
+}
+
+.css3-icon-video a:after {
+    left:14px; 
+    border-style:solid;
+    border-width:5px 6px 5px 0;
+    border-color:transparent; 
+    border-right-color:#02B6F1; 
+    margin-top:-5px; 
+    background:transparent;
+}
+
+.css3-icon-video a:hover:after,
+.css3-icon-video a:focus:after,
+.css3-icon-video a:active:after {
+    border-right-color:#730800;
+}
+
+/* MUSIC
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-music a:before {
+    left:8px;
+    width:6px;
+    height:10px;
+    border-width:2px 1px 0 2px;
+    border-style:solid;
+    border-color:#02B6F1 transparent transparent #02B6F1;
+    background:transparent;
+    -webkit-border-radius:0 10px 0 0;
+    -moz-border-radius:0 10px 0 0;
+    border-radius:0 10px 0 0;
+}
+
+.css3-icon-music a:after {
+    left:3px;
+    width:7px;
+    height:6px;
+    margin-top:0;
+    background:#02B6F1;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+.css3-icon-music a:hover:before,
+.css3-icon-music a:focus:before,
+.css3-icon-music a:active:before {
+    border-color:#730800 transparent transparent #730800;
+    background:transparent;
+}
+
+.css3-icon-music a:hover:after,
+.css3-icon-music a:focus:after,
+.css3-icon-music a:active:after {
+    background:#730800;
+}
+
+/* CALL
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-call a:before {
+    left:5px;
+    width:4px;
+    height:8px;
+    border-width:5px 0 5px 2px;
+    border-style:solid;
+    border-color:#02B6F1;
+    background:transparent;
+    /* css3 */
+    -webkit-border-top-left-radius:3px 5px;
+    -webkit-border-bottom-left-radius:3px 5px;
+    -moz-border-radius-topleft:3px 5px;
+    -moz-border-radius-bottomleft:3px 5px;
+    border-top-left-radius:3px 5px;
+    border-bottom-left-radius:3px 5px;
+    -webkit-transform:rotate(-30deg);
+    -moz-transform:rotate(-30deg);
+    -o-transform:rotate(-30deg);
+    transform:rotate(-30deg);
+}
+
+.css3-icon-call-on a:after {
+    left:10px;
+    width:6px;
+    height:6px;
+    margin-top:-8px;
+    border:4px double #02B6F1;
+    border-width:4px 4px 0 0;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:0 15px 0 0;
+    -moz-border-radius:0 15px 0 0;
+    border-radius:0 15px 0 0;
+    -webkit-transform:rotate(15deg);
+    -moz-transform:rotate(15deg);
+    -o-transform:rotate(15deg);
+    transform:rotate(15deg);
+}
+
+.css3-icon-call a:hover:before,
+.css3-icon-call a:focus:before,
+.css3-icon-call a:active:before,
+.css3-icon-call a:hover:after,
+.css3-icon-call a:focus:after,
+.css3-icon-call a:active:after {
+    border-color:#730800;
+    background:transparent;
+}
+
+/* TAGS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-tags a:before {
+    left:6px; 
+    width:9px; 
+    height:15px; 
+    margin-top:-8px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-border-top-left-radius:3px;
+    -webkit-border-top-right-radius:3px;
+    -moz-border-radius:3px 3px 0 0;
+    border-radius:5px 5px 0 0;
+    -webkit-transform:rotate(-40deg);
+    -moz-transform:rotate(-40deg);
+    -o-transform:rotate(-40deg);
+    transform:rotate(-40deg);
+}
+
+.css3-icon-tags a:after {
+    left:7px;
+    width:3px;
+    height:3px;
+    margin-top:-4px;
+    background:#fff;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+
+/* RSS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-rss a:before {
+    left:3px;
+    width:5px;
+    height:5px;
+    margin-top:0;
+    /* css3 */
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.css3-icon-rss a:after {
+    left:3px;
+    width:8px;
+    height:8px;
+    border-width:5px 5px 0 0;
+    border-style:double;
+    border-color:#02B6F1;
+    background:transparent;
+    /* css3 */
+    -webkit-border-top-right-radius:25px;
+    -moz-border-radius:0 25px 0 0;
+    border-radius:0 25px 0 0;
+}
+
+.css3-icon-rss a:hover:after,
+.css3-icon-rss a:focus:after,
+.css3-icon-rss a:active:after {
+    border-color:#730800;
+}
+
+/* EMAIL
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-email:before {
+    z-index:10;
+    left:6px; 
+    width:12px;
+    height:12px;
+    border-width:0 1px 1px 0;
+    border-style:solid;
+    border-color:#fff;
+    margin-top:-13px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(39deg) skew(-12deg);
+    -moz-transform:rotate(39deg) skew(-12deg);
+    -o-transform:rotate(39deg) skew(-12deg);
+    transform:rotate(39deg) skew(-12deg);
+}
+
+.css3-icon-email a:before {
+    left:3px;
+    width:6px;
+    border-width:6px;
+    border-style:solid;
+    border-color:#02B6F1 #02B6F1 transparent;
+    margin-top:-7px;
+    background:transparent;
+}
+
+.css3-icon-email a:after {
+    left:4px;
+    border-width:0 8px 9px;
+    border-style:solid;
+    border-color:#02B6F1 transparent;
+    margin-top:-3px;
+    background:transparent;
+}
+
+.css3-icon-email a:hover:before,
+.css3-icon-email a:focus:before,
+.css3-icon-email a:active:before {
+    border-color:#730800 #730800 transparent;
+    background:transparent;
+}
+
+.css3-icon-email a:hover:after,
+.css3-icon-email a:focus:after,
+.css3-icon-email a:active:after {
+    border-bottom-color:#730800;
+}
+
+/* PROFILE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-profile a:before {
+    left:4px;
+    width:16px;
+    height:5px;
+    margin-top:1px;
+    /* css3 */
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-top-left-radius:5px;
+    -moz-border-radius:5px 5px 0 0;
+    border-radius:5px 5px 0 0;        
+}
+
+.css3-icon-profile a:after {
+    left:9px;
+    width:6px;
+    height:10px;
+    margin-top:-7px;
+    /* css3 */
+    -webkit-border-top-right-radius:5px;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-right-radius:5px 10px;
+    -webkit-border-bottom-left-radius:5px 10px;
+    -moz-border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
+    border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
+}
+
+.css3-icon-profile a:hover:after,
+.css3-icon-profile a:focus:after,
+.css3-icon-profile a:active:after {
+    background:#730800;
+}
+
+/* FILE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-file a:before {
+    left:5px;
+    width:8px;
+    height:12px;
+    border:2px solid #02B6F1;
+    background:transparent;
+}
+
+.css3-icon-file a:after {
+    left:4px;
+    border-width:3px;
+    border-style:solid;
+    border-color:#fff #02B6F1 #02B6F1 #fff;
+    margin-top:-9px;
+    background:transparent;
+}
+
+.css3-icon-file a:hover:before,
+.css3-icon-file a:focus:before,
+.css3-icon-file a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-file a:hover:after,
+.css3-icon-file a:focus:after,
+.css3-icon-file a:active:after {
+    border-color:#fff #730800 #730800 #fff;
+}
+
+/* FOLDER
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-folder a:before {
+    left:4px;
+    width:16px;
+    height:12px;
+    margin-top:-6px;
+    /* css3 */
+    -webkit-border-bottom-right-radius:1px;
+    -webkit-border-bottom-left-radius:1px;
+    -moz-border-radius:0 0 1px 1px;
+    border-radius:0 0 1px 1px;    
+}
+
+.css3-icon-folder a:after {
+    left:6px;
+    width:6px;
+    height:2px;
+    margin-top:-8px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-border-top-right-radius:1px;
+    -webkit-border-top-left-radius:1px;
+    -moz-border-radius:1px 1px 0 0;
+    border-radius:1px 1px 0 0;
+}
+
+.css3-icon-folder a:hover:after,
+.css3-icon-folder a:focus:after,
+.css3-icon-folder a:active:after {
+    background:#730800;
+}
+
+/* LIST VIEW
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-list a:before,
+.css3-icon-list a:after {
+    left:8px;
+    width:12px;
+    height:2px;
+    border-width:6px 0;
+    border-style:double;
+    border-color:#02B6F1;
+    background:transparent;
+}
+
+.css3-icon-list a:after {
+    left:4px;
+    width:2px;
+}
+
+.css3-icon-list a:hover:before,
+.css3-icon-list a:focus:before,
+.css3-icon-list a:active:before,
+.css3-icon-list a:hover:after,
+.css3-icon-list a:focus:after,
+.css3-icon-list a:active:after {
+    border-color:#730800;
+    background:transparent;
+}
+
+/* PERMALINK
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-permalink a:before,
+.css3-icon-permalink a:after,
+.css3-icon-permalink:after {
+    left:4px;
+    width:6px;
+    height:4px;
+    border:2px solid #02B6F1;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-permalink a:after {
+    left:12px;
+    margin-top:-0px;
+}
+
+.css3-icon-permalink:after {
+    left:7px;
+    width:10px;
+    height:2px;
+    border:1px solid #fff;
+    margin-top:-2px;
+    background:#02B6F1;
+}
+
+.css3-icon-permalink a:hover:before,
+.css3-icon-permalink a:focus:before,
+.css3-icon-permalink a:active:before,
+.css3-icon-permalink a:hover:after,
+.css3-icon-permalink a:focus:after,
+.css3-icon-permalink a:active:after {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-permalink:hover:after {
+    background:#730800;
+}
+
+
+/* HISTORY
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-history a:before,
+.css3-icon-history a:after {
+    left:2px;
+    width:13px;
+    height:13px;
+    border:2px solid #02B6F1;
+    margin-top:-8px;
+    background:transparent;
+}
+
+.css3-icon-history a:before {
+    /* css3 */
+    -webkit-border-radius:18px; 
+    -moz-border-radius:18px; 
+    border-radius:18px;
+}
+
+.css3-icon-history a:after {
+    left:10px; 
+    width:4px; 
+    height:5px; 
+    border-width:0 0 2px 2px; 
+    margin-top:-5px; 
+    background:transparent;
+}
+
+.css3-icon-history a:hover:before,
+.css3-icon-history a:focus:before,
+.css3-icon-history a:active:before,
+.css3-icon-history a:hover:after,
+.css3-icon-history a:focus:after,
+.css3-icon-history a:active:after {
+    border-color:#730800;
+    background:transparent;
+}
+
+/* TOOLS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-tools:after {
+    left:13px;
+    width:3px;
+    height:5px;
+    margin-top:-8px;
+    background:#fff;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-tools a:before {
+    left:6px; 
+    width:4px; 
+    height:15px; 
+    margin-top:-7px;
+    background:#02B6F1;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-tools a:after {
+    left:8px;
+    width:9px;
+    height:9px;
+    background:#02B6F1;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px; 
+    border-radius:8px;
+}
+
+.css3-icon-tools a:hover:after,
+.css3-icon-tools a:focus:after,
+.css3-icon-tools a:active:after {
+    background:#730800;
+}
+
+/* MP3 PLAYER
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-player:before {
+    left:3px;
+    width:9px;
+    height:6px;
+    border-width:2px 2px 11px;
+    border-style:solid;
+    border-color:#555;
+    margin-top:-10px;
+    /* css3 */
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+}
+
+.css3-icon-player:after {
+    left:6px;
+    width:3px;
+    height:3px;
+    border:2px solid #fff;
+    /* css3 */
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px; 
+}
+
+/* HEADPHONES
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-headphones:before {
+    left:2px;
+    width:12px;
+    height:10px;
+    border-width:2px 2px 0;
+    border-style:solid;
+    border-color:#555;
+    margin:-8px 0 0;
+    /* css3 */
+    -webkit-border-top-left-radius:20px;
+    -webkit-border-top-right-radius:20px;
+    -moz-border-radius:20px 20px 0 0;
+    border-radius:20px 20px 0 0;
+}
+
+.css3-icon-headphones:after {
+    left:5px;
+    width:4px;
+    height:6px;
+    border-width:0 3px;
+    border-style:solid;
+    border-color:#555;
+}
+
+/* RIBBON
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-ribbon:before {
+    left:6px;
+    border-width:10px 5px 6px;
+    border-style:solid;
+    border-color:#F0A1D1 #F0A1D1 transparent;
+    margin:-8px 0 0;
+}
+
+/* VIEWS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-views:before {
+    left:3px;
+    width:14px;
+    height:14px;
+    margin-top:-8px;
+    background:#555;
+    -webkit-border-top-left-radius:12px;
+    -webkit-border-bottom-right-radius:12px;
+    -moz-border-radius:12px 0 12px 0; 
+    border-radius:12px 0 12px 0;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-views:after {
+    left:6px;
+    width:4px;
+    height:4px;
+    border:2px solid #fff;
+    margin-top:-5px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px; 
+    border-radius:6px;
+}
+
+/* LOCATION
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-location:before {
+    left:6px;
+    width:2px;
+    height:2px;
+    border:3px solid #555;
+    border-bottom:0;
+    margin-top:-9px;
+    background:#fff;
+    -webkit-border-top-left-radius:8px;
+    -webkit-border-top-right-radius:8px;
+    -moz-border-radius:8px 8px 0 0; 
+    border-radius:8px 8px 0 0;
+}
+
+.css3-icon-location:after {
+    left:6px;
+    border-width:12px 4px 0;
+    border-style:solid;
+    border-color:#555 transparent;
+    margin-top:-4px;
+}
+
+/* INFO
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-info {
+    color:#2385BA;
+}
+
+.css3-icon-info:before {
+    content:"i";
+    left:3px;
+    width:16px; 
+    height:16px;
+    margin-top:-8px;
+    font-size:14px;
+    font-weight:bold;
+    font-style:italic;
+    line-height:15px;
+    text-align:center;
+    color:#fff;
+    background:#2385BA;
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+/* HELP
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-help {
+    color:#2385BA;
+}
+
+.css3-icon-help:before {
+    content:"?";
+    left:3px;
+    width:16px; 
+    height:16px;
+    margin-top:-8px;
+    font-size:14px;
+    font-weight:bold;
+    line-height:15px;
+    text-align:center;
+    color:#fff;
+    background:#2385BA;
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+/* PIE CHART
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-pie {
+    color:#9D2CA3;
+}
+
+.css3-icon-pie:before {
+    left:3px;
+    border:8px solid #9D2CA3;
+    margin-top:-7px;
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+}
+
+.css3-icon-pie:after {
+    left:11px;
+    width:8px;
+    height:8px;
+    border-width:0 0 2px 2px;
+    border-style:solid;
+    border-color:#fff;
+    margin-top:-8px;
+    background:#9D2CA3;
+    /* css3 */
+    -webkit-border-top-right-radius:16px; 
+    -moz-border-radius:0 16px 0 0; 
+    border-radius:0 16px 0 0;
+}
+
+/* SUCCESS
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-success {
+    color:#7F913C;
+}
+
+.css3-icon-success:before {
+    left:3px;
+    width:16px; 
+    height:16px;
+    margin-top:-8px;
+    /* css3 */
+    -webkit-border-radius:16px; 
+    -moz-border-radius:16px; 
+    border-radius:16px;
+    background:#7F913C;
+}
+
+.css3-icon-success:after {
+    left:8px; 
+    width:3px; 
+    height:8px; 
+    border-width:0 2px 2px 0;
+    border-style:solid;
+    border-color:#fff;
+    margin-top:-6px; 
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+/* Alternative style */
+
+.css3-icon-success-alt {
+    color:#7F913C;
+}
+
+.css3-icon-success-alt:before {
+    left:6px; 
+    width:5px; 
+    height:12px; 
+    border-width:0 5px 5px 0;
+    border-style:solid;
+    border-color:#7F913C;
+    margin-top:-11px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+/* WARNING
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-warning:before {
+    content:"!";
+    z-index:2;
+    left:8px;
+    margin-top:-8px;
+    font-size:14px;
+    font-weight:bold;
+    color:#000;
+}
+
+.css3-icon-warning:after {
+    z-index:1;
+    border-width:0 11px 18px;
+    border-style:solid;
+    border-color:#F8D201 transparent;
+    margin-top:-10px;
+    background:transparent;
+}
+
+/* DENIED
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-denied {
+    color:#C00000;
+}
+
+.css3-icon-denied:before {
+    left:3px;
+    width:10px;
+    height:10px;
+    border:3px solid #C00000;
+    margin-top:-8px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-denied:after {
+    left:6px;
+    width:11px;
+    height:3px;
+    margin-top:-2px;
+    background:#C00000;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------
+== MEDIA CONTROLS
+** ---------------------------------------------------------------------------------------------------------------------------- */
+
+/* POWER
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-power a:before {
+    left:1px;
+    width:10px;
+    height:10px;
+    border:2px solid #02B6F1;
+    margin-top:-6px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-power a:after {
+    left:6px;
+    width:2px;
+    height:7px;
+    border:1px solid #fff;
+    margin:-8px 0 0;
+    background:#02B6F1;
+}
+
+.css3-icon-power a:hover:before, 
+.css3-icon-power a:focus:before, 
+.css3-icon-power a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-power a:hover:after, 
+.css3-icon-power a:focus:after, 
+.css3-icon-power a:active:after {
+    background:#730800;
+}
+
+/* PLAY
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-play a:before {
+    width:16px;
+    height:16px;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-play a:after {
+    left:7px;
+    border:4px solid transparent;
+    border-left-color:#fff;
+    margin-top:-4px;
+    background:transparent;
+}
+
+/* Alternative style */
+
+.css3-icon-play-alt a:before {
+    left:2px;
+    border:8px solid transparent;
+    border-width:8px 12px;
+    border-left-color:#02B6F1;
+    margin-top:-8px;
+    background:transparent;
+}
+
+.css3-icon-play-alt a:hover:before, 
+.css3-icon-play-alt a:focus:before, 
+.css3-icon-play-alt a:active:before {
+    border-left-color:#730800;
+    background:transparent;
+}
+
+/* STOP
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-stop a:before {
+    width:16px;
+    height:16px;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-stop a:after {
+    left:5px;
+    width:6px;
+    height:6px;
+    margin-top:-3px;
+    background:#fff;
+}
+
+/* Alternative style */
+
+.css3-icon-stop-alt a:before {
+    left:1px;
+    width:14px;
+    height:14px;
+    margin-top:-7px;
+}
+
+/* PAUSE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-pause a:before {
+    width:16px;
+    height:16px;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-pause a:after {
+    left:5px;
+    width:2px;
+    height:8px;
+    border:2px solid #fff;
+    border-width:0 2px;
+    margin-top:-4px;
+    background:transparent;
+}
+
+/* Alternative style */
+
+.css3-icon-pause-alt a:before {
+    left:2px;
+    width:4px;
+    height:14px;
+    border:4px solid #02B6F1;
+    border-width:0 4px;
+    margin-top:-7px;
+    background:transparent;
+}
+
+.css3-icon-pause-alt a:hover:before, 
+.css3-icon-pause-alt a:focus:before, 
+.css3-icon-pause-alt a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+/* VOLUME
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-volume a:before {
+    left:-2px;
+    border:7px solid transparent;
+    border-right-color:#02B6F1;
+    margin-top:-7px;
+    background:transparent;
+}
+
+.css3-icon-volume a:after {
+    left:4px;
+    width:4px;
+    height:6px;
+    margin-top:-3px;
+}
+
+.css3-icon-volume a:hover:before, 
+.css3-icon-volume a:focus:before, 
+.css3-icon-volume a:active:before {
+    border-right-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-volume a:hover:after, 
+.css3-icon-volume a:focus:after, 
+.css3-icon-volume a:active:after {
+    background:#730800;
+}
+
+/* Volume on */
+
+.css3-icon-volume-on:before {
+    left:12px;
+    width:6px;
+    height:6px;
+    margin-top:-5px;
+    border:4px double #02B6F1;
+    border-width:4px 4px 0 0;
+    /* css3 */
+    -webkit-border-radius:0 15px 0 0;
+    -moz-border-radius:0 15px 0 0;
+    border-radius:0 15px 0 0;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-volume-on:hover:before {
+    border-color:#730800;
+}
+
+/* Mute */
+
+.css3-icon-mute:before {
+    width:16px;
+    height:16px;
+    border:1px solid #02B6F1;
+    margin-top:-9px;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-mute:after {
+    width:18px;
+    border-top:1px solid #02B6F1;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-mute:hover:before,
+.css3-icon-mute:hover:after {
+    border-color:#730800;
+}
+
+/* Volume up/down */
+
+.css3-icon-volume-up:before {
+    left:16px;
+    width:2px;
+    height:8px;
+    margin-top:-4px;
+    background:#02B6F1;
+}
+
+.css3-icon-volume-up:after,
+.css3-icon-volume-down:after {
+    left:13px;
+    width:8px;
+    height:2px;
+    margin-top:-1px;
+    background:#02B6F1;
+}
+
+.css3-icon-volume-up:hover:before,
+.css3-icon-volume-up:hover:after,
+.css3-icon-volume-down:hover:after {
+    background:#730800;
+}
+
+/* MIC
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-mic a:before {
+    left:6px;
+    width:7px;
+    height:12px;
+    margin-top:-9px;
+    /* css3 */
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+
+.css3-icon-mic a:after {
+    left:4px;
+    width:9px;
+    height:6px;
+    border-width:0 1px 1px 1px;
+    border-style:solid;
+    border-color:#02B6F1;
+    margin-top:-2px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-bottom-right-radius:11px;
+    -webkit-border-bottom-left-radius:11px;
+    -moz-border-radius:0 0 11px 11px;
+    border-radius:0 0 11px 11px;
+}
+
+.css3-icon-mic:before,
+.css3-icon-mic:after {
+    left:9px;
+    width:1px;
+    height:4px;
+    margin-top:4px;
+    background:#02B6F1;
+}
+
+.css3-icon-mic:after {
+    left:6px;
+    width:7px;
+    height:1px;
+    margin-top:7px;
+}
+
+.css3-icon-mic a:hover:after,
+.css3-icon-mic a:focus:after,
+.css3-icon-mic a:active:after {
+    border-color:#730800;
+}
+
+.css3-icon-mic:hover:before,
+.css3-icon-mic:hover:after {
+    background:#730800;
+}
+
+/* FAST FORWARD
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-fforward a:before {
+    left:1px;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-left-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-fforward a:after {
+    left:7px;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-left-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-fforward a:hover:before, 
+.css3-icon-fforward a:focus:before, 
+.css3-icon-fforward a:active:before {
+    border-left-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-fforward a:hover:after, 
+.css3-icon-fforward a:focus:after, 
+.css3-icon-fforward a:active:after {
+    border-left-color:#730800;
+}
+
+/* FAST REWIND
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-frewind a:before {
+    left:-6px;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-right-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-frewind a:after {
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-right-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-frewind a:hover:before, 
+.css3-icon-frewind a:focus:before, 
+.css3-icon-frewind a:active:before {
+    border-right-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-frewind a:hover:after, 
+.css3-icon-frewind a:focus:after, 
+.css3-icon-frewind a:active:after {
+    border-right-color:#730800;
+}
+
+/* JUMP FORWARD
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-next a:before {
+    left:9px;
+    width:2px;
+    height:10px;
+    margin-top:-4px;
+}
+
+.css3-icon-next a:after {
+    left:2px;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-left-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-next a:hover:after, 
+.css3-icon-next a:focus:after, 
+.css3-icon-next a:active:after {
+    border-left-color:#730800;
+}
+ 
+/* JUMP REWIND
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-prev a:before {
+    left:2px;
+    width:2px;
+    height:10px;
+    margin-top:-4px;
+}
+
+.css3-icon-prev a:after {
+    left:-3px;
+    border:5px solid transparent;
+    border-width:5px 7px;
+    border-right-color:#02B6F1;
+    margin-top:-4px;
+    background:transparent;
+}
+
+.css3-icon-prev a:hover:after, 
+.css3-icon-prev a:focus:after, 
+.css3-icon-prev a:active:after {
+    border-right-color:#730800;
+}
+
+/* POP-OUT WINDOW
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-pop a:before, 
+.css3-icon-pop a:after {
+    width:12px;
+    height:8px;
+    border:1px solid #02B6F1;
+    margin-top:-4px;
+    background:#fff;
+}
+ 
+.css3-icon-pop a:after {
+    left:3px;
+    margin-top:-7px;
+}
+
+.css3-icon-pop a:hover:before, 
+.css3-icon-pop a:focus:before, 
+.css3-icon-pop a:active:before,
+ .css3-icon-pop a:hover:after, 
+ .css3-icon-pop a:focus:after, 
+ .css3-icon-pop a:active:after {
+    border-color:#730800;
+    background:#fff;
+}
+
+/* ENLARGE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-enlarge a:before {
+    width:16px;
+    height:14px;
+    margin-top:-7px;
+}
+
+.css3-icon-enlarge a:after {
+    left:1px;
+    width:7px;
+    height:6px;
+    margin-top:-6px;
+    background:#fff;
+}
+
+/* REPEAT
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-repeat a:before {
+    left:1px;
+    width:9px;
+    height:9px;
+    border:3px solid #02B6F1;
+    margin-top:-6px;
+    background:transparent;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+
+.css3-icon-repeat a:after {
+    left:9px;
+    border:4px solid #fff;
+    border-width:5px 2px 5px 5px;
+    border-left-color:#02B6F1;
+    margin:-9px 0 0;
+    background:transparent;
+}
+
+.css3-icon-repeat a:hover:before, 
+.css3-icon-repeat a:focus:before, 
+.css3-icon-repeat a:active:before {
+    border-color:#730800;
+    background:transparent;
+}
+
+.css3-icon-repeat a:hover:after, 
+.css3-icon-repeat a:focus:after, 
+.css3-icon-repeat a:active:after {
+    border-left-color:#730800;
+}
+
+/* EXPAND
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-expand a:before {
+    z-index:-2;
+    left:1px;
+    width:5px;
+    height:0;
+    border-width:7px 7px 0;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-4px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-expand a:after {
+    left:5px;
+    width:8px;
+    height:8px;
+    border:3px solid #02B6F1;
+    border-width:3px 0 0 3px;
+    margin-top:-6px;
+    background:transparent;
+}
+
+.css3-icon-expand a:hover:before, 
+.css3-icon-expand a:focus:before, 
+.css3-icon-expand a:active:before {
+    border-color:transparent #730800;
+    background:transparent;
+}
+
+.css3-icon-expand a:hover:after, 
+.css3-icon-expand a:focus:after, 
+.css3-icon-expand a:active:after {
+    border-color:#730800;
+}
+
+/* SHRINK
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-shrink a:before {
+    z-index:-2;
+    left:1px;
+    width:5px;
+    height:0;
+    border-width:0 7px 7px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-4px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-shrink a:after {
+    left:5px;
+    width:8px;
+    height:8px;
+    border:3px solid #02B6F1;
+    border-width:0 3px 3px 0;
+    margin-top:-6px;
+    background:transparent;
+}
+
+.css3-icon-shrink a:hover:before, 
+.css3-icon-shrink a:focus:before, 
+.css3-icon-shrink a:active:before {
+    border-color:transparent #730800;
+    background:transparent;
+}
+
+.css3-icon-shrink a:hover:after, 
+.css3-icon-shrink a:focus:after, 
+.css3-icon-shrink a:active:after {
+    border-color:#730800;
+}
+
+/* TOGGLE SIZE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-toggle-size a:before {
+    left:2px;
+    border-width:6px;
+    border-style:solid;
+    border-color:#02B6F1 transparent transparent #02B6F1;
+    background:transparent;
+    margin-top:-7px;
+}
+
+.css3-icon-toggle-size a:after {
+    left:7px;
+    border-width:4px;
+    border-style:solid;
+    border-color:transparent #02B6F1 #02B6F1 transparent;
+    margin-top:-2px;
+    background:transparent;
+}
+
+.css3-icon-toggle-size a:hover:before,
+.css3-icon-toggle-size a:focus:before,
+.css3-icon-toggle-size a:active:before {
+    border-color:#730800 transparent transparent #730800;
+    background:transparent;
+}
+
+.css3-icon-toggle-size a:hover:after,
+.css3-icon-toggle-size a:focus:after,
+.css3-icon-toggle-size a:active:after {
+    border-color:transparent #730800 #730800 transparent;
+}
+
+/* FULL SCREEN
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-full:before, 
+.css3-icon-full:after {
+    z-index:1;
+    left:8px;
+    width:3px;
+    height:8px;
+    border:5px solid #02B6F1;
+    border-width:5px 0;
+    margin-top:-8px;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-full:after {
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-full:hover:before, 
+.css3-icon-full:hover:after {
+    border-color:#730800;
+}
+
+.css3-icon-full a:before,
+.css3-icon-full a:after {
+    z-index:10;
+    width:4px;
+    height:0;
+    border-width:0 7px 7px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-8px;
+    background:transparent;
+}
+
+.css3-icon-full a:after {
+    border-width:7px 7px 0;
+    margin-top:3px;
+}
+
+.css3-icon-full a:hover:before, 
+.css3-icon-full a:focus:before, 
+.css3-icon-full a:active:before,
+.css3-icon-full a:hover:after, 
+.css3-icon-full a:focus:after, 
+.css3-icon-full a:active:after {
+    border-color:transparent #730800;
+    background:transparent;
+}
+
+/* SHRINK
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-exit:before, 
+.css3-icon-exit:after {
+    z-index:1;
+    top:50%;
+    left:8px;
+    width:3px;
+    height:14px;
+    border:5px solid #02B6F1;
+    border-width:5px 0;
+    margin-top:-12px;
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-exit:after {
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-exit:hover:before, 
+.css3-icon-exit:hover:after {
+    border-color:#730800;
+}
+
+.css3-icon-exit a:before,
+.css3-icon-exit a:after {
+    z-index:10;
+    left:2px;
+    width:6px;
+    border-width:5px;
+    border-style:solid;
+    border-color:transparent #02B6F1;
+    margin-top:-5px;
+    background:transparent;
+    /* css3 */
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+.css3-icon-exit a:after {
+    /* css3 */
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+.css3-icon-exit a:hover:before,
+.css3-icon-exit a:focus:before, 
+.css3-icon-exit a:active:before,
+.css3-icon-exit a:hover:after, 
+.css3-icon-exit a:focus:after, 
+.css3-icon-exit a:active:after {
+    border-color:transparent #730800;
+    background:transparent;
+}
+
+/* EJECT
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.css3-icon-eject a:before {
+    left:1px;
+    width:14px;
+    height:2px;
+    margin-top:4px;
+}
+.css3-icon-eject a:after {
+    left:1px;
+    border:8px solid transparent;
+    border-width:8px 7px;
+    border-bottom-color:#02B6F1;
+    margin-top:-13px;
+    background:transparent;
+}
+
+.css3-icon-eject a:hover:after, 
+.css3-icon-eject a:focus:after, 
+.css3-icon-eject a:active:after {
+    border-bottom-color:#730800;
+}
+ 

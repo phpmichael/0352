@@ -1,0 +1,10 @@
+#logo{
+    top:10px;
+    width:247px;
+    height:48px;
+    background:url(../images/custom/logo.jpg) no-repeat;
+}
+
+.border-top{
+    background:#fff;
+}

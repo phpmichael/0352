@@ -1,0 +1,1 @@
+<?load_theme_view('admin_fb/list',array('moreAdminLinks'=>array('chart','table')))?>

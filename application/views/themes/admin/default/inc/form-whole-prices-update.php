@@ -1,0 +1,9 @@
+<?if(userAccess($BC->_getController(),'edit')):?>
+	<?=form_open($BC->_getBaseURI().'/whole_prices_update')?>
+    	<?=language('update_prices')?>:
+    	<?=form_dropdown('sign',array('+'=>'+','-'=>'-'))?>
+    	<?=form_input('value')?>
+    	<?=form_dropdown('type',array('percents'=>'%','money'=>'money'))?>
+    	<?=form_submit('',language('change'))?>
+    </form>
+<?endif?>

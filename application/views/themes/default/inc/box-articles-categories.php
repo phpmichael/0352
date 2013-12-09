@@ -1,0 +1,1 @@
+<?=get_categories_tree('articles',0,0,array('root_id'=>'articles-categories'));?>

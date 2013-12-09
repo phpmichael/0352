@@ -1,0 +1,1 @@
+<div id="current_location"><?=$current_location_str?></div>

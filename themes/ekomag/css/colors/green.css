@@ -1,0 +1,32 @@
+a{
+    color:#5BB70A;
+}
+
+h2{
+    border-bottom: 3px solid #5BB70A;
+    background: #D6F19A;
+}
+
+#content{
+	border:5px solid #5BB70A;
+}
+
+.sidebar h2{
+    background:url('../../images/panel_green.gif') no-repeat;
+}
+
+#products-categories-list li {
+    border-top: 3px solid #5BB70A;
+}
+
+.products-list .grid-box, .products-grid .grid-box{
+    background:#D6F19A;
+}
+
+.post-tags {
+    background: #D6F19A;
+}
+
+#footer{
+	background:#5BB70A;
+}

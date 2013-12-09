@@ -1,0 +1,84 @@
+/*
+Author: Craig Erskine
+Description: Dynamic Menu System - Horizontal/Vertical
+*/
+
+ul#navmenu-h { margin: 0; padding: 0; list-style: none; position: relative; }
+
+ul#navmenu-h ul {
+ width: 160px; /* Sub Menu Width */
+ margin: 0;
+ list-style: none;
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+}
+
+ul#navmenu-h ul ul,ul#navmenu-h ul ul ul { top: 0; left: 100%; }
+
+ul#navmenu-h li { float: left; display: inline; position: relative; }
+ul#navmenu-h ul li { width: 100%; display: block; }
+
+/* Root Menu */
+ul#navmenu-h a {
+ border-top: 1px solid #FFF;
+ border-right: 1px solid #FFF;
+ padding: 6px;
+ float: left;
+ display: block;
+ background: url(images/table/table_header_repeat.jpg) repeat-x;
+ color: #FFF;
+ font: bold 13px Arial, sans-serif;
+ text-decoration: none;
+ height: 1%;
+}
+
+ul#navmenu-h>li>a {
+    height:25px;
+    border-top:none;
+    border-right:1px solid #999;
+    padding-top:10px;
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu-h a:hover,ul#navmenu-h li:hover a,ul#navmenu-h li.iehover a {
+ background: #2B2B2B;
+ color: #EEE;
+}
+
+/* 2nd Menu */
+ul#navmenu-h li:hover li a,ul#navmenu-h li.iehover li a {
+ float: none;
+ background: #2B2B2B;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu-h li:hover li a:hover,ul#navmenu-h li:hover li:hover a,ul#navmenu-h li.iehover li a:hover,ul#navmenu-h li.iehover li.iehover a {
+ background: #515151;
+}
+
+/* 3rd Menu */
+ul#navmenu-h li:hover li:hover li a,ul#navmenu-h li.iehover li.iehover li a {
+ background: #515151;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#navmenu-h li:hover li:hover li a:hover,ul#navmenu-h li:hover li:hover li:hover a,ul#navmenu-h li.iehover li.iehover li a:hover,ul#navmenu-h li.iehover li.iehover li.iehover a {
+ background: #999;
+}
+
+/* 4th Menu */
+ul#navmenu-h li:hover li:hover li:hover li a,ul#navmenu-h li.iehover li.iehover li.iehover li a {
+ background: #999;
+}
+
+/* 4th Menu Hover */
+ul#navmenu-h li:hover li:hover li:hover li a:hover,ul#navmenu-h li.iehover li.iehover li.iehover li a:hover {
+ background: #333;
+}
+
+/* Hover Function - Do Not Move */
+ul#navmenu-h li:hover ul ul,ul#navmenu-h li:hover ul ul ul,ul#navmenu-h li.iehover ul ul,ul#navmenu-h li.iehover ul ul ul { display: none; }
+ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover ul,ul#navmenu-h li.iehover ul,ul#navmenu-h ul li.iehover ul,ul#navmenu-h ul ul li.iehover ul { display: block; }
+View the JavaScript (for IE)

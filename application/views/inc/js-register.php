@@ -1,0 +1,1 @@
+<?=include_js($BC->_getFolder('js').'custom/customers/register.js')?>

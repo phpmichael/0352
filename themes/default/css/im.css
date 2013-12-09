@@ -1,0 +1,100 @@
+.error
+{
+	color:red;
+}
+
+#im, #im-history
+{
+	background:#005984;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	font-family: Arial, sans-serif;
+	font-size: 10pt;
+	color: #666;
+}
+	#info
+	{
+		position:absolute;
+		top:10px;
+		height:20px;
+		left:10px;
+		right:10px;
+	}
+		#info a
+		{
+			color:#fff;
+		}
+		#info a
+		{
+			text-decoration:underline;
+		}
+	#messages-box
+	{
+		position:absolute;
+		top:30px;
+		bottom:110px;
+		left:10px;
+		right:10px;
+		background:#fff;
+		overflow:auto;
+	}
+	#im-history #messages-box
+	{
+		top:10px;
+		bottom:10px;
+	}
+		#im .message-history span
+		{
+			color:#999;
+		}
+		.message
+		{
+			
+		}
+			.my-nick
+			{
+				color:#2A97D5;
+			}
+			.my-message-text
+			{
+				color:#3A6EA5;
+			}
+			.date
+			{
+				color:#111;
+			}
+			.nick
+			{
+				color:#D64709;
+			}
+			.message-text
+			{
+				color:#B12A03;
+			}
+	#message-box
+	{
+		position:absolute;
+		bottom:10px;
+		left:10px;
+		right:120px;
+		height:80px;
+	}
+		#message
+		{
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:100%;
+		}
+		#send-message
+		{
+			position:absolute;
+			top:0;
+			height:100%;
+			right:-110px;
+			width:100px;
+		}

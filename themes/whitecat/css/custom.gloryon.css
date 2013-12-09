@@ -1,0 +1,125 @@
+a,
+a.product_name,
+#articles-categories a, 
+#products-categories a,
+.checkout_link,
+.continue_link,
+#search h3,
+.module-new h3,
+.title,
+.module h3,
+.module_LoginForm h3,
+#page .content h2,
+input, 
+select {color:#dc3000;}
+
+a.product_name:hover,
+.checkout_link:hover,
+.continue_link:hover,
+#footer ul li a:hover, 
+#footer ul li.active a,
+#form-login-remember a {
+	color:#FB5750;
+}
+
+body, 
+label, 
+#page .content p{
+    color:#222;
+}
+
+input[type="submit"], 
+input[type="button"], 
+button {
+	background:#DC3000;
+	-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;
+}
+
+input[type="submit"]:hover, 
+input[type="button"]:hover, 
+button:hover {
+	background:#FB5750;
+}
+
+.productPrice,
+.module-new .productPrice, 
+.products-grid .productPrice{
+	color:#105FC4;
+}
+
+.module-specials .product-Old-Price{
+	color:#632E64;
+}
+
+.sectiontableheader th{
+	color:#D02400;
+}
+
+.moduletable-categories {background:url(../images/custom/cat-bg.png);}
+.moduletable-categories ul.level1 li a:hover, 
+.moduletable-categories ul.level1 li a.selected{background:#dc3000;}
+.moduletable-categories ul.level2, 
+.moduletable-categories ul.level3 { background:#dc3000;}
+.moduletable-categories ul.level2 li a,
+.moduletable-categories ul.level3 li a {border:none; border-top:1px solid #ccc; color:#f3c513;}
+
+.module h3,
+.title,
+.module-new h3,
+.module_LoginForm h3 {
+    background:url(../images/custom/right-title.png) right top no-repeat;
+}
+
+.module h3 span,
+.title span,
+.module-new h3 span,
+.module_LoginForm h3 span {
+    background:url(../images/custom/left-title.png) left top no-repeat;
+}
+
+.module h3 span span,
+.title span span,
+.module-new h3 span span,
+.module_LoginForm h3 span span {
+    background:url(../images/custom/tail-title.png) repeat-x;
+}
+
+.module-specials h3 {
+    background:url(../images/custom/right-title1.png) right top no-repeat;
+}
+
+.module-specials h3 span {
+    background:url(../images/custom/left-title1.png) left top no-repeat;
+}
+
+.module-specials h3 span span {
+    background:url(../images/custom/tail-title1.png) repeat-x;
+}
+
+.search .button {background:url(../images/custom/search-button.png);}
+.search .button:hover { background:url(../images/custom/search-button-active.png);}
+
+.moduletable-nav ul.menu li a span {background:url(../images/custom/top-menu-a.png) no-repeat;}
+.moduletable-nav ul.menu li a:hover span {background:url(../images/custom/top-menu-a-active.png) no-repeat;color:#FB5750;}
+
+#logo{
+    top:0;
+    width:136px;
+    height:86px;
+    background:url(../images/custom/logo.gif) no-repeat;
+}
+
+.border-top{
+    height:90px;
+    background:#fff;
+}
+
+.pagination a:link, 
+.pagination p a:visited{
+	background:#DC3000;
+}
+
+.pagination p a:hover,
+.pagination strong{
+	background:#FB5750;
+}

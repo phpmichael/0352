@@ -1,0 +1,55 @@
+#page{min-width:1130px;}
+header{margin-top:5px;height:120px;}
+footer{}
+aside{}
+.products-grid td{text-align:center;}
+#logo{height:100%;}
+#middle-header{height:100%;}
+#cart{height:100%;padding-top:5px;}
+#cart h3{margin:0;}
+.product-price{margin:8px 0;max-width:100px;}
+#errors{color:red;}
+.required, .red{color:red;}
+.success, .green{color:green;}
+.fl{float:left;}
+.fr{float:right;}
+.navbar .btn {margin-top:0;}
+
+/* categories list */
+#products-categories{margin-left:0;}
+#products-categories li{list-style-type:none;}
+#products-categories li{margin-top:3px;margin-bottom:3px;}
+#products-categories li a{
+	display:block;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	padding:3px 5px;
+	border:1px solid #ccc;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
+#products-categories li a:hover, #products-categories li a.active{background:#32A5E7;color:#fff;}
+#products-categories li li{display:none;}
+.post-tags a{
+    background:#3BA9E9;
+    color:#fff;
+    text-decoration:none;
+    padding:3px;
+    -webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
+
+.post-tags a:hover{
+    background:#1C1C1C;
+    text-decoration:none;
+}
+
+
+#find-book .fb-output-screen{width:auto;}
+#find-book ul{margin:0;}
+#find-book li{list-style-type:none;}
+#find-book .fb-output-screen .list-row-odd{background:#F5F5F5;}
+#find-book .fb-output-screen .list-row-even{background:#EEE;}

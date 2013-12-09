@@ -1,0 +1,1 @@
+<?=include_js($BC->_getFolder('js').'custom/cart/add_to_cart.js')?>

@@ -1,0 +1,507 @@
+/* Basic */
+
+body
+{
+    padding:10px;
+    font-size:12px;
+    font-family:Arial,Helvetica,sans-serif;
+    letter-spacing:1px;
+    line-height:18px;
+    background:#111 url('../images/bg.png') repeat-x;
+    color:#ccc;
+}
+
+h1,h2,h3,h4,h5,h6,h7
+{
+	font-weight: bold;
+}
+
+h1
+{
+    font-size:20px;
+}
+
+h2
+{
+    font-size:18px;
+}
+
+h3
+{
+    font-size:14px;
+    color:#ccc;
+    display:inline;
+}
+
+ol, ul
+{
+    line-height:18px;
+    text-align:justify;
+}
+
+strong
+{
+	font-weight:bold;
+}
+
+small
+{
+	font-size: 8pt;
+	color: #999;
+}
+
+a:link, a:active, a:visited
+{
+    color:#CC9900;
+    text-decoration:none;
+}
+
+a:hover
+{
+    color:#ff7700;
+}
+
+select, input[type=text], input[type=password] 
+{
+	border: 1px solid #666;
+	margin: 2px 0px;
+	font-size: 10pt;
+	padding: 3px;	
+	color: #666;
+}
+
+input[type=button], input[type=submit], input[type=reset] 
+{ 
+	border: 1px solid #333; 
+	padding: 1px 5px 2px 5px;
+	height: 27px;
+	color: #CCC;	
+	cursor: pointer;
+	background:#330000;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover 
+{
+    box-shadow:1px 1px 3px #333;
+    -webkit-box-shadow:1px 1px 3px #333;
+    -moz-box-shadow:1px 1px 3px #333;
+    behavior: url(/PIE.htc);position:relative;
+}
+
+textarea 
+{
+	border:1px solid #c0c0c0;
+	margin: 2px 0px;
+	font-size: 12px;
+	padding: 3px;	
+	color: #666;
+	width:430px;
+	height:200px;
+}
+
+/* Layout Styles */
+.inner_copy
+{
+    border:0;
+    color:#f00;
+    float:left;
+    width:50% !important;
+    margin:-100% 0 0 0;
+    overflow:hidden;
+    line-height:0;
+    font-size:11px
+}
+
+#container
+{
+    width:1120px;
+    margin:0 auto;
+}
+
+#header
+{
+    height:100px;
+}
+
+#album-wrapper
+{
+    width:1120px;
+}
+
+#logo
+{
+    float:left;
+    margin-top:25px;
+}
+
+#navbar
+{
+    float:right;
+    height:30px;
+    margin-top:5px;
+}
+
+#content
+{
+    margin-top:1px;
+    width:810px;
+    float:left;
+}
+
+.gallery-big-photo img{
+    border:5px solid #660033;
+    margin:0 auto;
+    display:block;
+}
+
+#header-content
+{
+    width:580px;
+    float:left;
+}
+
+#header-content img
+{
+    width:800px;
+    height:450px;
+}
+
+#content p
+{
+    font-size:11px;
+    font-style:italic;
+    padding:5px;
+    background:url('../images/head-slogan.png') repeat-x;
+    color:#555;
+}
+    
+#sidebar
+{
+    width:270px;
+    float:right;
+    margin:10px 10px 10px 0;
+    padding:3px;
+    color:#fff;
+    background:#300;
+    border:solid 2px #000;
+}
+
+    .gallery-photos-preview
+    {
+        height:480px;
+        overflow:hidden;
+        padding:10px;
+        position:relative;
+        /*margin:10px 0;*/
+        /*position:relative;
+        z-index:1;*/
+    }
+    
+        .gallery-photos-preview-pagination
+        {
+            text-align:center;
+            margin:5px auto;
+        }
+        
+            .gallery-photos-preview-pagination a:link, .gallery-photos-preview-pagination p a:visited, .gallery-photos-preview-pagination p a:hover, .gallery-photos-preview-pagination p a:active, .gallery-photos-preview-pagination strong{
+        		border:1px solid #B59900;
+        		padding:1px 3px;
+        		text-decoration:none;
+        		-webkit-border-radius:5px;
+        		-moz-border-radius:5px;
+        		border-radius:5px;
+        		behavior: url(/PIE.htc);position:relative;
+        	}
+        	
+        	.gallery-photos-preview-pagination a:hover{
+        		color:#fff;
+        		background-color:#21250D;
+        	}
+        	
+        	.gallery-photos-preview-pagination strong{
+        	
+        	}
+    
+        .gallery-photo-preview
+        {
+            width:117px;
+            height:117px;
+            display:block;
+            overflow:hidden;
+            margin:2px;  
+            float:left; 
+            border:2px solid #ccc;
+            position:relative;
+            z-index:0;
+        }
+        
+        .gallery-photo-preview:hover
+        {
+            /*-webkit-transform	: rotate(0deg) scale(1.15);
+        	-moz-transform		: rotate(0deg) scale(1.15);
+        	transform			: rotate(0deg) scale(1.15);*/
+        }
+        
+        .gallery-photos-preview-scroll-down, .gallery-photos-preview-scroll-up
+        {
+            display:block;
+            width:100%;
+            height:30px;
+            background:#fff;
+            margin:0 auto;
+            text-align:center;
+            line-height:30px;
+            font-size:15px;
+            border:1px solid #444;
+        }
+        
+        .gallery-photos-preview-scroll-down
+        {
+            -webkit-border-radius:30px 30px 0 0;
+            -moz-border-radius:30px 30px 0 0;
+            border-radius:30px 30px 0 0;
+            behavior: url(/PIE.htc);position:relative;
+        }
+        
+        .gallery-photos-preview-scroll-up
+        {
+            -webkit-border-radius:0 0 30px 30px;
+            -moz-border-radius:0 0 30px 30px;
+            border-radius:0 0 30px 30px;
+            behavior: url(/PIE.htc);position:relative;
+        }
+        
+        .tag_cloud
+        {
+            margin:10px 5px;
+            text-align:center;
+        }
+        
+            .tag_cloud h2
+            {
+                margin-bottom:5px;
+            }
+            
+            .tag_cloud a
+            {
+                display:block;
+                float:left;
+                border:1px solid #B59900;
+        		padding:1px 3px;
+        		text-decoration:none;
+        		-webkit-border-radius:5px;
+        		-moz-border-radius:5px;
+        		behavior: url(/PIE.htc);position:relative;
+        		border-radius:5px;
+        		margin:2px;
+            }
+            
+            .tag_cloud a:hover
+            {
+                border:1px solid #ff7700;
+                background:#333;
+            }
+
+#album
+{
+    padding:5px;
+    margin-top:5px;
+    border:#333 1px solid;
+    background:#300;
+    height:160px;
+}
+
+    #album img
+    {
+        width:140px;
+        height:140px;
+        float:left;
+        margin:7px;
+        border:2px solid #ccc;
+    }
+    
+    #album img:hover
+    {
+        border:2px solid #669900;
+    }
+
+#logo h1
+{
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    padding:10px 20px 0 10px;
+    font-weight:normal;
+    font-size:40px;
+    color:#ccc;
+}
+
+#logo h1 a
+{
+    color:#066;
+    text-decoration:none;
+}
+
+#logo h1 a:hover
+{
+    color:#993300;
+    text-decoration:none;
+} 
+
+#footer
+{
+    padding:5px;
+    margin-top:5px;
+    height:30px;
+    clear:both;
+}
+
+    #footer p
+    {
+        color:#555;
+        font-size:11px;
+    }
+
+#navbar ul
+{
+    list-style:none;
+}
+#navbar li
+{
+    padding-top:3px;
+    padding-bottom:4px;
+    float:right;
+    height:30px;
+    font-weight:bold;
+    text-align:center;
+    line-height:30px;
+    margin:5px 2px 0 2px;
+    width:100px;
+}
+
+#navbar li.active
+{
+    color:#fff;
+    padding-bottom:4px;
+}
+
+#navbar li:hover
+{
+    color:#300;
+}
+
+#navbar a:link, #navbar a:active, #navbar a:visited
+{
+    color:#777;
+} 
+
+#navbar a:hover
+{
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+#box-advertise h3{
+    display:block;
+}
+
+
+/* Tables  in content */
+#content table
+	{
+		border-collapse: collapse;
+		text-align: left;
+	}
+	
+	#content table th
+	{
+		font-weight: bold;
+		padding: 0.5em;
+	}
+	
+	#content table td
+	{
+		padding: 0.5em;
+		vertical-align:top;
+	}
+	
+		#content table td td{
+			padding:0.1em;
+		}
+	
+	#content table tr.rowH
+	{
+		background:url('../images/head-slogan.png') repeat-x;
+		color:#333;
+	}
+	
+	#content table tr.rowA
+	{
+		border-top: solid 1px #fff;
+		color: inherit;
+		background:#330000;
+	}
+	
+	#content table tr.rowB
+	{
+		border-top: solid 1px #fff;
+		color: inherit;
+		background:#24280E;
+	}
+	
+	#content .vt{
+		vertical-align:top;
+	}
+	
+/* Pagination */
+.pagination{
+	text-align:center;
+}
+
+	.pagination a:link, .pagination p a:visited, .pagination p a:hover, .pagination p a:active, .pagination strong{
+		border:1px solid #666;
+		padding:2px 6px;
+		text-decoration:none;
+	}
+	
+	.pagination a:hover{
+		color:#fff;
+		background-color:#21250D;
+	}
+
+/* Additional */
+.fleft, .fl
+{
+    float:left;
+}
+.fright, .fr
+{
+    float:right;
+}
+.fcenter
+{
+    float:none;
+    margin:0 auto;
+    text-align:center;
+}
+.fclear
+{
+    clear:both;
+}
+
+.clear
+{
+    clear:both;
+    height:0;
+}
+
+.hide{
+	display:none;
+}
+
+.red, #errors p{
+	color:red;
+}
+
+.green{
+	color:green;
+}

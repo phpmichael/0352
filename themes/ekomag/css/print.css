@@ -1,0 +1,26 @@
+#header,
+.sidebar,
+#footer .menu,
+input[name=keywords],
+button[type=submit],
+input[type=submit],
+embed,
+object,
+#commentsbox,
+.add-to-wishlist,
+.orderby_form{
+    display:none;
+}
+
+#footer{
+    margin-top:-10px;
+}
+
+#wrapper{
+    width:876px;
+}
+#content{
+    width:850px;
+    border:none;
+    padding-right:15px;
+}

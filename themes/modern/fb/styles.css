@@ -1,0 +1,36 @@
+.fb-output-screen label.choice { 
+	margin: -27px 0 0 23px; 
+}
+
+.fb-output-screen .list-row-odd { 
+	background:#E28D56; 
+}
+.fb-output-screen .list-row-even { 
+	background:#C79C7C; 
+}
+
+.fb-output-screen{
+	color:#000;
+}
+
+
+/* Specific */
+.container-from-to .col-1{
+	width:66%;
+}
+
+.container-from-to .col-2{
+	width:30%;
+}
+
+#find-instructor .col-of-2-cols label,
+#find-food .col-of-2-cols label
+{
+	width:70%;
+}
+
+#find-instructor .col-of-2-cols div,
+#find-food .col-of-2-cols div
+{
+	width:30%;
+}

@@ -1,0 +1,23 @@
+.fb-output-screen { 
+	margin: 0; 
+	padding:0;
+	width: 900px; 
+	border:none;
+	box-shadow:none;
+	font-size:12px;
+}
+.fb-output-screen .list-row-odd, 
+.fb-output-screen .list-row-even { 
+	background:#fff; 
+	border-top:1px solid #EFEFEF;
+	border-left:1px solid #EFEFEF;
+	border-right:1px solid #EFEFEF;
+}
+.fb-output-screen label.label-on-the-side,
+.fb-output-screen legend.label-on-the-side {
+	width:30%;
+}
+.fb-output-screen div.input-on-the-side {
+	width:70%;
+	float:left;
+}

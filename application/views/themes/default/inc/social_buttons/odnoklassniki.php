@@ -1,0 +1,2 @@
+<?if(!isset($social_params['button_title'])) $social_params['button_title'] = "Одноклассники";?>
+<a onclick="window.open('http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=<?=urlencode($social_params['page_url'])?>', 'odnoklassniki', 'width=626, height=436'); return false;" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=<?=urlencode($social_params['page_url'])?>" rel="nofollow" title="<?=$social_params['button_title']?>"><?=img('images/social/'.$social_params['button_size'].'/odnoklassniki.png')?></a>

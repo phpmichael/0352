@@ -1,0 +1,31 @@
+*     { background:none !important; text-align:left !important; }
+body  { background:#fff !important; font-size:9pt !important; margin:15px !important; }
+a     { color:#2976c9 !important; }
+th,td { color:#2f2f2f !important;  border-color:#ccc !important; }
+
+.header-container,
+.nav-container,
+.footer-container,
+.pager,
+.toolbar,
+.actions,
+.buttons-set,
+.col-left,
+.col-right,
+.links-block,
+input[name=keywords],
+button[type=submit],
+input[type=submit],
+embed,
+object,
+#commentsbox,
+.add-to-wishlist,
+.set-currency,
+.welcome-msg { display:none !important; }
+
+.col3-layout .col-main {
+	width: 100%;
+}
+
+.page-print .data-table .cart-tax-total { background-position:100% -54px; }
+.page-print .data-table .cart-tax-info { display:block !important; }

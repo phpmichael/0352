@@ -1,0 +1,35 @@
+<?if($city):?>
+	<?=language('city_letter')?> <?=$city?>; 
+<?endif?>
+<?if($region):?>
+	<?=language('region_letters')?> <?=$region?>; 
+<?endif?>
+<?if($address):?>
+	<?=$address?> 
+<?endif?>
+
+<br/>
+
+<?if($phone):?>
+	<?=$phone?>, 
+<?endif?>
+<?if($phone2):?>
+	<?=$phone2?>, 
+<?endif?>
+<?if($fax):?>
+	<?=$fax?> 
+<?endif?>
+
+<br/>
+
+<?if($work_time):?>
+	<?=language('company_work_time')?>: <?=$work_time?> <br/>
+<?endif?>
+
+<?if($website):?>
+	<?=$website?> <br/>
+<?endif?>
+
+<?if($email):?>
+	<?=str_replace("@",img($BC->_getTheme().'images/emailicon.jpg'),$email)?>
+<?endif?>

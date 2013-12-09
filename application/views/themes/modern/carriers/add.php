@@ -1,0 +1,1 @@
+<?fb_form($form_id)?>

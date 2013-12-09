@@ -1,0 +1,2 @@
+<?if(!isset($social_params['button_title'])) $social_params['button_title'] = "Facebook";?>
+<a onclick="window.open('http://www.facebook.com/sharer.php?u=<?=urlencode($social_params['page_url'])?>', 'facebook', 'width=626, height=436'); return false;" href="http://www.facebook.com/sharer.php?u=<?=urlencode($social_params['page_url'])?>" rel="nofollow" title="<?=$social_params['button_title']?>"><?=img('images/social/'.$social_params['button_size'].'/facebook.png')?></a>

@@ -1,0 +1,33 @@
+## uncomment and config if you need url rewrite
+
+#<IfModule mod_rewrite.c>
+#  RewriteEngine On
+#  RewriteBase /
+#  RewriteCond %{REQUEST_FILENAME} !-f
+#  RewriteCond %{REQUEST_FILENAME} !-d
+#  RewriteRule ^(.*)$ /index.php/$1 [L]
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+ 
+  #RewriteRule ^(.*)(\.html|.\php)$ index.php/$1 [L]
+  #RewriteRule ^(.+)(?=\.html) index.php/$1 [L]
+  RewriteRule ^(.+)$ index.php/$1 [L]
+</IfModule>
+
+#<ifModule mod_deflate.c>
+#	<filesMatch "\.(js|css)$">
+#		SetOutputFilter DEFLATE
+#	</filesMatch>
+#</ifModule>
+
+#AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+
+AddDefaultCharset utf-8
+
+#DirectoryIndex site_offline.php
+
+#ErrorDocument 404 /pages/notfound.html

@@ -1,0 +1,120 @@
+#formbuilder{
+	
+}
+
+	#flash-messages-box{
+		height:35px;
+	}
+
+	#formbuilder-left{
+		width:25%;
+		float:left;
+		margin-right:1%;
+	}
+
+	#formbuilder-right{
+		width:74%;
+		float:left;
+	}
+
+
+#accordion{
+	margin:0 0px;
+	padding:5px;
+	border:1px solid #999;
+	width:auto;
+	overflow:auto;
+	height:480px;
+}
+
+	#accordion h3{
+		padding:5px;
+		text-indent:20px;
+	}
+	
+	#accordion div.accordion-item{
+		height:380px;
+	}
+	
+		.add-item, .attach-detach, .preview-item, .export-item, .create-item, .copy-item, .paste-item{
+			display:block;
+			width:16px;
+			height:16px;
+			float:left;
+			margin:3px;
+		}
+		
+		.remove-item{
+			display:block;
+			width:12px;
+			height:12px;
+			float:left;
+			margin:3px;
+			background: url("../../jquery/jstree/img/delete.gif");
+			display:none;
+		}
+		
+		#preview-form{
+			background: url("../../jquery/jstree/img/form_preview.png");
+			display:none;
+		}
+		
+		#export-form{
+			background: url("../../jquery/jstree/img/form_export.png");
+			display:none;
+		}
+		
+		#create-table{
+			background: url("../../jquery/jstree/img/create_table.png");
+			display:none;
+		}
+	
+		#add-form{
+			background: url("../../jquery/jstree/img/form_add.png");
+		}
+		
+		#add-container{
+			background: url("../../jquery/jstree/img/container_add.png");
+			display:none;
+		}
+		
+		#add-input{
+			background: url("../../jquery/jstree/img/input_add.png");
+			display:none;
+		}
+		
+		#attach-answerset{
+			background: url("../../jquery/jstree/img/answerset_attach.png");
+			display:none;
+		}
+		
+		#detach-answerset{
+			background: url("../../jquery/jstree/img/answerset_detach.png");
+			display:none;
+		}
+		
+		#copy-item{
+			background: url("../../jquery/jstree/img/copy.png");
+			display:none;
+		}
+		
+		#paste-item{
+			background: url("../../jquery/jstree/img/paste.png");
+			display:none;
+		}
+		
+		#add-answerset{
+			background: url("../../jquery/jstree/img/answerset_add.png");
+		}
+		
+		#add-answerset-value{
+			background: url("../../jquery/jstree/img/answerset_value_add.png");
+			display:none;
+		}
+
+#screen{
+	padding:5px;
+	border:1px solid #999;
+	overflow:auto;
+	height:480px;
+}

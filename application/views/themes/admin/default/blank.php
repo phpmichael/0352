@@ -1,0 +1,1 @@
+<?load_theme_view($tpl_page);?>
