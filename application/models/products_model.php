@@ -52,7 +52,7 @@ class Products_model extends Posts_model
     	$product = parent::getOneById($product_id);
     	if(!$product) return false;
     	
-    	$product['manufacturer'] = $this->CI->products_manufacturers_model->getManyfacturerName($product['manufacturer_id']);
+    	$product['manufacturer'] = $this->CI->products_manufacturers_model->getManufacturerName($product['manufacturer_id']);
     	
     	$product['attributes_list'] = $this->CI->products_attributes_model->getProductAttributesWithValues($product_id);
     	

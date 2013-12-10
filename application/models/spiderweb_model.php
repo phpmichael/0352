@@ -118,8 +118,8 @@ class Spiderweb_model extends Base_model
 	    
 	    parent::update($post);
 	}
-    
-    /*
+
+    /**
      * Update link in all content records.
      *
      * @param string $table
@@ -127,6 +127,7 @@ class Spiderweb_model extends Base_model
      * @param string $title
      * @param string $new_link
      * @param string $new_title
+     * @return bool
      */
     private function updateLinkInAllContent($table,$link,$title,$new_link,$new_title)
     {

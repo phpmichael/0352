@@ -42,7 +42,7 @@ class Pages_model extends Base_model
 	}
 	
 	/**
-	 * Return list of contrent pages' titles.
+	 * Return list of content pages' titles.
 	 *
 	 * @param bool $none
 	 * @return array

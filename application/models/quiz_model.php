@@ -725,7 +725,7 @@ class Quiz_model extends Base_model
 	}
 	
 	/**
-	 * Get top reated results. 
+	 * Get top rated results.
 	 * 
 	 * @param integer $quiz_id
 	 * @return array

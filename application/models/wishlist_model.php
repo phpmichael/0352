@@ -32,7 +32,7 @@ class Wishlist_model extends Base_model
 	}
 	
 	/**
-	 * Remove product from customer's withlist.
+	 * Remove product from customer's wishlist.
 	 *
 	 * @param integer $customer_id
 	 * @param integer $wishlist_id
@@ -42,8 +42,8 @@ class Wishlist_model extends Base_model
 	{
 		if(!intval($customer_id) || !intval($wishlist_id)) return FALSE;
 		
-		$withlist_item = parent::getOneById($wishlist_id);
-		if($withlist_item['customer_id']==$customer_id)
+		$wishlist_item = parent::getOneById($wishlist_id);
+		if($wishlist_item['customer_id']==$customer_id)
 		{
 			parent::DeleteId($wishlist_id);
 			return TRUE;

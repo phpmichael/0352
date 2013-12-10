@@ -39,7 +39,7 @@ class Products_manufacturers_model extends Base_model
 	 * @param integer $id
 	 * @return string
 	 */
-	public function getManyfacturerName($id)
+	public function getManufacturerName($id)
 	{
 	    if(!$id) return "";
 	    

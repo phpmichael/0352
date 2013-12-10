@@ -250,7 +250,7 @@ abstract class Base_model extends CI_Model
     }
 
     /**
-     * Returns records from table by defined creterias.
+     * Returns records from table by defined criterias.
      *
      * @param bool|string $where
      * @param bool|string $order_by
@@ -831,7 +831,7 @@ abstract class Base_model extends CI_Model
 	    			'orders',
 	    			'currency',
 	    			'testimonials',
-	    			'subsctibers',
+	    			'subscribers',
 	    			'videos',
 	    			'assortment',
 	    			'books'

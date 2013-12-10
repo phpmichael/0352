@@ -144,7 +144,7 @@ abstract class Front extends Base
 	    }
 	    elseif( isset($filter_data['manufacturer_id']) && $filter_data['manufacturer_id'] ) //if manufacturer_id selected
 	    {
-	       $page_title = language('manufacturer').' "'.$this->products_manufacturers_model->getManyfacturerName($filter_data['manufacturer_id']).'"';
+	       $page_title = language('manufacturer').' "'.$this->products_manufacturers_model->getManufacturerName($filter_data['manufacturer_id']).'"';
 	    }
 	    elseif( isset($filter_data['manufacturer']) && trim(urldecode($filter_data['manufacturer'])) )// if manufacturer selected
 		{ 

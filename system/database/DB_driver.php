@@ -243,8 +243,9 @@ class CI_DB_driver {
 	 * will raise an error.
 	 *
 	 * @access	public
-	 * @param	string	An SQL query string
-	 * @param	array	An array of binding data
+	 * @param	string	$sql
+	 * @param	array|bool	$binds
+	 * @param	bool	$return_object
 	 * @return	mixed
 	 */
 	function query($sql, $binds = FALSE, $return_object = TRUE)
