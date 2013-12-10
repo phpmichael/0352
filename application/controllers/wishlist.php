@@ -56,7 +56,7 @@ class Wishlist extends Front
 	}
 
 	/**
-	 * Add product to customer's withlist.
+	 * Add product to customer's wishlist.
 	 *
 	 * @return void
 	 */
@@ -72,12 +72,16 @@ class Wishlist extends Front
 		if($result) die( json_encode(array('success'=>1,'message'=>language('added_to_wishlist'))) );
 		else die( json_encode(array('error'=>1,'message'=>language('error').': '.language('could_not_add_to_wishlist'))) );
 	}
-	
-	public function Remove($withlist_id)
+
+    /**
+     * Remove product from wishlist.
+     * @param $wishlist_id
+     */
+    public function Remove($wishlist_id)
 	{
 		$this->_CheckLogged();
 		
-		$this->wishlist_model->remove($this->session->userdata('customer_id'),$withlist_id);
+		$this->wishlist_model->remove($this->session->userdata('customer_id'),$wishlist_id);
 		
 		redirect($this->_getBaseURI());
 	}

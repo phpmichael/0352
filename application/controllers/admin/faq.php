@@ -56,7 +56,9 @@ class Faq extends Admin
 	 */
 	private function _processInsert(array $record=array())
 	{
-		$this->load->library('form_validation');
+        $configValidation = array();
+
+        $this->load->library('form_validation');
             
         foreach (get_multilang_codes() as $lang_code)
         {

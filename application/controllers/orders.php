@@ -172,7 +172,7 @@ class Orders extends Front
 	    }
 	    else $this->_CheckLogged();
 	    
-	    //calculate order total before store it (b'se after store coupon uses count reduced)
+	    //calculate order total before store it (because after store coupon uses count reduced)
 	    $order_total = $this->orders_model->calcOrderTotal();
 	    
 	    //store order

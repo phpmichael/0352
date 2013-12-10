@@ -34,7 +34,7 @@ class Spiderweb_model extends Base_model
     {
         $record = $this->getOneById($data_key);
         
-        //check if there still is the same link+title combination (dublication)
+        //check if there still is the same link+title combination (duplication)
         if( !$this->db->get_where($this->c_table,array('link'=>$record['link'],'title'=>$record['title'],$this->id_column=>'!='.$data_key))->row_array() )
         {
            $this->removeLinkFromAllContent($record['table'],$record['link'],$record['title']); 
@@ -192,7 +192,7 @@ class Spiderweb_model extends Base_model
     		//save links in table
     		if(!empty($matches))
     		{
-	    		foreach ($matches as $key=>$match)
+	    		foreach ($matches as $match)
 	    		{
 	    			$data['table'] = $table;
 	    			$data['link'] = $this->fixLink($match[2]);
@@ -372,7 +372,7 @@ class Spiderweb_model extends Base_model
 	    curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
 	    curl_setopt($ch,CURLOPT_USERAGENT,"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.52 Safari/536.5");
 	    curl_setopt($ch,CURLOPT_NOBODY, 1);
-	    $result = curl_exec($ch);
+	    curl_exec($ch);
 
 		/*dump($result);
 		dump(curl_getinfo($ch, CURLINFO_HTTP_CODE));

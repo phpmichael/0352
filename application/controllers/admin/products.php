@@ -16,6 +16,11 @@ class Products extends Admin
     
     protected $per_page = 10;
 
+    /**
+     * Constructor for Products controller.
+     *
+     * @return \Products
+     */
 	public function __construct()
 	{
 		parent::__construct();

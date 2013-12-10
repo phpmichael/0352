@@ -69,8 +69,13 @@ class News extends Front
 
 		redirect($this->_getBaseURI().'/index/tag/'.$tag);
 	}
-	
-	public function Calendar($year,$month)
+
+    /**
+     * Shorter url.
+     * @param string $year
+     * @param string $month
+     */
+    public function Calendar($year,$month)
 	{
 		redirect($this->_getBaseURI().'/index/year/'.$year.'/month/'.$month);
 	}

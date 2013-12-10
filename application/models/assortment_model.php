@@ -54,7 +54,7 @@ class Assortment_model extends Posts_model
 	
 	
 	/**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */

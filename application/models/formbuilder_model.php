@@ -55,7 +55,7 @@ class Formbuilder_model extends Base_model
 	/**
 	 * Return table where form's data stored.
 	 *
-	 * @param inreger $form_id
+	 * @param integer $form_id
 	 * @return string
 	 */
 	public function getFormStoreTable($form_id)
@@ -247,7 +247,7 @@ class Formbuilder_model extends Base_model
 		//update `form_id` for container's children
 		if( $item_type=='container' && $item['form_id'] != $form_id )
 		{
-		    //$this->db->update( 'form_containerts', array('form_id'=>$form_id), array('container_id'=>$item_id) );
+		    //$this->db->update( 'form_containers', array('form_id'=>$form_id), array('container_id'=>$item_id) );
 		    $this->updateFormIdForChildren($form_id,$item_id);
 		}
 		
@@ -361,7 +361,15 @@ class Formbuilder_model extends Base_model
 	// === Sort Stuff: End === //
 	
 	/// ==== Copy Form Item: Start === ///
-	public function copyFormItem($item_type,$item_id,$form_id,$container_id=0)
+    /**
+     * Copy form's item.
+     * @param string $item_type
+     * @param int $item_id
+     * @param int $form_id
+     * @param int $container_id
+     * @return bool|int
+     */
+    public function copyFormItem($item_type,$item_id,$form_id,$container_id=0)
 	{
 		if( !in_array($item_type,array('container','input')) ) return FALSE;
 		
@@ -835,7 +843,7 @@ class Formbuilder_model extends Base_model
 	}
 	
 	/**
-     * Return list of all answerssets.
+     * Return list of all answersets.
      *
      * @return array
      */
@@ -1113,7 +1121,7 @@ class Formbuilder_model extends Base_model
 	}
 	
 	/**
-	 * Return record from answersets_values by fields "value" and "aswerset_id".
+	 * Return record from answersets_values by fields "value" and "answerset_id".
 	 * This needs for answersets with special values.
 	 *
 	 * @param string $value
@@ -1419,7 +1427,7 @@ class Formbuilder_model extends Base_model
 	 */
 	private function setNotRequiredSkippedInputs($data,&$inputs)
 	{
-	    foreach ($inputs as $key => &$input)
+	    foreach ($inputs as &$input)
 	    {
 	        $not_required = FALSE;
 	        
@@ -1494,7 +1502,7 @@ class Formbuilder_model extends Base_model
 	    
 	    $configValidation = array();
 	    
-	    //validate multicategory
+	    //validate category
 	    if( isset($data['category']) && is_array($data['category']) )
 	    {
 	    	$configValidation[] = array(
@@ -1510,7 +1518,7 @@ class Formbuilder_model extends Base_model
             $name = $this->getInputName($input);
             $value = @$data[$name];
 	        
-	        //praparation data
+	        //preparation data
 	        switch ($input['type']) 
 	        {
 	        	case "date":
@@ -1854,7 +1862,7 @@ class Formbuilder_model extends Base_model
 	}
 	
 	/**
-	 * Set checkboxes unchecked (b'se _POST doesn't send checkboxes at all while they not checked).
+	 * Set checkboxes unchecked (because _POST doesn't send checkboxes at all while they not checked).
 	 *
 	 * @param array $data
 	 * @param integer $form_id

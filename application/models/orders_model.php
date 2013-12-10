@@ -193,7 +193,7 @@ class Orders_model extends Base_model
 	    </style>
 	    ";
 	    
-	    $str .= "<table width='100%' class='table-order-deatils'>";
+	    $str .= "<table width='100%' class='table-order-details'>";
 	    $str .= "<tr><th width='65%'>".language('thing_name')."</th><th width='10%'>".language('quantity')."</th><th width='10%'>".language('price')."</th width='15%'><th>".language('subtotal')."</th></tr>";
 	    foreach ($orders_cart as $item)
 	    {

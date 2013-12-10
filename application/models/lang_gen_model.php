@@ -39,7 +39,7 @@ class Lang_gen_model extends Base_model
 	}
 
     /**
-     * Return text by ID for currect language.
+     * Return text by ID for current language.
      *
      * @param integer $lang_id
      * @param bool|string $lang_code
@@ -124,7 +124,7 @@ class Lang_gen_model extends Base_model
 	}
 	
 	/**
-	 * Set if need return all colimns or no.
+	 * Set if need return all columns or no.
 	 *
 	 * @param bool $switch
 	 */

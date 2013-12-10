@@ -48,16 +48,32 @@ class Settings_model extends CI_Model implements ArrayAccess
     }
     
     // === ArrayAccess Implementation === //
+
+    /**
+     * Check if item exists.
+     * @param mixed $key
+     * @return bool
+     */
     public function offsetExists($key)
     {
     	return isset($this->data[$key]);
     }
-    
+
+    /**
+     * Get item.
+     * @param mixed $key
+     * @return mixed
+     */
     public function offsetGet($key)
     {
     	return $this->data[$key];
     }
-    
+
+    /**
+     * Set item.
+     * @param mixed $key
+     * @param mixed $value
+     */
     public function offsetSet($key,$value)
     {
     	if($this->offsetExists($key)) $this->db->update($this->c_table,array('value'=>$value),array('param'=>$key));
@@ -65,7 +81,11 @@ class Settings_model extends CI_Model implements ArrayAccess
     	
     	$this->data[$key] = $value;
     }
-    
+
+    /**
+     * Unset item.
+     * @param mixed $key
+     */
     public function offsetUnset($key)
     {
     	$this->data[$key] = '';

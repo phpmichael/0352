@@ -143,7 +143,7 @@ class Agenda_model extends Base_model
     
     /**
      * Update data. Returns ID field.
-	 * Overrides paramt method.
+	 * Overrides param method.
      *
      * @param array $event
      * @return string(16)

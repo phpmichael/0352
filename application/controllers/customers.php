@@ -369,7 +369,7 @@ class Customers extends Front
 	 */
 	public function Forgot_Pass()
 	{
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/signin" => language('authorization'),

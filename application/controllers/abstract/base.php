@@ -409,8 +409,12 @@ abstract class Base extends CI_Controller
 	{
 		return $this->c_table;
 	}
-	
-	public function _isJustCurrentLang()
+
+    /**
+     * Getter for $this->justCurrentLang
+     * @return bool
+     */
+    public function _isJustCurrentLang()
 	{
 	    return $this->justCurrentLang;
 	}
@@ -436,27 +440,6 @@ abstract class Base extends CI_Controller
 	{
 	    return $this->js_files;
 	}
-	
-	/**
-	 * Return list of all available controllers.
-	 *
-	 * @return array
-	 */
-	/*protected function getAvailableControllers()
-	{
-		return explode(',',$this->settings_model['available_controllers']);
-	}*/
-	
-	/**
-	 * Check if controller is available.
-	 *
-	 * @param string $controller
-	 * @return bool
-	 */
-	/*public function isAvailabeControler($controller)
-	{
-		return in_array($controller,$this->getAvailableControllers());
-	}*/
 	
 	/**
 	 * Append CSS and JS files for comments and ratings.
@@ -490,7 +473,7 @@ abstract class Base extends CI_Controller
 	}
 	
 	/**
-	 * Preparate data before output view.
+	 * Prepare data before output view.
 	 * 
 	 * @param array $data
 	 * @return void

@@ -125,7 +125,7 @@ class Photos extends Admin
 	// ============= ACTION METHODS ================ //
 
     /**
-	 * Show list with records by search creterias (sorted and paginated).
+	 * Show list with records by search criterias (sorted and paginated).
 	 * Overrides parent method.
 	 * 
 	 * @return void

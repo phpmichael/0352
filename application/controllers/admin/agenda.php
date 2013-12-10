@@ -78,7 +78,7 @@ class Agenda extends Admin_fb
      * Change agenda event.
      *
      * @param bool|string(16) $data_key
-     * @param bool|char(10) $date
+     * @param bool|string(10) $date
      */
     public function edit_event($data_key=FALSE,$date=FALSE)
     {

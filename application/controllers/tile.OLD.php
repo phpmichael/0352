@@ -118,7 +118,7 @@ class Tile extends Front
 		$this->_setPageTitle($data['name']);
 		$this->_buid_head_data(array("page_title"=>$this->_getPageTitle(),"meta_keywords"=>'',"meta_description"=>''));
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI() => $this->formbuilder_model->getFormTitle($this->process_form_id),

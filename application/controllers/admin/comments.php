@@ -78,7 +78,9 @@ class Comments extends Admin
 	 */
 	private function _processInsert(array $record=array())
 	{
-		$this->load->library('form_validation');
+        $configValidation = array();
+
+        $this->load->library('form_validation');
 		
 		$id = intval(@$record['id']);
 		

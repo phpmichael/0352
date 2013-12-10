@@ -59,7 +59,7 @@ class Poll_model extends Base_model
 	}
 	
 	/**
-	 * Returns radndom poll record.
+	 * Returns random poll record.
 	 * 
 	 * @return array
 	 */

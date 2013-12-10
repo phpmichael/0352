@@ -273,7 +273,7 @@ class Products_attributes_model extends Base_model
 	}
 	
 	/**
-	 * Set attrbutes for product.
+	 * Set attributes for product.
 	 *
 	 * @param integer $product_id
 	 * @param array $attributes

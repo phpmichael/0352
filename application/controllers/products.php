@@ -77,7 +77,7 @@ class Products extends Front
 	}
 	
 	/**
-	 * Show products' categories/subcategoris list by parent category ID.
+	 * Show products' categories/subcategories list by parent category ID.
 	 * 
 	 * @return void
 	 */
@@ -209,7 +209,7 @@ class Products extends Front
 		$this->_setPageTitle($data['name']);
 		if(isset($data['meta_keywords'])) $this->_buid_head_data(array("page_title"=>$this->_getPageTitle(),"meta_keywords"=>$data['meta_keywords'],"meta_description"=>$data['meta_description']));
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI() => $this->page_titles['index'],

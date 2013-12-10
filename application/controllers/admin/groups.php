@@ -117,9 +117,7 @@ class Groups extends Admin
 		}
 		else
 		{
-			$post = $_POST;
-			
-			$this->groups_model->editRights($group_id,$post);
+			$this->groups_model->editRights($group_id,$rights);
 			
 			redirect($this->_getBaseURI());
 		}
@@ -163,7 +161,7 @@ class Groups extends Admin
 	{
 		$id = $this->segment_item;
 		
-		$this->_processRightsInsert($id);
+		$this->_processRightsInsert($id,$_POST);
 	}
 	
 }

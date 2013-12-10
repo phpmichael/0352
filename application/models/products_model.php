@@ -91,7 +91,7 @@ class Products_model extends Posts_model
     }
 	
 	/**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */
@@ -127,7 +127,7 @@ class Products_model extends Posts_model
     }
     
     /**
-	 * Make sql join creterias based on $filter_data.
+	 * Make sql join criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

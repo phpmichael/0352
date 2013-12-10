@@ -14,6 +14,11 @@ class Orders extends Admin
 	//name of table
     protected $c_table = "orders";
 
+    /**
+     * Constructor for Orders controller.
+     *
+     * @return \Orders
+     */
 	public function __construct()
 	{
 		parent::__construct();

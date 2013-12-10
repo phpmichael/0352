@@ -16,6 +16,11 @@ class News extends Admin
     //show records per page
 	protected $per_page = 10;
 
+    /**
+     * Constructor for News controller.
+     *
+     * @return \News
+     */
 	public function __construct()
 	{
 		parent::__construct();

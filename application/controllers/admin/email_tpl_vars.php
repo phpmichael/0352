@@ -67,7 +67,7 @@ class Email_tpl_vars extends Admin
 		$EMAIL_TPL_CUSTOMER[language('zip_code')] = "{zip_code}";
 		$EMAIL_TPL_CUSTOMER[language('reg_date')] = "{reg_date}";
 		
-		// === Subscribtion TPL == //
+		// === Subscription TPL == //
 		if(userAccess('subscribers','send')) 
 		{
 			$EMAIL_TPL_SUBSCRIBERS[language('unsubscribe')] = "{unsubscribe_link}";

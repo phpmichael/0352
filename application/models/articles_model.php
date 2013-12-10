@@ -41,12 +41,12 @@ class Articles_model extends Posts_model
 		//filter by date
 		if(isset($filter_data['date']) && preg_match("/^\d{4}(-\d{2})?(-\d{2})?$/",$filter_data['date']))
     	{
-    		$where .= " AND `date` LIKE '".$filter_data['date']."%'";
+    		$where .= " AND `pub_date` LIKE '".$filter_data['date']."%'";
     	}
     	//calendar filter
     	if(isset($filter_data['year']) && preg_match("/^\d{4}$/",$filter_data['year']) && isset($filter_data['month']) && preg_match("/^\d{2}$/",$filter_data['month']) )
     	{
-    		$where .= " AND `date` LIKE '{$filter_data['year']}-{$filter_data['month']}%'";
+    		$where .= " AND `pub_date` LIKE '{$filter_data['year']}-{$filter_data['month']}%'";
     	}
     	//filter by tag
 		if( isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode($filter_data['tag'])))) )
@@ -86,10 +86,10 @@ class Articles_model extends Posts_model
 		if ( 'monthly' == $args['type'] ) 
 		{
 			$sql = "
-			SELECT YEAR(`date`) AS `year`, MONTH(`date`) AS `month`, COUNT(id) as amount 
+			SELECT YEAR(`pub_date`) AS `year`, MONTH(`pub_date`) AS `month`, COUNT(id) as amount
 			FROM {$this->c_table}  
-			GROUP BY YEAR(`date`), MONTH(`date`) 
-			ORDER BY `date` DESC LIMIT {$args['limit']}
+			GROUP BY YEAR(`pub_date`), MONTH(`pub_date`)
+			ORDER BY `pub_date` DESC LIMIT {$args['limit']}
 			";
 			
     		$archives = $this->db->query($sql)->result_array();
@@ -110,11 +110,11 @@ class Articles_model extends Posts_model
     	if(strlen($month)==1) $month = '0'.$month;
     	
     	$sql = "
-		SELECT DAY(`date`) AS `day`, COUNT(id) as amount 
+		SELECT DAY(`pub_date`) AS `day`, COUNT(id) as amount
 		FROM {$this->c_table}  
-		WHERE `date` LIKE ?
-		GROUP BY YEAR(`date`), MONTH(`date`), DAY(`date`)
-		ORDER BY `date` 
+		WHERE `pub_date` LIKE ?
+		GROUP BY YEAR(`pub_date`), MONTH(`pub_date`), DAY(`pub_date`)
+		ORDER BY `pub_date`
 		";
 		
 		return $this->db->query($sql,array("{$year}-{$month}-%"))->result_array();
@@ -123,11 +123,9 @@ class Articles_model extends Posts_model
     /**
      * Return html of calendar.
      *
-     * @param bool|string(16) $year
-     * @param bool|string(16) $month
      * @return string
      */
-    public function buildCalendarBox($year=false,$month=false)
+    public function buildCalendarBox()
     {
     	$assoc_uri = $this->CI->uri->uri_to_assoc($this->CI->_getSegmentsOffset()+3);
     	

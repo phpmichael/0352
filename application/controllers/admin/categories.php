@@ -119,7 +119,7 @@ class Categories extends Admin
 	// +++++++++++++ ACTION METHODS +++++++++++++++ //
 
     /**
-	 * Show list with records by search creterias.
+	 * Show list with records by search criterias.
 	 * Overrides parent method.
 	 * 
 	 * @return void

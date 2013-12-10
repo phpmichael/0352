@@ -119,7 +119,7 @@ class Quiz extends Front
 		
 		$data['quiz_records'] = array_merge($not_finished_quiz_records,$data['quiz_records']);
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/index" => lowercase($this->_getPageTitle('index')),
@@ -168,7 +168,7 @@ class Quiz extends Front
 		    redirect($this->_getBaseURI().'/go/'.$quiz_id);
 		}
  		
- 		// === Currenr Location === //
+ 		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/index" => lowercase($this->_getPageTitle('index')),
@@ -213,7 +213,7 @@ class Quiz extends Front
                   ),
             );
 		}
-		//if readiobox
+		//if radio box
 		else 
 		{
 			$configValidation = array(
@@ -311,7 +311,7 @@ class Quiz extends Front
 	    //dump($data);EXIT;
 	    if(empty($data)) show_404($this->_getBaseURI().'/'.$this->_getMethod().'/'.$archive_id);
 	    
-	    // === Currenr Location === //
+	    // === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/index" => lowercase($this->_getPageTitle('index')),

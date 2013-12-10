@@ -394,7 +394,7 @@ class Quiz extends Admin
 	}
 	
 	/**
-	 * Delete selcted answers.
+	 * Delete selected answers.
 	 *
 	 * @param integer $quiz_id
 	 * @param integer $question_id

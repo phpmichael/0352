@@ -20,7 +20,7 @@ class Instructors_model extends Posts_model
 	protected $with_customer_info = TRUE;
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

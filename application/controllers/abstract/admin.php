@@ -358,7 +358,7 @@ abstract class Admin extends Base
 
 	// === Right Top Menu === //
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * 
 	 * @return string
 	 */
@@ -396,7 +396,7 @@ abstract class Admin extends Base
 
 
 	/**
-	 * Show list with records by search creterias (sorted and paginated).
+	 * Show list with records by search criterias (sorted and paginated).
 	 * 
 	 * @return void
 	 */

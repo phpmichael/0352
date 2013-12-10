@@ -18,12 +18,17 @@ abstract class Base_model extends CI_Model
 	protected $CI;
 	//multilang table
 	protected $lang_gen_table = 'lang_gen';
-	//don't select next multolang fields
+	//don't select next multilang fields
 	protected $skip_multilang_fields = array();
 	//if model based on formbuilder
 	protected $process_form_html_id = '';
-	
-	public function __construct()
+
+    /**
+     * Base model constructor.
+     *
+     * @return \Base_model
+     */
+    public function __construct()
     {
         parent::__construct();
         
@@ -303,7 +308,7 @@ abstract class Base_model extends CI_Model
 	}
     
     /**
-     * This is help method for search by few creterias.
+     * This is help method for search by few criterias.
      * Used in articles, news, posts models.
      *
      * @param array $filter_data
@@ -710,7 +715,7 @@ abstract class Base_model extends CI_Model
                 //if($return) $join .= " JOIN {$this->lang_gen_table} AS {$multilang_table} ON {$multilang_table}.id = {$this->c_table}.{$field}";
                 //else $this->db->join( "{$this->lang_gen_table} AS {$multilang_table}" , "{$multilang_table}.id = {$this->c_table}.{$field}" );
                 
-                //Maybe need set "LEFT JOIN" instead of "JOIN", b'se if add new multilang column list doesn't work
+                //Maybe need set "LEFT JOIN" instead of "JOIN", because if add new multilang column list doesn't work
                 if($return) $join .= " LEFT JOIN {$this->lang_gen_table} AS {$multilang_table} ON {$multilang_table}.id = {$this->c_table}.{$field}";
                 else $this->db->join("{$this->lang_gen_table} AS {$multilang_table}" , "{$multilang_table}.id = {$this->c_table}.{$field}", 'left' );
             }
@@ -917,7 +922,7 @@ abstract class Base_model extends CI_Model
 
 		// reset menu sort order
 		$i = 0;
-		foreach ($records as $key=>$val)
+		foreach ($records as $val)
 		{
 			$val['sort'] = $i;
 			$i++;

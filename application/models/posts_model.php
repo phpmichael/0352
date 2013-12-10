@@ -136,7 +136,7 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */
@@ -282,7 +282,7 @@ abstract class Posts_model extends Base_model
 	    	//dump($result);exit;
 	    	if(!empty($result))
 	    	{
-		    	foreach ($result as $key=>$val)
+		    	foreach ($result as $val)
 		    	{
 		    		if(isset($val['category'])) $post_categories[$val['category_id']] = $val['category'];
 		    	}
@@ -762,9 +762,9 @@ abstract class Posts_model extends Base_model
     {
     	$dead_posts = $this->db->get_where($this->c_table,"pub_date + period * 24 * 3600 < UNIX_TIMESTAMP()")->result_array();
 		
-    	foreach ($dead_posts as $key=>$post)
+    	foreach ($dead_posts as $post)
     	{
-    		$this->DeleteId($post['id']);
+    		$this->DeleteId($post[$this->id_column]);
     	}
     	
     	//$this->db->delete($this->c_table, "pub_date + period * 24 * 3600 < UNIX_TIMESTAMP()");

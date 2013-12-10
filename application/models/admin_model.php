@@ -51,7 +51,7 @@ class Admin_model extends Base_model
 	}
 	
 	/**
-	 * Build search creteria for _ListData method.
+	 * Build search criteria for _ListData method.
 	 * 
 	 * @param array $post
 	 * @return string
@@ -156,7 +156,7 @@ class Admin_model extends Base_model
 			}
 		}
 		
-		foreach ($group_filters as $group_id=>$queries)
+		foreach ($group_filters as $queries)
 		{
 		    $where .= ' AND ('.implode(' OR ',$queries).')';
 		}

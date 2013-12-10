@@ -25,7 +25,11 @@ class Lang_model extends Base_model
 	   'PL'=>'polish'
 	);
 
-    
+    /**
+     * Lang model constructor.
+     *
+     * @return \Lang_model
+     */
     public function __construct()
     {
         parent::__construct();
@@ -65,8 +69,12 @@ class Lang_model extends Base_model
 	{
 	    return array_keys($this->langArr);
 	}
-	
-	public function getLangArr()
+
+    /**
+     * Getter for $this->langArr
+     * @return array
+     */
+    public function getLangArr()
 	{
 	    return $this->langArr;
 	}
@@ -95,7 +103,7 @@ class Lang_model extends Base_model
 	}
 	
 	/**
-	 * Return code of deafult language.
+	 * Return code of default language.
 	 *
 	 * @return string
 	 */

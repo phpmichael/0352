@@ -199,7 +199,7 @@ abstract class Front extends Base
 	}
 	
 	/**
-	 * Preparate data before output view.
+	 * Prepare data before output view.
 	 * 
 	 * @param array $data
 	 * @return void

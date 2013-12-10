@@ -133,7 +133,7 @@ class Menu_model extends Base_model
 
 		$html = '';
 
-		foreach ($menuArr as $key=>$val)
+		foreach ($menuArr as $val)
 		{
 			//if set content page
 			if($val['page_id'])

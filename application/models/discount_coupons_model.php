@@ -201,8 +201,13 @@ class Discount_coupons_model extends Base_model
 		$sessdata['discount_coupon_error'] = $error;
 		$this->session->set_userdata($sessdata);
 	}
-	
-	public function increaseCouponUses($code,$used)
+
+    /**
+     * Increase coupon uses.
+     * @param string $code
+     * @param int $used
+     */
+    public function increaseCouponUses($code,$used)
 	{
 		$this->db->update($this->c_table, array('used'=>($used+1)), array('code'=>$code) );
 	}

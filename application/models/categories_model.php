@@ -177,7 +177,7 @@ class Categories_model extends Base_model
 		
 		$categories_arr = $this->GetParents($category_id);
 		
-		foreach ($categories_arr as $key=>$val)
+		foreach ($categories_arr as $val)
 		{
 			if(!empty($val)) $categories_location_arr[$CI->_getBaseURL().$controller."/index/category/".$val['id']] = lowercase($val['category']);
 		}

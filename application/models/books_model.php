@@ -47,7 +47,7 @@ class Books_model extends Products_model
     }
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string
@@ -104,7 +104,7 @@ class Books_model extends Products_model
     }
     
     /**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */

@@ -18,6 +18,11 @@
  */
 class Minify extends CI_Controller {
 
+    /**
+     * Constructor for Minify.
+     *
+     * @return \Minify
+     */
 	function __construct()
 	{
 		parent::__construct();

@@ -176,40 +176,42 @@ class Reports_model extends Base_model
 			//rotating groups
 			$rotated_groups[] = $item['name'];
 		}*/
-		foreach ($report['items'] as $key=>$item)
-		{
-			foreach ($report['groups'] as $group)
-			{
-				if($amount = @$item['amounts'][$group])
-				{
-    			    //if already exist item with name==$group - get its index
-    				if( ($index = $this->getItemIndexByName($rotated_items,$group)) !== false)
-    				{
-    					$rotated_items[$index]['name'] = $group;
-    					$rotated_items[$index]['amounts'][$item['name']] = $amount;
-    					if(isset($item['urls'][$group])) $rotated_items[$index]['urls'][$item['name']] = $item['urls'][$group];
-    				}
-    				else 
-    				{
-    					$rotated_items[$i]['name'] = $group;
-    					$rotated_items[$i]['amounts'][$item['name']] = $amount;
-    					if(isset($item['urls'][$group])) $rotated_items[$i]['urls'][$item['name']] = $item['urls'][$group];
-    					
-    					$i++;
-    				}
-				}
-				elseif( ($index = $this->getItemIndexByName($rotated_items,$group)) === false) 
-				{
-				    $rotated_items[$i]['name'] = $group;
-				    $rotated_items[$i]['amounts'][$item['name']] = 0;
-				    
-				    $i++;
-				}
-			}
-			
-			//rotating groups
-			$rotated_groups[] = $item['name'];
-		}
+        if (isset($key)) {
+            foreach ($report['items'] as $item)
+            {
+                foreach ($report['groups'] as $group)
+                {
+                    if($amount = @$item['amounts'][$group])
+                    {
+                        //if already exist item with name==$group - get its index
+                        if( ($index = $this->getItemIndexByName($rotated_items,$group)) !== false)
+                        {
+                            $rotated_items[$index]['name'] = $group;
+                            $rotated_items[$index]['amounts'][$item['name']] = $amount;
+                            if(isset($item['urls'][$group])) $rotated_items[$index]['urls'][$item['name']] = $item['urls'][$group];
+                        }
+                        else
+                        {
+                            $rotated_items[$i]['name'] = $group;
+                            $rotated_items[$i]['amounts'][$item['name']] = $amount;
+                            if(isset($item['urls'][$group])) $rotated_items[$i]['urls'][$item['name']] = $item['urls'][$group];
+
+                            $i++;
+                        }
+                    }
+                    elseif( ($index = $this->getItemIndexByName($rotated_items,$group)) === false)
+                    {
+                        $rotated_items[$i]['name'] = $group;
+                        $rotated_items[$i]['amounts'][$item['name']] = 0;
+
+                        $i++;
+                    }
+                }
+
+                //rotating groups
+                $rotated_groups[] = $item['name'];
+            }
+        }
 		
 		$report['groups'] = $rotated_groups;
 		$report['items'] = $rotated_items;

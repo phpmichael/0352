@@ -71,7 +71,7 @@ class Assortment extends Front
 	}*/
     
     /**
-	 * Show categories/subcategoris list by parent category ID.
+	 * Show categories/subcategories list by parent category ID.
 	 * 
 	 * @return void
 	 */
@@ -93,7 +93,7 @@ class Assortment extends Front
 		
 		$data['tpl_page'] = "categories/list";
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr = 
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -189,7 +189,7 @@ class Assortment extends Front
 		$this->_setPageTitle($data['name']);
 		$this->_buid_head_data(array("page_title"=>$this->_getPageTitle(),"meta_keywords"=>'',"meta_description"=>''));
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI() => $this->formbuilder_model->getFormTitle($this->process_form_id),

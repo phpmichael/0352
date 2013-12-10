@@ -11,7 +11,12 @@
  */
 class Images extends CI_Controller  
 {
-	public function __construct()
+    /**
+     * Constructor for Images controller.
+     *
+     * @return \Images
+     */
+    public function __construct()
 	{
 		parent::__construct();
 		

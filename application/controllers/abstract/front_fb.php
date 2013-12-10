@@ -123,7 +123,7 @@ class Front_fb extends Front
 
 		$data['tpl_page'] = $this->_getController()."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()

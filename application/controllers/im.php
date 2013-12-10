@@ -113,7 +113,7 @@ class Im extends Front
 	/**
 	 * Returns new messages from user with ID = $from_id in JSON format.
 	 * 
-	 * @param inreger $from_id
+	 * @param integer $from_id
 	 * @return string
 	 */
 	public function getNewMessages($from_id)
@@ -132,7 +132,7 @@ class Im extends Front
 	/**
 	 * Show history between logged user to user with ID = $to_id.
 	 * 
-	 * @param inreger $to_id
+	 * @param integer $to_id
 	 * @return void
 	 */
 	public function History($to_id)

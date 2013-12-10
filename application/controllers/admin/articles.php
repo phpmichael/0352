@@ -16,6 +16,11 @@ class Articles extends Admin
     //show records per page
 	protected $per_page = 10;
 
+    /**
+     * Constructor for Articles controller.
+     *
+     * @return \Articles
+     */
 	public function __construct()
 	{
 		parent::__construct();
