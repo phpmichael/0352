@@ -36,7 +36,7 @@ class Email_tpls_model extends Base_model
 	/**
 	 * Get template content by ID.
 	 * 
-	 * @param array $id
+	 * @param integer $id
 	 * @return string
 	 */
 	public function getContentById($id)

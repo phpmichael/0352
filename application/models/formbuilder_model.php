@@ -960,12 +960,13 @@ class Formbuilder_model extends Base_model
 		
 		return $answersets;
 	}
-	
-	/**
-	 * Show answersets as tree.
-	 *
-	 * @return string
-	 */
+
+    /**
+     * Show answersets as tree.
+     *
+     * @param array $tree
+     * @return string
+     */
 	public function showAnswersetTree($tree = array())
     {
     	if(empty($tree)) $tree = $this->getAnswersetTree();
@@ -1125,17 +1126,17 @@ class Formbuilder_model extends Base_model
 		
 		return $this->getAnswersetValueById($answerset_value['id']);
 	}
-	
-	/**
-	 * Return answers' labels by stored values.
-	 * This needs for show selected answers.
-	 *
-	 * @param string $values
-	 * @param string $format
-	 * @param string $input_name
-	 * @param integer $form_id
-	 * @return mixed
-	 */
+
+    /**
+     * Return answers' labels by stored values.
+     * This needs for show selected answers.
+     *
+     * @param string $values
+     * @param string $format
+     * @param bool|string $input_name
+     * @param bool|int $form_id
+     * @return mixed
+     */
 	public function getAnswersetLabelsByValues($values,$format="array",$input_name=FALSE,$form_id=FALSE)
 	{
 		$values = explode("|",$values);
@@ -1175,7 +1176,7 @@ class Formbuilder_model extends Base_model
 	/// ==== Build Form Stuff: Start === ///
 	
 	/**
-	 * Return mode for diplay form.
+	 * Return mode for display form.
 	 *
 	 * @return string
 	 */
@@ -1187,7 +1188,7 @@ class Formbuilder_model extends Base_model
 	/**
 	 * Set mode for display form.
 	 *
-	 * @param unknown_type $mode
+	 * @param string $mode
 	 */
 	public function setFormMode($mode)
 	{
@@ -1195,7 +1196,7 @@ class Formbuilder_model extends Base_model
 	}
 	
 	/**
-	 * Return froms.id for froms.html_id
+	 * Return form.id for form.html_id
 	 *
 	 * @param integer|string $form_id
 	 * @return integer
@@ -1212,7 +1213,8 @@ class Formbuilder_model extends Base_model
 	 * Build form.
 	 *
 	 * @param integer|string $form_id
-	 * @param bool|char(16) $data_key
+	 * @param bool|string(16) $data_key
+     * @return bool
 	 */
 	public function buildForm($form_id,$data_key=FALSE)
 	{		
@@ -1225,15 +1227,17 @@ class Formbuilder_model extends Base_model
 		$form['children'] = $this->getTree($form_id);
 		//dump($form);
 		load_theme_view($this->getScreensPath().'container/form',array('item'=>$form));
+
+        return TRUE;
 	}
-	
-	/**
-	 * Initialize form.
-	 *
-	 * @param integer $form_id
-	 * @param char(16) $data_key
-	 * @return array
-	 */
+
+    /**
+     * Initialize form.
+     *
+     * @param integer $form_id
+     * @param bool|string(16) $data_key
+     * @return array
+     */
 	private function initForm($form_id,$data_key=FALSE)
 	{
 	    $form = $this->getFormById($form_id);
@@ -1256,7 +1260,7 @@ class Formbuilder_model extends Base_model
 	/**
 	 * Return form's data_key.
 	 *
-	 * @return char(16)
+	 * @return string(16)
 	 */
 	public function getDataKey()
 	{
@@ -1577,15 +1581,15 @@ class Formbuilder_model extends Base_model
 	    //check if valid
 	    return $this->CI->form_validation->run();
 	}
-	
-	/**
-	 * Upload files on form screen.
-	 * Don't set name of file = "image", could be re-uploaded in posts model.
-	 *
-	 * @param array $form
-	 * @param array $data
-	 * @param char(16) $data_key
-	 */
+
+    /**
+     * Upload files on form screen.
+     * Don't set name of file = "image", could be re-uploaded in posts model.
+     *
+     * @param array $form
+     * @param array $data
+     * @param bool|string(16) $data_key
+     */
 	private function uploadFiles($form,&$data,$data_key=FALSE)
     {
 		//dump($_FILES);exit;
@@ -1647,7 +1651,7 @@ class Formbuilder_model extends Base_model
      *
      * @param integer $form_id
      * @param string $file_field
-     * @param char(16) $data_key
+     * @param string(16) $data_key
      */
     public function removeFile($form_id,$file_field,$data_key)
     {
@@ -1681,7 +1685,7 @@ class Formbuilder_model extends Base_model
      * Remove all stored files for form.
      *
      * @param integer|string $form_id
-     * @param char(16) $data_key
+     * @param string(16) $data_key
      */
     public function removeFiles($form_id,$data_key)
     {
@@ -1705,12 +1709,12 @@ class Formbuilder_model extends Base_model
     {
         return site_url($this->CI->_getBaseURL().'formbuilder/remove_file/'.$this->form_id.'/'.$file_field.'/'.$this->data_key);
     }
-    
+
     /**
      * Check if $data_key exists in table of form.
      *
-     * @param char(16) $data_key
-     * @param string $table
+     * @param string(16) $data_key
+     * @param bool|string $table
      * @return bool
      */
     private function isDataKeyExists($data_key,$table=FALSE)
@@ -1743,14 +1747,14 @@ class Formbuilder_model extends Base_model
 		
 		return $data;
     }
-	
+
     /**
      * Store form data.
      *
      * @param array $data
      * @param integer $form_id
-     * @param char(16) $data_key
-     * @return char(16)
+     * @param bool|string(16) $data_key
+     * @return string(16)
      */
 	public function storeForm($data,$form_id,$data_key=FALSE)
 	{
@@ -1895,7 +1899,7 @@ class Formbuilder_model extends Base_model
 	/**
 	 * Prefill form with stored data (for edit). 
 	 *
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 */
 	private function setFormDataByKey($data_key)
 	{
@@ -1952,6 +1956,7 @@ class Formbuilder_model extends Base_model
 	 * Generate SQL for creating table based on form's inputs.
 	 *
 	 * @param integer $form_id
+     * @return string
 	 */
 	private function generateFormCreateTableSQL($form_id)
 	{
@@ -2163,13 +2168,13 @@ class Formbuilder_model extends Base_model
 		
 		return array('form'=>$form,'tree'=>$tree);
 	}
-	
-	/**
-	 * Import form.
-	 *
-	 * @param array $data
-	 * @param string $dbname
-	 */
+
+    /**
+     * Import form.
+     *
+     * @param array $data
+     * @param bool|string $dbname
+     */
 	private function importFormData($data,$dbname=FALSE)
 	{
 	    if($dbname)
@@ -2212,7 +2217,7 @@ class Formbuilder_model extends Base_model
      * @param array $item
      * @param integer $form_id
 	 * @param integer $container_id
-     * @return integer
+     * @return integer|bool
      */
     private function importItem(array $item,$form_id,$container_id=0)
     {
@@ -2274,6 +2279,8 @@ class Formbuilder_model extends Base_model
 				return $this->insertOrUpdateInput($item);
 			break;	
 		}
+
+        return TRUE;
     }
 	
 	/// ==== Export Form: End === ///

@@ -17,10 +17,10 @@ class Customers extends Admin
     protected $per_page = 10;
 
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Customers
+     */
 	public function __construct()
 	{
 		parent::__construct();

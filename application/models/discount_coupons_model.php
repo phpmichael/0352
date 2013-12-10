@@ -15,7 +15,7 @@ class Discount_coupons_model extends Base_model
 	protected $c_table = 'discount_coupons';
 	
 	/**
-	 * Set discound code.
+	 * Set discount code.
 	 *
 	 * @param string $code
 	 * @return bool
@@ -93,7 +93,7 @@ class Discount_coupons_model extends Base_model
 			
 			foreach ($this->CI->cart->contents() as $item)
 			{
-				//don't calulate price for special products
+				//don't calculate price for special products
 				$item_price = ( ($old_price = $this->products_model->getOldPrice($item['id']))>0 ) ? 0.00 : $item['price'];
 				
 				$order_total += ( $item_price * $item['qty'] );//price*qty

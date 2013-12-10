@@ -14,11 +14,11 @@ class Menu extends Admin
     //name of table
 	protected $c_table = "menu";
 
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Menu
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -55,7 +55,7 @@ class Menu extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string
@@ -191,12 +191,13 @@ class Menu extends Admin
 		
 		$this->_processInsert($record);
 	}
-	
-	/**
-	 * Change menu sorting.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Change menu sorting.
+     *
+     * @param $menu
+     * @return void
+     */
 	public function Sort($menu)
 	{
 		$this->menu_model->Sort($this->parseSortables(),$menu);

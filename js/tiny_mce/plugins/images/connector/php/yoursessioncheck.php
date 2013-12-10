@@ -15,5 +15,3 @@ if( @$_COOKIE['T_M_I'] != $value)
 	echo 'Access denied, check file '.basename(__FILE__);
 	exit();
 }
-
-?>

@@ -24,7 +24,7 @@ class Books_model extends Products_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @return char(16)
+	 * @return string(16)
 	 */
     public function Insert($post)
     {
@@ -38,7 +38,7 @@ class Books_model extends Products_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @return char(16)
+	 * @return string(16)
 	 */
     public function Update($post)
     {

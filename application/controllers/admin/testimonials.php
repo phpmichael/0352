@@ -13,12 +13,12 @@ class Testimonials extends Admin
 {
 	//name of table
     protected $c_table = "testimonials";
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Testimonials
+     */
 	public function __construct()
 	{
 		parent::__construct();

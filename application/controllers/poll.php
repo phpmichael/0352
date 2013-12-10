@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Poll extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Poll
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -44,7 +44,7 @@ class Poll extends Front
 
 	// === Custom validation : Start === //	
 	/**
-	 * Validate poll answerd: check if integer.
+	 * Validate poll answered: check if integer.
 	 *
 	 * @param integer $answer
 	 * @return bool
@@ -78,7 +78,7 @@ class Poll extends Front
 	/**
 	 * Check if customer already voted if no than store customer's vote.
 	 * 
-	 * @param inreger $poll_id
+	 * @param integer $poll_id
 	 * @return void
 	 */
 	public function Submit($poll_id)
@@ -116,8 +116,6 @@ class Poll extends Front
 		{
 		    die(json_encode(array('result'=>'error','message'=>language('validation_error'))));    
 		}
-		
-		$this->Results($poll_id);
 	}
 	
 	/**

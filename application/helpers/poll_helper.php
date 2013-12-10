@@ -3,10 +3,10 @@
 /**
  * Return random poll data.
  *
- * @param integer $poll_id
+ * @param bool|int $poll_id
  * @return array
  */
-function poll_data($poll_id=false)
+function poll_data($poll_id=FALSE)
 {
     $poll_model = load_model('poll_model');
     return $poll_model->getPollData($poll_id);

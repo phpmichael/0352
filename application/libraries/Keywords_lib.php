@@ -48,7 +48,6 @@ class Keywords_lib{
 		
 		// count all words with str_word_count_utf8
 		$initial_words_array  = $this->str_word_count_utf8($string, 1);
-		$total_words = sizeof($initial_words_array);
 		
 		$new_string = $string;
 		

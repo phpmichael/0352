@@ -37,14 +37,14 @@ class Lang_gen_model extends Base_model
 	{
 	    return $this->lang_model->getLangCodeByLanguage($language);
 	}
-	
-	/**
-	 * Return text by ID for currect language.
-	 *
-	 * @param integer $lang_id
-	 * @param string $lang_code
-	 * @return string
-	 */
+
+    /**
+     * Return text by ID for currect language.
+     *
+     * @param integer $lang_id
+     * @param bool|string $lang_code
+     * @return string
+     */
 	public function getLangText($lang_id,$lang_code=FALSE)
 	{
         $CI =& get_instance();
@@ -132,14 +132,14 @@ class Lang_gen_model extends Base_model
 	{
 		$this->return_all_columns = $switch;
 	}
-	
-	/**
-	 * Check if record in lang_gen table exists.
-	 *
-	 * @param array $langArr
-	 * @param string $table
-	 * @return integer|bool
-	 */
+
+    /**
+     * Check if record in lang_gen table exists.
+     *
+     * @param array $langArr
+     * @param bool|string $table
+     * @return integer|bool
+     */
 	public function exists(array $langArr, $table=FALSE)
 	{
 		foreach ($langArr as $lang=>$text)

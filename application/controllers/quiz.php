@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Quiz extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Quiz
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -179,7 +179,7 @@ class Quiz extends Front
 	}
 	
 	/**
-	 * Validate and store customer's answer, than regirect to next question.
+	 * Validate and store customer's answer, than redirect to next question.
 	 * 
 	 * @param integer $quiz_id
 	 * @param integer $question_id
@@ -337,7 +337,7 @@ class Quiz extends Front
 	    
 	    if($quiz_id) $data['records'] = $this->quiz_model->getTopRatedList($quiz_id);
 	    
-	    // === Currenr Location === //
+	    // === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/index" => lowercase($this->_getPageTitle('index')),

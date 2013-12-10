@@ -18,7 +18,7 @@ class Photos_Categories extends Categories
 	 * Init models, set pages' titles, fields' titles, set languages' sections.
 	 * 
 	 * @param string $model
-	 * @return void
+	 * @return \Photos_Categories
 	 */
 	public function __construct($model = 'photos_categories_model')
 	{
@@ -29,7 +29,7 @@ class Photos_Categories extends Categories
 		
 		$data['photo_data'] = $this->model->getPhotoData();
 		
-		// === LOAD publics TO ALL VIEWERS === //
+		// === LOAD public TO ALL VIEWERS === //
 		$this->load->vars($data);
 	}
 	

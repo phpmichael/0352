@@ -15,10 +15,10 @@ class Articles_Categories extends Categories
     protected $c_table = "articles_categories_list";
 
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Articles_Categories
+     */
 	public function __construct()
 	{
 		parent::__construct('articles_categories_model');

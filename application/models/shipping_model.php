@@ -19,7 +19,7 @@ class Shipping_model extends Base_model
 	/**
 	 * Set shipping method.
 	 *
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return bool
 	 */
 	public function setShipping($data_key)
@@ -40,13 +40,13 @@ class Shipping_model extends Base_model
 			return TRUE;
 		}
 	}
-	
-	/**
-	 * Return currently selected shipping.
-	 *
-	 * @param string $field
-	 * @return mixed
-	 */
+
+    /**
+     * Return currently selected shipping.
+     *
+     * @param bool|string $field
+     * @return mixed
+     */
 	public function getSelectedShipping($field=FALSE)
 	{
 		$shipping = $this->session->userdata('shipping_selected');	

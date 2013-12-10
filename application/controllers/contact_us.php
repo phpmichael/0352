@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Contact_us extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Contact_us
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -54,7 +54,7 @@ class Contact_us extends Front
 	}
 	
 	/**
-	 * Vlidate form and send email to admin.
+	 * Validate form and send email to admin.
 	 * 
 	 * @return void
 	 */

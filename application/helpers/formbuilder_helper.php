@@ -4,7 +4,7 @@
  * Build form with formbuilder.
  *
  * @param integer|string $form_id
- * @param char(16) $data_key
+ * @param bool|string(16) $data_key
  * @param string|bool $form_mode (view|edit)
  */
 function fb_form($form_id,$data_key=FALSE,$form_mode=FALSE)

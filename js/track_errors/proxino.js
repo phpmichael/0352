@@ -34,7 +34,7 @@ Proxino = {
         success:function(data){
           //console.log(data);
         }
-      }); 
+      });
     }
     catch(exc){
       // Ignore failure to post, don't want recursive loop
@@ -45,7 +45,7 @@ Proxino = {
       throw "Please set your API key."
     }
     window.onerror = function(msg, url, lineno){
-      var data = {type:"Exception",body:msg}; 
+      var data = {type:"Exception",body:msg};
       if(msg === undefined){
         data.body = "No message";
       }

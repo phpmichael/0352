@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  */
 class Managers extends Admin 
 {
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Managers
+     */
 	public function __construct()
 	{
 		parent::__construct();

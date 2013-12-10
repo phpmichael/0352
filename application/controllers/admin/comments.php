@@ -17,10 +17,10 @@ class Comments extends Admin
     protected $per_page = 10;
 
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Comments
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -60,7 +60,7 @@ class Comments extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string

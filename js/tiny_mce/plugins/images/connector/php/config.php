@@ -26,5 +26,3 @@ define('HEIGHT_TO_LINK', 500);
 //Additional attributes class and rel
 define('CLASS_LINK', 'lightview');
 define('REL_LINK', 'lightbox');
-
-?>

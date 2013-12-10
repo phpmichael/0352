@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Orders extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Orders
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -103,7 +103,7 @@ class Orders extends Front
 		    $this->formbuilder_model->setFormData($this->session->userdata('orders_customer_info'));
 		}
 	    
-	    // === Currenr Location === //
+	    // === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURL()."products"=>language('catalog'),
@@ -141,7 +141,7 @@ class Orders extends Front
     		}
 	    }
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURL()."products"=>language('catalog'),

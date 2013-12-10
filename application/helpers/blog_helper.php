@@ -3,7 +3,9 @@
 /**
  * Generate archives list.
  *
+ * @param string $blog_model
  * @param array $args
+ * @return string
  */
 function get_archives($blog_model,array $args=array())
 {

@@ -11,12 +11,12 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  */
 class Grabber extends Admin 
 {
-	
+
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Grabber
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -34,7 +34,7 @@ class Grabber extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string
@@ -134,6 +134,8 @@ class Grabber extends Admin
 	    $this->tags_model->Insert("articles",$article_id,$post['meta_keywords']['EN']);
 	    
 	    dump($post);
+
+        return TRUE;
 	}
 	
     private function generate_keywords($string)
@@ -162,7 +164,7 @@ class Grabber extends Admin
           }   
           $wordCountArr = array();
           if ( is_array($matchWords) ) {
-              foreach ( $matchWords as $key => $val ) {
+              foreach ( $matchWords as $val ) {
                   //$val = strtolower($val);
                   if ( isset($wordCountArr[$val]) ) {
                       $wordCountArr[$val]++;

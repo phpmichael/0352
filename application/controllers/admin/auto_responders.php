@@ -13,12 +13,12 @@ class Auto_Responders extends Admin
 {
 	//name of table
     protected $c_table = "auto_responders";
-	
+
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Auto_Responders
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -47,7 +47,7 @@ class Auto_Responders extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string

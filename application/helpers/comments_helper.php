@@ -18,9 +18,9 @@ function get_comments($table,$post_id)
  *
  * @param string $table
  * @param integer $post_id
- * @param string $zero
- * @param string $one
- * @param string $more
+ * @param bool|string $zero
+ * @param bool|string $one
+ * @param bool|string $more
  * @return string
  */
 function comments_number($table,$post_id,$zero=false,$one=false,$more=false)

@@ -39,14 +39,14 @@ class Products_model extends Posts_model
         $this->CI->load->model('discount_coupons_model');
         $this->CI->load->model('shipping_model');
     }
-	
-	/**
-	 * Returns one record by ID.
-	 * Overrides parent method.
-	 * 
-	 * @param integer $post_id
-	 * @return array
-	 */
+
+    /**
+     * Returns one record by ID.
+     * Overrides parent method.
+     *
+     * @param int $product_id
+     * @return array
+     */
     public function getOneById($product_id)
     {
     	$product = parent::getOneById($product_id);
@@ -78,7 +78,7 @@ class Products_model extends Posts_model
 	 * 
 	 * @param array $post
 	 * @param array $categories
-	 * @return void
+	 * @return integer
 	 */
     public function insertOrUpdate($post,$categories)
     {
@@ -146,7 +146,7 @@ class Products_model extends Posts_model
     }
 	
 	/**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

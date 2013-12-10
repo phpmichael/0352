@@ -17,10 +17,10 @@ class Filters extends Admin
 	protected $per_page = 9999;
 
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Filters
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -69,8 +69,6 @@ class Filters extends Admin
 	 */
 	private function _processInsertGroup(array $record=array())
 	{
-		$filter_group_id = isset($record['id']) ? $record['id'] : 0;
-	    
 	    $this->load->library('form_validation');
 		
 		$configValidation = array( 
@@ -288,12 +286,13 @@ class Filters extends Admin
 	{
 		$this->filters_model->SortGroups($this->parseSortables());
 	}
-	
-	/**
-	 * Change filters sorting.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Change filters sorting.
+     *
+     * @param $filter_group_id
+     * @return void
+     */
 	public function Sort_Filters($filter_group_id)
 	{
 		$this->filters_model->SortFilters($this->parseSortables(),$filter_group_id);

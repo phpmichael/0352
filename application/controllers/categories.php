@@ -18,11 +18,13 @@ class Categories extends Base
 
 	// ============= ACTION METHODS ================ //
 
-	/**
-	 * Returns children categories in JSON format.
-	 * 
-	 * @return string
-	 */
+    /**
+     * Returns children categories in JSON format.
+     *
+     * @param int $parent_id
+     * @param string $categories_model
+     * @return string
+     */
 	public function Get($parent_id=0,$categories_model='categories')
 	{
 		// === Init Language Section === //

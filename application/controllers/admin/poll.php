@@ -17,10 +17,10 @@ class Poll extends Admin
     protected $per_page = 10;
 
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Poll
+     */
 	public function __construct()
 	{
 		parent::__construct();

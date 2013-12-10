@@ -7,4 +7,3 @@ $I->fillField('email','php.michael@gmail.com');
 $I->fillField('password','codemaster7');
 $I->click('Login');
 $I->see('Logout');
-?>

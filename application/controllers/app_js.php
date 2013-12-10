@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class App_js extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \App_js
+     */
 	public function __construct()
 	{
 		parent::__construct();

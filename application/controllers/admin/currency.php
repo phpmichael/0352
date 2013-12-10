@@ -15,12 +15,12 @@ class Currency extends Admin
     protected $c_table = "currency";
 	//show records per page
     protected $per_page = 999;
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Currency
+     */
 	public function __construct()
 	{
 		parent::__construct();

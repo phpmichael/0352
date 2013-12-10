@@ -15,7 +15,7 @@ class Dashboard_model extends Base_model
 	protected $c_table = 'dashboard';
 	
 	/**
-	 * Return list of availbale widgets.
+	 * Return list of available widgets.
 	 * Check user rights.
 	 *
 	 * @return array
@@ -38,11 +38,6 @@ class Dashboard_model extends Base_model
 		}
 		
 		return $widgets;
-	}
-	
-	private function sortSections($sections)
-	{
-		
 	}
 	
 	/**

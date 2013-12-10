@@ -15,12 +15,12 @@ class Products_manufacturers extends Admin
     protected $c_table = "products_manufacturers";
 	//show records per page
     protected $per_page = 15;
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Products_manufacturers
+     */
 	public function __construct()
 	{
 		parent::__construct();

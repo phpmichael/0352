@@ -1,7 +1,7 @@
 <?php
 
 /** 
- * This is base (abstract) model for mosts models.
+ * This is base (abstract) model for most models.
  * 
  * @package base  
  * @author Michael Kovalskiy
@@ -16,7 +16,7 @@ abstract class Base_model extends CI_Model
 	protected $id_column = 'id';
 	//instance of CodeIgniter
 	protected $CI;
-	//multilang yable
+	//multilang table
 	protected $lang_gen_table = 'lang_gen';
 	//don't select next multolang fields
 	protected $skip_multilang_fields = array();
@@ -88,7 +88,7 @@ abstract class Base_model extends CI_Model
 	 */
     public function Insert($post)
     {
-		//if primary key is "data_key" char(16) need to generate it
+		//if primary key is "data_key" string(16) need to generate it
         if( $this->id_column=='data_key' && ( !isset($post['data_key']) || !$post['data_key'] ) ) $post['data_key'] = $this->generateDataKey();
         
         $post = $this->addMultilangFields($post);
@@ -97,7 +97,7 @@ abstract class Base_model extends CI_Model
 		
     	$this->db->insert($this->c_table, $post);
 		
-    	//if primary key is "data_key" char(16)
+    	//if primary key is "data_key" string(16)
     	if( $this->id_column=='data_key' ) return $post['data_key'];
     	//if primary key is integer
     	else return $this->db->insert_id();
@@ -106,7 +106,7 @@ abstract class Base_model extends CI_Model
     /**
 	 * Generate unique key (ID) for store forms.
 	 *
-	 * @return char(16)
+	 * @return string(16)
 	 */
 	protected function generateDataKey()
 	{
@@ -116,7 +116,7 @@ abstract class Base_model extends CI_Model
     /**
 	 * Delete record by ID.
 	 * 
-	 * @param integer|char(16) $id
+	 * @param integer|string(16) $id
 	 * @return void
 	 */
     public function DeleteId($id)
@@ -151,7 +151,7 @@ abstract class Base_model extends CI_Model
 	/**
 	 * Returns one record by ID.
 	 * 
-	 * @param integer $id 
+	 * @param integer|string(16) $id
 	 * @return array
 	 */
     public function getOneById($id)
@@ -243,17 +243,17 @@ abstract class Base_model extends CI_Model
 		}
 		return $post;
     }
-    
+
     /**
-	 * Returns records from table by defined creterias.
-	 * 
-	 * @param string $where
-	 * @param string $order_by
-	 * @param string $order_direction
-	 * @param integer $limit
-	 * @param integer $offset
-	 * @return array
-	 */
+     * Returns records from table by defined creterias.
+     *
+     * @param bool|string $where
+     * @param bool|string $order_by
+     * @param string $order_direction
+     * @param bool|int $limit
+     * @param integer $offset
+     * @return array
+     */
     public function get($where = false,$order_by = false,$order_direction = 'ASC',$limit = false,$offset = 0)
     {
     	/*if($where) $this->db->where($where);
@@ -746,10 +746,10 @@ abstract class Base_model extends CI_Model
     
     /**
      * Replace field like "name" on "lang_gen_name.UA", where UA is current language. 
-     * Allows seach by multilang fields.
+     * Allows search by multilang fields.
      *
      * @param string $field
-     * @return satring
+     * @return string
      */
     protected function prepareFieldForSearch($field)
     {

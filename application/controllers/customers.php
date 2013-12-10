@@ -15,10 +15,10 @@ class Customers extends Front
     protected $c_table = "customers";
 
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Customers
+     */
 	public function __construct()
 	{
 		parent::__construct();

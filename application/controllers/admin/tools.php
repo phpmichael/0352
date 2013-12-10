@@ -12,12 +12,12 @@ require_once(APPPATH.'controllers/abstract/admin.php');
 class Tools extends Admin 
 {
 	private $pathToProjects = "Z:/home/localhost/www/CI/";
-	
+
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Tools
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -37,7 +37,7 @@ class Tools extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string
@@ -62,16 +62,18 @@ class Tools extends Admin
 	 *
 	 * @param string $projectName
 	 * @param string $sourceName
-	 * @return void
+	 * @return bool
 	 */
 	public function create_project($projectName, $sourceName = '0352')
 	{
 		if(!$projectName) return FALSE;
 		
-		$soureDir = "{$this->pathToProjects}{$sourceName}/";
+		$sourceDir = "{$this->pathToProjects}{$sourceName}/";
 	    $projectDir = "{$this->pathToProjects}{$projectName}/";
 	    
-	    $this->tools_lib->createProject($soureDir,$projectDir);
+	    $this->tools_lib->createProject($sourceDir,$projectDir);
+
+        return TRUE;
 	}
 	
 	/**
@@ -92,22 +94,26 @@ class Tools extends Admin
 	 * @param bool $is_dir 
 	 * @param string $projectName
 	 * @param string $sourceName
+     * @return bool
 	 */
 	public function add_symlink($symlink, $is_dir, $projectName, $sourceName = '0352')
 	{
 	    if(!$projectName) return FALSE;
 		
-		$soureDir = "{$this->pathToProjects}{$sourceName}/";
+		$sourceDir = "{$this->pathToProjects}{$sourceName}/";
 	    $projectDir = "{$this->pathToProjects}{$projectName}/";
 		
-	    $this->tools_lib->mksymlink($soureDir.$symlink,$projectDir.$symlink,$is_dir);
+	    $this->tools_lib->mksymlink($sourceDir.$symlink,$projectDir.$symlink,$is_dir);
+
+        return TRUE;
 	}
-	
-	/**
-	 * Check writable permissions.
-	 *
-	 * @param string $projectName
-	 */
+
+    /**
+     * Check writable permissions.
+     *
+     * @param bool|string $projectName
+     * @return bool
+     */
 	public function check_project_config($projectName=FALSE)
     {
     	if(!$projectName) 
@@ -131,6 +137,8 @@ class Tools extends Admin
     	}
     	
     	dump($writeableFolders);
+
+        return TRUE;
     }
 
 }

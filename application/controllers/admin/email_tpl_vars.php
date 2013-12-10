@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  */
 class Email_tpl_vars extends Admin 
 {
-	/**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Email_tpl_vars
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -35,7 +35,7 @@ class Email_tpl_vars extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string

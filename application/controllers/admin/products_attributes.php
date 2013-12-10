@@ -15,10 +15,10 @@ class Products_attributes extends Admin
     protected $c_table = "products_available_attributes";
 
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Products_attributes
+     */
 	public function __construct()
 	{
 		parent::__construct();

@@ -340,13 +340,14 @@ class Filters_model extends Base_model
 		
 		parent::Sort($sortables);
 	}
-	
-	/**
-	 * Sort filters.
-	 * 
-	 * @param array $sortables
-	 * @return void
-	 */
+
+    /**
+     * Sort filters.
+     *
+     * @param array $sortables
+     * @param $filter_group_id
+     * @return void
+     */
 	public function SortFilters($sortables,$filter_group_id)
 	{
 		$this->c_table = 'filters';

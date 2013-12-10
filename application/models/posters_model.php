@@ -17,7 +17,7 @@ class Posters_model extends Posts_model
 	protected $c_type = "poster";
 
 	/**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */
@@ -32,7 +32,7 @@ class Posters_model extends Posts_model
     }
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

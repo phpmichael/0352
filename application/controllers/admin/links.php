@@ -15,12 +15,12 @@ class Links extends Admin
     protected $c_table = "links";
 	//show records per page
     protected $per_page = 15;
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Links
+     */
 	public function __construct()
 	{
 		parent::__construct();

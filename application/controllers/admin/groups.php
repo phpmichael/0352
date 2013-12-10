@@ -13,12 +13,12 @@ class Groups extends Admin
 {
 	//name of table
     protected $c_table = "groups";
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Groups
+     */
 	public function __construct()
 	{
 		parent::__construct();

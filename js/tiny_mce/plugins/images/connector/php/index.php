@@ -871,5 +871,3 @@ class TinyImageManager {
 }
 
 $letsGo = new TinyImageManager();
-
-?>

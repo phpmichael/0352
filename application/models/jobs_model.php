@@ -18,7 +18,7 @@ class Jobs_model extends Posts_model
 	protected $c_type = "job";
 
 	/**
-	 * Make array of search/sort creterias.
+	 * Make array of search/sort criterias.
 	 * 
 	 * @return array
 	 */
@@ -33,7 +33,7 @@ class Jobs_model extends Posts_model
     }
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

@@ -2,7 +2,7 @@
 require_once(APPPATH.'models/base_model.php');
 
 /** 
- * This is instant messanger model.
+ * This is instant messenger model.
  * 
  * @package IM  
  * @author Michael Kovalskiy
@@ -50,14 +50,15 @@ class Im_model extends Base_model
 		
 		return $records;
 	}
-	
-	/**
-	 * Returns history (read) messages sent from $from_id to $to_id. 
-	 * 
-	 * @param integer $from_id
-	 * @param integer $to_id
-	 * @return array
-	 */
+
+    /**
+     * Returns history (read) messages sent from $from_id to $to_id.
+     *
+     * @param integer $from_id
+     * @param integer $to_id
+     * @param int $limit
+     * @return array
+     */
 	public function getHistoryMessages($from_id,$to_id,$limit=9999)
 	{
 		$from_id = intval($from_id);

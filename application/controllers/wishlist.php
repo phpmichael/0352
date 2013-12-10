@@ -12,10 +12,10 @@ require_once(APPPATH.'controllers/abstract/front.php');
 class Wishlist extends Front 
 {
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Wishlist
+     */
 	public function __construct()
 	{
 		parent::__construct();

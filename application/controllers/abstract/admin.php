@@ -9,7 +9,7 @@ require_once(APPPATH.'controllers/abstract/base.php');
  * @version 2011
  * @access public
  */
-abstract class Admin extends Base 
+abstract class Admin extends Base
 {
 	protected $panel = "admin";
     
@@ -20,12 +20,12 @@ abstract class Admin extends Base
 	protected $segment_filters;
 	
 	protected $folder = "admin/";
-	
-	/**
-	 * Init models, set theme, set default segments values.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Init models, set theme, set default segments values.
+     *
+     * @return \Admin
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -38,7 +38,6 @@ abstract class Admin extends Base
 		$this->segment_filters = $this->uri->segment($this->_getSegmentsOffset()+7,'');
 		
 		// === Load Models === //
-		$settings = $this->settings_model;
 		$this->load->model('admin_model');
 		
 		$this->load->helper(array('aform','aurl'));
@@ -51,13 +50,13 @@ abstract class Admin extends Base
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	// === Custom validation : Start === //
-	/**
-	 * Validate if slug is unique.
-	 *
-	 * @param string $lang
-	 * @param string $params
-	 * @return bool
-	 */
+    /**
+     * Validate if slug is unique.
+     *
+     * @param $slug
+     * @param string $params
+     * @return bool
+     */
 	public function _unique_slug($slug,$params)
 	{
 	    list($lang,$table,$slug_lang_id) = explode(',',$params);
@@ -120,11 +119,12 @@ abstract class Admin extends Base
 		return $this->session->userdata('customer_is_admin');
 	}
 
-	/**
-	 * Redirect not logined customer to login page.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Redirect not logined customer to login page.
+     *
+     * @param bool $redirect
+     * @return void
+     */
 	protected function _CheckLogged($redirect=TRUE)
 	{
 		if(!$this->_is_logged())
@@ -230,18 +230,18 @@ abstract class Admin extends Base
 	}
 
 	// === Built Index Page === //
-	/**
-	 * Select data for display in main records list (paginated).
-	 * 
-	 * @param string $title
-	 * @param integer $per_page
-	 * @param string $where
-	 * @param string $uri
-	 * @param string $orderby
-	 * @param string $orderseq
-	 * @param integer $offset
-	 * @return array
-	 */
+    /**
+     * Select data for display in main records list (paginated).
+     *
+     * @param string $title
+     * @param integer $per_page
+     * @param string $where
+     * @param bool $params_string
+     * @param bool|string $orderby
+     * @param bool|string $orderseq
+     * @param bool|int $offset
+     * @return array
+     */
 	protected function _ListData($title, $per_page = 10, $where = '', $params_string = FALSE, $orderby = FALSE, $orderseq = FALSE, $offset = FALSE)
 	{
 		if(!$this->method) $this->method = "index";
@@ -375,15 +375,15 @@ abstract class Admin extends Base
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	// +++++++++++++ ACTION METHODS +++++++++++++++ //
-	
+
     /**
-	 * Delete records by posted checked records' array.
-	 * 
-	 * @param string $orderby
-	 * @param string $orderseq
-	 * @param integer $offset
-	 * @return void
-	 */
+     * Delete records by posted checked records' array.
+     *
+     * @param string $orderby
+     * @param string $orderseq
+     * @param int|string $offset
+     * @return void
+     */
 	public function Delete_Selected($orderby='',$orderseq='',$offset='')
 	{
 		$this->admin_model->init($this->c_table);

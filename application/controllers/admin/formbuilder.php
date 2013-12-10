@@ -17,12 +17,11 @@ class Formbuilder extends Admin
 	//what model used
 	protected $model_name = 'formbuilder_model';
 
-	/**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @param string $model
-	 * @return void
-	 */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Formbuilder
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -213,8 +212,6 @@ class Formbuilder extends Admin
 	private function _processInsertContainer(array $record=array())
 	{
 	    $this->_CheckLogged(FALSE);
-		
-		$id = intval(@$record['id']);
 	    
 	    $this->load->library('form_validation');
 		
@@ -312,8 +309,6 @@ class Formbuilder extends Admin
 	private function _processInsertInput(array $record=array())
 	{
 	    $this->_CheckLogged(FALSE);
-		
-		$id = intval(@$record['id']);
 	    
 	    $this->load->library('form_validation');
 		
@@ -480,8 +475,6 @@ class Formbuilder extends Admin
 	private function _processInsertAnswerset(array $record=array())
 	{
 	    $this->_CheckLogged(FALSE);
-		
-		$id = intval(@$record['id']);
 	    
 	    $this->load->library('form_validation');
 		
@@ -540,8 +533,6 @@ class Formbuilder extends Admin
 	private function _processInsertAnswersetValue(array $record=array())
 	{
 	    $this->_CheckLogged(FALSE);
-		
-		$id = intval(@$record['id']);
 	    
 	    $this->load->library('form_validation');
 		
@@ -963,7 +954,7 @@ class Formbuilder extends Admin
 	 *
 	 * @param integer $form_id
 	 * @param string $file_field
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 */
 	public function Remove_File($form_id,$file_field,$data_key)
 	{

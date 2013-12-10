@@ -19,7 +19,7 @@ class Products extends Front
     /**
 	 * Init required models, helpers, language sections, pages' titles, css files etc.
 	 * 
-	 * @return void
+	 * @return \Products
 	 */
     public function __construct()
 	{
@@ -99,7 +99,7 @@ class Products extends Front
 		
 		$data['tpl_page'] = "categories/list";
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr = 
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -146,7 +146,7 @@ class Products extends Front
 
 		$data['tpl_page'] = $this->_getController()."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -167,14 +167,14 @@ class Products extends Front
 		
 		parent::_OnOutput($data);
 	}
-	
-	/**
-	 * Show product by slug.
-	 *
-	 * @param string $slug
-	 * @param integer $category
-	 * @return void
-	 */
+
+    /**
+     * Show product by slug.
+     *
+     * @param bool|string $slug
+     * @param integer $category
+     * @return void
+     */
 	public function Name($slug=FALSE,$category=0)
 	{
 	    if(!$slug) redirect($this->_getBaseURI());
@@ -186,14 +186,14 @@ class Products extends Front
 	    
 	    $this->View($data[$this->process_form_model->getIdColumn()],$category);
 	}
-	
-	/**
-	 * Show product's full information.
-	 * 
-	 * @param integer $resource
-	 * @param integer $category
-	 * @return void
-	 */
+
+    /**
+     * Show product's full information.
+     *
+     * @param $id
+     * @param integer $category
+     * @return void
+     */
 	public function View($id,$category=0)
 	{
 	    // === GET RECORD === //

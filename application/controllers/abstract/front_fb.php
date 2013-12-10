@@ -2,7 +2,7 @@
 require_once(APPPATH.'controllers/abstract/front.php');
 
 /** 
- * This is abstract front controller for part buit with formbuilder.
+ * This is abstract front controller for part built with formbuilder.
  * 
  * @package formbuilder  
  * @author Michael Kovalskiy
@@ -21,12 +21,12 @@ class Front_fb extends Front
 	
 	protected $actions_require_login = array();
 	protected $actions_store_redirect = array( 'add' => 'my', 'edit' => 'my' );
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Front_fb
+     */
 	public function __construct()
 	{
 		parent::__construct();	
@@ -75,13 +75,14 @@ class Front_fb extends Front
 	}
 	
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
-	
-	/**
-	 * Validate and insert or update data.
-	 * 
-	 * @param char(16) $data_key
-	 * @return void
-	 */
+
+    /**
+     * Validate and insert or update data.
+     *
+     * @param bool|string(16) $data_key
+     * @param string $form_mode
+     * @return void
+     */
 	protected function _processInsert($data_key=FALSE,$form_mode='edit')
 	{
 		if($this->input->post())
@@ -155,7 +156,7 @@ class Front_fb extends Front
 	/**
 	 * Edit Item.
 	 * 
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return void
 	 */
 	public function Edit($data_key)
@@ -167,7 +168,7 @@ class Front_fb extends Front
 	/**
 	 * View Item.
 	 * 
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return void
 	 */
 	public function View($data_key)

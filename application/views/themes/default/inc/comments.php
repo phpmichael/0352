@@ -8,7 +8,7 @@
     
         <?show_add_comment_link()?>
         
-        <?=show_comment_form($table,$post_id);?>
+        <?show_comment_form($table,$post_id);?>
         
         <?if($comments = get_comments($table,$post_id)):?>
         

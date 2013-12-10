@@ -30,7 +30,7 @@ class Assortment_model extends Posts_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @return char(16)
+	 * @return string(16)
 	 */
     public function Insert($post)
     {
@@ -44,7 +44,7 @@ class Assortment_model extends Posts_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @return char(16)
+	 * @return string(16)
 	 */
     public function Update($post)
     {
@@ -80,7 +80,7 @@ class Assortment_model extends Posts_model
     }
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

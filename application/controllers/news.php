@@ -17,7 +17,7 @@ class News extends Front
 	/**
 	 * Init required models, helpers, language sections, pages' titles, css files etc.
 	 * 
-	 * @return void
+	 * @return \News
 	 */
     public function __construct()
 	{
@@ -93,7 +93,7 @@ class News extends Front
         
         $data = array_merge($data,$filter_data);
         
-        // === Currenr Location === //
+        // === Current Location === //
 		$current_location_arr = 
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()

@@ -2,7 +2,7 @@
 require_once(APPPATH.'controllers/abstract/front.php');
 
 /** 
- * This is controller for subscribtion.
+ * This is controller for subscription.
  * 
  * @package subscribers  
  * @author Michael Kovalskiy
@@ -13,12 +13,12 @@ class Subscribe extends Front
 {
 	//name of table
     protected $c_table = "subscribers";
-	
+
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Subscribe
+     */
 	public function __construct()
 	{
 		parent::__construct();	

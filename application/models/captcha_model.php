@@ -70,7 +70,7 @@ class Captcha_model extends CI_Model
 		$expiration = time() - 7200 ;
 		$sql = " DELETE FROM captcha WHERE captcha_time < ? ";
 		$binds = array($expiration);
-		$query = $this->db->query($sql, $binds);
+		$this->db->query($sql, $binds);
 		
 		//checking input
 		$sql = "SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?";

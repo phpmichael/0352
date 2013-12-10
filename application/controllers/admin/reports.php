@@ -11,13 +11,13 @@ require_once(APPPATH.'controllers/abstract/admin_fb.php');
  */
 class Reports extends Admin_fb 
 {
-    protected $process_form_html_id = "reports"; 
-    
+    protected $process_form_html_id = "reports";
+
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Reports
+     */
 	public function __construct()
 	{
 		parent::__construct();	

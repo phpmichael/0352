@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Companies extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Companies
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -63,7 +63,7 @@ class Companies extends Front
 	// +++++++++++++ ACTION METHODS +++++++++++++++ //
 	
 	/**
-	 * Show companies' categories/subcategoris list by parent category ID.
+	 * Show companies' categories/subcategories list by parent category ID.
 	 * 
 	 * @return void
 	 */
@@ -85,7 +85,7 @@ class Companies extends Front
 		
 		$data['tpl_page'] = "categories/list";
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr = 
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -131,7 +131,7 @@ class Companies extends Front
 
 		$data['tpl_page'] = $this->controller."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -171,7 +171,7 @@ class Companies extends Front
 		// === Main Data === //
 		$this->_setPageTitle($data['name']);
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI() => language('companies'),

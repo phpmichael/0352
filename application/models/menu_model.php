@@ -29,7 +29,7 @@ class Menu_model extends Base_model
 	 * Generate value for sort column.
 	 * 
 	 * @param string $menu
-	 * @return void
+	 * @return integer
 	 */
 	protected function last_sort_val($menu)
 	{	

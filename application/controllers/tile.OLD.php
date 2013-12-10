@@ -14,13 +14,13 @@ class Tile extends Front
 	//name of table
     protected $c_table = "tile";
     protected $process_form_html_id = "tile"; 
-    protected $process_form_id; 
-    
+    protected $process_form_id;
+
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Tile
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -86,7 +86,7 @@ class Tile extends Front
 
 		$data['tpl_page'] = $this->_getController()."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -103,7 +103,7 @@ class Tile extends Front
 	/**
 	 * Show tile's full information.
 	 * 
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return void
 	 */
 	public function View($data_key)

@@ -61,7 +61,7 @@ abstract class Base extends CI_Controller
 	/**
 	 * Init router, set current controller and method, load CI in view.
 	 * 
-	 * @return void
+	 * @return \Base
 	 */
 	public function __construct()
 	{
@@ -216,14 +216,14 @@ abstract class Base extends CI_Controller
 	{
 		return (isset($this->fields_titles[$field_name]))? $this->fields_titles[$field_name] : '';
 	}
-	
-	/**
-	 * Returns fields' titles by fields' names. 
-	 * 
-	 * @uses self::$fields_titles
-	 * @param array $field_names
-	 * @return array
-	 */
+
+    /**
+     * Returns fields' titles by fields' names.
+     *
+     * @uses self::$fields_titles
+     * @param array $fields_names
+     * @return array
+     */
 	public function _buildTableFieldsArray(array $fields_names)
 	{
 		$fields_array = array();
@@ -246,12 +246,12 @@ abstract class Base extends CI_Controller
 	{
 		return (($fullPath)?base_url():'').$this->themes_folder.$this->folder.$this->theme.'/';
 	}
-	
-	/**
-	 * Set theme.
-	 *
-	 * @param string $theme
-	 */
+
+    /**
+     * Set theme.
+     *
+     * @param bool|string $theme
+     */
 	public function _setTheme($theme=FALSE)
 	{
 		$this->theme = ($theme)?$theme:$this->settings_model[$this->panel.'_theme'];
@@ -259,14 +259,14 @@ abstract class Base extends CI_Controller
 		//if mobile version
 		if( preg_match("/^m\./",$this->input->server('HTTP_HOST')) ) $this->theme .= ".mobile";
 	}
-	
-	/**
-	 * Returns folder from $this->folders array or $this->folder if $name not posted. 
-	 * 
-	 * @uses self::$folders
-	 * @param string $name
-	 * @return string
-	 */
+
+    /**
+     * Returns folder from $this->folders array or $this->folder if $name not posted.
+     *
+     * @uses self::$folders
+     * @param bool|string $name
+     * @return string
+     */
 	public function _getFolder($name=false)
 	{
 		if($name) return $this->folders[$name];
@@ -318,14 +318,14 @@ abstract class Base extends CI_Controller
 	{
 		return $this->_getBaseURL().$this->controller;
 	}
-	
-	/**
-	 * Returns title from $this->page_titles array or $this->page_title if $key not posted. 
-	 * 
-	 * @uses self::$page_titles
-	 * @param string $key
-	 * @return string
-	 */
+
+    /**
+     * Returns title from $this->page_titles array or $this->page_title if $key not posted.
+     *
+     * @uses self::$page_titles
+     * @param bool|string $key
+     * @return string
+     */
 	public function _getPageTitle($key=false)
 	{
 		if($key) 

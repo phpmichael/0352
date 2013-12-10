@@ -2,7 +2,7 @@
 require_once(APPPATH.'controllers/abstract/front.php');
 
 /** 
- * This is controller for intant messenger.
+ * This is controller for instant messenger.
  * 
  * @package IM  
  * @author Michael Kovalskiy
@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Im extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Im
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -50,7 +50,7 @@ class Im extends Front
     /**
 	 * Show main IM window between logged user and user with ID = $to_id.
 	 * 
-	 * @param inreger $to_id
+	 * @param integer $to_id
 	 * @return void
 	 */
 	public function Index($to_id)
@@ -76,7 +76,7 @@ class Im extends Front
 	/**
 	 * Send message from logged user to user with ID = $to_id.
 	 * 
-	 * @param inreger $to_id
+	 * @param integer $to_id
 	 * @return void
 	 */
 	public function Submit($to_id)

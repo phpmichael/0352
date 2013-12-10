@@ -73,11 +73,12 @@ class Comments_model extends Base_model
         
         return $text;
     }
-    
+
     /**
-     * Edit comment. 
-     * 
+     * Edit comment.
+     *
      * @param array $data
+     * @param $id
      * @return void
      */
     public function edit(array $data, $id)

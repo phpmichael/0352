@@ -1700,4 +1700,3 @@ class phpExifReader {
     }
 
 } // end of class
-?>

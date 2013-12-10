@@ -230,8 +230,8 @@ class Quiz_model extends Base_model
 	 * It takes one of not answered questions in random order.
 	 * If user refresh page it returns the same question.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	public function getNextQuestion($quiz_id,$customer_id)
@@ -275,8 +275,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of already answered questions.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	private function getCustomerAnsweredQuestions($quiz_id,$customer_id)
@@ -287,8 +287,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of already answered questions' IDs.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	private function getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id)
@@ -306,8 +306,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns count of already answered questions.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return integer
 	 */
 	public function getAmountCustomerAnsweredQuestions($quiz_id,$customer_id)
@@ -319,7 +319,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns required amount answers to finish quiz.
 	 * 
-	 * @param inreger $quiz_id
+	 * @param integer $quiz_id
 	 * @return integer
 	 */
 	public function getRequiredAmountQuestions($quiz_id)
@@ -331,9 +331,9 @@ class Quiz_model extends Base_model
 	/**
 	 * Check if user already answered on this question.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
-	 * @param inreger $question_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $question_id
 	 * @return array
 	 */
 	public function questionAnswered($quiz_id,$customer_id,$question_id)
@@ -344,10 +344,10 @@ class Quiz_model extends Base_model
 	/**
 	 * Save user's answer (selected checkboxes/radio).
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
-	 * @param inreger $question_id
-	 * @param inreger $answer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $question_id
+	 * @param integer $answer_id
 	 * @return void
 	 */
 	public function storeAnswer($quiz_id,$customer_id,$question_id,$answer_id)
@@ -359,16 +359,16 @@ class Quiz_model extends Base_model
 		
 		parent::insert(array('quiz_id'=>$quiz_id,'customer_id'=>$customer_id,'question_id'=>$question_id,'answer_id'=>$answer_id));
 	}
-	
-	/**
-	 * Save user's answer (filled input).
-	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
-	 * @param inreger $question_id
-	 * @param inreger $answer_id
-	 * @return void
-	 */
+
+    /**
+     * Save user's answer (filled input).
+     *
+     * @param integer $quiz_id
+     * @param integer $customer_id
+     * @param integer $question_id
+     * @param $custom_answer
+     * @return void
+     */
 	public function storeCustomAnswer($quiz_id,$customer_id,$question_id,$custom_answer)
 	{
 		//mark question as answered
@@ -382,9 +382,9 @@ class Quiz_model extends Base_model
 	/**
 	 * If user skip question.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
-	 * @param inreger $question_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $question_id
 	 * @return void
 	 */
 	public function storeNoAnswer($quiz_id,$customer_id,$question_id)
@@ -395,9 +395,9 @@ class Quiz_model extends Base_model
 	/**
 	 * Check if user answered in time.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
-	 * @param inreger $question_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $question_id
 	 * @return bool
 	 */
 	public function ifAnsweredInTime($quiz_id,$customer_id,$question_id)
@@ -415,8 +415,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns how many correct answers user gave.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return integer
 	 */
 	public function getScores($quiz_id,$customer_id)
@@ -428,8 +428,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Check if user answered enough questions to finish quiz.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return integer
 	 */
 	public function isQuizFinished($quiz_id,$customer_id)
@@ -442,7 +442,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of started, but not finished quizes.
 	 * 
-	 * @param inreger $customer_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	public function getCustomerNotFinishedQuizList($customer_id)
@@ -463,7 +463,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of finished quizes.
 	 * 
-	 * @param inreger $customer_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	public function getCustomerQuizArchives($customer_id)
@@ -497,8 +497,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Calculate correct answered questions.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	public function checkIfCorrectAnswers($quiz_id,$customer_id)
@@ -563,7 +563,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Check if custom (filled input) answer is correct.
 	 * 
-	 * @param inreger $question_id
+	 * @param integer $question_id
 	 * @param string $custom_answer
 	 * @return bool
 	 */
@@ -576,8 +576,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of correct user's answers.
 	 * 
-	 * @param inreger $quiz_id
-	 * @param inreger $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
 	public function getCustomerCorrectAnswers($quiz_id,$customer_id)
@@ -589,9 +589,9 @@ class Quiz_model extends Base_model
 	/**
 	 * Archive quiz.
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $quiz_id
-	 * @param inreger $scores
+	 * @param integer $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $scores
 	 * @param array $data
 	 * @return integer
 	 */
@@ -623,8 +623,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Unserialize quiz archive.
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $archive_id
+	 * @param integer $customer_id
+	 * @param integer $archive_id
 	 * @return array
 	 */
 	public function getCustomerQuizArchive($customer_id,$archive_id)
@@ -637,7 +637,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns amount of quiz questions.
 	 * 
-	 * @param inreger $quiz_id
+	 * @param integer $quiz_id
 	 * @return integer
 	 */
 	public function getTotalQuizQuestions($quiz_id)
@@ -649,9 +649,9 @@ class Quiz_model extends Base_model
 	/**
 	 * Add question in progress table (start timestamp). 
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $quiz_id
-	 * @param inreger $question_id
+	 * @param integer $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $question_id
 	 * @return integer
 	 */
 	private function questionStarted($customer_id,$quiz_id,$question_id)
@@ -669,9 +669,9 @@ class Quiz_model extends Base_model
 	/**
 	 * Mark question answered (end timestamp). 
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $quiz_id
-	 * @param inreger $question_id
+	 * @param integer $customer_id
+	 * @param integer $quiz_id
+	 * @param integer $question_id
 	 * @return void
 	 */
 	private function questionEnded($customer_id,$quiz_id,$question_id)
@@ -686,8 +686,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Get current question (user need to answer on it in current moment). 
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $quiz_id
 	 * @return array
 	 */
 	private function getCurrentQuizQuestion($customer_id,$quiz_id)
@@ -699,7 +699,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Returns array of quiz answered questions. 
 	 * 
-	 * @param inreger $quiz_id
+	 * @param integer $quiz_id
 	 * @return array
 	 */
 	public function getFinishedQuizQuestions($quiz_id)
@@ -713,8 +713,8 @@ class Quiz_model extends Base_model
 	/**
 	 * Get time from quiz_progress when first question was started. 
 	 * 
-	 * @param inreger $customer_id
-	 * @param inreger $quiz_id
+	 * @param integer $customer_id
+	 * @param integer $quiz_id
 	 * @return integer
 	 */
 	private function getFirstQuestionStartTime($customer_id,$quiz_id)
@@ -727,7 +727,7 @@ class Quiz_model extends Base_model
 	/**
 	 * Get top reated results. 
 	 * 
-	 * @param inreger $quiz_id
+	 * @param integer $quiz_id
 	 * @return array
 	 */
 	public function getTopRatedList($quiz_id)

@@ -13,12 +13,12 @@ class Videos extends Front
 {
 	//name of table
 	protected $c_table = 'videos';
-    
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Videos
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -75,7 +75,7 @@ class Videos extends Front
 	/**
 	 * Show video.
 	 * 
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return void
 	 */
 	public function View($data_key)

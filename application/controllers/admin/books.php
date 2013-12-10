@@ -14,13 +14,14 @@ class Books extends Admin_fb
     protected $process_form_html_id = "books"; 
 	
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
-	
-	/**
-	 * Validate and insert or update data.
-	 * 
-	 * @param char(16) $data_key
-	 * @return void
-	 */
+
+    /**
+     * Validate and insert or update data.
+     *
+     * @param bool|string(16) $data_key
+     * @param string $form_mode
+     * @return void
+     */
 	protected function _processInsert($data_key=FALSE,$form_mode='edit')
 	{
 		if($data_key) $this->load->vars($this->books_model->getOneById($data_key));

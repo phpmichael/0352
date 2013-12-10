@@ -19,7 +19,7 @@ class Assortment extends Front
     /**
 	 * Init required models, helpers, language sections, pages' titles, css files etc.
 	 * 
-	 * @return void
+	 * @return \Assortment
 	 */
     public function __construct()
 	{
@@ -131,7 +131,7 @@ class Assortment extends Front
 
 		$data['tpl_page'] = $this->_getController()."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -152,13 +152,13 @@ class Assortment extends Front
 		
 		parent::_OnOutput($data);
 	}
-	
-	/**
-	 * Show assortment by slug.
-	 *
-	 * @param string $slug
-	 * @return void
-	 */
+
+    /**
+     * Show assortment by slug.
+     *
+     * @param bool|string $slug
+     * @return void
+     */
 	public function Name($slug=FALSE)
 	{
 	    if(!$slug) redirect($this->_getBaseURI());
@@ -174,7 +174,7 @@ class Assortment extends Front
 	/**
 	 * Show assortment's full information.
 	 * 
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @return void
 	 */
 	public function View($data_key)

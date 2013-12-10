@@ -13,12 +13,12 @@ class Articles extends Front
 {
 	//name of table
 	protected $c_table = 'articles';
-    
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Articles
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -93,7 +93,7 @@ class Articles extends Front
         
         $data = array_merge($data,$filter_data);
         
-        // === Currenr Location === //
+        // === Current Location === //
 		$current_location_arr = 
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -113,13 +113,13 @@ class Articles extends Front
 
 		parent::_OnOutput($data);
 	}
-	
-	/**
-	 * Show article by slug.
-	 *
-	 * @param string $slug
-	 * @return void
-	 */
+
+    /**
+     * Show article by slug.
+     *
+     * @param bool|string $slug
+     * @return void
+     */
 	public function Name($slug=FALSE)
 	{
 	    if(!$slug) redirect($this->_getBaseURI());

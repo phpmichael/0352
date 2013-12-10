@@ -2,7 +2,7 @@
 require_once(APPPATH.'controllers/abstract/admin.php');
 
 /** 
- * This is abstract admin controller for part buit with formbuilder.
+ * This is abstract admin controller for part built with formbuilder.
  * 
  * @package formbuilder  
  * @author Michael Kovalskiy
@@ -18,12 +18,12 @@ class Admin_fb extends Admin
 	protected $model_name = 'formbuilder_model';
 	//special model for process form data
 	protected $process_form_model;
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Admin_fb
+     */
 	public function __construct()
 	{
 		parent::__construct();	
@@ -81,13 +81,14 @@ class Admin_fb extends Admin
 	}
 	
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
-	
-	/**
-	 * Validate and insert or update data.
-	 * 
-	 * @param char(16) $data_key
-	 * @return void
-	 */
+
+    /**
+     * Validate and insert or update data.
+     *
+     * @param bool|string(16) $data_key
+     * @param string $form_mode
+     * @return void
+     */
 	protected function _processInsert($data_key=FALSE,$form_mode='edit')
 	{
 		if($this->input->post())

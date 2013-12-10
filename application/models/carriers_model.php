@@ -18,7 +18,7 @@ class Carriers_model extends Posts_model
 	protected $id_column = 'data_key';
     
     /**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

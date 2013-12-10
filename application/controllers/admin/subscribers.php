@@ -13,12 +13,12 @@ class Subscribers extends Admin
 {
 	//name of table
     protected $c_table = "subscribers";
-	
+
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Subscribers
+     */
 	public function __construct()
 	{
 		parent::__construct();	

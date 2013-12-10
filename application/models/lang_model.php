@@ -269,14 +269,15 @@ class Lang_model extends Base_model
 	    
 	    return $post;
 	}
-	
-	/**
-	 * Update data. Based on code. Returns code.
-	 * Overloads parent method.
-	 * 
-	 * @param array $post
-	 * @return array
-	 */
+
+    /**
+     * Update data. Based on code. Returns code.
+     * Overloads parent method.
+     *
+     * @param array $post
+     * @param $code
+     * @return array
+     */
 	public function Update($post,$code)
     {
 		$post = parent::prepareTablePost($post);
@@ -338,13 +339,14 @@ class Lang_model extends Base_model
     	
     	return $code;
     }
-    
+
     /**
-	 * Returns next number for code.
-	 * 
-	 * @param string $code
-	 * @return integer
-	 */
+     * Returns next number for code.
+     *
+     * @param string $code
+     * @param int $i
+     * @return integer
+     */
     private function generateCodeNumber($code,$i=1)
     {
     	$record = parent::getOneByUnique('code',$code.$i);

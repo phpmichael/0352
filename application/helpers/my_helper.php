@@ -128,7 +128,7 @@ function anchor_base($uri, $title, $attributes='')
  *
  * @param float $price
  * @param bool $show_symbol
- * @param char(3) $code
+ * @param string(3) $code
  * @return string
  */
 function exchange($price,$show_symbol=TRUE,$code=FALSE)

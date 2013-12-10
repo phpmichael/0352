@@ -2,7 +2,7 @@
 require_once(APPPATH.'models/base_model.php');
 
 /** 
- * This is model for curreny exchange rate.
+ * This is model for currency exchange rate.
  * 
  * @package shop  
  * @author Michael Kovalskiy
@@ -16,12 +16,12 @@ class Currency_model extends Base_model
 	
 	private $default_currency;
 	private $enabled_currencies_codes;
-	
-	/**
-	 * Init currency default.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Init currency default.
+     *
+     * @return \Currency_model
+     */
     public function __construct()
     {
         parent::__construct();
@@ -33,7 +33,8 @@ class Currency_model extends Base_model
     /**
      * Set currency for display prices.
      *
-     * @param string $code
+     * @param string(3) $code
+     * @return bool
      */
     public function setCurrencyCode($code)
     {
@@ -45,13 +46,13 @@ class Currency_model extends Base_model
 		
 		return TRUE;
     }
-	
+
     /**
      * Return price depending from currency.
      *
      * @param float $price
      * @param bool $show_symbol (show $, &euro; etc)
-     * @param char(3) $code (USD,EUR,UAH)
+     * @param bool|string(3) $code (USD,EUR,UAH)
      * @return string
      */
     public function exchange($price,$show_symbol=TRUE,$code=FALSE)
@@ -86,9 +87,9 @@ class Currency_model extends Base_model
     }
 	
     /**
-     * Return currecncy record by currency code.
+     * Return currency record by currency code.
      *
-     * @param char(3) $code
+     * @param string(3) $code
      * @return array
      */
 	private function getCurrencyByCode($code)
@@ -127,7 +128,7 @@ class Currency_model extends Base_model
 	/**
 	 * Return code of current currency.
 	 *
-	 * @return char(3)
+	 * @return string(3)
 	 */
 	public function getCurrentCurrencyCode()
 	{
@@ -140,7 +141,7 @@ class Currency_model extends Base_model
 	/**
 	 * Check if currency enabled.
 	 *
-	 * @param char(3) $code
+	 * @param string(3) $code
 	 * @return bool
 	 */
 	private function isEnableCurrencyCode($code)

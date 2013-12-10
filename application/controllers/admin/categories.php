@@ -20,12 +20,12 @@ class Categories extends Admin
 	//what categories model used
 	protected $model;
 
-	/**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @param string $model
-	 * @return void
-	 */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @param string $model
+     * @return \Categories
+     */
 	public function __construct($model = 'categories_model')
 	{
 		parent::__construct();
@@ -59,7 +59,7 @@ class Categories extends Admin
 	
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string

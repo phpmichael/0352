@@ -19,7 +19,7 @@ class Reports_model extends Base_model
 	/**
 	 * Generate report.
 	 *
-	 * @param char(16) $data_key
+	 * @param string(16) $data_key
 	 * @param array $params
 	 * @return array
 	 */

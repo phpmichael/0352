@@ -28,7 +28,7 @@ $j(document).ready(
                 				else $j("#request_call .errors").html(data);
                 			});
                 			
-                			return false;	
+                			return false;
     					},
     			        "Close": function() { 
     						$j(this).dialog("destroy"); 

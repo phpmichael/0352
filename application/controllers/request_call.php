@@ -14,7 +14,7 @@ class Request_call extends Front
 	/**
 	 * Init required models, helpers, language sections, pages' titles, css files etc.
 	 * 
-	 * @return void
+	 * @return \Request_call
 	 */
 	public function __construct()
 	{

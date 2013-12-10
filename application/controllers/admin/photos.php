@@ -16,11 +16,11 @@ class Photos extends Admin
 	//show records per page
 	protected $per_page = 5;
 
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Photos
+     */
 	public function __construct()
 	{
         parent::__construct();
@@ -49,14 +49,14 @@ class Photos extends Admin
 
 		$data['photo_data'] = $this->photos_model->getPhotoData();
 		
-		// === LOAD publics TO ALL VIEWERS === //
+		// === LOAD public TO ALL VIEWERS === //
 		$this->load->vars($data);
 	}
 
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	/**
-	 * Build search creteria for _ListData method.
+	 * Build search criteria for _ListData method.
 	 * 
 	 * @param array $post
 	 * @return string
@@ -88,13 +88,12 @@ class Photos extends Admin
 
 		return $where;
 	}
-	
-	/**
-	 * Validate and insert or update data, upload photo.
-	 * 
-	 * @param array $record
-	 * @return void
-	 */
+
+    /**
+     * Validate and insert or update data, upload photo.
+     *
+     * @return void
+     */
 	private function _processInsert()
 	{
 		$data['file_names'] = array();

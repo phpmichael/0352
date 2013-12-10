@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Posters extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Posters
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -97,7 +97,7 @@ class Posters extends Front
 				// === GET RECORD === //
 				$data = $this->posters_model->getOneById($id);
 		
-				// === Currenr Location === //
+				// === Current Location === //
 				$data['current_location_arr'] =
 				array(
 					$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -107,7 +107,7 @@ class Posters extends Front
 			}
 			else 
 			{
-				// === Currenr Location === //
+				// === Current Location === //
 				$data['current_location_arr'] =
 				array(
 					$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -147,7 +147,7 @@ class Posters extends Front
 	// +++++++++++++ ACTION METHODS +++++++++++++++ //
 	
 	/**
-	 * Show posters' categories/subcategoris list by parent category ID.
+	 * Show posters' categories/subcategories list by parent category ID.
 	 * 
 	 * @return void
 	 */
@@ -169,7 +169,7 @@ class Posters extends Front
 		
 		$data['tpl_page'] = "categories/list";
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -221,7 +221,7 @@ class Posters extends Front
 		
 		$data['tpl_page'] = $this->controller."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -253,7 +253,7 @@ class Posters extends Front
 	{
 		$this->_CheckLogged();
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -293,7 +293,7 @@ class Posters extends Front
 		// === Main Data === //
 		$this->_setPageTitle($data['title']);
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>lowercase($this->_getPageTitle('index'))

@@ -8,7 +8,7 @@ function openWindow(url,windowName,params)
 //Open Instant Messenger
 function openImWindow(url,windowName)
 {
-	if(!windowName) windowName = 'im_window'
+	if(!windowName) windowName = 'im_window';
 	params = 'width=500, height=600, scrollbars=1';
 	window.open(url,windowName,params);
 }

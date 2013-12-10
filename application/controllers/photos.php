@@ -13,12 +13,12 @@ class Photos extends Front
 {
 	//name of table
     protected $c_table = "photos";
-	
+
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Photos
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -52,12 +52,13 @@ class Photos extends Front
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	// ============= ACTION METHODS ================ //
-	
-	/**
-	 * Returns children categories in JSON format.
-	 * 
-	 * @return string
-	 */
+
+    /**
+     * Returns children categories in JSON format.
+     *
+     * @param int $parent_id
+     * @return string
+     */
 	public function getCategoriesJSON($parent_id=0)
 	{
 	    $categoriesArr = $this->photos_categories_model->GetChildren($parent_id);
@@ -117,15 +118,15 @@ class Photos extends Front
 
 		parent::_OnOutput($data);
 	}
-	
-	
-	/**
-	 * Show photos.
-	 * 
-	 * @param integer $category_id
-	 * @param string $tag
-	 * @return void
-	 */
+
+
+    /**
+     * Show photos.
+     *
+     * @param integer $category_id
+     * @param integer|string $tag
+     * @return void
+     */
 	public function Show($category_id=0,$tag=0)
 	{
 	    $settings = $this->settings_model;
@@ -148,7 +149,7 @@ class Photos extends Front
 		// === build head === //
 		$this->_setPageTitle($this->_getPageTitle($this->method).$add_to_page_title);
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURI()."/index" => lowercase($this->_getPageTitle('index')),

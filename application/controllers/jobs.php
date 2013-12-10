@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Jobs extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Jobs
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -117,7 +117,7 @@ class Jobs extends Front
 				// === GET RECORD === //
 				$data = $this->jobs_model->getOneById($id);
 		
-				// === Currenr Location === //
+				// === Current Location === //
 				$data['current_location_arr'] =
 				array(
 					$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -127,7 +127,7 @@ class Jobs extends Front
 			}
 			else 
 			{
-				// === Currenr Location === //
+				// === Current Location === //
 				$data['current_location_arr'] =
 				array(
 					$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -166,7 +166,7 @@ class Jobs extends Front
 	// +++++++++++++ ACTION METHODS +++++++++++++++ //
 	
 	/**
-	 * Show jobs' categories/subcategoris list by parent category ID.
+	 * Show jobs' categories/subcategories list by parent category ID.
 	 * 
 	 * @return void
 	 */
@@ -188,7 +188,7 @@ class Jobs extends Front
 		
 		$data['tpl_page'] = "categories/list";
 		
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>$this->_getPageTitle()
@@ -239,7 +239,7 @@ class Jobs extends Front
 
 		$data['tpl_page'] = $this->controller."/list";
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>'[page_title]'
@@ -275,7 +275,7 @@ class Jobs extends Front
 	{
 		$this->_CheckLogged();
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURL()."customers"=>lowercase(language('my_account')),
@@ -315,7 +315,7 @@ class Jobs extends Front
 		// === Main Data === //
 		$this->_setPageTitle($data['title']);
 
-		// === Currenr Location === //
+		// === Current Location === //
 		$current_location_arr =
 		array(
 			$this->_getBaseURI()=>lowercase($this->_getPageTitle('index'))

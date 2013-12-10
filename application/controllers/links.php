@@ -63,7 +63,7 @@ class Links extends Front
 	/**
 	 * Redirect user to website by link's ID.
 	 * 
-	 * @param inreger $link_id
+	 * @param integer $link_id
 	 * @return void
 	 */
     public function Go($link_id)

@@ -17,10 +17,10 @@ class Companies extends Admin
 	protected $per_page = 10;
 
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Companies
+     */
 	public function __construct()
 	{
 		parent::__construct();

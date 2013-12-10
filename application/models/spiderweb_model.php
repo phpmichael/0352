@@ -28,7 +28,7 @@ class Spiderweb_model extends Base_model
     /**
      * Delete record by primary key.
      *
-     * @param char(16) $data_key
+     * @param string(16) $data_key
      */
     public function DeleteId($data_key)
     {
@@ -106,6 +106,7 @@ class Spiderweb_model extends Base_model
      * Update record.
      *
      * @param array $post
+     * @return void
      */
     public function update($post)
 	{
@@ -138,6 +139,8 @@ class Spiderweb_model extends Base_model
     	$replacement = '<a\\1href="'.$new_link.'"\\3>'.$new_title.'</a>';
     	
     	$this->linkReplace($table,$link,$title,$replacement);
+
+        return TRUE;
     }
     
     

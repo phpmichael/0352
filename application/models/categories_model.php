@@ -104,13 +104,13 @@ class Categories_model extends Base_model
 		
 		return multi2singleArray($this->id_column,'category',$data);
 	}
-	
-	/**
-	 * Returns all categories list.
-	 * 
-	 * param bool $full
-	 * @return array
-	 */
+
+    /**
+     * Returns all categories list.
+     *
+     * @param bool $full
+     * @return array
+     */
 	public function getAllCategoriesList($full=FALSE)
 	{
 		$categories = $this->getChildren(FALSE,$full);
@@ -202,7 +202,7 @@ class Categories_model extends Base_model
 	 * Generate value for sort column.
 	 * 
 	 * @param integer $parent_id
-	 * @return void
+	 * @return integer
 	 */
 	protected function last_sort_val($parent_id)
 	{		

@@ -80,11 +80,11 @@ class Photos_model extends Base_model
     {
         return $this->upload_config;
     }
-	
+
     /**
      * Returns item from $this->photo_data or full array;
      *
-     * @param string $item
+     * @param bool|string $item
      * @return mixed
      */
 	public function getPhotoData($item=false)
@@ -259,12 +259,12 @@ class Photos_model extends Base_model
         @unlink($this->upload_path.$this->big_dir.$this->c_table.'/'.$file_name);
 		@unlink($this->upload_path.$this->small_dir.$this->c_table.'/'.$file_name);
     }
-    
+
     /**
      * Returns photos list (paginated).
      *
      * @param integer $category_id
-     * @param string $tag
+     * @param int|string $tag
      * @param integer $per_page
      * @return array
      */

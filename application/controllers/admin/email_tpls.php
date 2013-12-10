@@ -15,10 +15,10 @@ class Email_tpls extends Admin
     protected $c_table = 'email_tpl';
 
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Email_tpls
+     */
 	public function __construct()
 	{
 		parent::__construct();

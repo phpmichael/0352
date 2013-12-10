@@ -19,7 +19,7 @@ class Faq extends Admin
 	/**
     * Init models, set pages' titles, fields' titles, set languages' sections.
     * 
-    * @return void
+    * @return \Faq
     */
 	public function __construct()
 	{

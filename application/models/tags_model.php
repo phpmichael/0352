@@ -90,8 +90,8 @@ class Tags_model extends Base_model
 			elseif( $val['amount']==$max_val ) $arr[$key]['font_size'] = $max_font_size;
 			else 
 			{
-				$d = round($last['amount']/$val['amount']);
-				$s = round(($max_font_size-$min_font_size)/$d);
+				$d = intval(round($last['amount']/$val['amount']));
+				$s = intval(round(($max_font_size-$min_font_size)/$d));
 				$arr[$key]['font_size'] = min($font_sizes[$s],$max_font_size);
 			}
 

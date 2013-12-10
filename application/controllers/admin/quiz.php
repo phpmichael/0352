@@ -16,11 +16,11 @@ class Quiz extends Admin
 	//show records per page
 	protected $per_page = 10;
 
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Quiz
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -334,7 +334,7 @@ class Quiz extends Admin
 	}
 	
 	/**
-	 * Delete selcted questions.
+	 * Delete selected questions.
 	 *
 	 * @param integer $quiz_id
 	 * @return void

@@ -59,7 +59,7 @@ class Orders_model extends Base_model
 	/**
 	 * Store order.
 	 * 
-	 * @return void
+	 * @return integer
 	 */
 	public function store()
 	{
@@ -183,11 +183,11 @@ class Orders_model extends Base_model
 	       border-spacing:5px;
 	       border:1px solid #999;
 	    }
-	    table.table-order-deatils th, table.table-order-deatils td{
+	    table.table-order-deatils th, table.table-order-details td{
 	       padding:2px;
 	       border:1px solid #999;
 	    }
-	    table.table-order-deatils td.a-right{
+	    table.table-order-details td.a-right{
 	       text-align:right;
 	    }
 	    </style>

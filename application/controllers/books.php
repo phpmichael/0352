@@ -18,12 +18,12 @@ class Books extends Products
 	protected $model_name = 'formbuilder_model';
     
     protected $process_form_model;
-    
+
     /**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Books
+     */
     public function __construct()
 	{
 		parent::__construct();

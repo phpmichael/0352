@@ -18,12 +18,12 @@ abstract class Front extends Base
     
     //head data
     protected $head = array();
-    
+
     /**
-	 * Init models, set theme, load some vars in view.
-	 * 
-	 * @return void
-	 */
+     * Init models, set theme, load some vars in view.
+     *
+     * @return \Front
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -34,7 +34,6 @@ abstract class Front extends Base
 		// === Load Models === //
 		$this->load->model('pages_model');
 		$this->load->model('menu_model');
-		$settings = $this->settings_model;
 		
 		// === Set Theme ==== //
 		$this->_setTheme();
@@ -67,7 +66,7 @@ abstract class Front extends Base
 	 * Set page title and meta data.
 	 * 
 	 * @param array $params
-	 * @return void
+	 * @return bool
 	 */
 	protected function _buid_head_data( array $params = array() )
 	{
@@ -119,6 +118,8 @@ abstract class Front extends Base
 
 		// === LOAD VARS TO ALL VIEWERS === //
 		$this->load->vars($data);
+
+        return TRUE;
 	}
 	
 	/**

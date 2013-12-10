@@ -13,12 +13,12 @@ class Lang extends Admin
 {
 	//name of table
     protected $c_table = "lang";
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Lang
+     */
 	public function __construct()
 	{
 		parent::__construct();	

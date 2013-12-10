@@ -13,12 +13,12 @@ class Auto_responders_model extends Base_model
 {
 	//name of table
 	protected $c_table = 'auto_responders';
-	
-	/**
-	 * Init email templater.
-	 * 
-	 * @return void
-	 */
+
+    /**
+     * Init email templater.
+     *
+     * @return \Auto_responders_model
+     */
     public function __construct()
     {
         parent::__construct();

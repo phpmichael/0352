@@ -8,7 +8,7 @@
  * @version 2011
  * @access public
  */
-class settings_model extends CI_Model implements ArrayAccess 
+class Settings_model extends CI_Model implements ArrayAccess
 {
 	//name of table
 	protected $c_table = "settings";
@@ -22,7 +22,7 @@ class settings_model extends CI_Model implements ArrayAccess
 	 * Init settings.
 	 * 
 	 * @uses self::data
-	 * @return void
+	 * @return \Settings_model
 	 */
     public function __construct()
     {

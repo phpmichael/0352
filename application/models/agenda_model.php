@@ -19,8 +19,8 @@ class Agenda_model extends Base_model
 	/**
 	 * Return user's events.
 	 *
-	 * @param timestamp $start
-	 * @param timestamp $end
+	 * @param integer $start
+	 * @param integer $end
 	 * @return array
 	 */
     public function getEvents($start,$end)
@@ -60,7 +60,7 @@ class Agenda_model extends Base_model
      * @param integer $dayDelta
      * @param integer $minuteDelta
      * @param string (true|false) $allDay
-     * @return char(16)
+     * @return string(16)
      */
     public function moveEvent(array $event, $dayDelta, $minuteDelta, $allDay)
     {
@@ -101,7 +101,7 @@ class Agenda_model extends Base_model
      * @param array $event
      * @param integer $dayDelta
      * @param integer $minuteDelta
-     * @return char(16)
+     * @return string(16)
      */
     public function extendEvent(array $event, $dayDelta, $minuteDelta)
     {
@@ -127,10 +127,10 @@ class Agenda_model extends Base_model
     
     /**
 	 * Insert data. Returns ID field.
-	 * Overrides paramt method.
+	 * Overrides param method.
 	 * 
 	 * @param array $event
-	 * @return char(16)
+	 * @return string(16)
 	 */
     public function Insert($event)
     {
@@ -146,7 +146,7 @@ class Agenda_model extends Base_model
 	 * Overrides paramt method.
      *
      * @param array $event
-     * @return char(16)
+     * @return string(16)
      */
     public function update($event)
     {

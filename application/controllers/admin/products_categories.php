@@ -15,11 +15,11 @@ class Products_Categories extends Photos_Categories
     protected $c_table = "products_categories_list";
 
     /**
-	 * Init models, set pages' titles, fields' titles, set languages' sections.
-	 * 
-	 * @param string $model
-	 * @return void
-	 */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @param string $model
+     * @return \Products_Categories
+     */
 	public function __construct($model='products_categories_model')
 	{
 		parent::__construct($model);

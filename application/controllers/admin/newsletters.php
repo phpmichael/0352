@@ -12,12 +12,12 @@ require_once(APPPATH.'controllers/abstract/admin.php');
 class Newsletters extends Admin 
 {
 	protected $c_table = 'newsletters';
-    
+
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Newsletters
+     */
     public function __construct()
 	{
 		parent::__construct();
@@ -73,12 +73,11 @@ class Newsletters extends Admin
 		return $menu;
 	}
 
-	/**
-	 * Validate and insert or update data.
-	 * 
-	 * @param array $record
-	 * @return void
-	 */
+    /**
+     * Validate and insert or update data.
+     *
+     * @return void
+     */
 	private function _processInsert()
 	{
 		$settings = $this->settings_model;

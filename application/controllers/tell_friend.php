@@ -14,7 +14,7 @@ class Tell_Friend extends Front
 	/**
 	 * Init required models, helpers, language sections, pages' titles, css files etc.
 	 * 
-	 * @return void
+	 * @return \Tell_Friend
 	 */
 	public function __construct()
 	{
@@ -55,7 +55,7 @@ class Tell_Friend extends Front
 	}
 	
 	/**
-	 * Vlidate form and send email to friend.
+	 * Validate form and send email to friend.
 	 * 
 	 * @return void
 	 */

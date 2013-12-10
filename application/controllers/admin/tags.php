@@ -13,12 +13,12 @@ class Tags extends Admin
 {
 	//name of table
     protected $c_table = "tags";
-	
+
     /**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Tags
+     */
 	public function __construct()
 	{
 		parent::__construct();	
@@ -42,7 +42,7 @@ class Tags extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string

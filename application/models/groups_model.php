@@ -49,7 +49,7 @@ class Groups_model extends Base_model
 	/**
 	 * Check if group has access to admin panel.
 	 *
-	 * @param integre $group_id
+	 * @param integer $group_id
 	 * @return bool
 	 */
 	public function hasAdminAccess($group_id)
@@ -113,12 +113,13 @@ class Groups_model extends Base_model
 	{
 		return in_array($section,$this->getAvailableSections($panel));
 	}
-	
-	/**
-	 * Return list of available rights to set.
-	 *
-	 * @return array
-	 */
+
+    /**
+     * Return list of available rights to set.
+     *
+     * @param $panel
+     * @return array
+     */
 	public function getRightsList($panel)
 	{
 		if( $panel=='admin' ) return array('view','edit','add','delete','config','send');
@@ -339,7 +340,7 @@ class Groups_model extends Base_model
 	}
 	
 	/**
-	 * Check if rights in allwowed rights list.
+	 * Check if rights in allowed rights list.
 	 *
 	 * @param string $section
 	 * @param string $right

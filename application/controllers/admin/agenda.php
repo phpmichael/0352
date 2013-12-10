@@ -11,13 +11,13 @@ require_once(APPPATH.'controllers/abstract/admin_fb.php');
  */
 class Agenda extends Admin_fb
 {
-    protected $process_form_html_id = "agenda"; 
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+    protected $process_form_html_id = "agenda";
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Agenda
+     */
 	public function __construct()
 	{
 		parent::__construct();	
@@ -37,7 +37,7 @@ class Agenda extends Admin_fb
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 	
 	/**
-	 * Build rigth top admin menu.
+	 * Build right top admin menu.
 	 * Overrides parent method.
 	 * 
 	 * @return string
@@ -77,8 +77,8 @@ class Agenda extends Admin_fb
     /**
      * Change agenda event.
      *
-     * @param char(16) $data_key
-     * @param char(10) $date
+     * @param bool|string(16) $data_key
+     * @param bool|char(10) $date
      */
     public function edit_event($data_key=FALSE,$date=FALSE)
     {
@@ -102,11 +102,11 @@ class Agenda extends Admin_fb
 	    
 		load_theme_view('admin_fb/build',$data);
     }
-	
+
     /**
      * Delete agenda event.
      *
-     * @param char(16) $data_key
+     * @param bool|string(16) $data_key
      */
     public function delete_event($data_key=FALSE)
 	{
@@ -119,7 +119,7 @@ class Agenda extends Admin_fb
 	/**
 	 * Move agenda event (change event's start date/time).
 	 *
-	 * @param char(16) $id
+	 * @param string(16) $id
 	 * @param integer $dayDelta
 	 * @param integer $minuteDelta
 	 * @param string (true|false) $allDay
@@ -140,7 +140,7 @@ class Agenda extends Admin_fb
 	/**
      * Extend event (change event's end date/time).
      *
-     * @param char(16) $id
+     * @param string(16) $id
      * @param integer $dayDelta
      * @param integer $minuteDelta
      */

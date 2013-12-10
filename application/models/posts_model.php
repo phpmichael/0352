@@ -157,7 +157,7 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Returns posrs by filters and pagination links.
+	 * Returns posts by filters and pagination links.
 	 * 
 	 * @param string $action
 	 * @param array $filter_data
@@ -295,7 +295,7 @@ abstract class Posts_model extends Base_model
     /**
 	 * Returns last (main) post category.
 	 * 
-	 * @param integer $post_categories
+	 * @param array $post_categories
 	 * @return string
 	 */
     protected function _getPostCategory($post_categories)
@@ -347,8 +347,8 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Insert data, upload imahe, add post's categories. Returns ID field.
-	 * Overrides paramt method.
+	 * Insert data, upload image, add post's categories. Returns ID field.
+	 * Overrides param method.
 	 * 
 	 * @param array $post
 	 * @param array|bool $categories
@@ -489,13 +489,15 @@ abstract class Posts_model extends Base_model
             }
         }
     }
-    
+
     /**
-	 * Add Post's image.
-	 * 
-	 * @param integer $post_id
-	 * @return bool
-	 */
+     * Add Post's image.
+     *
+     * @param integer $post_id
+     * @param $image_field
+     * @param bool $main_image
+     * @return bool
+     */
     private function uploadImage($post_id,$image_field,$main_image=FALSE)
     {
         //dump($_FILES);exit;
@@ -603,7 +605,7 @@ abstract class Posts_model extends Base_model
      */
     private function getAdditionalImages($post_id)
     {
-        if($this->db->table_exists('posts_iamges')) 
+        if($this->db->table_exists('posts_images'))
         	return $this->db->get_where('posts_images',array('post_id'=>$post_id,'table'=>$this->c_table))->result_array();
         else 
         	return array();
@@ -621,14 +623,13 @@ abstract class Posts_model extends Base_model
     {
     	$this->db->update($this->c_table, array('image'=>$image_name), array($this->id_column=>$post_id));
     }
-    
+
     /**
-	 * Mark in table that posts hasn't image.
-	 * 
-	 * @param integer $post_id
-	 * @param string $image_name
-	 * @return void
-	 */
+     * Mark in table that posts hasn't image.
+     *
+     * @param integer $post_id
+     * @return void
+     */
     private function _SetPostHasntImage($post_id)
     {
     	$this->db->update($this->c_table, array('image'=>''), array($this->id_column=>$post_id));
@@ -687,7 +688,7 @@ abstract class Posts_model extends Base_model
 	 * Delete post's main image.
 	 * 
 	 * @param integer $post_id
-	 * @return void
+	 * @return bool
 	 */
     public function RemovePostImage($post_id)
     {   	
@@ -701,6 +702,8 @@ abstract class Posts_model extends Base_model
     	{
 	    	$this->unlinkImage($post['image']);
     	}
+
+        return TRUE;
     }
     
     /**
@@ -768,7 +771,7 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Make sql join creterias based on $filter_data.
+	 * Make sql join criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string

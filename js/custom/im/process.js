@@ -1,7 +1,7 @@
 $j(document).ready(function()
 {
 	//prefill last history messages
-	showHistory(window.history_messages)
+	showHistory(window.history_messages);
 	
 	//send message
 	$j("#im_form").submit(function()

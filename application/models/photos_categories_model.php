@@ -77,11 +77,11 @@ class Photos_categories_model extends Categories_model
     {
         return $this->upload_config;
     }
-	
-	/**
+
+    /**
      * Returns item from $this->photo_data or full array;
      *
-     * @param string $item
+     * @param bool|string $item
      * @return mixed
      */
 	public function getPhotoData($item=false)

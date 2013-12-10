@@ -21,7 +21,7 @@ class Articles_model extends Posts_model
 	protected $categories_list_table = 'articles_categories_list';
     
 	/**
-	 * Make sql creterias based on $filter_data.
+	 * Make sql criterias based on $filter_data.
 	 * 
 	 * @param $filter_data
 	 * @return string
@@ -119,12 +119,12 @@ class Articles_model extends Posts_model
 		
 		return $this->db->query($sql,array("{$year}-{$month}-%"))->result_array();
     }
-    
+
     /**
      * Return html of calendar.
      *
-     * @param char(4) $year
-     * @param char(2) $month
+     * @param bool|string(16) $year
+     * @param bool|string(16) $month
      * @return string
      */
     public function buildCalendarBox($year=false,$month=false)

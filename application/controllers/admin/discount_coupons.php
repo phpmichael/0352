@@ -13,12 +13,12 @@ class Discount_coupons extends Admin
 {
 	//name of table
     protected $c_table = "discount_coupons";
-	
-	/**
-    * Init models, set pages' titles, fields' titles, set languages' sections.
-    * 
-    * @return void
-    */
+
+    /**
+     * Init models, set pages' titles, fields' titles, set languages' sections.
+     *
+     * @return \Discount_coupons
+     */
 	public function __construct()
 	{
 		parent::__construct();

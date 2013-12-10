@@ -11,11 +11,11 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Cart extends Front 
 {
-	/**
-	 * Init required models, helpers, language sections, pages' titles, css files etc.
-	 * 
-	 * @return void
-	 */
+    /**
+     * Init required models, helpers, language sections, pages' titles, css files etc.
+     *
+     * @return \Cart
+     */
 	public function __construct()
 	{
 		parent::__construct();
@@ -49,7 +49,7 @@ class Cart extends Front
 	 */
 	public function index()
 	{
-	    // === Currenr Location === //
+	    // === Current Location === //
 		$data['current_location_arr'] =
 		array(
 			$this->_getBaseURL()."products"=>language('catalog'),

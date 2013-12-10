@@ -3,11 +3,11 @@
 /**
  * Generate admin link with sort and pagination segments.
  *
- * @param string $uri
- * @param string $action
- * @param string $orderby
- * @param string $orderseq
- * @param integer $offset
+ * @param bool|string $uri
+ * @param bool|string $action
+ * @param bool|string $orderby
+ * @param bool|string $orderseq
+ * @param bool|int $offset
  * @return string
  */
 function alink($uri = FALSE, $action = FALSE, $orderby = FALSE, $orderseq = FALSE, $offset = FALSE)
