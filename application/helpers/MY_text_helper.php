@@ -87,7 +87,7 @@ function close_tags($text)
 
                 foreach ($m_close as $tag) @$c_tags[$tag]++;
 
-                foreach ($m_open as $k => $tag)    if (@$c_tags[$tag]--<=0) $text.='</'.$tag.'>';
+                foreach ($m_open as $tag)    if (@$c_tags[$tag]--<=0) $text.='</'.$tag.'>';
             }
         }
     }

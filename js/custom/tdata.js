@@ -107,7 +107,7 @@ function delete_tdata(link,url)
 	
 	row = $j(link).parents('tr');
 	
-	$j.post(url, {code:code}, function( data ) 
+	$j.post(url, {code:code}, function()
 	{
 		//deleted
 		$j(row).remove();

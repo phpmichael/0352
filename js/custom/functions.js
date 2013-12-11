@@ -9,7 +9,7 @@ function openWindow(url,windowName,params)
 function openImWindow(url,windowName)
 {
 	if(!windowName) windowName = 'im_window';
-	params = 'width=500, height=600, scrollbars=1';
+    var params = 'width=500, height=600, scrollbars=1';
 	window.open(url,windowName,params);
 }
 

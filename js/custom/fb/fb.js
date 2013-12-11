@@ -312,7 +312,7 @@ $j(function () {
 				},
 				// The `container` type
 				"folder" : {
-					// can have `iputs` and other `containers` inside of it, but NOT `form` nodes
+					// can have `inputs` and other `containers` inside of it, but NOT `form` nodes
 					"valid_children" : [ "input", "container" ]/*,
 					"icon" : {
 						"image" : "./img/container.png"
@@ -386,7 +386,7 @@ $j(function () {
         }
     })
     .bind("move_node.jstree", function (e, data) {
-        data.rslt.o.each(function (i) {
+        data.rslt.o.each(function () {
 
         	if( data.rslt.cy!=1 ) //don't use move for copy now - move origin item in last place of its form
         	{
@@ -498,7 +498,7 @@ $j(function () {
         else $j("#add-answerset-value").show();
     })
     .bind("move_node.jstree", function (e, data) {
-        data.rslt.o.each(function (i) {
+        data.rslt.o.each(function () {
 
         	$j.ajax({
                 async : false,

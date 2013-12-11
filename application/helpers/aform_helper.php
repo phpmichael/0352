@@ -1,7 +1,7 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Build "delete selcted" link.
+ * Build "delete selected" link.
  *
  * @return string
  */

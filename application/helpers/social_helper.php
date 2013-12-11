@@ -5,7 +5,7 @@
  *
  * @param string $button_name (vkontakte,facebook,twitter etc)
  * @param array $social_params
- * @return void
+ * @return bool|void
  */
 function social_button($button_name,array $social_params=array())
 {

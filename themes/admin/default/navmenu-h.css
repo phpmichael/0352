@@ -75,4 +75,3 @@ ul#navmenu-h li:hover li:hover li:hover li a:hover,ul#navmenu-h li.iehover li.ie
 /* Hover Function - Do Not Move */
 ul#navmenu-h li:hover ul ul,ul#navmenu-h li:hover ul ul ul,ul#navmenu-h li.iehover ul ul,ul#navmenu-h li.iehover ul ul ul { display: none; }
 ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover ul,ul#navmenu-h li.iehover ul,ul#navmenu-h ul li.iehover ul,ul#navmenu-h ul ul li.iehover ul { display: block; }
-View the JavaScript (for IE)

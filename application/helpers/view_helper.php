@@ -23,7 +23,7 @@ function load_theme_view($tpl,$data = array(), $return = FALSE)
 }
 
 /**
- * Return weibsite menu.
+ * Return website menu.
  *
  * @param string $menu (left|bottom)
  * @param string $format (list|separator)
@@ -37,7 +37,7 @@ function get_menu($menu,$format='list')
 }
 
 /**
- * Include javscript file in HTML code.
+ * Include javascript file in HTML code.
  *
  * @param string $file
  * @return string

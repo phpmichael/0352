@@ -25,7 +25,7 @@ if ( ! function_exists('array_to_csv'))
         if ($download != "")
         {    
             header('Content-Type: application/csv');
-            header('Content-Disposition: attachement; filename="' . $download . '"');
+            header('Content-Disposition: attachment; filename="' . $download . '"');
         }        
 
         ob_start();
@@ -64,6 +64,12 @@ if ( ! function_exists('array_to_csv'))
  */
 if ( ! function_exists('query_to_csv'))
 {
+    /**
+     * Export query to CSV.
+     * @param object $query
+     * @param bool $headers
+     * @param string $download
+     */
     function query_to_csv($query, $headers = TRUE, $download = "")
     {
         if ( ! is_object($query) OR ! method_exists($query, 'list_fields'))

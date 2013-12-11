@@ -1,5 +1,10 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Generate embed object for youtube.
+ * @param string $url
+ * @return string
+ */
 function youtube_box($url)
 {
 	$videodata = array('width'=>400,'height'=>300,'url'=>$url);
@@ -22,6 +27,11 @@ function youtube_box($url)
 	return '<object type="application/x-shockwave-flash" style="width:'.$videodata['width'].'px; height:'.$videodata['height'].'px;" data="'.$video_url.'"><param name="movie" value="'.$video_url.'" /></object>';
 }
 
+/**
+ * Generate embed object for vimeo
+ * @param string $url
+ * @return string
+ */
 function vimeo_box($url)
 {
 	$videodata = array('width'=>400,'height'=>300,'url'=>$url);

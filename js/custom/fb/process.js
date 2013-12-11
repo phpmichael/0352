@@ -6,7 +6,7 @@ $j(document).ready(function()
     
     //click on remove file link
     $j("a.remove-file",FB.form).click(function(){
-        element = this;
+        var element = this;
         
         $j.get($j(element).attr('href'),{},function(){
             $j(element).parent().remove();

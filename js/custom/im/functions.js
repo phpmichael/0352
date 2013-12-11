@@ -1,16 +1,17 @@
 //show history messages
 function showHistory(data)
 {
-	for(message_id in data)
+	var d, message_date, message_text;
+    for(message_id in data)
 	{
 		d = new Date(data[message_id].seconds*1000);//make JS Date object from unix timestamp
 		message_date = formatDate(d);
 		message_text = data[message_id].message;
-		
+
 		if(data[message_id].to_id==recipient_id)
 		    //logged user's message
 			addMessageToBox(message_date,window.my_nick,message_text,{message:'message-history',nick:'my-nick',message_text:'my-message-text'});
-		else 
+		else
 		    //recipient's message
 		    addMessageToBox(message_date,window.nick,message_text,{message:'message-history',nick:'nick',message_text:'message-text'});
 	}
@@ -26,7 +27,8 @@ function getNewMessages()
         if(data.indexOf('Error:')!=-1)$j("#messages-box").append("<div class='error'>"+data+"</div>");
 		else if(data.length !=0 )
         {
-    		for(message_id in data)
+            var d, message_date, message_text;
+            for(message_id in data)
         	{
         		d = new Date(data[message_id].seconds*1000);//make JS Date object from unix timestamp
         		message_date = formatDate(d);

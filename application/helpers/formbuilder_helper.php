@@ -26,8 +26,8 @@ function fb_form($form_id,$data_key=FALSE,$form_mode=FALSE)
  *
  * @param string $values
  * @param string $format
- * @param string $input_name
- * @param integer $form_id
+ * @param bool|string $input_name
+ * @param bool|int $form_id
  * @return mixed
  */
 function fb_answers($values,$format="array",$input_name=FALSE,$form_id=FALSE)

@@ -3,7 +3,7 @@ $j(document).ready(
 	{
 		//process "request a call" click
 	    $j(".request-call").click(function(){
-		    url = appPackages.request_call.content_url;
+            var url = appPackages.request_call.content_url;
     		title = appPackages.request_call.title;
     	    
     	    $j.get(url,{},function(response){

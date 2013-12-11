@@ -6,7 +6,7 @@ $j(document).ready(function()
     //check if user set answer before submit
     $j("#quiz-form input[type=submit]").click(function()
     {
-        if( 
+        if(
             window.time_left <= 0 ||
             ( $j("#quiz-form input[name=custom_answer]").val() && $j("#quiz-form input[name=custom_answer]").val()!=undefined ) || 
             $j("#quiz-form input[name=^answers]:checked").val()!=undefined || 
@@ -42,7 +42,7 @@ function quizTimer()
         return true;
     }
     
-    //conver seconds to min:sec
+    //convert seconds to min:sec
     if( window.time_left>= 60 )
     {
         min = parseInt(window.time_left/60);

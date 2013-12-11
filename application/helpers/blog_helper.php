@@ -144,7 +144,7 @@ function tags_cloud( $table='', $count_tags = 15,$min_font_size = 10,$max_font_s
 }
 
 /**
- * Generate posts calndar.
+ * Generate posts calendar.
  *
  * @param string $blog_model
  * @return string
@@ -169,6 +169,7 @@ function random_testimonial()
 /**
  * Return random videos
  *
+ * @param $limit
  * @return array
  */
 function random_videos($limit)

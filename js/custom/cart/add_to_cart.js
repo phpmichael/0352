@@ -1,7 +1,7 @@
 $j(document).ready(function()
 {
     //process "add to cart" click
-    $j('.add-product').submit(function(e)
+    $j('.add-product').submit(function()
 	{
 	    var button = $j(this).find('button[type=submit], input[type=submit]').get(0);
 	    

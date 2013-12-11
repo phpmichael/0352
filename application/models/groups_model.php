@@ -312,7 +312,7 @@ class Groups_model extends Base_model
 		if(!$panel) $panel = $this->CI->_getPanel();
 	    
 	    //if this section is available in settings
-	    if(!$this->isAvailabeSection($section,$panel)) return FALSE;
+	    if(!$this->isAvailableSection($section,$panel)) return FALSE;
 		
 		$sql = "SELECT id FROM {$this->_table_rights} WHERE group_id=? AND section=? AND `right`=? AND panel=?";
 		
