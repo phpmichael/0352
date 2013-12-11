@@ -59,6 +59,8 @@ class Api_translate_mymemory extends CI_Driver {
 		
 		if($data->responseStatus=='200') return $data->responseData->translatedText;
 		else log_message("error","Translation Error. Status: ".$data->responseStatus.". Details: ".$data->responseDetails);
+
+        return '';
     }
 }
 

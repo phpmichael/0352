@@ -88,7 +88,7 @@ class Products_attributes_model extends Base_model
 	 * @param integer $attr_id
 	 * @return array
 	 */
-	private function getProductAtrributeValues($product_id,$attr_id)
+	private function getProductAttributeValues($product_id,$attr_id)
 	{
 		$this->c_table = $this->tables['attributes_values'];
 		
@@ -112,9 +112,9 @@ class Products_attributes_model extends Base_model
 	 * @param integer $attr_id
 	 * @return array
 	 */
-	public function getProductAtrributeValuesList($product_id,$attr_id)
+	public function getProductAttributeValuesList($product_id,$attr_id)
 	{
-		$records = $this->getProductAtrributeValues($product_id,$attr_id);
+		$records = $this->getProductAttributeValues($product_id,$attr_id);
 		
 		return multi2singleArray('id','value',$records);
 	}
@@ -266,7 +266,7 @@ class Products_attributes_model extends Base_model
 	    foreach ($records as $record)
 	    {
 	        $list[$record['id']]['name'] = $record['name'];
-	        $list[$record['id']]['values'] = $this->getProductAtrributeValuesList($product_id,$record['id']);
+	        $list[$record['id']]['values'] = $this->getProductAttributeValuesList($product_id,$record['id']);
 	    }
 	    //dump($list);exit;
 	    return $list;

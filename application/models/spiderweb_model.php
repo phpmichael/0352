@@ -22,7 +22,7 @@ class Spiderweb_model extends Base_model
     //regular expression for parse links
     private $link_regexp = "/<a\s[^>]*href=([\"\']??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/siU";
     
-    private $domains_need_body = array('imdb.com');
+    //private $domains_need_body = array('imdb.com');
     
 
     /**

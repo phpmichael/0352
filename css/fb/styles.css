@@ -4,7 +4,7 @@
 	padding:15px; 
 	font-size: 14px; 
 	border: 1px solid rgb(204, 204, 204); 
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	font-family: Verdana,Tahoma,sans-serif; 
 }
 .fb-output-screen form { 

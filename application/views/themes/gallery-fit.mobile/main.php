@@ -210,7 +210,7 @@ $cap_img = $captcha_model->make();
             $j = jQuery.noConflict();
             
             var lastPhoto = 1;
-            var photos = new Array();
+            var photos = [];
             
             <?$i=0;foreach ($photos as $record):$i++;?>
             photos[<?=$i?>] = '<?=$record['file_name']?>';
@@ -218,7 +218,7 @@ $cap_img = $captcha_model->make();
             
             function show_photos(count)
             {
-                i = lastPhoto;
+                var i = lastPhoto;
                 lastPhoto += count;
                 
                 while(i<lastPhoto)

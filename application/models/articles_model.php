@@ -72,7 +72,7 @@ class Articles_model extends Posts_model
     }
     
     /**
-	 * Return list of months when posts were addded with amount of posts per month.
+	 * Return list of months when posts were added with amount of posts per month.
 	 *
 	 * @param array $args
 	 * @return array

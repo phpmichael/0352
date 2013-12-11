@@ -20,12 +20,12 @@ class Resizer
 	private $size_str;
 	private $quality = 85;
 
-	/**
-	 * Inittialize preferences if they set.
-	 *
-	 * @param  array $props
-	 * @return 	void
-	 */
+    /**
+     * Inittialize preferences if they set.
+     *
+     * @param  array $props
+     * @return \Resizer
+     */
 	public function __construct($props = array())
 	{
 		if (count($props) > 0)
@@ -74,7 +74,7 @@ class Resizer
 	}
 
 	/**
-	 * Get iamge information.
+	 * Get image information.
 	 * Uses GD to determine the width/height/type of image.
 	 *
 	 * @return	void
@@ -96,10 +96,11 @@ class Resizer
 	}
 
     /**
-	 * Resize image.
-	 *
-	 * @return	void
-	 */
+     * Resize image.
+     *
+     * @param    array $config
+     * @return    void
+     */
 	public function Resize($config)
 	{
 		$CI =& get_instance();
@@ -150,11 +151,12 @@ class Resizer
 		/*dump($CI->image_lib->display_errors());*/
 	}
 
-	/**
-	 * Crop image.
-	 *
-	 * @return	void
-	 */
+    /**
+     * Crop image.
+     *
+     * @param array $config
+     * @return    void
+     */
 	public function Crop($config)
 	{
 		$CI =& get_instance();
@@ -192,8 +194,9 @@ class Resizer
 	}
 
     /**
-	 * Resizeor Crop image.
-	 *
+	 * Resize or Crop image.
+     *
+	 * @param	array $config
 	 * @return	void
 	 */
 	public function ResizeAndCrop($config)

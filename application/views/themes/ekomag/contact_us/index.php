@@ -10,9 +10,9 @@
 	
 	<hr />
 	
-	<div id="YMapsLocation1" style="width:535x;height:300px"></div>
+	<div id="YMapsLocation1" style="width:535px;height:300px"></div>
 	<hr />
-	<div id="YMapsLocation2" style="width:535x;height:300px"></div>
+	<div id="YMapsLocation2" style="width:535px;height:300px"></div>
 	
 	<hr />
 

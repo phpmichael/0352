@@ -1,6 +1,6 @@
 <div align="center">
 <table>
-	<tr height='140' valign="bottom" style="padding:10px 0px 10px 0px;">
+	<tr height='140' valign="bottom" style="padding:10px 0 10px 0;">
 		<td class="red"><?=validation_errors()?></td>
 	</tr>
 	<tr>

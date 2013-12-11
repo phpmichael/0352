@@ -1,16 +1,34 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * This class for logs.
+ *
+ * @package log
+ * @author Michael Kovalskiy
+ * @version 2012
+ * @access public
+ */
 class MY_Log extends CI_Log 
 {
 	//array for store logs
     public $logs = array();
-	
-	public function __construct()
+
+    /**
+     * Constructor for MY_Log
+     */
+    public function __construct()
 	{
 		parent::__construct();
 	}
-	
-	public function write_log($level = 'error', $msg, $php_error = FALSE)
+
+    /**
+     * Write message to logs.
+     * @param string $level
+     * @param string $msg
+     * @param bool $php_error
+     * @return bool|void
+     */
+    public function write_log($level = 'error', $msg, $php_error = FALSE)
 	{
 		//write logs
 	    if( 

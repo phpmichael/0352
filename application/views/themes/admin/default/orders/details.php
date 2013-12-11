@@ -1,4 +1,4 @@
-<table width='100%' class='table-order-deatils' border="1">
+<table width='100%' class='table-order-details' border="1">
 	<thead>
 		<tr>
 		    <th style='text-align:left' width='60%'><?=language('thing_name')?></th>

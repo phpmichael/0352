@@ -176,14 +176,14 @@ class Orders_model extends Base_model
 	    
 	   /* $str = "
 	    <style type='text/css'>
-	    table.table-order-deatils
+	    table.table-order-details
 	    {
 	       width:100%;
 	       border-collapse:separate;
 	       border-spacing:5px;
 	       border:1px solid #999;
 	    }
-	    table.table-order-deatils th, table.table-order-details td{
+	    table.table-order-details th, table.table-order-details td{
 	       padding:2px;
 	       border:1px solid #999;
 	    }

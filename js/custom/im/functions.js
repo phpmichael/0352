@@ -41,7 +41,7 @@ function getNewMessages()
     });
 }
 
-//returds date in format dd/mm/YYYY HH:ii
+//return date in format dd/mm/YYYY HH:ii
 function formatDate(d)
 {
 	var day = d.getDate();

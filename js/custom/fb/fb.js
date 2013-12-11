@@ -114,7 +114,7 @@ $j(function () {
         		var form_id = path[0].toString().replace('li-form-','');
 	        	
 	        	if( $j(li).attr('rel')=='form' ) container_id = 0;//if form selected
-	            else container_id = $j(li).attr('id').toString().replace('li-container-','');//if container selcted
+	            else container_id = $j(li).attr('id').toString().replace('li-container-','');//if container selected
 	            
 	            $j("#screen").load(url+'/'+form_id+'/'+container_id);
 	        }

@@ -69,8 +69,7 @@ $j(document).ready(function(){
         var category_id = $j(this).attr('category_id');
         if(has_children == 0) 
         {
-            var url = "<?=base_url().$BC->_getBaseURI()?>/show/"+category_id+"<?=$BC->config->item('url_suffix')?>";
-            document.location.href = url;
+            document.location.href = "<?=base_url().$BC->_getBaseURI()?>/show/"+category_id+"<?=$BC->config->item('url_suffix')?>";
         }
         else
         {

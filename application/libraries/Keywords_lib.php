@@ -5,7 +5,7 @@ if (!defined('BASEPATH')) {
 
 /**
  * Keywords library generate keywords from text.
- * Returns a lowercase string with keywords ordered by occurance in content seperated with comma's
+ * Returns a lowercase string with keywords ordered by occurrence in content separated with comma's
  * 
  * @author Martijn van Nieuwenhoven info@axyrmedia.nl (original version)
  * @author Michael Kovalskiy (modified version)

@@ -10,8 +10,6 @@
  */
 class Email_templater
 {
-	private $CI;
-	
 	/**
 	 * Constructor
 	 *

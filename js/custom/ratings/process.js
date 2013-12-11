@@ -23,7 +23,7 @@ $j(document).ready(
 	}
 );
 
-//Set raying for post
+//Set rating for post
 function setRating(table,post_id,rating)
 {					
 	$j("#rating-inc-"+post_id+"-"+table).hide();

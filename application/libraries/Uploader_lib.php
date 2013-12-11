@@ -4,6 +4,14 @@ if (!defined('BASEPATH')) {
 }
 
 
+/**
+ * This class for uploading images.
+ *
+ * @package images
+ * @author Michael Kovalskiy
+ * @version 2011
+ * @access public
+ */
 class Uploader_lib
 {
 	private $CI;
@@ -29,12 +37,12 @@ class Uploader_lib
 	private $small_height = 75;
 	private $small_crop = TRUE;
 
-	/**
-	 * Inittialize preferences if they set.
-	 *
-	 * @param  array $props
-	 * @return 	void
-	 */
+    /**
+     * Inittialize preferences if they set.
+     *
+     * @param  array $props
+     * @return \Uploader_lib
+     */
 	public function __construct($props = array())
 	{
 		$this->CI =& get_instance();
@@ -63,7 +71,12 @@ class Uploader_lib
 		}
 	}
 
-	public function uploadFile($file_field)
+    /**
+     * Upload file.
+     * @param string $file_field
+     * @return bool
+     */
+    public function uploadFile($file_field)
     {
         if( @empty($_FILES[$file_field]['name']) ) return FALSE;
     	

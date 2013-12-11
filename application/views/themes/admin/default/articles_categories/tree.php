@@ -12,7 +12,7 @@
 $j(function () {
 	$j("#categories-tree").jstree({ 
 	    "themes" : {
-            "theme" : "classic",
+            "theme" : "classic"
             //"dots" : false,
             //"icons" : false
         },

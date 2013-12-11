@@ -91,7 +91,7 @@ class Customers extends Front
 			// === GET RECORD === //
 			$data = $this->customers_model->getOneById($id);
 			
-			// === Currenr Location === //
+			// === Current Location === //
 			$data['current_location_arr'] =
 			array(
 				$this->_getBaseURL()."customers" => lowercase($this->_getPageTitle('index')),
