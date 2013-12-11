@@ -338,7 +338,7 @@ abstract class Base_model extends CI_Model
     	//convert to URI string
     	$filter_ex['filter_str'] = $this->CI->uri->assoc_to_uri($filter_data);
     	
-    	//if empty some param (like keywords) then in url // will be replaced on / and this makes incorrect string to array convertion
+    	//if empty some param (like keywords) then in url // will be replaced on / and this makes incorrect string to array convert
     	//$filter_ex['filter_str'] = str_replace('//','/+/',$filter_ex['filter_str']);//+ is encoded spacer
     	
     	return $filter_ex;

@@ -41,6 +41,8 @@ abstract class Posts_model extends Base_model
 	protected $small_height = 75;
 	//pagination
 	protected $per_page = 10;
+
+    protected $tags_table = 'tags';
 	
 	/**
 	 * Init settings: read form table.

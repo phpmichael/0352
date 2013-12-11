@@ -19,6 +19,8 @@ abstract class Front extends Base
     //head data
     protected $head = array();
 
+    protected $is_home_page = FALSE;
+
     /**
      * Init models, set theme, load some vars in view.
      *

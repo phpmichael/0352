@@ -26,8 +26,6 @@ class Settings_model extends CI_Model implements ArrayAccess
 	 */
     public function __construct()
     {
-        parent::__construct();
-        
         $records = $this->db->get($this->c_table)->result_array();
         
         foreach ($records as $record)

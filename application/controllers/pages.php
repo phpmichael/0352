@@ -11,8 +11,6 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Pages extends Front 
 {
-	protected $is_home_page = FALSE;
-    
     // +++++++++++++ INNER METHODS +++++++++++++++ //
 
 

@@ -8,6 +8,16 @@ require_once(APPPATH.'models/categories_model.php');
  * @author Michael Kovalskiy
  * @version 2011
  * @access public
+ *
+ * @property string upload_path
+ * @property string small_dir
+ * @property string big_dir
+ * @property int small_width
+ * @property int small_height
+ * @property int big_width
+ * @property int big_height
+ * @property bool small_crop
+ * @property bool big_crop
  */
 class Photos_categories_model extends Categories_model
 {
