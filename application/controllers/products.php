@@ -11,7 +11,7 @@ require_once(APPPATH.'controllers/abstract/front.php');
  */
 class Products extends Front 
 {
-	//name of table
+//name of table
     protected $c_table = "products";
     
     protected $process_form_model;

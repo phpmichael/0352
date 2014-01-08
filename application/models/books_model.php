@@ -122,7 +122,7 @@ class Books_model extends Products_model
 		if( !@$filter_data['sort_by'] ) $filter_data['sort_by'] = 'pub_date';
 		if( !@$filter_data['sort_order'] ) $filter_data['sort_order'] = 'desc';
 		
-		if(!in_array(@$filter_data['display_style'],array('list','grid'))) $filter_data['display_style'] = 'list';
+		if(!in_array(@$filter_data['display_style'],array('list','grid'))) $filter_data['display_style'] = 'grid';
 			
 		//Request from Pagination
 		$filter_data = $this->paginationFilter($filter_data);
