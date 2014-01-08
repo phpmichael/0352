@@ -1,1 +1,1 @@
-<?=include_js($BC->_getFolder('js').'custom/flash-msg.js')?>
+<?=inline_js($BC->_getFolder('js').'custom/flash-msg.js')?>

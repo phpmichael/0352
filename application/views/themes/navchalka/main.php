@@ -50,7 +50,7 @@ $BC->lang->load('calendar');
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <?=include_js($BC->_getTheme().'js/categories-nav.js')?>
+    <?=inline_js($BC->_getTheme().'js/categories-nav.js')?>
     
     <script type="text/javascript">
     $j(document).ready(function(){
@@ -62,7 +62,7 @@ $BC->lang->load('calendar');
 
     <!-- Slider -->
     <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
-    <?=include_js($BC->_getTheme().'js/slider.js')?>
+    <?=inline_js($BC->_getTheme().'js/slider.js')?>
 
 </head>
 
