@@ -1,5 +1,5 @@
 /* main */
-#page{/*min-width:1300px;*/ padding:0;}
+#page{min-width: 1146px; padding:0;}
 header{padding-top:15px; background: #f6f6f6; margin-top:-20px;}
 footer{}
 aside{}

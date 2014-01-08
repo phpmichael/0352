@@ -81,7 +81,7 @@ $BC->lang->load('calendar');
                                         <?=get_menu('left',"<li><a href='{link}'><span>{title}</span></a></li>")?>
                                     </ul>
                                     <ul class="nav navbar-nav pull-right">
-                                        <li class="dropdown pull-right">
+                                        <li class="dropdown">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="choose-lang">
                                                 <?=img(array('src'=>'images/flags/'.strtolower($BC->lang_model->getLangCodeByLanguage($BC->config->item('language'))).'.png','width'=>18,'height'=>12))?> <?=language($BC->config->item('language'))?>
                                                 <span class="caret"></span>
