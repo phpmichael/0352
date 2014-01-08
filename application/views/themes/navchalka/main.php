@@ -24,7 +24,7 @@ $BC->lang->load('calendar');
 	<?=include_minified('css/dialog-cart.css','inline_css')?>
 	
 	<?$this->load->view('inc/js-jquery')?>
-	<?$this->load->view('inc/js-proxino'); ?>
+	<?//$this->load->view('inc/js-proxino'); ?>
 	<?$this->load->view('inc/js-flash-msg')?>
 	<?$this->load->view('inc/js-tooltip')?>
 	
