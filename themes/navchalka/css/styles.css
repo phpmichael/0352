@@ -52,13 +52,13 @@ a{outline: none;}
 #products-categories li{}
 #products-categories li a{
 	text-decoration:none;
-	line-height:28px;
+	/*line-height:28px;*/
 	padding:0 5px;
     font-size: 13px;
     color:#464646;
     vertical-align: middle;
     display: block;
-    height: 28px;
+    /*height: 28px;*/
 }
 #products-categories>li.level1>a{text-transform: uppercase;}
 #products-categories li a:hover, #products-categories li a.active{color: #48AFEA;}
@@ -72,7 +72,7 @@ a{outline: none;}
 }
 .cat-with-children{background: url('../img/cat-circle-grey.png') no-repeat 0 6px; }
 .cat-without-children{background: url('../img/cat-circle-blue.png') no-repeat 0 6px; }
-#products-categories li.level2{background: url('../img/cat-level2.png') no-repeat 0 15px;}
+#products-categories li.level2{background: url('../img/cat-level2.png') no-repeat 0 10px;}
 
 /* search box */
 .search-box{width: 583px; height: 114px; background: url('../img/search-box.png'); margin: 0 auto;}
