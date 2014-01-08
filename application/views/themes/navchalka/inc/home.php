@@ -26,7 +26,7 @@
 
             <?foreach ($slides as $slide):?>
             <div>
-                <a href="<?=$slide['link']?>" title="<?=htmlspecialchars($slide['title'])?>"><img src="<?=base_url()?>images/data/m/slideshow/<?=$slide['image']?>" alt="<?=htmlspecialchars($slide['title'])?>" /></a>
+                <a href="<?=$slide['link']?>" title="<?=htmlspecialchars($slide['title'])?>"><img src="<?=base_url()?>images/data/m/slideshow/<?=$slide['image']?>" alt="<?=htmlspecialchars($slide['title'])?>" width="579" height="194" /></a>
             </div>
             <?endforeach?>
         </div>
