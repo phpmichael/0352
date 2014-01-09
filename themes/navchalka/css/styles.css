@@ -92,8 +92,8 @@ a{outline: none;}
     border-radius: 5px;
     margin: 25px auto 0 auto;
 }
-.slider-arrow-left{background: url('../img/slider-arrow-left.png'); width: 25px; height: 43px; position: absolute; top:80px; left: 4px; z-index: 9; cursor: pointer;}
-.slider-arrow-right{background: url('../img/slider-arrow-right.png'); width: 25px; height: 43px; position: absolute; top:80px; right: 4px; z-index: 9; cursor: pointer;}
+.slider-arrow-left{background: url('../img/slider-arrows.png') 0 0; width: 25px; height: 43px; position: absolute; top:80px; left: 4px; z-index: 9; cursor: pointer;}
+.slider-arrow-right{background: url('../img/slider-arrows.png') -26px 0; width: 25px; height: 43px; position: absolute; top:80px; right: 4px; z-index: 9; cursor: pointer;}
 #slider-nav{margin-left:260px;}
 #slider-nav .pager-item{
     background: #CACACA;
