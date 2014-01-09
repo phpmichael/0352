@@ -38,7 +38,7 @@ $BC->lang->load('calendar');
 	<?=include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','js')?>
 	
 	<!-- Load Application Packages config -->
-	<?=include_js($BC->_getBaseURL().'app_js/config')?>
+    <script src="<?=base_url().$BC->_getBaseURL().'app_js/config'?>"></script>
 	
 	<?foreach ($BC->_getJSFiles() as $js_file):?>
 	<?=include_js($js_file)?>
@@ -46,12 +46,12 @@ $BC->lang->load('calendar');
 	
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
     <?=inline_js($BC->_getTheme().'js/categories-nav.js')?>
     
-    <script type="text/javascript">
+    <script>
     $j(document).ready(function(){
         <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('index','search')) && @$search_category_id):?>
         open_level1_node($j("#products-categories a.active"));

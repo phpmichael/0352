@@ -31,11 +31,15 @@ class App_js extends Front
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	// ============= ACTION METHODS ================ //
-    
-	
+
+    /**
+     * Generate config file for javascript.
+     */
     public function config()
     {
-        header("Content-type: text/javascript");
+        $expires = gmdate('D, d M Y H:i:s ', strtotime('now +1 hour')) . 'GMT';
+        header("Expires: {$expires}");
+        header("Content-type: application/javascript; charset=utf-8");
         
         // === VIEW === //
 		load_theme_view($this->_getFolder()."app_js/config",array());
