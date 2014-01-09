@@ -156,7 +156,7 @@ footer .copyright{background: #1E3954;text-align: center; color: #fff; font-size
 .small-logo-text{font-size: 12px; color: #1e3954;}
 
 .social-icon{width: 32px; height: 32px; display: block; float: left; margin: 10px 10px 0 0;}
-.social-google{background: url('../img/social-google+.png');}
-.social-twitter{background: url('../img/social-twitter.png');}
-.social-vkontakte{background: url('../img/social-vkontakte.png');}
-.social-odnoklasniki{background: url('../img/social-odnoklasniki.png');}
+.social-google{background: url('../img/social-icons.png'); background-position: 0 0; }
+.social-twitter{background: url('../img/social-icons.png'); background-position: -35px 0;}
+.social-vkontakte{background: url('../img/social-icons.png'); background-position: -70px 0;}
+.social-odnoklasniki{background: url('../img/social-icons.png'); background-position: -105px 0;}
