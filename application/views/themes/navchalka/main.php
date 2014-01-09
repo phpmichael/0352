@@ -1,5 +1,5 @@
 <?
-$BC->load->helper(array('customer','blog','poll','social','formbuilder'));
+$BC->load->helper(array('customer','blog','social','formbuilder'));
 $BC->lang->load('calendar');
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,6 @@ $BC->lang->load('calendar');
 	<?=include_minified($BC->_getTheme().'css/styles.css','css')?>
 	
 	<!-- CSS -->
-	<?=include_minified($BC->_getTheme().'css/poll.css','inline_css')?>
 	<?foreach ($BC->_getCSSFiles() as $css_file):?>
 	<?=include_minified($css_file,'css')?>
 	<?endforeach?>
