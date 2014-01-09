@@ -3,7 +3,7 @@
 <div class="well">
     <table>
     <tr>
-        <td width="50%" valign="top">
+        <td style="width:50%; vertical-align: top;">
         	<div><?=language('price')?>: <span class="product-price"><?=exchange($price)?></span></div>
             
             <?if($old_price!=0.00):?>
@@ -19,7 +19,7 @@
         	<?endif?>
         	
         </td>
-        <td width="50%">
+        <td style="width:50%">
     		<form action="<?=relative_url($BC->_getBaseURL()."/cart/add")?>" class="add-product">
                 <?=form_hidden('id',$data_key)?>
 

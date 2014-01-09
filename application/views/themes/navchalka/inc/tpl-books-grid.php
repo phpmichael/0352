@@ -7,7 +7,7 @@
 		
 		    <?if($i!=1 && !(($i-1)%2)):?></tr><tr><?endif?>
 		
-		        <td width="50%">
+		        <td>
 		        	<form action="<?=relative_url($BC->_getBaseURL()."/cart/add")?>" class="add-product">
                         <?=form_hidden('id',$row->data_key)?>
                         <?=form_hidden('qty',1)?>
@@ -52,7 +52,7 @@
 		
 		<?endforeach;?>
 		
-		<?while($i%2):$i++?><td width="50%"></td><?endwhile?>
+		<?while($i%2):$i++?><td></td><?endwhile?>
 	</tr>
 </tbody>
 </table>

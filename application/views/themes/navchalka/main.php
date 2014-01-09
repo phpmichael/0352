@@ -113,7 +113,7 @@ $BC->lang->load('calendar');
                 <header>
 
                 	<div class="wrapper row-fluid">
-                        <div class="span4" id="logo">
+                        <div class="span4">
                             <a class="main-logo" href="<?=base_url()?>"></a>
                             <div class="main-logo-text">
                                 <?if($BC->_getInterfaceLang()=='ua'):?>
@@ -189,7 +189,7 @@ $BC->lang->load('calendar');
 
                     <div class="row-fluid">
                         <div class="wrapper">
-                            <div class="span4" id="logo">
+                            <div class="span4">
                                 <div class="small-logo"></div>
                                 <div class="small-logo-text">
                                     <?if($BC->_getInterfaceLang()=='ua'):?>
