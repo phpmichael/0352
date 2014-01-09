@@ -16,7 +16,7 @@ a{outline: none;}
 .right-sidebar{width: 263px; float: left;}
 
 /* logo */
-.main-logo{display: block; background: url('../img/main-logo.png'); width: 308px; height: 64px;}
+.main-logo{display: block; background: url('../img/sprites.png') 0 0; width: 308px; height: 64px;}
 .main-logo-text{font-size: 12px; color: #1e3954;}
 
 /* phones */
@@ -32,7 +32,7 @@ a{outline: none;}
 
 /* cart */
 #cart{
-    background: url('../img/cart.png');
+    background: url('../img/sprites.png') 0 -229px;
     width: 164px;
     height: 106px;
     padding: 10px 0 0 100px;
@@ -75,10 +75,10 @@ a{outline: none;}
 #products-categories li.level2{background: url('../img/cat-level2.png') no-repeat 0 10px;}
 
 /* search box */
-.search-box{width: 583px; height: 114px; background: url('../img/search-box.png'); margin: 0 auto;}
+.search-box{width: 583px; height: 114px; background: url('../img/sprites.png') 0 -112px; margin: 0 auto;}
 .search-box form{padding: 23px 0 0 25px; margin-bottom: 0;}
 .search-box form input[type="text"]{height: 27px; width: 403px; border: none;}
-.search-box form input[type="submit"]{height: 39px; width: 107px; border: none; background: url('../img/btn-search.png'); margin: -5px 0 0 0; padding-right: 20px;}
+.search-box form input[type="submit"]{height: 39px; width: 107px; border: none; background: url('../img/sprites.png') 0 -349px; margin: -5px 0 0 0; padding-right: 20px;}
 .search-example{padding:10px 20px; color: #fff;}
 .search-example span{border-bottom: 1px dashed #fff;}
 
@@ -152,7 +152,7 @@ a{outline: none;}
 /* footer */
 footer{background: #f6f6f6; margin-top: 20px;}
 footer .copyright{background: #1E3954;text-align: center; color: #fff; font-size: 12px; height: 35px; line-height: 35px; margin-top:10px;}
-.small-logo{background: url('../img/small-logo.png'); width: 208px; height: 47px;}
+.small-logo{background: url('../img/sprites.png') 0 -65px; width: 208px; height: 47px;}
 .small-logo-text{font-size: 12px; color: #1e3954;}
 
 .social-icon{width: 32px; height: 32px; display: block; float: left; margin: 10px 10px 0 0;}
