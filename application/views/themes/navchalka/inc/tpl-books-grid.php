@@ -15,7 +15,7 @@
 
 		                    <div class="product_image_container span6">
 		                        <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'books/name/'.$row->slug.url_category_addition())?>">
-	                    			<?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1))?>
+	                    			<?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160'))?>
 	                    		</a>
 		                    </div>
 		
