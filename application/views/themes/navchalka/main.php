@@ -49,7 +49,7 @@ $BC->lang->load('calendar');
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <?=inline_js($BC->_getTheme().'js/categories-nav.js')?>
+    <?=include_minified($BC->_getTheme().'js/categories-nav.js','inline_js')?>
     
     <script>
     $j(document).ready(function(){
