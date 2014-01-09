@@ -35,7 +35,7 @@ $BC->lang->load('calendar');
 	
 	<?$this->load->view('inc/js-facebox'); ?>
 	
-	<?=include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','js')?>
+	<?=include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','inline_js')?>
 	
 	<!-- Load Application Packages config -->
     <script src="<?=base_url().$BC->_getBaseURL().'app_js/config'?>"></script>
@@ -61,7 +61,7 @@ $BC->lang->load('calendar');
 
     <!-- Slider -->
     <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
-    <?=inline_js($BC->_getTheme().'js/slider.js')?>
+    <?=include_minified($BC->_getTheme().'js/slider.js','inline_js')?>
 
 </head>
 
