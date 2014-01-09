@@ -44,7 +44,7 @@ function get_menu($menu,$format='list')
  */
 function include_js($file)
 {
-    return '<script type="text/javascript" src="'.base_url().$file.'"></script>';
+    return '<script type="text/javascript" src="'.static_url().$file.'"></script>';
 }
 
 /**
@@ -56,7 +56,7 @@ function include_js($file)
  */
 function include_css($file,$media='all')
 {
-    return '<link rel="stylesheet" type="text/css" href="'.base_url().$file.'" media="'.$media.'" />';
+    return '<link rel="stylesheet" type="text/css" href="'.static_url().$file.'" media="'.$media.'" />';
 }
 
 /**
