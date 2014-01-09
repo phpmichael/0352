@@ -35,7 +35,7 @@ $BC->lang->load('calendar');
 	
 	<?$this->load->view('inc/js-facebox'); ?>
 	
-	<?=inline_js($BC->_getFolder('js').'custom/cart/show_short_cart.js')?>
+	<?=include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','js')?>
 	
 	<!-- Load Application Packages config -->
 	<?=include_js($BC->_getBaseURL().'app_js/config')?>
