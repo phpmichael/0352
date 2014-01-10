@@ -1,6 +1,11 @@
 <?
-$products_manufacturers_model = load_model('products_manufacturers_model');
-$manufacturers = $products_manufacturers_model->getManufacturersList();
+if ( !($manufacturers = $BC->cache->get('manufacturers')) )
+{
+    $products_manufacturers_model = load_model('products_manufacturers_model');
+    $manufacturers = $products_manufacturers_model->getManufacturersList();
+
+    $BC->cache->save('manufacturers', $manufacturers, 5*60);
+}
 ?>
 
 <?if(!empty($manufacturers)):?>

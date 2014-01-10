@@ -1,7 +1,3 @@
-<?$pages['top_news'] = $BC->pages_model->getByLink('top-news');?>
-
-<?$books_model = load_model('books_model');?>
-
 <div>
     <div class="search-box">
         <?=form_open($BC->_getBaseURL()."books/search")?>
@@ -20,8 +16,13 @@
     <div id="slider-container">
         <div id="slider">
             <?
-            $slideshow = load_model('slideshow_model');
-            $slides = $slideshow->getAll();
+            if ( !($slides = $BC->cache->get('slides')) )
+            {
+                $slideshow = load_model('slideshow_model');
+                $slides = $slideshow->getAll();
+
+                $BC->cache->save('slides', $slides, 5*60);
+            }
             ?>
 
             <?foreach ($slides as $slide):?>
@@ -44,7 +45,16 @@
     <h2><?=language('novelty')?></h2>
 
     <div>
-    	<?load_theme_view('inc/tpl-books-grid',$books_model->getRecent(6));?>
+        <?
+        if ( !($recent_books = $BC->cache->get('recent_books')) )
+        {
+            $books_model = load_model('books_model');
+            $recent_books = $books_model->getRecent(6);
+
+            $BC->cache->save('recent_books', $recent_books, 5*60);
+        }
+        ?>
+    	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>
     
 </div>

@@ -141,4 +141,22 @@ class Tools extends Admin
         return TRUE;
     }
 
+    public function cache()
+    {
+        $this->load->driver('cache');
+
+        if ($this->cache->apc->is_supported())
+        {
+            echo "APC"."<br/>";
+        }
+        if ($this->cache->memcached->is_supported())
+        {
+            echo "Memcache"."<br/>";
+        }
+        if ($this->cache->file->is_supported())
+        {
+            echo "File"."<br/>";
+        }
+    }
+
 }
