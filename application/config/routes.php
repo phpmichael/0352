@@ -51,7 +51,7 @@ $route['scaffolding_trigger'] = "";
 $route['('.$languages.')?/?page/(:any)'] = 'pages/index/$2'; 
 
 //route for product/article
-$route['('.$languages.')?/?(product|article)/(:any)'] = '$2s/name/$3'; 
+$route['('.$languages.')?/?(product|article|book)/(:any)'] = '$2s/name/$3';
 
 //rouse for admin sign-in/sign-out
 $route['a-login'] = 'admin/managers/signin';
