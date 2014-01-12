@@ -42,7 +42,7 @@
     <div>
         <?
             load_model('books_model');
-            $recent_books = $BC->zen->books_model->getRecent(4);
+            $recent_books = $BC->zen->books_model->getRecent(6);
         ?>
     	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>
@@ -52,7 +52,7 @@
     <div>
         <?
             load_model('books_model');
-            $featured_books = $BC->zen->books_model->getFeatured(4);
+            $featured_books = $BC->zen->books_model->getFeatured(2);
         ?>
         <?load_theme_view('inc/tpl-books-grid',$featured_books);?>
     </div>
