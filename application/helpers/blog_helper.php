@@ -69,7 +69,8 @@ function get_categories_tree($blog_model,$parent_id=0,$active_category_id=0,arra
 	$CI->load->model($blog_model.'_categories_model');
 
 	//get children categories array
-    $categories = $CI->zen->{$blog_model.'_categories_model'}->getTree($parent_id);
+    $categories = $CI->zen->{$blog_model.'_categories_model'}->getTree($parent_id, $CI->_getInterfaceLang(TRUE));
+    //NOTE: 2nd parameter of "getTree" doesn't used, language detected automatic, but it needs to create different cache for different languages
 	
 	//deep menu level
 	$args['start_level'] = (@$args['start_level']) ? $args['start_level'] : 1;

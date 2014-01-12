@@ -12,8 +12,8 @@
 | 'extension' = the extension to add to all cache files
 */
 
-$config['adapter']   = 'dummy';
-$config['expires']   = 60;
+$config['adapter']   = 'file';
+$config['expires']   = 5*60;
 
 // only for file cache adapter
 $config['folder']    = 'zen';
