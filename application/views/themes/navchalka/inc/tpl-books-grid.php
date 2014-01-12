@@ -22,7 +22,7 @@
 		                    <div class="span6">
 		
 	                            <div class="product-title">
-	                                <?=anchor_base('books/name/'.$row->slug.url_category_addition(),utf8_wordwrap($row->name,17,' '),"class='product_name'")?>
+	                                <?=anchor_base('books/name/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>
 	                            </div>
 
                                 <div class="product-buy pull-right">

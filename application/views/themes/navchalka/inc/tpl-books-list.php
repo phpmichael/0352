@@ -38,7 +38,7 @@
             <td style="text-align:left;">
                 
                 <h4>
-                    <?=anchor_base('books/name/'.$row->slug.url_category_addition(),utf8_wordwrap($row->name,17,' '),"class='product_name'")?>
+                    <?=anchor_base('books/name/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>
                 </h4>
             
                 <p><strong>ISBN:</strong> <?=$row->ISBN?></p>
