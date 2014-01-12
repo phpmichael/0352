@@ -22,7 +22,7 @@ $featured = $BC->zen->expires(30)->products_model->getFeatured(3);
 	            <div>
 
 	                <div>
-	                    <?=anchor_base('book/'.$row->slug.url_category_addition(),utf8_wordwrap($row->name,17,' '),"class='product_name'")?>
+	                    <?=anchor_base('book/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>
 	                </div>
 
 	                <div class="product-price">
