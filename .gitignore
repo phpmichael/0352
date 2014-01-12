@@ -215,8 +215,9 @@ pip-log.txt
 .mr.developer.cfg
 .idea
 /application/logs
-cache
+/application/cache
 /images/captcha
-user_guide
+/user_guide
 /*.sql
 /books-changes.txt
+/tests/acceptance/SigninCept.php
