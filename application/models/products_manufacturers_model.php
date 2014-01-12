@@ -24,12 +24,12 @@ class Products_manufacturers_model extends Base_model
 	{
 		$records = $this->db->get($this->c_table)->result_array();
 		
-		$list = array();
-		
-		if($none) $list[0] = language('none');
-		
-		$list = array_merge($list,multi2singleArray('id','name',$records));
-		
+		$list = multi2singleArray('id','name',$records);
+
+        if($none) $list[0] = language('none');
+
+        ksort($list);
+
 		return $list;
 	}
 	
