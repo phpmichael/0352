@@ -1,7 +1,7 @@
 <?
 $BC->load->helper(array('customer','blog','social','formbuilder'));
 $BC->lang->load('calendar');
-$BC->load->driver('cache', array('adapter' => 'memcached', 'backup'=>'file'));
+$BC->load->driver('cache', array('adapter' => 'file'));
 ?>
 <!DOCTYPE html>
 <html>
@@ -117,7 +117,7 @@ $BC->load->driver('cache', array('adapter' => 'memcached', 'backup'=>'file'));
                         <div class="span4">
                             <a class="main-logo" href="<?=base_url()?>"></a>
                             <div class="main-logo-text">
-                                <?if($BC->_getInterfaceLang()=='ua'):?>
+                                <?if($BC->config->item('language')=='ukrainian'):?>
                                     Інтернет–магазин навчально-методичної літератури
                                 <?else:?>
                                     Интернет-магазин учебно-методической литературы
@@ -193,7 +193,7 @@ $BC->load->driver('cache', array('adapter' => 'memcached', 'backup'=>'file'));
                             <div class="span4">
                                 <div class="small-logo"></div>
                                 <div class="small-logo-text">
-                                    <?if($BC->_getInterfaceLang()=='ua'):?>
+                                    <?if($BC->config->item('language')=='ukrainian'):?>
                                         Інтернет–магазин навчально-методичної літератури
                                     <?else:?>
                                         Интернет-магазин учебно-методической литературы

@@ -5,7 +5,7 @@
             <input type="submit" value="<?=language('search')?>" />
         </form>
         <div class="search-example">
-            <?if($BC->_getInterfaceLang()=='ua'):?>
+            <?if($BC->config->item('language')=='ukrainian'):?>
                 Наприклад: <span>алгебра</span>,  <span>атлас</span> і т.п.
             <?else:?>
                 Например: <span>алгебра</span>,  <span>атлас</span>
