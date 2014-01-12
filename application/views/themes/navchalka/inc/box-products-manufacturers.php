@@ -12,7 +12,7 @@ $manufacturers = $BC->zen->products_manufacturers_model->getManufacturersList();
 	<?foreach ($manufacturers as $manufacturer_id=>$manufacturer_name):?>
 		<?if($manufacturer_id):?>
 		<li>
-			<?=anchor_base('books/search/manufacturer_id/'.$manufacturer_id,$manufacturer_name)?>
+			<?=anchor_base('books/search/manufacturer/'.urlencode($manufacturer_name),$manufacturer_name)?>
 		</li>
 		<?endif?>
 	<?endforeach?>
