@@ -46,6 +46,16 @@
         ?>
     	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>
+
+    <h2><?=language('featured')?></h2>
+
+    <div>
+        <?
+        load_model('books_model');
+        $featured_books = $BC->zen->books_model->getFeatured(6);
+        ?>
+        <?load_theme_view('inc/tpl-books-grid',$featured_books);?>
+    </div>
     
 </div>
 

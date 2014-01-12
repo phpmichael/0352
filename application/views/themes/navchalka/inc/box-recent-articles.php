@@ -1,6 +1,6 @@
 <?
-$articles_model = load_model('articles_model');
-$recent_articles = $articles_model->getRecent(3);
+load_model('articles_model');
+$recent_articles = $BC->zen->articles_model->getRecent(3);
 ?>
 
 <h3><?=language('recent_articles')?></h3>
