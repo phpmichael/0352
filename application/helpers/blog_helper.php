@@ -69,19 +69,7 @@ function get_categories_tree($blog_model,$parent_id=0,$active_category_id=0,arra
 	$CI->load->model($blog_model.'_categories_model');
 
 	//get children categories array
-    if( isset($args['cache_time']) && !empty($args['cache_time']) ) //if cache enabled
-    {
-        if( !($categories = $CI->cache->get($blog_model.'_children_categories_of_'.$parent_id)) ) //check if isset categories in cache
-        {
-            $categories = $CI->{$blog_model.'_categories_model'}->getTree($parent_id);
-
-            $CI->cache->save($blog_model.'_children_categories_of_'.$parent_id, $categories, $args['cache_time']);//save categories to cache
-        }
-    }
-	else //if cache disabled
-    {
-        $categories = $CI->{$blog_model.'_categories_model'}->getTree($parent_id);
-    }
+    $categories = $CI->zen->{$blog_model.'_categories_model'}->getTree($parent_id);
 	
 	//deep menu level
 	$args['start_level'] = (@$args['start_level']) ? $args['start_level'] : 1;

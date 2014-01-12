@@ -16,13 +16,8 @@
     <div id="slider-container">
         <div id="slider">
             <?
-            if ( !($slides = $BC->cache->get('slides')) )
-            {
-                $slideshow = load_model('slideshow_model');
-                $slides = $slideshow->getAll();
-
-                $BC->cache->save('slides', $slides, 5*60);
-            }
+                load_model('slideshow_model');
+                $slides = $BC->zen->slideshow_model->getAll();
             ?>
 
             <?foreach ($slides as $slide):?>
@@ -46,13 +41,8 @@
 
     <div>
         <?
-        if ( !($recent_books = $BC->cache->get('recent_books')) )
-        {
-            $books_model = load_model('books_model');
-            $recent_books = $books_model->getRecent(6);
-
-            $BC->cache->save('recent_books', $recent_books, 5*60);
-        }
+            load_model('books_model');
+            $recent_books = $BC->zen->books_model->getRecent(6);
         ?>
     	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>

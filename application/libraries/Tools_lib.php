@@ -101,7 +101,8 @@ class Tools_lib
                 'application/config/routes.php' => 0,
                 'application/config/smileys.php' => 0,
                 'application/config/user_agents.php' => 0,
-                
+                'application/config/zen.php' => 0,
+
                 //images
                 'images/debug_toolbar' => 1,
                 'images/file_types' => 1,

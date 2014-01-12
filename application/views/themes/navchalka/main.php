@@ -1,7 +1,6 @@
 <?
 $BC->load->helper(array('customer','blog','social','formbuilder'));
 $BC->lang->load('calendar');
-$BC->load->driver('cache', array('adapter' => 'file'));
 ?>
 <!DOCTYPE html>
 <html>
