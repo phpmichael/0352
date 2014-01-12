@@ -51,8 +51,8 @@
 
     <div>
         <?
-        load_model('books_model');
-        $featured_books = $BC->zen->books_model->getFeatured(4);
+            load_model('books_model');
+            $featured_books = $BC->zen->books_model->getFeatured(4);
         ?>
         <?load_theme_view('inc/tpl-books-grid',$featured_books);?>
     </div>
