@@ -220,4 +220,3 @@ pip-log.txt
 /user_guide
 /*.sql
 /books-changes.txt
-/tests/acceptance/SigninCept.php
