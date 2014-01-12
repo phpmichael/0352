@@ -5,7 +5,7 @@
 </div>
 
 <?if( $posts_list ):?>
-    
+
     <?if($paginate):?>
     <div class="pagination"><p><?=language('page')?>: </p><?=$paginate?></div>
     <?endif?>
@@ -15,8 +15,8 @@
         <?load_theme_view('inc/tpl-books-'.$display_style);?>
     <?endif?>
     </div>
-    
-    
+
+
     <?if($paginate):?>
     <div class="pagination"><p><?=language('page')?>: </p><?=$paginate?></div>
     <?endif?>
