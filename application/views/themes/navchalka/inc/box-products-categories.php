@@ -1,5 +1,7 @@
-<div class="catalog">
-    <div class="catalog-top"></div>
+<div class="side-box">
+    <div class="side-box-top">
+        <h3 class="catalog"><?=language('catalog')?></h3>
+    </div>
     <?
         echo get_categories_tree(
             'books',
@@ -13,5 +15,5 @@
             )
         );
     ?>
-    <div class="catalog-bottom"></div>
+    <div class="side-box-bottom"></div>
 </div>
