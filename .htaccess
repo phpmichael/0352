@@ -43,3 +43,8 @@ AddDefaultCharset utf-8
     Header append Vary: Accept-Encoding
   </FilesMatch>
 </IfModule>
+
+#Disable ETag
+<ifModule mod_headers.c>
+    Header unset ETag
+</ifModule>
