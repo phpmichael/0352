@@ -23,6 +23,13 @@ if ( ! function_exists('img'))
             $src['alt'] = '';
         }
 
+        if ( (isset($src['width']) && $src['width']=='?') || (isset($src['height']) && $src['height']=='?') )
+        {
+            $info = getImageInfo($src['src']);
+            if ( $src['width']=='?' ) $src['width'] = $info['width'];
+            if ( $src['height']=='?' ) $src['height'] = $info['height'];
+        }
+
         $img = '<img';
 
         foreach ($src as $k=>$v)
@@ -51,4 +58,27 @@ if ( ! function_exists('img'))
 
         return $img;
     }
+}
+
+/**
+ * Return image info: width, height, type
+ * @param string $path
+ * @return array
+ */
+function getImageInfo($path)
+{
+    $info = array();
+    if ( function_exists('getimagesize') )
+    {
+        if (FALSE !== ($D = @getimagesize($path)))
+        {
+            $types = array(1 => 'gif', 2 => 'jpeg', 3 => 'png');
+
+            $info['width']		= $D['0'];
+            $info['height']		= $D['1'];
+            $info['type']		= ( ! isset($types[$D['2']])) ? 'unknown' : $types[$D['2']];
+            $info['size_str']	= $D['3'];  // string containing height and width
+        }
+    }
+    return $info;
 }

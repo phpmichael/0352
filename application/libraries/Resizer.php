@@ -21,7 +21,7 @@ class Resizer
 	private $quality = 85;
 
     /**
-     * Inittialize preferences if they set.
+     * Initialize preferences if they set.
      *
      * @param  array $props
      * @return \Resizer
@@ -70,7 +70,7 @@ class Resizer
 		}
 
 		// Get Image Data
-		$this->getdata();
+		$this->getData();
 	}
 
 	/**
@@ -79,20 +79,14 @@ class Resizer
 	 *
 	 * @return	void
 	 */
-	public function getdata()
+	public function getData()
 	{
-		if (function_exists('getimagesize'))
-		{
-			if (FALSE !== ($D = @getimagesize($this->path)))
-			{
-				$types = array(1 => 'gif', 2 => 'jpeg', 3 => 'png');
+        $info = getImageInfo($this->path);
 
-				$this->width		= $D['0'];
-				$this->height		= $D['1'];
-				$this->type		= ( ! isset($types[$D['2']])) ? 'unknown' : $types[$D['2']];
-				$this->size_str	= $D['3'];  // string containing height and width
-			}
-		}
+        $this->width	= $info['width'];
+        $this->height	= $info['height'];
+        $this->type		= $info['type'];
+        $this->size_str	= $info['size_str'];
 	}
 
     /**
@@ -201,8 +195,6 @@ class Resizer
 	 */
 	public function ResizeAndCrop($config)
 	{
-		$CI =& get_instance();
-
 		$this->Resize($config);
 
 		$config['path'] = $config['new_image'];
