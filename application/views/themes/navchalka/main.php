@@ -50,14 +50,12 @@ $BC->lang->load('calendar');
     <![endif]-->
     
     <?=include_minified($BC->_getTheme().'js/categories-nav.js','inline_js')?>
-    
+
+    <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('index','search')) && @$search_category_id):?>
     <script>
-    $j(document).ready(function(){
-        <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('index','search')) && @$search_category_id):?>
-        open_level1_node($j("#products-categories a.active"));
-        <?endif?>
-    });
+    $j(document).ready(function(){ open_level1_node($j("#products-categories a.active")); });
     </script>
+    <?endif?>
 
     <!-- Slider -->
     <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
