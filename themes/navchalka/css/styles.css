@@ -74,7 +74,7 @@ a, a:focus {outline: none;}
 }
 .cat-with-children{background: url('../img/side-box-sprites.png') no-repeat 1px -90px; }
 .cat-without-children{background: url('../img/side-box-sprites.png') no-repeat -12px -90px; }
-#products-categories li.level2{background: url('../img/cat-level2.png') no-repeat 0 10px;}
+#products-categories li.level2{background: url('../img/side-box-sprites.png') no-repeat -35px -120px;}
 
 /* search box */
 .search-box{width: 583px; height: 114px; background: url('../img/sprites.png') 0 -112px; margin: 0 auto;}
