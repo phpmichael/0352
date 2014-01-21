@@ -159,4 +159,26 @@ class Tools extends Admin
         }
     }
 
+    public function optimize_images($quality = 83){
+        $dirs = array(
+            './images/data/b/slideshow/',
+            './images/data/m/slideshow/',
+            './images/data/s/slideshow/',
+        );
+
+        foreach($dirs as $dir)
+        {
+            $scan = glob(rtrim($dir,'/').'/*');
+            foreach($scan as $filename)
+            {
+                if(!stristr($filename,'.jpg')) continue;
+
+                //$destination_filename = str_replace('.jpg','-'.$quality.'.jpg',$filename);
+                $destination_filename = $filename;
+
+                $resource = imagecreatefromjpeg($filename);
+                imagejpeg($resource, $destination_filename, $quality);
+            }
+        }
+    }
 }
