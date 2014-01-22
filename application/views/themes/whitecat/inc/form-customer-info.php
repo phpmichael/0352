@@ -57,6 +57,6 @@
 
 <?$this->load->view('inc/js-validate')?>
 
-<script type="text/javascript">
+<script>
     $j("#registration_form").validate();
 </script>

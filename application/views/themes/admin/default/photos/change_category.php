@@ -16,7 +16,7 @@
 <?$this->load->view('inc/js-selectboxes')?>
 <?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function(){
 	<?if(!isset($post_categories)):?>

@@ -67,7 +67,7 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
 
 <?endif;?>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function() 
 {

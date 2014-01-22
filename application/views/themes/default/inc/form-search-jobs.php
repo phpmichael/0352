@@ -49,7 +49,7 @@
 
 <?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function(){
 	<?if(!isset($search_category_id)):?>

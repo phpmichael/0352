@@ -24,7 +24,7 @@
 <![endif]-->
 
 <!--[if gte IE 8]>
-<style type="text/css">
+ <style>
     #superfish-1 a, #superfish-1 a:visited { padding:20px 18px 19px;}
 </style>
 <![endif]-->
@@ -53,7 +53,7 @@
 
 <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
 
-<script type="text/javascript">
+<script>
 <!--//--><![CDATA[//><!--
     /*jQuery(function(){
         jQuery('#superfish-1').supersubs({minWidth: 12, maxWidth: 27, extraWidth: 1}).superfish(
@@ -69,7 +69,7 @@
 
 <?//=include_js($BC->_getTheme().'js/jquery.ui.dialog.patch.js')?>
 
-<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+<script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
 <script>
 $j('#partner-slider').cycle({
 	fx: 'fade'
@@ -84,7 +84,7 @@ $j('#partner-slider').cycle({
 <?endforeach?>
 
 
-<script type="text/javascript">
+<script>
 <!--//--><![CDATA[//><!--
 $j(document).ready(function() {
     $j('#slider').after('<div id="slider-nav" class="views-jqfx-controls-bottom">').cycle({

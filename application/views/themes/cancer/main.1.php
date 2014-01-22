@@ -17,7 +17,7 @@
 
 <?$this->load->view('inc/js-jquery')?>
 <?=include_minified($BC->_getTheme().'js/bgstretcher.js','js')?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
     jQuery(document).ready(function(){
       //  Initialize Backgound Stretcher
@@ -33,7 +33,7 @@
 <?=include_minified($BC->_getTheme().'js/Lane_-_Narrow_400.font.js','js')?>
 
 <?=include_minified($BC->_getTheme().'js/loopedslider.0.5.4.js','js')?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 	jQuery(function(){
 		jQuery('#loopedSlider').loopedSlider({
@@ -48,7 +48,7 @@
 <!--[if lt IE 9]>
 <?=include_js($BC->_getTheme().'js/html5.js')?>
 <![endif]-->
-<!--[if IE 6]><script type="text/javascript" src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script><![endif]-->
+<!--[if IE 6]><script src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script><![endif]-->
 </head>
 
 <body id="page1">
@@ -261,7 +261,7 @@
     </div>
   <div class="wrapepr-bottom clear"><span><span></span></span></div>
 </div>
-<script type="text/javascript"> Cufon.now(); </script>
+<script> Cufon.now(); </script>
 
 </body>
 </html>

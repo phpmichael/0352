@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function()
 {

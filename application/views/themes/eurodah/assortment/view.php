@@ -85,7 +85,7 @@
     
 </div>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(function() {
 	$j( "#tabs" ).tabs();

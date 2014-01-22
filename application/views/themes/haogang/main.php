@@ -93,7 +93,7 @@ $BC->load->helper('poll');
         </div>
     </div>
     
-    <script type="text/javascript">
+    <script>
     //<![CDATA[
          
         /*function lastblock(sidebarName){                

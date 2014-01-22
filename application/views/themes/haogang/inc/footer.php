@@ -4,7 +4,7 @@
 
 <p class="copy">
     &copy; 
-    <script type="text/javascript">
+    <script>
     //<![CDATA[
     var mdate = new Date(); document.write(mdate.getFullYear());
     //]]>

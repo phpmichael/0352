@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Database Error</title>
-<style type="text/css">
+<style>
 
 body {
 background-color:	#fff;

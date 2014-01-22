@@ -1,5 +1,5 @@
 <?=include_js($BC->_getFolder('js').'tiny_mce/jquery.tinymce.js')?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function init_richtext()
 {

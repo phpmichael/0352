@@ -43,10 +43,10 @@
             <?endif?>
             
             <?if (!in_array($BC->_getController(),array('cart','wishlist','orders'))):?>
-                <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?52"></script>
+                <script src="http://userapi.com/js/api/openapi.js?52"></script>
                 <!-- VK Widget -->
                 <div id="vk_groups"></div>
-                <script type="text/javascript">
+                <script>
                 VK.Widgets.Group("vk_groups", {mode: 2, width: "220", height: "300"}, -108105904);
                 </script>
                 

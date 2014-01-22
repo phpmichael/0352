@@ -143,7 +143,7 @@ $cap_img = $captcha_model->make();
 <!-- Load Application Packeges config -->
 <?=include_js($BC->_getBaseURL().'app_js/config')?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
     var slidesArr = [];
     <?$i=-1; foreach ($photos as $record): $i++;?>
@@ -154,7 +154,7 @@ $cap_img = $captcha_model->make();
 
 <?=include_minified($BC->_getTheme().'js/main.js','js')?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
     var photos = [];
     

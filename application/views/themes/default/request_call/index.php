@@ -1,4 +1,4 @@
-<style type="text/css">
+ <style>
 #request_call .errors{color:#f00;text-align:left;}
 #request_call .success{text-align:left;}
 </style>

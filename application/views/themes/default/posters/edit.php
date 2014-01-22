@@ -11,7 +11,7 @@
 <?$this->load->view('inc/js-meio-mask')?>
 <?$this->load->view('inc/js-init-mask')?>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function(){
 	

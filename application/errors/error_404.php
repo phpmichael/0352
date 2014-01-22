@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>404 Page Not Found</title>
-	<style type="text/css">
+	<style>
 		body {
 			background-color:	#fff;
 			margin:				40px;

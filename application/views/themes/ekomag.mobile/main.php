@@ -23,7 +23,7 @@ $BC->load->helper('social');
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
         <?=include_minified($BC->_getTheme().'js/my.js','js')?>
         
-        <script type="text/javascript">
+        <script>
         	$j = jQuery.noConflict();
         </script>
         
@@ -57,7 +57,7 @@ $BC->load->helper('social');
                 </h5>
             </div>
         </div>
-        <script type="text/javascript">
+        <script>
             $j(document).bind("mobileinit", function(){
 			  $j.mobile.ajaxEnabled = false;
 			});

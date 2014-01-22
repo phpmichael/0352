@@ -10,7 +10,7 @@
 <link type="application/rss+xml" href="<?=site_url($BC->_getBaseURL().'articles/RSS') ?>" title="Articles RSS Feed" rel="alternate" />
 
 <!--[if lt IE 7]>
-<script type="text/javascript">
+<script>
 //<![CDATA[
     var BLANK_URL = '<?=(base_url().$BC->_getTheme().'js/blank.html') ?>';
     var BLANK_IMG = '<?=(base_url().$BC->_getTheme().'js/spacer.gif') ?>';
@@ -36,7 +36,7 @@
 <![endif]--> 
 
 <?=include_js($BC->_getTheme().'js/imagepreloader.js')?>
-<script type="text/javascript">
+<script>
 	preloadImages([		
 		'<?=(base_url().$BC->_getTheme())?>images/menu_button_active_bg.jpg'
 		]);

@@ -206,7 +206,7 @@ $cap_img = $captcha_model->make();
             </div>
         </div>
         
-        <script type="text/javascript">
+        <script>
             $j = jQuery.noConflict();
             
             var lastPhoto = 1;

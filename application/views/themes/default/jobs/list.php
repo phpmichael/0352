@@ -50,7 +50,7 @@
 
 <div class="pagination"><?=$paginate?></div>
 
-<script type="text/javascript">
+<script>
 var hidden_search_form = <?if(!isset($empty_filter)):?>true<?else:?>false<?endif?>;
 </script>
 <?=include_js($BC->_getFolder('js').'custom/search_form.js')?>

@@ -76,7 +76,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(document).ready(function(){
     $j(".form-products-toolbar select").change(function(){

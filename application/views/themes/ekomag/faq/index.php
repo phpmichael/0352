@@ -21,7 +21,7 @@
         <br class="clear" />
     </div>
     
-    <script type="text/javascript">
+    <script>
     //<![CDATA[
     $j(document).ready(function(){
         //show/hide answer for FAQ

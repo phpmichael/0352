@@ -9,7 +9,7 @@ if(!isset($chart_type)) $chart_type = 'column';
 if(!isset($chart_height)) $chart_height = 550;
 ?>
 
-<style type="text/css">
+ <style>
 	#chart-settings{
 		margin:10px 0;
 	}
@@ -18,7 +18,7 @@ if(!isset($chart_height)) $chart_height = 550;
 	}
 </style>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 var chart;
 $j(document).ready(function() {

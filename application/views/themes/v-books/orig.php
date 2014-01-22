@@ -15,7 +15,7 @@
     <link href="http://bootswatch.com/default/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://bootswatch.com/css/docs.css" rel="stylesheet">
 
-   <script type="text/javascript">
+   <script>
 
      var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23019901-1']);

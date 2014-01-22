@@ -104,7 +104,7 @@ $BC->load->helper('social');
 			<br /><br />﻿
 			
 			<!-- Yandex.Metrika counter -->
-			<div style="display:none;"><script type="text/javascript">
+			<div style="display:none;"><script>
 			(function(w, c) {
 			    (w[c] = w[c] || []).push(function() {
 			        try {
@@ -114,7 +114,7 @@ $BC->load->helper('social');
 			    });
 			})(window, "yandex_metrika_callbacks");
 			</script></div>
-			<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+			<script src="//mc.yandex.ru/metrika/watch.js" defer="defer"></script>
 			<noscript><div><img src="//mc.yandex.ru/watch/11153020" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 			<!-- /Yandex.Metrika counter -->
 

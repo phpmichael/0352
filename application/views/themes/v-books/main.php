@@ -49,7 +49,7 @@ $BC->load->helper(array('customer','blog','poll','social','formbuilder'));
     
     <?=include_js($BC->_getTheme().'js/categories-nav.js')?>
     
-    <script type="text/javascript">
+    <script>
     $j(document).ready(function(){
         <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('index','search')) && @$search_category_id):?>
         open_level1_node($j("#products-categories a.active"));

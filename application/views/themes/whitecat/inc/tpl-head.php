@@ -39,7 +39,7 @@
 <?endif?>
 
 <?=include_minified($BC->_getTheme().'js/imagepreloader.js','js')?>
-<script type="text/javascript">var base_url = '<?=base_url()?>';</script>
+<script>var base_url = '<?=base_url()?>';</script>
 <?=include_minified($BC->_getTheme().'js/ddsmoothmenu.js','js')?>
 
 <!-- Load Application Packeges config -->
@@ -51,7 +51,7 @@
 
 <?=include_js($BC->_getFolder('js').'custom/request_call/send_form.js')?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
     preloadImages([
         '<?=base_url().$BC->_getTheme()?>images/button-bg-hover.png',

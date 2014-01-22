@@ -27,7 +27,7 @@
 
 <?$this->load->view('inc/js-add-to-cart'); ?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(document).ready(function(){
     $j(".form-products-toolbar select").change(function(){

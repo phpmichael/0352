@@ -98,7 +98,7 @@
 
 <?$this->load->view('inc/js-facebox'); ?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(document).ready(function(){
     $j("#bulk_change_category").click(function(){

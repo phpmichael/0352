@@ -69,7 +69,7 @@
 </div>
 <!-- End: login-holder -->
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(document).ready(function () {
 	$j(".forgot-pwd").click(function () {

@@ -44,7 +44,7 @@ function get_menu($menu,$format='list')
  */
 function include_js($file)
 {
-    return '<script type="text/javascript" src="'.static_url().$file.'"></script>';
+    return '<script src="'.static_url().$file.'"></script>';
 }
 
 /**
@@ -56,7 +56,7 @@ function include_js($file)
  */
 function include_css($file,$media='all')
 {
-    return '<link rel="stylesheet" type="text/css" href="'.static_url().$file.'" media="'.$media.'" />';
+    return '<link rel="stylesheet"  href="'.static_url().$file.'" media="'.$media.'" />';
 }
 
 /**
@@ -179,7 +179,7 @@ function include_combined(array $combine_files,$combined_file,$type,$media='all'
  */
 function inline_css($file,$media='all')
 {
-    return '<style type="text/css" media="'.$media.'">'.file_get_contents($file).'</style>';
+    return '<style  media="'.$media.'">'.file_get_contents($file).'</style>';
 }
 
 /**
@@ -191,10 +191,8 @@ function inline_css($file,$media='all')
 function inline_js($file)
 {
 return '
-<script type="text/javascript">
-//<![CDATA[
+<script>
 '.file_get_contents($file).'
-//]]>
 </script>
 ';
 }

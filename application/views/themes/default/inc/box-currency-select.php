@@ -5,7 +5,7 @@
 	<?=form_dropdown('currency_code',$currency_model->getEnabledCurrenciesCodes(),$currency_model->getCurrentCurrencyCode())?>
 </form>
 
-<script type="text/javascript">
+<script>
 $j(document).ready(function(){
 	$j(".set-currency select[name=currency_code]").change(function(){
 		$j(this).parent('form').submit();

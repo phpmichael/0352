@@ -50,7 +50,7 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
 <?endif;?>
 
 <?if($query->num_rows()>0):?>
-<script type="text/javascript">
+<script>
 var massmailTimeout = setTimeout(function(){location.reload()},1000*<?=$BC->settings_model['newsletters_send_interval']?>);
 </script>
 <?endif;?>

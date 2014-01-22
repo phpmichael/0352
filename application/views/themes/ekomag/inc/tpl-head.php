@@ -62,7 +62,7 @@
 <?if ($BC->is_home_page()):?> 
 <?=include_minified($BC->_getTheme().'css/jcarousel/tango/skin.css','css')?>
 <?=include_js($BC->_getTheme().'js/jquery.jcarousel.min.js')?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 jQuery(document).ready(function() {
     jQuery('#products-carousel').jcarousel();
@@ -81,7 +81,7 @@ jQuery(document).ready(function() {
 
 <?=include_minified($BC->_getFolder('js').'custom/request_call/send_form.js','inline_js')?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
     preloadImages([
         '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-blue.png',

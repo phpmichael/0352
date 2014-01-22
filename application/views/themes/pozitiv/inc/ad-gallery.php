@@ -20,7 +20,7 @@
 <?=include_minified($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.css','css')?>
 <?=include_js($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.min.js')?>
 
-<script type="text/javascript">
+<script>
 <!--//--><![CDATA[//><!--
 var galleries = $j('.ad-gallery').adGallery({
     loader_image: '<?=base_url().$BC->_getTheme()?>js/ad-gallery/loader.gif',

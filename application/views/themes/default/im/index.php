@@ -11,7 +11,7 @@
 	<?$this->load->view('inc/js-custom-functions')?>
 	<?=include_js($BC->_getFolder('js').'custom/im/functions.js')?>
 	<?=include_js($BC->_getFolder('js').'custom/im/process.js')?>
-	<script type="text/javascript">
+	<script>
 		//set global vars
 		var my_nick = "<?=$sender['name']?>";
 		var nick = "<?=$recipient['name']?>";

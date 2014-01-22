@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
 #galleria{
     width:820px;
     height:600px;
@@ -15,7 +15,7 @@
 
 <?=include_js($BC->_getTheme().'js/galleria/galleria-1.2.7.min.js')?>
 
-<script type="text/javascript">
+<script>
 <!--//--><![CDATA[//><!--
     Galleria.loadTheme('<?=base_url().$BC->_getTheme()?>js/galleria/themes/classic/galleria.classic.min.js');
     Galleria.configure({

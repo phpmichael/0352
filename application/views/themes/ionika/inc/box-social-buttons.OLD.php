@@ -1,15 +1,15 @@
 <div class="social-btn">
 	<!-- vkontakte: start -->
 	<!-- Put this script tag to the <head> of your page -->
-	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?52"></script>
+	<script src="http://userapi.com/js/api/openapi.js?52"></script>
 	
-	<script type="text/javascript">
+	<script>
 	  VK.init({apiId: 3088351, onlyWidgets: true});
 	</script>
 	
 	<!-- Put this div tag to the place, where the Like block will be -->
 	<div id="vk_like"></div>
-	<script type="text/javascript">
+	<script>
 	VK.Widgets.Like("vk_like", {type: "button", height: 18});
 	</script>		
 	<!-- vkontakte: end -->	
@@ -40,7 +40,7 @@
 	
 	<!-- googleplus: start -->
 	<!-- Поместите этот вызов функции отображения в соответствующее место. -->
-	<script type="text/javascript">
+	<script>
 	  window.___gcfg = {lang: 'uk'};
 	
 	  (function() {
@@ -54,7 +54,7 @@
 <div class="social-btn" style="width:250px">
 	<!-- odnoklasniki and mail.ru: start -->
 	<a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" data-mrc-config="{'cm' : '1', 'ck' : '1', 'sz' : '20', 'st' : '1'}">Нравится</a>
-	<script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="http://cdn.connect.mail.ru/js/loader.js" charset="UTF-8"></script>
 	<!-- odnoklasniki and mail.ru: end -->
 </div>
 

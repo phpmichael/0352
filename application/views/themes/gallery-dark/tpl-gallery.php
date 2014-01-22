@@ -30,7 +30,7 @@
 	</div>	
 </div>
 
-<script type="text/javascript">
+<script>
 $j(document).ready(function(){
     
     //hover on preview

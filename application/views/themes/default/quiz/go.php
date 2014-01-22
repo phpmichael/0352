@@ -35,7 +35,7 @@
 
 </form>
 
-<script type="text/javascript">
+<script>
 var time_left = <?=$quiz['question']['time']?>;
 var are_you_sure = "<?=language('are_you_sure')?>";
 </script>

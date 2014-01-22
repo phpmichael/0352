@@ -16,7 +16,7 @@
 <?=include_css($BC->_getTheme().'js/booklet/jquery.booklet.1.3.1.css')?>
 <?=include_js($BC->_getTheme().'js/booklet/jquery.booklet.1.3.1.min.js')?>
 
-<script type="text/javascript">
+<script>
 <!--//--><![CDATA[//><!--
 $j(function() {
 	$j('#booklet').booklet({

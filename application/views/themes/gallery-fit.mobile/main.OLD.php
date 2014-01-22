@@ -229,7 +229,7 @@ $cap_img = $captcha_model->make();
         </div>
         <?endforeach?>
         
-        <script type="text/javascript">
+        <script>
             $j = jQuery.noConflict();
             $j(document).ready(function(){
                 $j("a[data-rel='dialog']").click(function(){

@@ -72,7 +72,7 @@
 
 <?//$this->load->view('inc/js-tinymce')?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 var URLS = 
 {

@@ -8,7 +8,7 @@
 <?=include_js($BC->_getFolder('js').'jquery/jquery.hotkeys.js')?>
 <?=include_js($BC->_getFolder('js').'jquery/jstree/jquery.jstree.js')?>
 
-<script type="text/javascript">
+<script>
 $j(function () {
 	$j("#categories-tree").jstree({ 
 	    "themes" : {

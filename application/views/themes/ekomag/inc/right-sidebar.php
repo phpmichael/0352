@@ -43,7 +43,7 @@
 <?if(@$BC->settings_model['use_orphus']):?>
 <div align="center">
 	<br />
-	<script type="text/javascript" src="/orphus/orphus.js"></script>
+	<script src="/orphus/orphus.js"></script>
 	<a href="http://orphus.ru" id="orphus" target="_blank"><img alt="Orphus" src="/orphus/orphus.gif" border="0" width="160" height="122" /></a>
 </div> 
 <?endif?>

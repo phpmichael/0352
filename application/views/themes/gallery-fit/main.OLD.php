@@ -144,7 +144,7 @@
 
 </div>
 
-<script type="text/javascript">
+<script>
 var slidesArr = ['themes/gallery-fit/images/pic1.jpg',	'themes/gallery-fit/images/pic2.jpg',	'themes/gallery-fit/images/pic3.jpg',	'themes/gallery-fit/images/pic4.jpg',	'themes/gallery-fit/images/pic5.jpg',	'themes/gallery-fit/images/pic6.jpg',	'themes/gallery-fit/images/pic7.jpg',	'themes/gallery-fit/images/pic8.jpg'];
 </script>
 <?=include_minified($BC->_getTheme().'js/main.js','js')?>

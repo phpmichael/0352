@@ -9,7 +9,7 @@
 	<!-- JS Scripts -->
 	<?$this->load->view('inc/js-jquery')?>
 	<?=include_js($BC->_getFolder('js').'custom/im/functions.js')?>
-	<script type="text/javascript">
+	<script>
 		//set global vars
 		var my_nick = "<?=$sender['name']?>";
 		var nick = "<?=$recipient['name']?>";

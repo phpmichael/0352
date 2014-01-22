@@ -4,7 +4,7 @@
 <?$this->load->view('inc/js-selectboxes')?>
 <?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 var multi_categories = true;
 var multi_categories_level = <?=intval(@$BC->settings_model['products_categories_multi_level'])?>;

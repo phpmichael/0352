@@ -281,7 +281,7 @@
 
 </form>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function(){
     /*$j("table.list tr td").parent().hide();

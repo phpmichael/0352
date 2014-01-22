@@ -67,9 +67,9 @@
 <?=include_js($BC->_getFolder('js').'custom/contact_us/send_form.js')?>
 
 <!-- Yandex Map -->
-<script src="http://api-maps.yandex.ru/1.1/index.xml?key=AE4RLlABAAAAne1pTwMA3aoI49eJs3OdgLIgp9BWeAn1Q7UAAAAAAAAAAAD6CaXLeEhsEveBkwUoieNPG33gSA==" type="text/javascript"></script>
+<script src="http://api-maps.yandex.ru/1.1/index.xml?key=AE4RLlABAAAAne1pTwMA3aoI49eJs3OdgLIgp9BWeAn1Q7UAAAAAAAAAAAD6CaXLeEhsEveBkwUoieNPG33gSA=="></script>
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 	YMaps.jQuery(function () {
 		var mapPlgPM1 = new YMaps.Map(document.getElementById("YMapsLocation1"));

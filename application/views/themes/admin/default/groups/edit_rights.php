@@ -75,7 +75,7 @@ $are_rights = FALSE;
 
 <?=include_js($BC->_getFolder('js').'jquery/mylib/jquery.check.js')?>
 
-<script type="text/javascript">
+<script>
 $j(document).ready(
 	function()
 	{

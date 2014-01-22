@@ -129,7 +129,7 @@
 <?$this->load->view('inc/js-add-to-cart'); ?>      
 
 
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $j(function() {
 	$j( "#tabs" ).tabs();

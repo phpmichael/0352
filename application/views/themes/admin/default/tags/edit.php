@@ -31,7 +31,7 @@
 
 </form>
 
-<script type="text/javascript">
+<script>
 
 $j(document).ready(function(){
     $j(".del_tag").click(function(){

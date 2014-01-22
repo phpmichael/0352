@@ -1,6 +1,6 @@
 <?=include_js($BC->_getFolder('js').'jquery/mylib/jquery.check.js')?>
 <!-- JS SCRIPTS -->
-<script type="text/javascript">
+<script>
 //<![CDATA[
     $j(document).ready(
 	    function () 

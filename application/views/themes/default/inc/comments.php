@@ -20,7 +20,7 @@
     
     </div>
     
-    <script type="text/javascript">
+    <script>
     var success_message = "<?=language('comment_added')?>";
     </script>
 
