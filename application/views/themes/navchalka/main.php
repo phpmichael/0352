@@ -166,7 +166,7 @@ $BC->lang->load('calendar');
 
                 <?if($BC->is_home_page() &&  isset($body) && trim($body)):?>
                 <div class="wrapper">
-                    <h2 class="head-about"><span><?=language('about_shop')?></span></h2>
+                    <h2 class="fancy"><span><?=language('about_shop')?></span></h2>
                     <?=$body?>
                 </div>
                 <?endif?>
