@@ -63,11 +63,11 @@
 <?=include_minified($BC->_getTheme().'css/jcarousel/tango/skin.css','css')?>
 <?=include_js($BC->_getTheme().'js/jquery.jcarousel.min.js')?>
 <script>
-//<![CDATA[
+
 jQuery(document).ready(function() {
     jQuery('#products-carousel').jcarousel();
 });
-//]]>
+
 </script>
 <?endif?>
 
@@ -82,13 +82,13 @@ jQuery(document).ready(function() {
 <?=include_minified($BC->_getFolder('js').'custom/request_call/send_form.js','inline_js')?>
 
 <script>
-//<![CDATA[
+
     preloadImages([
         '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-blue.png',
         '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-green.png',
         '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-orange.png'
     ]);
-//]]>
+
 </script>
 
 <?php $this->load->view('inc/js-facebox'); ?>

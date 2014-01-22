@@ -70,7 +70,7 @@
 <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AE4RLlABAAAAne1pTwMA3aoI49eJs3OdgLIgp9BWeAn1Q7UAAAAAAAAAAAD6CaXLeEhsEveBkwUoieNPG33gSA=="></script>
 
 <script>
-//<![CDATA[
+
 	YMaps.jQuery(function () {
 		var mapPlgPM1 = new YMaps.Map(document.getElementById("YMapsLocation1"));
 		mapPlgPM1.setCenter(new YMaps.GeoPoint( 25.593044, 49.551075), 17);
@@ -86,5 +86,5 @@
 		pointPlgPM1.setBalloonContent('<div style="color:black"><h3>«Євродах»</h3><div>м. Тернопіль, вул. Руська 21, 7 поверх</div></div>', {maxWidth: 100});
 		pointPlgPM1.openBalloon();
 	});
-//]]>
+
 </script>

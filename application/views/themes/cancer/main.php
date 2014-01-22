@@ -29,14 +29,14 @@ $BC->load->helper('blog');
 <?$this->load->view('inc/js-jquery')?>
 <?=include_minified($BC->_getTheme().'js/bgstretcher.js','js')?>
 <script>
-//<![CDATA[
+
     jQuery(document).ready(function(){
       //  Initialize Backgound Stretcher
        jQuery(document).bgStretcher({
         images: ['<?=base_url().$BC->_getTheme()?>images/wrapper_site.gif'], imageWidth: 1395, imageHeight: 1500
        });
     });
-//]]>
+
 </script>
 
 <?=include_minified($BC->_getTheme().'js/cufon-yui.js','js')?>
@@ -45,13 +45,13 @@ $BC->load->helper('blog');
 
 <?=include_minified($BC->_getTheme().'js/loopedslider.0.5.4.js','js')?>
 <script>
-//<![CDATA[
+
 	jQuery(function(){
 		jQuery('#loopedSlider').loopedSlider({
 			autoStart: 11500
 		});
 	});
-//]]>
+
 </script>
 
 <?=include_minified($BC->_getTheme().'js/imagepreloader.js','inline_js')?>

@@ -19,7 +19,7 @@ if(!isset($chart_height)) $chart_height = 550;
 </style>
 
 <script>
-//<![CDATA[
+
 var chart;
 $j(document).ready(function() {
 	chart = new Highcharts.Chart({
@@ -105,7 +105,7 @@ $j(document).ready(function() {
 		]
 	});
 });
-//]]>
+
 </script>
 
 <div id="chart-settings">

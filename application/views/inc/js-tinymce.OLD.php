@@ -1,6 +1,6 @@
 <?=include_js($BC->_getFolder('js').'tiny_mce/jquery.tinymce.js')?>
 <script>
-//<![CDATA[
+
 function init_richtext()
 {
 	$j(".richtext").tinymce({
@@ -30,5 +30,5 @@ function init_richtext()
 $j(document).ready(function(){
 	init_richtext();
 });
-//]]>
+
 </script>

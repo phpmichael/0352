@@ -1,5 +1,5 @@
 <script>
-//<![CDATA[
+
 $j(document).ready(
 	function () {
 
@@ -37,5 +37,5 @@ $j(document).ready(
 		});
 	}
 );
-//]]>
+
 </script>

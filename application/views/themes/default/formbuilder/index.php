@@ -73,7 +73,7 @@
 <?//$this->load->view('inc/js-tinymce')?>
 
 <script>
-//<![CDATA[
+
 var URLS = 
 {
 	base : "<?=base_url().$BC->_getBaseURI()?>",
@@ -102,7 +102,7 @@ var MESSAGES =
 {
 	are_you_sure : "<?=language("are_you_sure")?>"
 }
-//]]>
+
 </script>
 
 <?=include_js($BC->_getFolder('js').'custom/fb/fb.js')?>

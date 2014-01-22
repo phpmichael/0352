@@ -58,7 +58,7 @@
 <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOGNyE8BAAAAr-i4MAMAf1KwwwqGQGOJQAzkUDOj3qL02bQAAAAAAAAAAAAIjSCwZnNdKjTiVm-wOZ0qmPyGzQ=="></script>
 
 <script>
-//<![CDATA[
+
 	YMaps.jQuery(function () {
 		var mapPlgPM1 = new YMaps.Map(document.getElementById("YMapsLocation1"));
 		mapPlgPM1.setCenter(new YMaps.GeoPoint( 25.600081, 49.55113), 17);
@@ -74,5 +74,5 @@
 		pointPlgPM1.setBalloonContent('<div style="color:black"><h3>Фотостудія «Позитив»</h3><div>м. Тернопіль, вул. Руська 52/2</div></div>', {maxWidth: 100});
 		pointPlgPM1.openBalloon();
 	});
-//]]>
+
 </script>

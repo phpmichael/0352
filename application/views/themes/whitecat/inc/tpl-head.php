@@ -52,13 +52,13 @@
 <?=include_js($BC->_getFolder('js').'custom/request_call/send_form.js')?>
 
 <script>
-//<![CDATA[
+
     preloadImages([
         '<?=base_url().$BC->_getTheme()?>images/button-bg-hover.png',
         '<?=base_url().$BC->_getTheme()?>images/search-button-active.gif',
         '<?=base_url().$BC->_getTheme()?>images/top-menu-a-active.png'
     ]);
-//]]>
+
 </script>
 
 <?php $this->load->view('inc/js-facebox'); ?>

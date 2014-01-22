@@ -43,24 +43,16 @@
 
 <?=include_js($BC->_getFolder('js').'custom/request_call/send_form.js')?>
 
-<script>
-//<![CDATA[
-    /*preloadImages([
-        '<?=base_url().$BC->_getTheme()?>images/top-menu-a-active.png'
-    ]);*/
-//]]>
-</script>
-
 <?php $this->load->view('inc/js-facebox'); ?>
 
 <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
 
 <script>
-<!--//--><![CDATA[//><!--
+
 $j(document).ready(function() {
     $j('#slider').cycle({
 		fx: 'fade'
 	});
 });
-//--><!]]>
+
 </script>

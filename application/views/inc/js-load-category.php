@@ -1,5 +1,4 @@
 <script>
-//<![CDATA[
 
 /*
 csb - category selection box
@@ -93,5 +92,5 @@ function load_category( parent_category, select_id, categories_model, csb_number
 	return false;
 }
 
-//]]>
+
 </script>

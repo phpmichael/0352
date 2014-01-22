@@ -144,18 +144,18 @@ $cap_img = $captcha_model->make();
 <?=include_js($BC->_getBaseURL().'app_js/config')?>
 
 <script>
-//<![CDATA[
+
     var slidesArr = [];
     <?$i=-1; foreach ($photos as $record): $i++;?>
     slidesArr[<?=$i?>] = '<?=relative_url().('images/data/b/photos/'.$record['file_name'])?>';
     <?endforeach?>
-//]]>
+
 </script>
 
 <?=include_minified($BC->_getTheme().'js/main.js','js')?>
 
 <script>
-//<![CDATA[
+
     var photos = [];
     
     <?$i=0;foreach ($photos as $record):$i++;?>
@@ -185,7 +185,7 @@ $cap_img = $captcha_model->make();
         show_photos(pageNum,<?=$photos_per_page?>);
     });
     
-//]]>
+
 </script>
 
 <?=include_minified($BC->_getFolder('js').'custom/contact_us/send_form.js','inline_js')?>

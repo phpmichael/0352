@@ -85,11 +85,11 @@ $filter_id = $this->uri->segment($BC->_getSegmentsOffset()+3);
 <?endif;?>
 
 <script>
-//<![CDATA[
+
 var sort_process = {};
 sort_process.save_sort_url = "<?=relative_url($BC->_getBaseURI()."/sort_filters/".$this->uri->segment($BC->_getSegmentsOffset()+3))?>";
 sort_process.redirect_after_sort_url = "<?=site_url($BC->_getBaseURI()."/filters_list/".$this->uri->segment($BC->_getSegmentsOffset()+3))?>";
-//]]>
+
 </script>
 
 <?load_theme_view('inc/js-sort-func')?>

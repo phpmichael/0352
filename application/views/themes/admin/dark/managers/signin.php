@@ -70,7 +70,7 @@
 <!-- End: login-holder -->
 
 <script>
-//<![CDATA[
+
 $j(document).ready(function () {
 	$j(".forgot-pwd").click(function () {
     	$j("#loginbox").hide();
@@ -87,5 +87,5 @@ $j(document).ready(function () {
     	return false;
 	});
 });
-//]]>
+
 </script>

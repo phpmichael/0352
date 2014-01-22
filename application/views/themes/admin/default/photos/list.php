@@ -99,7 +99,7 @@
 <?$this->load->view('inc/js-facebox'); ?>
 
 <script>
-//<![CDATA[
+
 $j(document).ready(function(){
     $j("#bulk_change_category").click(function(){
         var category_id = parseInt( $j('select[name=category_id]').val() );//get category from search form
@@ -111,5 +111,5 @@ $j(document).ready(function(){
         else alert("<?=language('choose_category')?>");
     });
 });
-//]]>
+
 </script>

@@ -130,9 +130,9 @@
 
 
 <script>
-//<![CDATA[
+
 $j(function() {
 	$j( "#tabs" ).tabs();
 });
-//]]>
+
 </script>

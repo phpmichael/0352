@@ -58,7 +58,7 @@
 <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOGNyE8BAAAAr-i4MAMAf1KwwwqGQGOJQAzkUDOj3qL02bQAAAAAAAAAAAAIjSCwZnNdKjTiVm-wOZ0qmPyGzQ=="></script>
 
 <script>
-//<![CDATA[
+
 	YMaps.jQuery(function () {
 		var mapPlgPM1 = new YMaps.Map(document.getElementById("YMapsLocation1"));
 		mapPlgPM1.setCenter(new YMaps.GeoPoint( 25.598963, 49.551108), 17);
@@ -94,5 +94,5 @@
 		pointPlgPM2.setBalloonContent('<h3>«ЕКОМАГ»</h3><div>вул. Стуса 1, ("Фуршет")</div>', {maxWidth: 100});
 		pointPlgPM2.openBalloon();
 	});
-//]]>
+
 </script>

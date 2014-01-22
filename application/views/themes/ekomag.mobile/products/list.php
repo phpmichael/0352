@@ -27,7 +27,7 @@
 <?$this->load->view('inc/js-add-to-cart'); ?>
 
 <script>
-//<![CDATA[
+
 $j(document).ready(function(){
     $j(".sort-by").click(function(){
     	$j(".form-products-toolbar input[name=sort_by]").val($j(this).attr('rel'));
@@ -39,5 +39,5 @@ $j(document).ready(function(){
         $j(this).parents('form').submit();
     });
 });
-//]]>
+
 </script>

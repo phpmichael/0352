@@ -1,7 +1,7 @@
 <?=include_js($BC->_getFolder('js').'jquery/mylib/jquery.check.js')?>
 <!-- JS SCRIPTS -->
 <script>
-//<![CDATA[
+
     $j(document).ready(
 	    function () 
 	    {
@@ -21,6 +21,6 @@
     	$j("input[name^='check']").check('toggle');
     	$j("input[name^='check']").each(toggleTableRow);
     }
-//]]>
+
 </script>
 <!-- JS SCRIPTS -->

@@ -94,7 +94,7 @@ $BC->load->helper('poll');
     </div>
     
     <script>
-    //<![CDATA[
+
          
         /*function lastblock(sidebarName){                
                 var searchColumn = document.getElementsByClassName(sidebarName)[0];             
@@ -104,7 +104,7 @@ $BC->load->helper('poll');
                 }
         }
         lastblock('col-left');*/
-    //]]>
+
     </script>
     
 </body>

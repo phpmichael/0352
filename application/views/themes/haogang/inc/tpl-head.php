@@ -11,10 +11,10 @@
 
 <!--[if lt IE 7]>
 <script>
-//<![CDATA[
+
     var BLANK_URL = '<?=(base_url().$BC->_getTheme().'js/blank.html') ?>';
     var BLANK_IMG = '<?=(base_url().$BC->_getTheme().'js/spacer.gif') ?>';
-//]]>
+
 </script>
 <![endif]-->
 

@@ -1,5 +1,5 @@
 <script>
-//<![CDATA[
+
 $j(document).ready(function(){
 	
 	//masks
@@ -33,5 +33,5 @@ $j(document).ready(function(){
 	);
 	
 });
-//]]>
+
 </script>
