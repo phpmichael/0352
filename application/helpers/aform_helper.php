@@ -28,19 +28,19 @@ function show_records_table( array $cols, array $rows, $__no_checkbox=FALSE, $__
     <table class="list">
         <thead>
             <tr>
-            	<th width="20">
+            	<th style="width:20px;">
             	   <?=($__no_checkbox?"":form_checkbox("toggle_all",'1',false,"onclick='ToggleAll()'"))?> <?//checkbox?>
             	</th> 
             	<?foreach ($cols as $col): if( isset($col['just_text']) && !isset($col['title'])) $col['title'] = $CI->_getFieldTitle($col['field']); ?> 
-            	<th <?if( isset($col['width']) ):?>width="<?=$col['width']?>"<?endif?>> <?//set width of col?>
+            	<th <?if( isset($col['width']) ):?>style="width:<?=$col['width']?>px"<?endif?>> <?//set width of col?>
             	   <?=((isset($col['title']))? $col['title'] : anchor_field_title($col['field']))?> <?//show col name with sort link?>
             	</th>
             	<?endforeach?>
             	<?if($__edit):?>
-            	<th width="50">&nbsp;</th>
+            	<th style="width:50px;">&nbsp;</th>
             	<?endif?>
             	<?if($__view):?>
-            	<th width="50">&nbsp;</th>
+            	<th style="width:50px;">&nbsp;</th>
             	<?endif?>
             </tr>
         </thead>
@@ -92,19 +92,19 @@ function show_records_sortable( array $cols, array $rows, $__no_checkbox=FALSE, 
     <table class="list">
         <thead>
             <tr>
-            	<th width="20">
+            	<th style="width:20px;">
             	   <?=($__no_checkbox?"":form_checkbox("toggle_all",'1',false,"onclick='ToggleAll()'"))?> <?//checkbox?>
             	</th> 
             	<?foreach ($cols as $col): if( isset($col['just_text']) && !isset($col['title'])) $col['title'] = $CI->_getFieldTitle($col['field']); ?> 
-            	<th <?if( isset($col['width']) ):?>width="<?=$col['width']?>"<?endif?>> <?//set width of col?>
+            	<th <?if( isset($col['width']) ):?>style="width:<?=$col['width']?>px"<?endif?>> <?//set width of col?>
             	   <?=((isset($col['title']))? $col['title'] : anchor_field_title($col['field']))?> <?//show col name with sort link?>
             	</th>
             	<?endforeach?>
             	<?if($__edit):?>
-            	<th width="100">&nbsp;</th>
+            	<th style="width:100px;">&nbsp;</th>
             	<?endif?>
             	<?if($__view):?>
-            	<th width="100">&nbsp;</th>
+            	<th style="width:100px;">&nbsp;</th>
             	<?endif?>
             </tr>
         </thead>
@@ -116,23 +116,23 @@ function show_records_sortable( array $cols, array $rows, $__no_checkbox=FALSE, 
         	<table class="list">
                 <tbody>
                     <tr>
-                    	<td width="20">
+                    	<td style="width:20px;">
                     	   <?=(($__no_checkbox || isset($row['__no_checkbox']))?"":form_checkbox("check[{$row[$id_field]}]",'1',false))?> <?//checkbox?>
                         </td> 
                     	<?foreach ($cols as $col): 
                     	   //set output [col_name]__output if exists, if no - just [col_name]
                     	   $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : $row[$col['field']])
                     	?>
-                    	<td <?if( isset($col['width']) ):?>width="<?=$col['width']?>"<?endif?> <?if($col['field']=='sort'):?>class="sort_td"<?endif?>><?=$output?></td> 
+                    	<td <?if( isset($col['width']) ):?>style="width:<?=$col['width']?>px"<?endif?> <?if($col['field']=='sort'):?>class="sort_td"<?endif?>><?=$output?></td>
                     	<?endforeach?>
                     	<?if($__edit):?>
-                    	<td width="100"><?=anchor_edit($row[$id_field])?></td> <?//link for edit record?>
+                    	<td style="width:100px;"><?=anchor_edit($row[$id_field])?></td> <?//link for edit record?>
                     	<?endif?>
                     	<?if($__view):?>
-                    	<td width="100"><?=anchor_view($row[$id_field])?></td> <?//link for view record?>
+                    	<td style="width:100px;"><?=anchor_view($row[$id_field])?></td> <?//link for view record?>
                     	<?endif?>
                     	<?foreach ($moreAdminLinks as $adminLink):?>
-		            	<td width="100"><?=anchor_admin($adminLink,$row[$id_field])?></td>
+		            	<td style="width:100px;"><?=anchor_admin($adminLink,$row[$id_field])?></td>
 		            	<?endforeach?>
                     </tr>
                 </tbody>
