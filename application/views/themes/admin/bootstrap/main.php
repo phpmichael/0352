@@ -23,6 +23,9 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <?=include_css($BC->_getTheme().'navmenu-h.css')?>
+    <?=include_js($BC->_getTheme().'navmenu-h.js')?>
+
 </head>
 
 <body>

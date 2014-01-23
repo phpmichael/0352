@@ -1,8 +1,5 @@
 <?if($BC->_is_logged()):?>
 
-<?=include_css($BC->_getTheme().'navmenu-h.css')?>
-<?=include_js($BC->_getTheme().'navmenu-h.js')?>
-
 <div id="menu-left">
 
   <ul id="navmenu-h">

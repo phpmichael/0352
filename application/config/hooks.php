@@ -10,18 +10,18 @@
 |
 */
 
-$hook['display_override'][] = array(
+/*$hook['display_override'][] = array(
     'class' => 'Minify_html',
     'function' => 'render',
     'filename' => 'Minify_html.php',
     'filepath' => 'hooks'
-);
+);*/
 
 /*$hook['display_override'][] = array(
-                    'class'    => 'DebugToolbar',
-                    'function' => 'render',
-                    'filename' => 'DebugToolbar.php',
-                    'filepath' => 'hooks'
-                    ); */
+    'class'    => 'DebugToolbar',
+    'function' => 'render',
+    'filename' => 'DebugToolbar.php',
+    'filepath' => 'hooks'
+); */
 
 ?>

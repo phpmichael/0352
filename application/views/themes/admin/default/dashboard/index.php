@@ -2,7 +2,7 @@
 <tr>
 <?foreach ($widgets as $key=>$widget):?>
 
-	<td width="25%" style="vertical-align:top;" class="dash-widget">
+	<td style="width:25%; vertical-align:top;" class="dash-widget">
 
 		<table class="list">
 			<tr>

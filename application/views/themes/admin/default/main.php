@@ -6,11 +6,6 @@
 
 	<title><?=$BC->_getPageTitle()?></title>
 	
-	<?=load_inline_js('inc/js-IE-fix')?>
-	<?=load_inline_js('inc/js-jquery')?>
-    <?=load_inline_js('inc/js-proxino'); ?>
-	<?=load_inline_js('inc/js-flash-msg')?>
-	
 	<?=include_css('css/zero.css')?>
 	<?=include_css('css/css3-icons.css')?>
 	<?=include_css($BC->_getTheme().'styles.css')?>
@@ -18,6 +13,14 @@
 	<?foreach ($BC->_getCSSFiles() as $css_file):?>
     <?=include_css($css_file)?>
     <?endforeach?>
+
+    <?=load_inline_js('inc/js-IE-fix')?>
+    <?=load_inline_js('inc/js-jquery')?>
+    <?=load_inline_js('inc/js-proxino'); ?>
+    <?=load_inline_js('inc/js-flash-msg')?>
+
+    <?=include_css($BC->_getTheme().'navmenu-h.css')?>
+    <?=include_js($BC->_getTheme().'navmenu-h.js')?>
 
 </head>
 
@@ -36,8 +39,8 @@
     	</div>
     	
     </div>
-    
-    <br clear="all" />
+
+    <div class="clear"></div>
     
     <div id="outer">
     			

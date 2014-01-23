@@ -20,6 +20,9 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <?=include_css($BC->_getTheme().'navmenu-h.css')?>
+    <?=include_js($BC->_getTheme().'navmenu-h.js')?>
+
 </head>
 
 <?if($tpl_page=='managers/signin'):?>

@@ -56,7 +56,7 @@ function include_js($file)
  */
 function include_css($file,$media='all')
 {
-    return '<link rel="stylesheet"  href="'.static_url().$file.'" media="'.$media.'" />';
+    return '<link rel="stylesheet" href="'.static_url().$file.'" media="'.$media.'" />';
 }
 
 /**
