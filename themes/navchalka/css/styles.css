@@ -117,12 +117,34 @@ a, a:focus {outline: none;}
 #slider-nav .pager-item.active-slide a{height:9px; width:9px; background: #47A7E1; border: 1px solid #fff;}
 
 /* products grid */
+.products-grid {margin: 0;}
 .products-grid th,
-.products-grid td{ border: none; }
-.products-grid td .add-product{ background: url('../img/book-box.png') no-repeat; margin: 3px; width:265px; height: 189px; padding: 12px 16px 12px 8px;}
+.products-grid td{ border: none; padding: 10px 10px 10px 0;}
+.products-grid td .add-product{
+    /*
+    background: url('../img/book-box.png') no-repeat;
+    margin: 3px;
+    width: 265px;
+    height: 189px;
+    padding: 12px 16px 12px 8px;
+    */
+    margin: 3px 0 3px 3px;
+    width: 272px;
+    height: 160px;
+    padding: 8px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    background-color: #efefef;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#efefef));
+    background-image: -webkit-linear-gradient(#fff, #efefef);
+    background-image: -moz-linear-gradient(#fff, #efefef);
+    background-image: -o-linear-gradient(#fff, #efefef);
+    background-image: linear-gradient(#fff, #efefef);
+    box-shadow: 0 2px #d9d9d9;
+}
 
 .product-title{height: 130px;}
-.product-buy{background: #f7f7f7; margin-left:-15px;}
+.product-buy{margin-left:-15px;}
 .product-price{margin:5px 3px;font-weight: bold; font-size: 14px; color: #194e6d;}
 .product-old-price{margin:5px 3px;font-weight: normal; font-size: 14px; text-decoration: line-through;}
 
