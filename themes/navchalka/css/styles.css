@@ -143,7 +143,7 @@ a, a:focus {outline: none;}
     box-shadow: 0 2px #d9d9d9;
 }
 
-.product-title{height: 130px;}
+.product-title{height: 130px; overflow: hidden;}
 .product-buy{margin-left:-15px;}
 .product-price{margin:5px 3px;font-weight: bold; font-size: 14px; color: #194e6d;}
 .product-old-price{margin:5px 3px;font-weight: normal; font-size: 14px; text-decoration: line-through;}
