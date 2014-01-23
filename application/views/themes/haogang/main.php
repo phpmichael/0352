@@ -93,19 +93,5 @@ $BC->load->helper('poll');
         </div>
     </div>
     
-    <script>
-
-         
-        /*function lastblock(sidebarName){                
-                var searchColumn = document.getElementsByClassName(sidebarName)[0];             
-                var sidebarBlocks = searchColumn.getElementsByClassName('block');                       
-                if(sidebarBlocks.length > 0){
-                        sidebarBlocks[sidebarBlocks.length-1].className += ' last-block';
-                }
-        }
-        lastblock('col-left');*/
-
-    </script>
-    
 </body>
 </html>

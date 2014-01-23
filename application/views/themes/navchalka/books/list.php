@@ -25,4 +25,4 @@
     <h2><?=language('search_did_not_give_any_results')?></h2>
 <?endif?>
 
-<?$this->load->view('inc/js-add-to-cart'); ?>
+<?=load_inline_js('inc/js-add-to-cart'); ?>

@@ -33,4 +33,4 @@
 
 <?load_theme_view('inc/post-owner-info')?>
 
-<?$this->load->view('inc/js-paint-fields-vals')?>
+<?=load_inline_js('inc/js-paint-fields-vals')?>

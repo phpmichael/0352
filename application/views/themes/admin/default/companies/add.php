@@ -80,11 +80,10 @@
 
 </form>
 
-<?$this->load->view('inc/js-selectboxes')?>
-<?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
+<?=load_inline_js('inc/js-selectboxes')?>
+<?=load_inline_js('inc/js-load-category',array('parent_category'=>0))?>
 
 <script>
-
 var multi_categories = true;
 var multi_categories_level = <?=intval(@$BC->settings_model['companies_categories_multi_level'])?>;
 
@@ -93,7 +92,6 @@ $j(document).ready(function(){
 	load_category(0,false);
 	<?endif?>
 });
-
 </script>
 
-<?$this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

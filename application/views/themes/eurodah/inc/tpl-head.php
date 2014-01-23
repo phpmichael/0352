@@ -37,8 +37,8 @@
 <?=include_minified($css_file,'css')?>
 <?endforeach?>
 
-<?$this->load->view('inc/js-jquery')?>
-<?$this->load->view('inc/js-jquery-ui')?>
+<?=load_inline_js('inc/js-jquery')?>
+<?=load_inline_js('inc/js-jquery-ui')?>
 
 <?//=include_js($BC->_getTheme().'js/jquery.once.js')?>
 <?//=include_js($BC->_getTheme().'js/drupal.js')?>
@@ -54,7 +54,6 @@
 <?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
 
 <script>
-<!--//--><![CDATA[//><!--
     /*jQuery(function(){
         jQuery('#superfish-1').supersubs({minWidth: 12, maxWidth: 27, extraWidth: 1}).superfish(
         {
@@ -64,7 +63,6 @@
             dropShadows: true
         });
     });*/
-//--><!]]>
 </script>
 
 <?//=include_js($BC->_getTheme().'js/jquery.ui.dialog.patch.js')?>
@@ -101,5 +99,5 @@ $j(document).ready(function() {
 </script>
 
 <?if($BC->_getController()=='assortment' && in_array($BC->_getMethod(),array('view','name'))):?>
-<?$this->load->view('inc/js-lightbox')?>
+<?=load_inline_js('inc/js-lightbox')?>
 <?endif?>

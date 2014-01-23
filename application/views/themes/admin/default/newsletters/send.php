@@ -42,4 +42,4 @@ if(userAccess('subscribers','send')) $send_to['subscribers'] = language('subscri
 
 </form>
 
-<?$this->load->view('inc/js-tinymce')?>
+<?=load_inline_js('inc/js-tinymce')?>

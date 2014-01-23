@@ -93,7 +93,7 @@
 </div>
 
 
-<?$this->load->view('inc/js-add-to-cart'); ?>
-<?$this->load->view('inc/js-tooltip'); ?>         
+<?=load_inline_js('inc/js-add-to-cart'); ?>
+<?=load_inline_js('inc/js-tooltip'); ?>
 
-<?$this->load->view('inc/js-lightbox'); ?>
+<?=load_inline_js('inc/js-lightbox'); ?>

@@ -19,7 +19,6 @@ if(!isset($chart_height)) $chart_height = 550;
 </style>
 
 <script>
-
 var chart;
 $j(document).ready(function() {
 	chart = new Highcharts.Chart({
@@ -51,7 +50,6 @@ $j(document).ready(function() {
 		},
 		tooltip: {
 			/*formatter: function() {
-				//console.log(this);
 				return ''+
 					this.series.name +': '+ this.y +' millions';
 			}*/
@@ -73,7 +71,6 @@ $j(document).ready(function() {
 					color: '#000000',
 					connectorColor: '#000000',
 					formatter: function() {
-						//console.log(this);
 						return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
 					}
 				}
@@ -93,7 +90,7 @@ $j(document).ready(function() {
 		credits: {
 			enabled: false
 		},
-		
+
 		series: [
 			<?$j=0; foreach ($groups as $group): $j++;?>
 			{
@@ -105,7 +102,6 @@ $j(document).ready(function() {
 		]
 	});
 });
-
 </script>
 
 <div id="chart-settings">

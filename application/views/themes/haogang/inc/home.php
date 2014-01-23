@@ -24,5 +24,5 @@
     <?load_theme_view('inc/tpl-products-grid',$products_model->getMostPopular(6));?>
 </div>
 
-<?$this->load->view('inc/js-add-to-cart'); ?>
-<?$this->load->view('inc/js-tooltip'); ?>
+<?=load_inline_js('inc/js-add-to-cart'); ?>
+<?=load_inline_js('inc/js-tooltip'); ?>

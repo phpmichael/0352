@@ -1,6 +1,6 @@
 <!--Load JS-->
-<?php $this->load->view('inc/js-select_all'); ?>
-<?php $this->load->view('inc/js-jquery-ui'); ?>
+<?=load_inline_js('inc/js-select_all'); ?>
+<?=load_inline_js('inc/js-jquery-ui'); ?>
 <!--Load JS-->
 
 <?if($query->num_rows()>0):?>
@@ -47,11 +47,9 @@
 <?endif;?>
 
 <script>
-
 var sort_process = {};
 sort_process.save_sort_url = "<?=relative_url($BC->_getBaseURI()."/sort/".$menu)?>";
 sort_process.redirect_after_sort_url = "<?=site_url($BC->_getBaseURI()."/$menu")?>";
-
 </script>
 
 <?load_theme_view('inc/js-sort-func')?>

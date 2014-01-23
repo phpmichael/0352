@@ -11,7 +11,7 @@
 	
     <?=include_css($BC->_getTheme().'css/style.css')?>
     
-    <?$this->load->view('inc/js-jquery')?>
+    <?=load_inline_js('inc/js-jquery')?>
 </head>
 <body>
 

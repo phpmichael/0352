@@ -17,7 +17,7 @@
 	<?=include_css($css_file)?>
 	<?endforeach?>
     
-    <?$this->load->view('inc/js-jquery')?>
+    <?=load_inline_js('inc/js-jquery')?>
     
     <!-- Load Application Packeges config -->
 	<?=include_js($BC->_getBaseURL().'app_js/config')?>

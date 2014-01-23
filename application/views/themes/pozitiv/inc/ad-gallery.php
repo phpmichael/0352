@@ -21,10 +21,8 @@
 <?=include_js($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.min.js')?>
 
 <script>
-<!--//--><![CDATA[//><!--
 var galleries = $j('.ad-gallery').adGallery({
     loader_image: '<?=base_url().$BC->_getTheme()?>js/ad-gallery/loader.gif',
     animation_speed: 600
 });
-//--><!]]>
 </script>

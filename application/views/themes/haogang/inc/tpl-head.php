@@ -11,10 +11,8 @@
 
 <!--[if lt IE 7]>
 <script>
-
-    var BLANK_URL = '<?=(base_url().$BC->_getTheme().'js/blank.html') ?>';
-    var BLANK_IMG = '<?=(base_url().$BC->_getTheme().'js/spacer.gif') ?>';
-
+    var BLANK_URL = "<?=(base_url().$BC->_getTheme().'js/blank.html') ?>";
+    var BLANK_IMG = "<?=(base_url().$BC->_getTheme().'js/spacer.gif') ?>";
 </script>
 <![endif]-->
 
@@ -43,8 +41,8 @@
 </script>
 
 <!--Load JS-->
-<?$this->load->view('inc/js-jquery'); ?>
-<?$this->load->view('inc/js-custom-functions'); ?>
+<?=load_inline_js('inc/js-jquery'); ?>
+<?=load_inline_js('inc/js-custom-functions'); ?>
 <!--Load JS-->
 
 <!-- Load Application Packeges config -->

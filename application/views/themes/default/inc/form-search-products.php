@@ -1,5 +1,5 @@
-<?$this->load->view('inc/js-meio-mask')?>
-<?$this->load->view('inc/js-init-mask')?>
+<?=load_inline_js('inc/js-meio-mask')?>
+<?=load_inline_js('inc/js-init-mask')?>
 
 <?=form_open($BC->_getBaseURI()."/search")?>
 
@@ -25,16 +25,14 @@
 
 </form>
 
-<?$this->load->view('inc/js-selectboxes')?>
+<?=load_inline_js('inc/js-selectboxes')?>
 
-<?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
+<?=load_inline_js('inc/js-load-category',array('parent_category'=>0))?>
 
 <script>
-
 $j(document).ready(function(){
 	<?if(!isset($search_category_id)):?>
 	load_category(0,false,"products_categories");
 	<?endif?>
 });
-
 </script>

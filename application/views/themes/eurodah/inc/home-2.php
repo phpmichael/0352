@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <?$this->load->view('inc/js-poll-process',array('poll_data'=>$poll_data));?>
+                            <?=load_inline_js('inc/js-poll-process',array('poll_data'=>$poll_data));?>
                         <?else:?>
                             <?load_theme_view('poll/results',array('poll_data'=>$poll_data));?>
                         <?endif?>

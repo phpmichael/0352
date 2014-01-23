@@ -65,15 +65,14 @@
 
 </div>
 
-<?$this->load->view('inc/js-jquery-ui')?>
+<?=load_inline_js('inc/js-jquery-ui')?>
 <?=include_js($BC->_getFolder('js').'jquery/jquery.cookie.js')?>
 <?=include_js($BC->_getFolder('js').'jquery/jquery.hotkeys.js')?>
 <?=include_js($BC->_getFolder('js').'jquery/jstree/jquery.jstree.js')?>
 
-<?//$this->load->view('inc/js-tinymce')?>
+<?//=load_inline_js('inc/js-tinymce')?>
 
 <script>
-
 var URLS = 
 {
 	base : "<?=base_url().$BC->_getBaseURI()?>",
@@ -102,7 +101,6 @@ var MESSAGES =
 {
 	are_you_sure : "<?=language("are_you_sure")?>"
 }
-
 </script>
 
 <?=include_js($BC->_getFolder('js').'custom/fb/fb.js')?>

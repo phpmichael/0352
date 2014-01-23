@@ -68,4 +68,4 @@
     
 </div>
 
-<?php $this->load->view('inc/js-lightbox'); ?>
+<?=load_inline_js('inc/js-lightbox'); ?>

@@ -16,4 +16,4 @@
 
 </form>
 
-<?$this->load->view('inc/js-register')?>
+<?=load_inline_js('inc/js-register')?>

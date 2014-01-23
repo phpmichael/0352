@@ -32,8 +32,7 @@
 
 <script>
 $j(document).ready(function(){
-    
-    //hover on preview
+    /*hover on preview*/
     $j("a.gallery-photo-preview").hover(function(){
        $j(this).css('z-index',1);
        cssSandpaper.setTransform(document.getElementById($j(this).attr('id')), "scale(1.15, 1.15)");
@@ -43,27 +42,27 @@ $j(document).ready(function(){
         cssSandpaper.setTransform(document.getElementById($j(this).attr('id')), "scale(1.15, 1.15)");
     });
     
-    //selected photo preview - show large photo
+    /*selected photo preview - show large photo*/
     $j("a.gallery-photo-preview").click(function(){
         var src = $j(this).find('img').attr('src');
         src = src.replace('/s/','/b/');
         $j(".gallery-big-photo img").attr('src',src);
     });
     
-    //scroll up click
+    /*scroll up click*/
     $j(".gallery-photos-preview-scroll-up").click(function(){
         $j(".gallery-photos-preview").animate({scrollTop:'+=100'});
     });
     
-    //scroll down click
+    /*scroll down click*/
     $j(".gallery-photos-preview-scroll-down").click(function(){
         $j(".gallery-photos-preview").animate({scrollTop:'-=100'});
     });
     
-    //load photo categories
+    /*load photo categories*/
     loadPhotoCategories(0);
     
-    //click on category image
+    /*click on category image*/
     $j("#albums span a").live('click',function(){
         var has_children = $j(this).attr('has_children');
         var category_id = $j(this).attr('category_id');

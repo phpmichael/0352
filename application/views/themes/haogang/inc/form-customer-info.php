@@ -55,8 +55,6 @@
 </tr>
 </table>
 
-<?$this->load->view('inc/js-validate')?>
+<?=load_inline_js('inc/js-validate')?>
 
-<script>
-    $j("#registration_form").validate();
-</script>
+<script>$j("#registration_form").validate();</script>

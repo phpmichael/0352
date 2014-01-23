@@ -235,7 +235,6 @@ $cap_img = $captcha_model->make();
                 $j("a[data-rel='dialog']").click(function(){
                     var photo_id = $j(this).attr('href');
                     var photo_name = $j(photo_id + " .dialog-photo").attr('name');
-                    //$j(photo_id + " .dialog-photo").html("<img src='<?=base_url().'images/data/b/photos/'?>"+photo_name+"' width='460' height='324' alt='' />");
                     $j(photo_id + " .dialog-photo").html("<img src='<?=base_url().'images/data/b/photos/'?>"+photo_name+"' width='460' alt='' />");
                 });
             });

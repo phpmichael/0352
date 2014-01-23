@@ -68,6 +68,16 @@ class Minify_css extends CI_Driver {
 		}
 	}
 
+    /**
+     * Minify CSS content
+     * @param string $contents
+     * @return string
+     */
+    public function min_contents($contents)
+    {
+        return trim($this->_optimize($contents))."\n";
+    }
+
 	// ------------------------------------------------------------------------
 
 	/**

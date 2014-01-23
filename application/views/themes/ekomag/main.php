@@ -128,7 +128,7 @@ $BC->load->helper('social');
 			</a>
 
 			<a href="http://top.ternopil.ua/cncat_from.php?9771" target="_blank">
-				<img src="http://top.ternopil.ua/top.gif" width="88" height="31" border="0" alt="" />
+				<img src="http://top.ternopil.ua/top.png" width="88" height="31" border="0" alt="" />
 			</a>
 		
 		</div>

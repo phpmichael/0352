@@ -9,7 +9,7 @@
 	<?endforeach?>
 </div>
 
-<?$this->load->view('inc/js-jquery-ui')?>
+<?=load_inline_js('inc/js-jquery-ui')?>
 
 <!-- booklet -->
 <?=include_minified($BC->_getTheme().'js/booklet/jquery.easing.1.3.js','js')?>
@@ -17,7 +17,6 @@
 <?=include_js($BC->_getTheme().'js/booklet/jquery.booklet.1.3.1.min.js')?>
 
 <script>
-<!--//--><![CDATA[//><!--
 $j(function() {
 	$j('#booklet').booklet({
 		width:800,
@@ -28,12 +27,11 @@ $j(function() {
 		arrows: true,
         arrowsHide: false,
         manual: true
-		//tabs:  true,
-        //tabWidth:  180,
-        //tabHeight:  20
-		//auto: true,
-        //delay: 2000,
+		/*tabs:  true,
+        tabWidth:  180,
+        tabHeight:  20
+		auto: true,
+        delay: 2000,*/
 	});
 });
-//--><!]]>
 </script>

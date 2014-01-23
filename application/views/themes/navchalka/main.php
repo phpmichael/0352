@@ -22,18 +22,18 @@ $BC->lang->load('calendar');
 	<?endforeach?>
 	<?=include_minified('css/dialog-cart.css','inline_css')?>
 	
-	<?$this->load->view('inc/js-jquery')?>
-	<?//$this->load->view('inc/js-proxino'); ?>
-	<?$this->load->view('inc/js-flash-msg')?>
-	<?$this->load->view('inc/js-tooltip')?>
+	<?=load_inline_js('inc/js-jquery')?>
+	<?=load_inline_js('inc/js-proxino'); ?>
+	<?=load_inline_js('inc/js-flash-msg')?>
+	<?=load_inline_js('inc/js-tooltip')?>
 	
 	<?=include_js($BC->_getTheme().'js/bootstrap.min.js')?>
 	
 	<?if( in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('view','name'))):?>
-	<?$this->load->view('inc/js-lightbox')?>
+	<?=load_inline_js('inc/js-lightbox')?>
 	<?endif?>
 	
-	<?$this->load->view('inc/js-facebox'); ?>
+	<?=load_inline_js('inc/js-facebox'); ?>
 	
 	<?=include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','inline_js')?>
 	

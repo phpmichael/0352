@@ -280,15 +280,3 @@
 <p><?=form_submit("submit",language('save'));?></p>
 
 </form>
-
-<script>
-
-$j(document).ready(function(){
-    /*$j("table.list tr td").parent().hide();
-    
-    $j("table.list tr th").click(function(){
-        $j(this).parent().nextAll("tr").toggle();
-    });*/
-});
-
-</script>

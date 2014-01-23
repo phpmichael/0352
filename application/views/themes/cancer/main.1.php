@@ -15,7 +15,7 @@
 
 <?=include_combined(array($BC->_getTheme().'css/reset.css',$BC->_getTheme().'css/layout.css',$BC->_getTheme().'css/style.css'),$BC->_getTheme().'css/combined.css','css')?>
 
-<?$this->load->view('inc/js-jquery')?>
+<?=load_inline_js('inc/js-jquery')?>
 <?=include_minified($BC->_getTheme().'js/bgstretcher.js','js')?>
 <script>
 

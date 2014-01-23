@@ -32,4 +32,4 @@
 
 </form>
 
-<?$this->load->view('inc/js-tinymce')?>
+<?=load_inline_js('inc/js-tinymce')?>

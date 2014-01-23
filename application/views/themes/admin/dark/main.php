@@ -4,9 +4,9 @@
 
 	<title><?=$BC->_getPageTitle()?></title>
 	
-	<?$this->load->view('inc/js-IE-fix')?>
-	<?$this->load->view('inc/js-jquery')?>
-	<?$this->load->view('inc/js-flash-msg')?>
+	<?=load_inline_js('inc/js-IE-fix')?>
+	<?=load_inline_js('inc/js-jquery')?>
+	<?=load_inline_js('inc/js-flash-msg')?>
 	
 	<?=include_css('css/zero.css')?>
 	<?=include_css($BC->_getTheme().'styles.css')?>

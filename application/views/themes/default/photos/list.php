@@ -56,4 +56,4 @@
 
 <div class="pagination"><?=$paginate?></div>
 
-<?php $this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

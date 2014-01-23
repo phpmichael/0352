@@ -1,5 +1,4 @@
 <script>
-
 $j(document).ready(function()
 {
 	$j('.multilang-translate').click(function()
@@ -44,5 +43,4 @@ $j(document).ready(function()
 	});
 	
 });
-
 </script>

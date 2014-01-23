@@ -19,11 +19,11 @@
 <link type="application/rss+xml" href="<?=site_url($BC->_getBaseURL().'articles/RSS') ?>" title="Articles RSS Feed" rel="alternate" />
 
 <!--Load JS-->
-<?php $this->load->view('inc/js-jquery'); ?>
-<?php $this->load->view('inc/js-custom-functions'); ?>
+<?=load_inline_js('inc/js-jquery'); ?>
+<?=load_inline_js('inc/js-custom-functions'); ?>
 <!--Load JS-->
 
-<?$this->load->view('inc/js-IE-fix')?>
+<?=load_inline_js('inc/js-IE-fix')?>
 
 <!-- Load Application Packeges config -->
 <?=include_js($BC->_getBaseURL().'app_js/config')?>

@@ -1,18 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head>
+    <meta charset="UTF-8" />
+
 	<title><?=language('instant_messenger')?> :: <?=$recipient['name']?></title>
 	<!-- CSS Styles -->
 	<?=include_css('css/zero.css')?>
 	<?=include_css($BC->_getTheme().'css/im.css')?>
 	<!-- JS Scripts -->
-	<?$this->load->view('inc/js-jquery')?>
-	<?$this->load->view('inc/js-custom-functions')?>
+	<?=load_inline_js('inc/js-jquery')?>
+	<?=load_inline_js('inc/js-custom-functions')?>
 	<?=include_js($BC->_getFolder('js').'custom/im/functions.js')?>
 	<?=include_js($BC->_getFolder('js').'custom/im/process.js')?>
 	<script>
-		//set global vars
+		/*set global vars*/
 		var my_nick = "<?=$sender['name']?>";
 		var nick = "<?=$recipient['name']?>";
 		var get_new_messages_url = "<?=site_url($BC->_getBaseURL().'im/getnewmessages/'.$recipient['id'])?>";

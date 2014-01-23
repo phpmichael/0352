@@ -4,7 +4,7 @@
     <title><?=$BC->formbuilder_model->getFormTitle($form_id)?></title>
 
 	<?=include_css('css/zero.css')?>
-	<?$this->load->view('inc/js-jquery'); ?>
+	<?=load_inline_js('inc/js-jquery'); ?>
 	
 	<?=include_css('css/fb/styles.css');?>
 </head>

@@ -48,5 +48,5 @@ var hidden_search_form = <?if(!isset($empty_filter)):?>true<?else:?>false<?endif
 </script>
 <?=include_js($BC->_getFolder('js').'custom/search_form.js')?>
 
-<?$this->load->view('inc/js-add-to-cart'); ?>
-<?$this->load->view('inc/js-tooltip'); ?>
+<?=load_inline_js('inc/js-add-to-cart'); ?>
+<?=load_inline_js('inc/js-tooltip'); ?>

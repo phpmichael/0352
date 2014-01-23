@@ -13,15 +13,13 @@
 
 </form>
 
-<?$this->load->view('inc/js-selectboxes')?>
-<?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
+<?=load_inline_js('inc/js-selectboxes')?>
+<?=load_inline_js('inc/js-load-category',array('parent_category'=>0))?>
 
 <script>
-
 $j(document).ready(function(){
 	<?if(!isset($post_categories)):?>
 	load_category(0,false,'photos_categories');
 	<?endif?>
 });
-
 </script>

@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 
+    <meta charset="utf-8" />
+
 	<title><?=$BC->_getPageTitle()?></title>
 	
-	<?$this->load->view('inc/js-IE-fix')?>
-	<?$this->load->view('inc/js-jquery')?>
-	<?$this->load->view('inc/js-flash-msg')?>
+	<?=load_inline_js('inc/js-IE-fix')?>
+	<?=load_inline_js('inc/js-jquery')?>
+    <?=load_inline_js('inc/js-proxino'); ?>
+	<?=load_inline_js('inc/js-flash-msg')?>
 	
 	<?=include_css('css/zero.css')?>
 	<?=include_css('css/css3-icons.css')?>
@@ -15,10 +18,6 @@
 	<?foreach ($BC->_getCSSFiles() as $css_file):?>
     <?=include_css($css_file)?>
     <?endforeach?>
-	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv='expires' content='-1' />
-	<meta http-equiv='pragma' content='no-cache' />
 
 </head>
 

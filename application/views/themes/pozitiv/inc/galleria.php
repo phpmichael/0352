@@ -16,13 +16,10 @@
 <?=include_js($BC->_getTheme().'js/galleria/galleria-1.2.7.min.js')?>
 
 <script>
-<!--//--><![CDATA[//><!--
     Galleria.loadTheme('<?=base_url().$BC->_getTheme()?>js/galleria/themes/classic/galleria.classic.min.js');
     Galleria.configure({
-        //transition:'flash',
-        //transition:'fadeslide',
+        /*transition:'flash',
+        transition:'fadeslide',*/
     });
     Galleria.run('#galleria');
-    
-//--><!]]>  
 </script>

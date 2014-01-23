@@ -4,15 +4,14 @@
 
 <?load_theme_view('inc/form-poster')?>
 
-<?$this->load->view('inc/js-selectboxes')?>
+<?=load_inline_js('inc/js-selectboxes')?>
 
-<?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
+<?=load_inline_js('inc/js-load-category',array('parent_category'=>0))?>
 
-<?$this->load->view('inc/js-meio-mask')?>
-<?$this->load->view('inc/js-init-mask')?>
+<?=load_inline_js('inc/js-meio-mask')?>
+<?=load_inline_js('inc/js-init-mask')?>
 
 <script>
-
 $j(document).ready(function(){
 	
 	<?if(!isset($post_categories)):?>
@@ -20,5 +19,4 @@ $j(document).ready(function(){
 	<?endif?>
 	
 });
-
 </script>

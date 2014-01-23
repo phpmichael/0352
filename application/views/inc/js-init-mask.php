@@ -20,12 +20,10 @@ $j(document).ready(function(){
 			autoTab: true, // auto focus the next form element
 			fixedChars : '[(),.:/ -]', // fixed chars to be used on the masks.
 			onInvalid : function(c,nKey){
-				//$j(this).siblings("span.red").text('<?=language('wrong_character')?>');
 				if( $j(this).parent().find("span.red").length>0 ) $j(this).parent().find("span.red").text('<?=language('wrong_character')?>').show();
 				else $j(this).parent().append("<span class='red'></span>");
 			},
 			onValid : function(){
-				//$j(this).siblings("span.red").empty();
 				$j(this).parent().find("span.red").hide();
 			},
 			onOverflow : function(){}

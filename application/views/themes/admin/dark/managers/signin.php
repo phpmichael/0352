@@ -70,14 +70,12 @@
 <!-- End: login-holder -->
 
 <script>
-
 $j(document).ready(function () {
 	$j(".forgot-pwd").click(function () {
     	$j("#loginbox").hide();
     	$j("#forgotbox").show();
     	return false;
 	});
-
 });
 
 $j(document).ready(function () {
@@ -87,5 +85,4 @@ $j(document).ready(function () {
     	return false;
 	});
 });
-
 </script>

@@ -86,9 +86,7 @@
 </div>
 
 <script>
-
 $j(function() {
 	$j( "#tabs" ).tabs();
 });
-
 </script>

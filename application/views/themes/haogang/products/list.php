@@ -22,11 +22,10 @@
     <?endif?>
 </div>
 
-<?$this->load->view('inc/js-add-to-cart'); ?>
-<?$this->load->view('inc/js-tooltip'); ?>
+<?=load_inline_js('inc/js-add-to-cart'); ?>
+<?=load_inline_js('inc/js-tooltip'); ?>
 
 <script>
-
 $j(document).ready(function(){
     $j(".form-products-toolbar select").change(function(){
         $j(this).parents('form').submit();
@@ -37,5 +36,4 @@ $j(document).ready(function(){
         $j(this).parents('form').submit();
     });
 });
-
 </script>

@@ -10,8 +10,8 @@
         <?=include_css($css_file)?>
     <?endforeach?>
     
-    <?$this->load->view('inc/js-jquery')?>
-	<?$this->load->view('inc/js-flash-msg')?>
+    <?=load_inline_js('inc/js-jquery')?>
+	<?=load_inline_js('inc/js-flash-msg')?>
 	
 	<?=include_js($BC->_getTheme().'js/bootstrap.min.js')?>
 	

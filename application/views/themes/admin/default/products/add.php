@@ -116,13 +116,12 @@
 
 </form>
 
-<?$this->load->view('inc/js-tinymce')?>
+<?=load_inline_js('inc/js-tinymce')?>
 
-<?$this->load->view('inc/js-selectboxes')?>
-<?$this->load->view('inc/js-load-category',array('parent_category'=>0))?>
+<?=load_inline_js('inc/js-selectboxes')?>
+<?=load_inline_js('inc/js-load-category',array('parent_category'=>0))?>
 
 <script>
-
 var multi_categories = true;
 var multi_categories_level = <?=intval(@$BC->settings_model['products_categories_multi_level'])?>;
 
@@ -131,12 +130,10 @@ $j(document).ready(function(){
 	load_category(0,false,"products_categories");
 	<?endif?>
 });
-
 </script>
-
 
 <?load_theme_view('inc/js-multilang-help-tools')?>
 
 <?load_theme_view('inc/js-showhide-metadata')?>
 
-<?$this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

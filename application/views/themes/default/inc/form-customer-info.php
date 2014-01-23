@@ -1,5 +1,5 @@
-<?$this->load->view('inc/js-meio-mask')?>
-<?$this->load->view('inc/js-init-mask')?>
+<?=load_inline_js('inc/js-meio-mask')?>
+<?=load_inline_js('inc/js-init-mask')?>
 
 <div class="red"><?=validation_errors()?></div>
 

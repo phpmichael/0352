@@ -22,12 +22,9 @@
     </div>
     
     <script>
-
     $j(document).ready(function(){
-        //show/hide answer for FAQ
     	$j("#faq h3 a").click(function(){
     		$j(this).parent().next().toggle();
     	});
     });
-
     </script>

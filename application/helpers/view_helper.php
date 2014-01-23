@@ -196,3 +196,20 @@ return '
 </script>
 ';
 }
+
+/**
+ * Load inline javascript content
+ * @param string $tpl
+ * @param array $data
+ * @return mixed
+ */
+function load_inline_js($tpl,$data=array())
+{
+    $CI =& get_instance();
+
+    $CI->load->driver('minify');
+
+    $contents = $CI->load->view($tpl,$data,TRUE);
+
+    return $CI->minify->js->min_contents($contents);
+}

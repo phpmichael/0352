@@ -1,6 +1,6 @@
 <!--Load JS-->
-<?php $this->load->view('inc/js-select_all'); ?>
-<?php $this->load->view('inc/js-jquery-ui'); ?>
+<?=load_inline_js('inc/js-select_all'); ?>
+<?=load_inline_js('inc/js-jquery-ui'); ?>
 <!--Load JS-->
 
 <?if($query->num_rows()>0):?>

@@ -1,5 +1,5 @@
 <!--Load JS-->
-<?php $this->load->view('inc/js-select_all'); ?>
+<?=load_inline_js('inc/js-select_all'); ?>
 <!--Load JS-->
 
 <!--Load Search Form-->

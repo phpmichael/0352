@@ -2,7 +2,7 @@
 	<?if( in_array($include,array('js-multilang-help-tools')) ):?>
 		<?load_theme_view('inc/'.$include)?>
 	<?else:?>
-		<?$this->load->view('inc/'.$include)?>
+		<?=load_inline_js('inc/'.$include)?>
 	<?endif?>
 <?endforeach?>
 

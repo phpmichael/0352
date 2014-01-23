@@ -1,5 +1,5 @@
 <!--Load JS-->
-<?php $this->load->view('inc/js-select_all');?>
+<?=load_inline_js('inc/js-select_all');?>
 <!--Load JS-->
 
 <div class="fl" style="width:50%;">
@@ -109,4 +109,4 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
 
 <?endif;?>
 
-<?$this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

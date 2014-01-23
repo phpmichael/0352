@@ -1,5 +1,4 @@
 <script>
-
 $j(document).ready(function()
 {
     $j("#poll-form").submit(function()
@@ -32,5 +31,4 @@ $j(document).ready(function()
         return false;
     });
 });
-
 </script>

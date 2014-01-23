@@ -1,11 +1,9 @@
 <?=include_js($BC->_getFolder('js').'tiny_mce/jquery.tinymce.js')?>
 <script>
-
 function init_richtext()
 {
 	$j(".richtext").tinymce({
 			script_url : '<?=base_url().$BC->_getFolder('js')?>tiny_mce/tiny_mce.js',
-			//content_css : "css_all/questionnaire_textnodes.css",
 			// General options
 			theme : "advanced",
 			plugins : "pagebreak,more,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist,images",
@@ -30,5 +28,4 @@ function init_richtext()
 $j(document).ready(function(){
 	init_richtext();
 });
-
 </script>

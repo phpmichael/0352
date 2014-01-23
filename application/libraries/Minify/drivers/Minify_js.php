@@ -67,6 +67,16 @@ class Minify_js extends CI_Driver {
 			return "\n".trim($contents)."\n\n";
 		}
 	}
+
+    /**
+     * Minify javascript content
+     * @param string $contents
+     * @return string
+     */
+    public function min_contents($contents)
+    {
+        return trim(JSMin::minify($contents))."\n";
+    }
 }
 
 

@@ -34,4 +34,4 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
 
 </form>
 
-<?$this->load->view('inc/js-tinymce')?>
+<?=load_inline_js('inc/js-tinymce')?>

@@ -29,6 +29,6 @@
 
 </form>
 
-<?$this->load->view('inc/js-tinymce')?>
+<?=load_inline_js('inc/js-tinymce')?>
 
 <?load_theme_view('inc/js-multilang-help-tools')?>

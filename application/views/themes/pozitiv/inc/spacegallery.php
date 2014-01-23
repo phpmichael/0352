@@ -12,8 +12,4 @@
 <?=include_js($BC->_getTheme().'js/spacegallery/js/utils.js')?>
 <?=include_js($BC->_getTheme().'js/spacegallery/js/spacegallery.js')?>
 
-<script>
-<!--//--><![CDATA[//><!--
-    $j('#myGallery').spacegallery({loadingClass: 'loading'});
-//--><!]]>  
-</script>
+<script>$j('#myGallery').spacegallery({loadingClass: 'loading'});</script>

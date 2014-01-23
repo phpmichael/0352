@@ -58,7 +58,6 @@
 <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOGNyE8BAAAAr-i4MAMAf1KwwwqGQGOJQAzkUDOj3qL02bQAAAAAAAAAAAAIjSCwZnNdKjTiVm-wOZ0qmPyGzQ=="></script>
 
 <script>
-
 	YMaps.jQuery(function () {
 		var mapPlgPM1 = new YMaps.Map(document.getElementById("YMapsLocation1"));
 		mapPlgPM1.setCenter(new YMaps.GeoPoint( 25.598963, 49.551108), 17);
@@ -67,8 +66,6 @@
 		mapPlgPM1.addControl(new YMaps.Zoom());
 		mapPlgPM1.addControl(new YMaps.ScaleLine());
 		mapPlgPM1.addControl(new YMaps.TypeControl());
-		//mapPlgPM1.addControl(new YMaps.MiniMap());
-		//mapPlgPM1.addControl(new YMaps.ToolBar());
 		
 		var pointPlgPM1 = new YMaps.Placemark(new YMaps.GeoPoint(25.598963, 49.551108));
 		pointPlgPM1.setIconContent();
@@ -85,8 +82,6 @@
 		mapPlgPM2.addControl(new YMaps.Zoom());
 		mapPlgPM2.addControl(new YMaps.ScaleLine());
 		mapPlgPM2.addControl(new YMaps.TypeControl());
-		//mapPlgPM2.addControl(new YMaps.MiniMap());
-		//mapPlgPM2.addControl(new YMaps.ToolBar());
 		
 		var pointPlgPM2 = new YMaps.Placemark(new YMaps.GeoPoint(25.645693, 49.559802));
 		pointPlgPM2.setIconContent();
@@ -94,5 +89,4 @@
 		pointPlgPM2.setBalloonContent('<h3>«ЕКОМАГ»</h3><div>вул. Стуса 1, ("Фуршет")</div>', {maxWidth: 100});
 		pointPlgPM2.openBalloon();
 	});
-
 </script>

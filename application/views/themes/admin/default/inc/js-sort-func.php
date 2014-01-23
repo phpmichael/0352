@@ -1,5 +1,4 @@
 <script>
-
 $j(document).ready(
 	function () {
 
@@ -25,7 +24,6 @@ $j(document).ready(
 		/* Save Sortable */
 		$j("#save").click(function(e){
 
-			//Serialize from fields
 			var sortables = $j('ul#sortable_group').sortable('serialize');
 
 			/* Saving */
@@ -37,5 +35,4 @@ $j(document).ready(
 		});
 	}
 );
-
 </script>

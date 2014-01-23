@@ -13,8 +13,8 @@ $j(function () {
 	$j("#categories-tree").jstree({ 
 	    "themes" : {
             "theme" : "classic"
-            //"dots" : false,
-            //"icons" : false
+            /*"dots" : false,
+            "icons" : false*/
         },
 		"plugins" : [ "themes", "html_data" ]
 	});

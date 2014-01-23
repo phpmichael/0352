@@ -17,7 +17,7 @@
     
     <!--[if LT IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     
-    <?$this->load->view('inc/js-jquery')?>
+    <?=load_inline_js('inc/js-jquery')?>
     
 </head>
 

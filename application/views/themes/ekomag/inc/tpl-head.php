@@ -44,16 +44,16 @@
 <?endforeach?>
 
 <!-- Load JS -->
-<?$this->load->view('inc/js-jquery')?>
-<?//$this->load->view('inc/js-jquery-ui')?>
+<?=load_inline_js('inc/js-jquery')?>
+<?//=load_inline_js('inc/js-jquery-ui')?>
 <?=include_minified($BC->_getTheme().'css/flick/jquery-ui-1.8.20.custom.css','css')?>
 <?=include_js($BC->_getTheme().'js/jquery-ui-1.8.20.custom.min.js')?>
-<?$this->load->view('inc/js-custom-functions')?>
-<?$this->load->view('inc/js-tooltip')?>
-<?$this->load->view('inc/js-IE-fix')?>
+<?=load_inline_js('inc/js-custom-functions')?>
+<?=load_inline_js('inc/js-tooltip')?>
+<?=load_inline_js('inc/js-IE-fix')?>
 
 <?if($BC->_getController()=='products' && in_array($BC->_getMethod(),array('view','name'))):?>
-<?$this->load->view('inc/js-lightbox')?>
+<?=load_inline_js('inc/js-lightbox')?>
 <?endif?>
 
 <?=include_minified($BC->_getTheme().'js/imagepreloader.js','inline_js')?>
@@ -63,11 +63,9 @@
 <?=include_minified($BC->_getTheme().'css/jcarousel/tango/skin.css','css')?>
 <?=include_js($BC->_getTheme().'js/jquery.jcarousel.min.js')?>
 <script>
-
 jQuery(document).ready(function() {
     jQuery('#products-carousel').jcarousel();
 });
-
 </script>
 <?endif?>
 
@@ -91,4 +89,4 @@ jQuery(document).ready(function() {
 
 </script>
 
-<?php $this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

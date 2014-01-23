@@ -5,9 +5,8 @@
 <p class="copy">
     &copy; 
     <script>
-
-    var mdate = new Date(); document.write(mdate.getFullYear());
-
+        var mdate = new Date();
+        document.write(mdate.getFullYear());
     </script> HealthLife. All Rights Reserved.
 </p>
 <br class="clear" />

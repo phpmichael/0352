@@ -29,13 +29,13 @@
 <?=include_minified('css/dialog-cart.css','css')?>
 
 <!-- Load JS -->
-<?$this->load->view('inc/js-jquery')?>
-<?$this->load->view('inc/js-jquery-ui')?>
-<?$this->load->view('inc/js-custom-functions')?>
-<?$this->load->view('inc/js-tooltip')?>
+<?=load_inline_js('inc/js-jquery')?>
+<?=load_inline_js('inc/js-jquery-ui')?>
+<?=load_inline_js('inc/js-custom-functions')?>
+<?=load_inline_js('inc/js-tooltip')?>
 
 <?if($BC->_getController()=='products' && in_array($BC->_getMethod(),array('view','name'))):?>
-<?$this->load->view('inc/js-lightbox')?>
+<?=load_inline_js('inc/js-lightbox')?>
 <?endif?>
 
 <?=include_minified($BC->_getTheme().'js/imagepreloader.js','js')?>
@@ -52,13 +52,11 @@
 <?=include_js($BC->_getFolder('js').'custom/request_call/send_form.js')?>
 
 <script>
-
     preloadImages([
         '<?=base_url().$BC->_getTheme()?>images/button-bg-hover.png',
         '<?=base_url().$BC->_getTheme()?>images/search-button-active.gif',
         '<?=base_url().$BC->_getTheme()?>images/top-menu-a-active.png'
     ]);
-
 </script>
 
-<?php $this->load->view('inc/js-facebox'); ?>
+<?=load_inline_js('inc/js-facebox'); ?>

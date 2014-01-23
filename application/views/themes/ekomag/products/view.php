@@ -111,4 +111,4 @@
 
 
 
-<?$this->load->view('inc/js-add-to-cart'); ?>        
+<?=load_inline_js('inc/js-add-to-cart'); ?>
