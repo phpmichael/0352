@@ -23,7 +23,7 @@ $BC->lang->load('calendar');
 	<?=include_minified('css/dialog-cart.css','inline_css')?>
 	
 	<?=load_inline_js('inc/js-jquery')?>
-	<?=load_inline_js('inc/js-proxino'); ?>
+	<?=load_inline_js('inc/js-qbaka'); ?>
 	<?=load_inline_js('inc/js-flash-msg')?>
 	<?=load_inline_js('inc/js-tooltip')?>
 	
