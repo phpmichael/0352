@@ -16,8 +16,10 @@
 
     <?=load_inline_js('inc/js-IE-fix')?>
     <?=load_inline_js('inc/js-jquery')?>
-    <?=load_inline_js('inc/js-proxino'); ?>
     <?=load_inline_js('inc/js-flash-msg')?>
+
+    <?=load_inline_js('inc/js-proxino'); ?>
+    <?=load_inline_js('inc/js-qbaka'); ?>
 
     <?=include_css($BC->_getTheme().'navmenu-h.css')?>
     <?=include_js($BC->_getTheme().'navmenu-h.js')?>
