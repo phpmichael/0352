@@ -26,7 +26,6 @@ $j(document).ready(
 
 			var sortables = $j('ul#sortable_group').sortable('serialize');
 
-			/* Saving */
 			$j.post(window.sort_process.save_sort_url, {sortables: sortables}, function(data) {
 				document.location.href=window.sort_process.redirect_after_sort_url;
 			});

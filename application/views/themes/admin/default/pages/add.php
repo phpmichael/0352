@@ -51,6 +51,6 @@
 
 <?=load_inline_js('inc/js-tinymce')?>
 
-<?load_theme_view('inc/js-showhide-metadata')?>
+<?=load_inline_js('inc/js-showhide-metadata')?>
 
-<?load_theme_view('inc/js-multilang-help-tools')?>
+<?=load_inline_js('inc/js-multilang-help-tools')?>

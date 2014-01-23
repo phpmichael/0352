@@ -76,4 +76,4 @@ sort_process.save_sort_url = "<?=relative_url($BC->_getBaseURI()."/sort_groups")
 sort_process.redirect_after_sort_url = "<?=site_url($BC->_getBaseURI()."/index")?>";
 </script>
 
-<?load_theme_view('inc/js-sort-func')?>
+<?=load_inline_js('inc/js-sort-func')?>

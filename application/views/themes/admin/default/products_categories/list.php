@@ -55,4 +55,4 @@
 
 <?=load_inline_js('inc/js-facebox'); ?>
 
-<?load_theme_view('inc/js-categories-sort')?>
+<?=load_inline_js('inc/js-categories-sort')?>

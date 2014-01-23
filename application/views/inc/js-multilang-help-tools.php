@@ -41,6 +41,5 @@ $j(document).ready(function()
 		
 		<?endforeach?>
 	});
-	
 });
 </script>

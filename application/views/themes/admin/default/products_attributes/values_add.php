@@ -31,4 +31,4 @@ $attr_id = $this->uri->segment($BC->_getSegmentsOffset()+3);
 
 </form>
 
-<?load_theme_view('inc/js-multilang-help-tools')?>
+<?=load_inline_js('inc/js-multilang-help-tools')?>
