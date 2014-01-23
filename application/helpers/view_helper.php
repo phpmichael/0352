@@ -11,12 +11,12 @@
 function load_theme_view($tpl,$data = array(), $return = FALSE)
 {
     $CI =& get_instance();
-    
+
     if( $exists = file_exists(APPPATH.'views/'.$CI->_getTheme().$tpl.'.php')  )
     {
         return $CI->load->view($CI->_getTheme().$tpl,$data,$return);
     }
-    else 
+    else
     {
         return $CI->load->view('themes/'.$CI->_getFolder().'default/'.$tpl,$data,$return);
     }
@@ -32,7 +32,7 @@ function load_theme_view($tpl,$data = array(), $return = FALSE)
 function get_menu($menu,$format='list')
 {
     $CI =& get_instance();
-    
+
     return $CI->menu_model->build($menu,$format);
 }
 
@@ -44,7 +44,9 @@ function get_menu($menu,$format='list')
  */
 function include_js($file)
 {
-    return '<script src="'.static_url().$file.'"></script>';
+    $CI =& get_instance();
+
+    return $CI->appendJsFile($file);
 }
 
 /**
@@ -56,7 +58,9 @@ function include_js($file)
  */
 function include_css($file,$media='all')
 {
-    return '<link rel="stylesheet" href="'.static_url().$file.'" media="'.$media.'" />';
+    $CI =& get_instance();
+
+    return $CI->appendCssFile(array('file' => $file, 'media' => $media));
 }
 
 /**
@@ -69,49 +73,49 @@ function include_css($file,$media='all')
  */
 function include_minified($file,$type,$media='all')
 {
-	if( in_array($type,array('css','js','inline_css','inline_js')) ) //just for CSS and JavaScript files
-	{
-		if(file_exists($file)) //check if file exists
-		{
-			if(is_writable(dirname($file))) //check if folder is writable
-			{
-    			$real_type = str_replace('inline_','',$type);
-			    
-			    $minified_file = str_replace('.'.$real_type,'.minify.'.$real_type,$file);
-			    
-			    if( !file_exists($minified_file) || filemtime($file)>filemtime($minified_file) )
-    			{
-    				$CI =& get_instance();
-    				
-    				$CI->load->driver('minify');
-    				
-    				$contents = $CI->minify->$real_type->min($file);
-    				
-    				$CI->minify->save_file($contents, $minified_file);
-    			}
-			}
-			else $minified_file = $file;
-			
-			if($type=='css')
-			{
-				return include_css($minified_file,$media);
-			}
-			elseif($type=='js') 
-			{
-				return include_js($minified_file);
-			}
-			elseif($type=='inline_css') 
-			{
-			    return inline_css($minified_file,$media);
-			}
-			elseif($type=='inline_js') 
-			{
-				return inline_js($minified_file);
-			}
-		}
-	}
-	
-	return '';
+    if( in_array($type,array('css','js','inline_css','inline_js')) ) //just for CSS and JavaScript files
+    {
+        if(file_exists($file)) //check if file exists
+        {
+            if(is_writable(dirname($file))) //check if folder is writable
+            {
+                $real_type = str_replace('inline_','',$type);
+
+                $minified_file = str_replace('.'.$real_type,'.minify.'.$real_type,$file);
+
+                if( !file_exists($minified_file) || filemtime($file)>filemtime($minified_file) )
+                {
+                    $CI =& get_instance();
+
+                    $CI->load->driver('minify');
+
+                    $contents = $CI->minify->$real_type->min($file);
+
+                    $CI->minify->save_file($contents, $minified_file);
+                }
+            }
+            else $minified_file = $file;
+
+            if($type=='css')
+            {
+                return include_css($minified_file,$media);
+            }
+            elseif($type=='js')
+            {
+                return include_js($minified_file);
+            }
+            elseif($type=='inline_css')
+            {
+                return inline_css($minified_file,$media);
+            }
+            elseif($type=='inline_js')
+            {
+                return inline_js($minified_file);
+            }
+        }
+    }
+
+    return '';
 }
 
 /**
@@ -126,48 +130,48 @@ function include_minified($file,$type,$media='all')
 function include_combined(array $combine_files,$combined_file,$type,$media='all')
 {
     if( in_array($type,array('css','js')) ) //just for CSS and JavaScript files
-	{
-		if(!empty($combine_files)) //array with combine files not empty
-		{
-    	    $combined_file = str_replace('.'.$type,'.minify.'.$type,$combined_file);
-    		
-    		$lastmodify = array();
-    	    
-    		if(is_writable(dirname($combined_file))) //check if folder is writable
-    		{
-        	    foreach ($combine_files as $key=>$file)
-        		{
-            	    if(file_exists($file)) //check if file exists
-            		{
-        			    $lastmodify[] = filemtime($file);
-            		}
-            		else unset($combine_files[$key]);
-        		}
-        		
-        		if( !file_exists($combined_file) || max($lastmodify)>filemtime($combined_file) )
-    			{
-    				$CI =& get_instance();
-    				
-    				$CI->load->driver('minify');
-    				
-    				$contents = $CI->minify->combine_files($combine_files);
-    				
-    				$CI->minify->save_file($contents, $combined_file);
-    			}
-        		
-        		if($type=='css')
-        		{
-        			return include_css($combined_file,$media);
-        		}
-        		else 
-        		{
-        			return include_js($combined_file);
-        		}
-    		}
-		}
-	}
-	
-	return '';
+    {
+        if(!empty($combine_files)) //array with combine files not empty
+        {
+            $combined_file = str_replace('.'.$type,'.minify.'.$type,$combined_file);
+
+            $lastmodify = array();
+
+            if(is_writable(dirname($combined_file))) //check if folder is writable
+            {
+                foreach ($combine_files as $key=>$file)
+                {
+                    if(file_exists($file)) //check if file exists
+                    {
+                        $lastmodify[] = filemtime($file);
+                    }
+                    else unset($combine_files[$key]);
+                }
+
+                if( !file_exists($combined_file) || max($lastmodify)>filemtime($combined_file) )
+                {
+                    $CI =& get_instance();
+
+                    $CI->load->driver('minify');
+
+                    $contents = $CI->minify->combine_files($combine_files);
+
+                    $CI->minify->save_file($contents, $combined_file);
+                }
+
+                if($type=='css')
+                {
+                    return include_css($combined_file,$media);
+                }
+                else
+                {
+                    return include_js($combined_file);
+                }
+            }
+        }
+    }
+
+    return '';
 }
 
 /**
@@ -177,9 +181,11 @@ function include_combined(array $combine_files,$combined_file,$type,$media='all'
  * @param string $media
  * @return string
  */
-function inline_css($file,$media='all')
+function inline_css($file, $media='all')
 {
-    return '<style  media="'.$media.'">'.file_get_contents($file).'</style>';
+    $CI =& get_instance();
+
+    return $CI->appendCssFile(array('file' => file_get_contents($file), 'media' => $media));
 }
 
 /**
@@ -190,11 +196,9 @@ function inline_css($file,$media='all')
  */
 function inline_js($file)
 {
-return '
-<script>
-'.file_get_contents($file).'
-</script>
-';
+    $CI =& get_instance();
+
+    return $CI->appendJsFile(file_get_contents($file));
 }
 
 /**
