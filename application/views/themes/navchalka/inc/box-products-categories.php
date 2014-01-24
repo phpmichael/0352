@@ -1,6 +1,6 @@
 <div class="side-box">
     <div class="side-box-top">
-        <h3 class="catalog"><?=language('catalog')?></h3>
+        <h3 class="catalog"><i></i><?=language('catalog')?></h3>
     </div>
     <?
         echo get_categories_tree(

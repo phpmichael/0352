@@ -80,21 +80,21 @@ $BC->lang->load('calendar');
                                     <ul class="nav navbar-nav pull-right">
                                         <li class="dropdown">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="choose-lang">
-                                                <?=img(array('src'=>'images/flags/'.strtolower($BC->lang_model->getLangCodeByLanguage($BC->config->item('language'))).'.png','width'=>18,'height'=>12))?> <?=language($BC->config->item('language'))?>
+                                                <i class="flag-<?=strtolower($BC->lang_model->getLangCodeByLanguage($BC->config->item('language')))?>"></i> <?=language($BC->config->item('language'))?>
                                                 <span class="caret"></span>
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="choose-lang">
                                                 <?if($BC->config->item('language')!='ukrainian'):?>
                                                 <li>
                                                     <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='UA'?'':'ua/')?>" title="<?=language('ukrainian')?>">
-                                                        <?=img(array('src'=>'images/flags/ua.png','width'=>18,'height'=>12))?> <?=language('ukrainian')?>
+                                                        <i class="flag-ua"></i> <?=language('ukrainian')?>
                                                     </a>
                                                 </li>
                                                 <?endif?>
                                                 <?if($BC->config->item('language')!='russian'):?>
                                                 <li>
                                                     <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='RU'?'':'ru/')?>" title="<?=language('russian')?>">
-                                                        <?=img(array('src'=>'images/flags/ru.png','width'=>18,'height'=>12))?> <?=language('russian')?>
+                                                        <i class="flag-ru"></i> <?=language('russian')?>
                                                     </a>
                                                 </li>
                                                 <?endif?>
