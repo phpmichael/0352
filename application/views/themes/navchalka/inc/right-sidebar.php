@@ -3,14 +3,7 @@
     <?load_theme_view('inc/box-login')?>
 <?endif?>
 
-<?if (!($BC->is_home_page())):?>
-    <?load_theme_view('inc/box-featured')?>
-<?endif?>
-
-<?//recent articles: just for home page?>
-<?if (($BC->is_home_page())):?>
-    <?load_theme_view('inc/box-recent-articles')?>
-<?endif?>
+<?load_theme_view('inc/box-featured')?>
 
 <?//specials: for some sections?>
 <?if (in_array($BC->_getController(),array('articles'))):?>

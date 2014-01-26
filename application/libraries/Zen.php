@@ -126,11 +126,11 @@ class Zen {
         
         return $call;
     }
-    
+
     /**
      * Set the cache expire time in seconds for the next call
-     * 
-     * @param int $ttl
+     *
+     * @param bool|int $expires
      * @return Zen
      */
     public function expires($expires = FALSE) {
@@ -161,13 +161,15 @@ class Zen {
     public static function &get_instance() {
         return self::$instance;
     }
-    
+
     /**
      * Save item to cache
-     * 
+     *
      * @param string $id
      * @param mixed $data
-     * @param int $ttl
+     * @param bool $expires
+     * @return
+     * @internal param int $ttl
      */
     public function save($id, $data, $expires = FALSE) {
         if (!$expires) {
@@ -195,12 +197,13 @@ class Zen {
         
         return $this->ci->cache->get($id);
     }
-    
+
     /**
      * Delete all or a group of cached items
      * NOTE: group cleaning is only supported for file caching!
-     * 
-     * @param string $group
+     *
+     * @param string|bool $group
+     * @return bool
      */
     public function clean($group = FALSE) {
         if ($this->adapter == 'file') {
@@ -246,11 +249,12 @@ class Monk {
     
     // reference to the Zen object
     private $_zen_;
-    
+
     /**
      * Constructor
-     * 
-     * @param string $class
+     *
+     * @param $object
+     * @internal param string $class
      */
     public function __construct(&$object) {
         $ci = &get_instance();
