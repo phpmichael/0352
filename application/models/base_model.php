@@ -343,6 +343,24 @@ abstract class Base_model extends CI_Model
     	
     	return $filter_ex;
     }
+
+    /**
+     * Filter posts by category.
+     *
+     * @return string
+     */
+    protected function getCategoryFilter()
+    {
+        if( is_array($this->CI->input->post('category',1)) )
+        {
+            $search_categories = array_reverse($this->CI->input->post('category',1));
+            $search_category = reset($search_categories);
+            if($search_category==-1) $search_category = next($search_categories);
+        }
+        else $search_category = intval($this->CI->input->post('category',1));
+
+        return $search_category;
+    }
     
     /**
 	 * Make translit non-english chars.

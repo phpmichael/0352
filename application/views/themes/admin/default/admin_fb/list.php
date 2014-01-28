@@ -11,7 +11,7 @@
 <!--Load Search Form-->
 <?php 
 $fields_names = array_keys($BC->formbuilder_model->getFieldsList($BC->_getProcessFormId()));
-load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
+load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_category_table'=>@$search_category_table));
 ?>
 <!--Load Search Form-->
 

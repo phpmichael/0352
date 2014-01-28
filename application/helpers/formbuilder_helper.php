@@ -15,8 +15,7 @@ function fb_form($form_id,$data_key=FALSE,$form_mode=FALSE)
 	
 	if( $form_mode != 'view' ) 
 	{
-		$CI =& get_instance();
-		$CI->load->view('inc/js-fb-screen-process');
+		echo load_inline_js('inc/js-fb-screen-process');
 	}
 }
 

@@ -55,40 +55,6 @@ class Photos extends Admin
 
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
-	/**
-	 * Build search criteria for _ListData method.
-	 * 
-	 * @param array $post
-	 * @return string
-	 */
-	public function _SearchByCategoryId($post)
-	{
-		// New Search
-		if( isset($post['category_id']) && $post['category_id'] ) 
-		{
-			$where = "category_id = '".intval($post['category_id'])."'";
-
-			//Add Search to Session
-			$sessdata[$this->_getCurrentTable().'_category_id'] = $post['category_id'];
-			$this->session->set_userdata($sessdata);
-		}
-		// Reset Search
-		elseif($this->uri->segment($this->_getSegmentsOffset()+3) == 'reset')
-		{
-			$this->session->unset_userdata($this->_getCurrentTable().'_category_id');
-			$where = '';
-		}
-		// Get Search From Session
-		elseif( $this->session->userdata($this->_getCurrentTable().'_category_id') )
-		{
-			$where = "category_id = '".intval($this->session->userdata($this->_getCurrentTable().'_category_id'))."'";
-		}
-		// No Any Search
-		else $where = '';
-
-		return $where;
-	}
-
     /**
      * Validate and insert or update data, upload photo.
      *
@@ -123,38 +89,6 @@ class Photos extends Admin
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	// ============= ACTION METHODS ================ //
-
-    /**
-	 * Show list with records by search criterias (sorted and paginated).
-	 * Overrides parent method.
-	 * 
-	 * @return void
-	 */
-	public function Index()
-	{
-	    $this->admin_model->init($this->c_table);
-	    
-		// === SEARCH PROCESS === //
-		$where1 = $this->_SearchByCategoryId($_POST);
-		
-		$where2 = $this->admin_model->searchData($_POST);
-		
-		if($where1) 
-		{
-			$where = $where1;
-			if($where2) $where .= ' AND '.$where2;
-		}
-		else $where = $where2;
-
-		// === Pagination Process === //
-		$data = $this->_ListData($this->_getPageTitle($this->_getMethod()), $this->per_page, $where);
-		
-		 // === Categories List === //
-		$data['categories'] = $this->photos_categories_model->GetAllCategoriesList();
-
-		$data['tpl_page'] = $this->_getController().'/list';
-		parent::_OnOutput($data);
-	}
 	
 	/**
 	 * Add photo.

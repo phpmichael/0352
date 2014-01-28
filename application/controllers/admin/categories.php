@@ -126,7 +126,7 @@ class Categories extends Admin
 	 */
 	public function Index()
 	{
-		$data = parent::_ListData($this->_getPageTitle($this->method), 1000, "parent_id = ".$this->db->escape_str($this->parent_id),$this->parent_id."/","sort","asc");
+		$data = parent::_ListData($this->_getPageTitle($this->method), 1000, "parent_id = ".$this->db->escape_str($this->parent_id), "", $this->parent_id."/", "sort", "asc");
 
 		$data['tpl_page'] = $this->_getController().'/list';
 		parent::_OnOutput($data);

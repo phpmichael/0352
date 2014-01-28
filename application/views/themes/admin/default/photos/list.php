@@ -2,22 +2,16 @@
 <?=load_inline_js('inc/js-select_all'); ?>
 <!--Load JS-->
 
-<?=form_open($BC->_getBaseURI())?>
-<div align="right">
-<table>
-<tr>
-	<?if(userAccess('photos_categories','view')):?><td><?=form_dropdown("category_id",$categories,$this->session->userdata($BC->_getCurrentTable().'_category_id'),"class='select'")?></td><?endif?>
-	<td><?=language('photo_name')?>:</td>
-	<td><?=form_hidden("search_by","orig_name");?></td>
-	<td><?=form_input("keyword",$this->session->userdata($BC->_getCurrentTable().'_keyword'),"class='input'");?></td>
-	<td><?=form_submit("submit",language('search'));?></td>
-	<td><input type="reset" value="<?=language('reset')?>" onclick="location.href='<?=site_url($BC->_getBaseURI()."/index/reset")?>'"></td>
-</tr>
-</table>
-</div>
-</form>
+<!--Load Search Form-->
+<?php
+$fields_names = array('orig_name');
+load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_category_table'=>'photos_categories'));
+?>
+<!--Load Search Form-->
 
-<?=br(2)?>
+<div class="clear"></div>
+
+<br />
 
 <?if($query->num_rows()>0):?>
 
@@ -31,7 +25,7 @@
         <?endif?>
     </p>
     
-    <?//lopen form for delete records?>
+    <?//open form for delete records?>
     <?=aform_open__Delete_Selected()?>
     <?=form_hidden('new_category_id')?>
     

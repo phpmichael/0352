@@ -236,13 +236,14 @@ abstract class Admin extends Base
      * @param string $title
      * @param integer $per_page
      * @param string $where
+     * @param string $join
      * @param bool $params_string
      * @param bool|string $orderby
      * @param bool|string $orderseq
      * @param bool|int $offset
      * @return array
      */
-	protected function _ListData($title, $per_page = 10, $where = '', $params_string = FALSE, $orderby = FALSE, $orderseq = FALSE, $offset = FALSE)
+	protected function _ListData($title, $per_page = 10, $where = '', $join = '', $params_string = FALSE, $orderby = FALSE, $orderseq = FALSE, $offset = FALSE)
 	{
 		if(!$this->method) $this->method = "index";
 		
@@ -257,7 +258,7 @@ abstract class Admin extends Base
 		$this->_setPageTitle($title);
 
 		$this->admin_model->init($this->c_table);
-		$data = $this->admin_model->get($per_page,$where,$orderby,$orderseq,$offset);
+		$data = $this->admin_model->get($per_page,$where,$join,$orderby,$orderseq,$offset);
 		
 		$records_amount_str = ' <strong>'.sprintf( language('x_of_x_records'), ($offset+1).'-'.min(($per_page+$offset),$data['total_rows']),$data['total_rows']).'</strong> ';
 
@@ -403,19 +404,32 @@ abstract class Admin extends Base
 	public function Index()
 	{
 		$this->admin_model->init($this->c_table);
+
+        // === Reset search === //
+        if($this->uri->segment($this->_getSegmentsOffset()+3) == 'reset')
+        {
+            $this->admin_model->resetSearch();
+            redirect($this->_getBaseURI());
+        }
+
+        // === Reset filters === //
+        if( ($filters = $this->_getSegmentFilters()) && stristr($filters,'reset') )
+        {
+            $this->admin_model->resetFilters();
+            redirect(aurl());
+        }
 	    
-	    // === SEARCH PROCESS === //
-		$where = $this->admin_model->searchData($_POST);
-		if(!$where) $where = '1';
-		
+	    // === Do search === //
+		$searchData = $this->admin_model->searchData($_POST);
+
 		// === Apply Filters === //
-		$where .= $this->admin_model->applyFilters();
+        $searchData['where'] .= $this->admin_model->applyFilters($filters);
 
 		// === Pagination Process === //
-		$data = $this->_ListData($this->_getPageTitle($this->method), $this->per_page, $where);
+		$data = $this->_ListData($this->_getPageTitle($this->method), $this->per_page, $searchData['where'], $searchData['join']);
 
 		//Deny sortable if not all records shown !!!
-		if($where!='1') $data['deny_sortable'] = TRUE;
+		if($searchData['where'] != '1') $data['deny_sortable'] = TRUE;
 
 		$data['tpl_page'] = $this->_getController().'/list';
 		parent::_OnOutput($data);

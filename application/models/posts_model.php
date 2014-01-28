@@ -86,24 +86,6 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Filter posts by category.
-	 * 
-	 * @return string
-	 */
-    protected function getCategoryFilter()
-    {
-		if( is_array($this->CI->input->post('category',1)) )
-		{
-			$search_categories = array_reverse($this->CI->input->post('category',1));
-			$search_category = reset($search_categories);
-			if($search_category==-1) $search_category = next($search_categories);
-		}
-		else $search_category = intval($this->CI->input->post('category',1));
-		
-		return $search_category;
-    }
-    
-    /**
 	 * Request from pagination.
 	 * 
 	 * @param array $filter_data
@@ -865,5 +847,13 @@ abstract class Posts_model extends Base_model
         $filter_data = array('per_page'=>$limit,'category'=>$category_id,'sort_by'=>'RAND()','offset'=>0);
     	
     	return $this->get('index',$filter_data);
+    }
+
+    /*
+     * Getter for c_type
+     */
+    public function getCtype()
+    {
+        return $this->c_type;
     }
 }

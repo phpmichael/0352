@@ -10,7 +10,7 @@
 <?php 
 $fields_names = array('name','price');
 if(@$BC->settings_model['use_product_sku']) $fields_names[] = 'SKU';
-load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
+load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_category_table'=>'products_categories'));
 ?>
 <!--Load Search Form-->
 
