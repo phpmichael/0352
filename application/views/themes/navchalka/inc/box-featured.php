@@ -1,6 +1,6 @@
 <?
 load_model('products_model');
-$featured = $BC->zen->expires(30)->products_model->getFeatured(3);
+$featured = $BC->zen->products_model->getFeatured(3);
 ?>
 
 <?if($featured['total_rows']):?>
