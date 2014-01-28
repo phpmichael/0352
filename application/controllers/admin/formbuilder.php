@@ -640,7 +640,7 @@ class Formbuilder extends Admin
 	{
 		$this->c_table = 'form_containers';
 	    
-	    $data = parent::_ListData($this->_getPageTitle($this->method), 9999, "form_id = ".intval($form_id)." AND container_id = ".intval($container_id),$form_id."/","id","asc");
+	    $data = parent::_ListData($this->_getPageTitle($this->method), 9999, "form_id = ".intval($form_id)." AND container_id = ".intval($container_id), "", $form_id."/","id","asc");
 
 		$data['tpl_page'] = $this->_getController().'/containers_list';
 		parent::_OnOutput($data);
@@ -690,7 +690,7 @@ class Formbuilder extends Admin
 	{
 		$this->c_table = 'form_inputs';
 	    
-	    $data = parent::_ListData($this->_getPageTitle($this->method), 9999, "container_id = ".intval($container_id),$form_id."/","id","asc");
+	    $data = parent::_ListData($this->_getPageTitle($this->method), 9999, "container_id = ".intval($container_id), "", $form_id."/","id","asc");
 
 		$data['tpl_page'] = $this->_getController().'/inputs_list';
 		parent::_OnOutput($data);
