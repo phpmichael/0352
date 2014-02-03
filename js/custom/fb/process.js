@@ -45,7 +45,7 @@ function run_skip_rules()
     	
     	//console.log($j(this).attr('name'));
 
-    	if( $j(this).attr('type') == 'checkbox' && !$j(this).checked )
+    	if( $j(this).attr('type') == 'checkbox' && !$j(this).is(':checked') )
     	{
     		_js = 'FD.' + $j(this).attr('name') + ' = "" ';
     	}
