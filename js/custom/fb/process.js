@@ -44,8 +44,8 @@ function run_skip_rules()
     $j("select,input[type=radio]:checked,input[type=checkbox]",FB.form).not("[name='']").not("[name$=']']").each(function(){
     	
     	//console.log($j(this).attr('name'));
-    	
-    	if( $j(this).attr('type') == 'checkbox' && !$j(this).attr('checked') )
+
+    	if( $j(this).attr('type') == 'checkbox' && !$j(this).checked )
     	{
     		_js = 'FD.' + $j(this).attr('name') + ' = "" ';
     	}
@@ -95,23 +95,23 @@ function run_skip_rules()
         if( _hideElement ) 
         {
             //unset values
-            $j(this).find(":checked").removeAttr("checked");
+            $j(this).find(":checked").prop("checked", false);
             $j(this).find("input[type=text],input[type=password],textarea").val('');
             //set selected index=1 for select
-            $j(this).find("select").find('option:selected').removeAttr("selected");
-			$j(this).find("select").find('option:first').attr("selected",true);
+            $j(this).find("select").find('option:selected').prop("selected", false);
+			$j(this).find("select").find('option:first').prop("selected",true);
             
             $j(this).hide();
             
             //disable inputs
-            //$j(this).find(":input").attr("disabled","disabled");
+            //$j(this).find(":input").prop("disabled", true);
         }
         else 
         {
         	$j(this).show();
         	
         	//enable inputs
-            //$j(this).find(":input").removeAttr("disabled");
+            //$j(this).find(":input").prop("disabled", false);
         }
     });
 }

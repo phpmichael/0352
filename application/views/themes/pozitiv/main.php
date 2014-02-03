@@ -1,9 +1,8 @@
 <?$BC->load->helper(array('blog'));?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     
     <title><?=$head['site_title']?><?if($head['page_title']):?> :: <?=$head['page_title']?><?endif?></title>
     <meta name='description' content='<?=$head['meta_description']?>' />

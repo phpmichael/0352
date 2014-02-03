@@ -1,1 +1,1 @@
-Cufon.replace('.slider-text dt, .slider-text dd p a, .box-1 h1, .box-1 h2,  .box-1 h3, .box-1 h3 a, #content span.text, #content h3, .button1, .button, .content-bottom-text, .content-bottom1 h3, .text-text h3, .button2,', { fontFamily: 'Lane - Narrow', hover:true });
+Cufon.replace('.slider-text dt, .slider-text dd p a, .box-1 h1, .box-1 h2,  .box-1 h3, .box-1 h3 a, #content span.text, #content h3, .button1, .button, .content-bottom-text, .content-bottom1 h3, .text-text h3, .button2', { fontFamily: 'Lane - Narrow', hover:true });

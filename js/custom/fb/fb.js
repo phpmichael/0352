@@ -536,7 +536,7 @@ $j(function () {
     // --- Processing "Item Add/Edit Form" --- //
     
     //container: 
-    $j("#screen select[name=template]").live('change',function(){
+    $j("#screen").on('change', 'select[name=template]', function(){
     	var form = $j(this).parents('form');//get form object
     	
     	//show "selection amount columns" just if template="columns"
@@ -549,7 +549,7 @@ $j(function () {
     });
     
     //input: hide some options depending from input type
-    $j("#screen select[name=type]").live('change',function(){
+    $j("#screen").on('change', 'select[name=type]', function(){
     	var form = $j(this).parents('form');//get form object
     	
     	$j(form).find("input, select, textarea").parents('tr').show();
@@ -627,7 +627,7 @@ $j(function () {
     });
     
     //click save button on `form`, `container` or `input` form
-    $j(".submit").live('click',function(){        
+    $j('#screen').on('click', '.submit', function(){
         var form = $j(this).parents('form');//get form object
         var form_action = $j(form).attr('action');//get form action
         
@@ -687,7 +687,7 @@ $j(function () {
     });
     
     //click on input's attached answerset
-    $j("#screen a.attached-answerset").live('click',function(){
+    $j("#screen").on('click', 'a.attached-answerset', function(){
     	//deselect currently selected node
 	    $j("#answerset-tree").jstree("deselect_all"); 
     	//select (and load) answerset
@@ -695,7 +695,7 @@ $j(function () {
     });
     
     //click on answerset's input
-    $j("#screen a.attached-to-input").live('click',function(){
+    $j("#screen").on('click', 'a.attached-to-input', function(){
     	//deselect currently selected node
 	    $j("#form-tree").jstree("deselect_all"); 
     	//select (and load) answerset
@@ -703,7 +703,7 @@ $j(function () {
     });
     
      //click on "Generate from EN"
-    $j("#screen a.generate-from-en-label").live('click',function(){
+    $j("#screen").on('click', 'a.generate-from-en-label', function(){
     	//get value of english label
 	    var label = $j("#screen input[name='label[EN]']").val(); 
 	    //make string lowercase
@@ -717,7 +717,7 @@ $j(function () {
     });
     
     //protect from submit preview built form
-    $j("#screen .fb-output-screen form").live('submit',function(){
+    $j("#screen").on('submit', '.fb-output-screen form', function(){
         show_flash_msg("Could not submit form in preview mode.",'error',"flash-messages-box",1,1);
         return false;
     });

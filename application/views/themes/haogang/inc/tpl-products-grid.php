@@ -16,7 +16,7 @@
                                 <?=form_hidden('id',$row->id)?>
                                 <?=form_hidden('qty',1)?>
 
-                                <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'products/name/'.$row->slug.url_category_addition())?>" class="product-image">
+                                <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'products/name/'.$row->slug.url_category_addition())?>" class="product-image" data-lightbox="product-image">
                         			<?if(@$row->image) echo img('images/data/m/products/'.$row->image)?>
                         		</a>
 

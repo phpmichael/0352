@@ -8,7 +8,7 @@
                 <?if(@$image):?>
                 <div style="position:relative;">
                 <?if($old_price!=0.00):?><div class="product-tag product-tag-superprice"></div><?endif?>
-            	<a href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image">
+            	<a href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image" data-lightbox="product-image">
             		<?=img('images/data/m/products/'.$image)?>
             	</a>
             	</div>
@@ -72,7 +72,7 @@
         <tr>
             <td colspan="2">
                 <?foreach ($additional_images as $additional_image):?>
-            	   <a style="width:80px;height:80px;display:block;float:left;margin:3px;" class="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
+            	   <a style="width:80px;height:80px;display:block;float:left;margin:3px;" class="product-image" data-lightbox="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
             	<?endforeach?>
             </td>
         </tr>

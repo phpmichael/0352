@@ -45,9 +45,7 @@
 
 <!-- Load JS -->
 <?=load_inline_js('inc/js-jquery')?>
-<?//=load_inline_js('inc/js-jquery-ui')?>
-<?=include_minified($BC->_getTheme().'css/flick/jquery-ui-1.8.20.custom.css','css')?>
-<?=include_js($BC->_getTheme().'js/jquery-ui-1.8.20.custom.min.js')?>
+<?=load_inline_js('inc/js-jquery-ui')?>
 <?=load_inline_js('inc/js-custom-functions')?>
 <?=load_inline_js('inc/js-tooltip')?>
 <?=load_inline_js('inc/js-IE-fix')?>
@@ -58,7 +56,7 @@
 
 <?=include_minified($BC->_getTheme().'js/imagepreloader.js','inline_js')?>
 
-<!-- jcarousel -->
+<!-- carousel -->
 <?if ($BC->is_home_page()):?> 
 <?=include_minified($BC->_getTheme().'css/jcarousel/tango/skin.css','css')?>
 <?=include_js($BC->_getTheme().'js/jquery.jcarousel.min.js')?>
@@ -69,7 +67,7 @@ jQuery(document).ready(function() {
 </script>
 <?endif?>
 
-<!-- Load Application Packeges config -->
+<!-- Load Application Packages config -->
 <?=include_js($BC->_getBaseURL().'app_js/config')?>
 
 <?foreach ($BC->_getJSFiles() as $js_file):?>
@@ -80,13 +78,9 @@ jQuery(document).ready(function() {
 <?=include_minified($BC->_getFolder('js').'custom/request_call/send_form.js','inline_js')?>
 
 <script>
-
-    preloadImages([
-        '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-blue.png',
-        '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-green.png',
-        '<?=base_url().$BC->_getTheme()?>images/menu-item-hover-orange.png'
-    ]);
-
+preloadImages([
+    '<?=base_url().$BC->_getTheme()?>images/menu-items-hover.png'
+]);
 </script>
 
 <?=load_inline_js('inc/js-facebox'); ?>

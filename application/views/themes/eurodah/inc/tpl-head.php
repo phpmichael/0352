@@ -66,8 +66,6 @@
 </script>
 
 <?//=include_js($BC->_getTheme().'js/jquery.ui.dialog.patch.js')?>
-
-<script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
 <script>
 $j('#partner-slider').cycle({
 	fx: 'fade'

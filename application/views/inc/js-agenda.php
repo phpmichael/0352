@@ -73,7 +73,7 @@
         });
 
         //splash box for create/edit event
-        $j("#facebox :input[type='submit']").live('click',function()
+        $j(document.body).on('click', "#facebox :input[type='submit']", function()
         {
             var form = $j("#facebox form");
             var form_action = $j(form).attr('action');
@@ -134,7 +134,7 @@
         });
 
         //delete event
-        $j("#facebox :input[type='button']").live('click',function()
+        $j(document.body).on('click', "#facebox :input[type='button']", function()
         {
             if(typeof(window.curCalEvent.id)!='undefined')
             {

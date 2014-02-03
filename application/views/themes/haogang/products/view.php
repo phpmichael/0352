@@ -12,7 +12,7 @@
                 <tr>
                     <td width="50%">
                         <?if(@$image):?>
-                    	<a style="width:118px;height:118px;display:block;" href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image">
+                    	<a style="width:118px;height:118px;display:block;" href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image" data-lightbox="product-image">
                     		<?=img('images/data/m/products/'.$image)?>
                     	</a>
                     	<?endif?>
@@ -67,7 +67,7 @@
                 <tr>
                     <td colspan="2">
                         <?foreach ($additional_images as $additional_image):?>
-                    	   <a style="width:65px;height:65px;display:block;float:left;margin:3px;" class="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
+                    	   <a style="width:65px;height:65px;display:block;float:left;margin:3px;" class="product-image" data-lightbox="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
                     	<?endforeach?>
                     </td>
                 </tr>

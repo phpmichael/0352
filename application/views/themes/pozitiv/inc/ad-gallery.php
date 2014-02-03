@@ -18,7 +18,7 @@
 
 <!-- AD Gallery -->
 <?=include_minified($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.css','css')?>
-<?=include_js($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.min.js')?>
+<?=include_minified($BC->_getTheme().'js/ad-gallery/jquery.ad-gallery.js','js')?>
 
 <script>
 var galleries = $j('.ad-gallery').adGallery({

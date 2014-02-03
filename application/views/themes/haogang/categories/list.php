@@ -18,7 +18,7 @@
                         <div class="product-box">
                             <div class="ie-fix">
                             
-                                <a title="<?=htmlspecialchars($item['category'])?>" href="<?=site_url($BC->_getBaseURL()."{$controller}/index/category/".$item['id'])?>" class="product-image">
+                                <a title="<?=htmlspecialchars($item['category'])?>" href="<?=site_url($BC->_getBaseURL()."{$controller}/index/category/".$item['id'])?>" class="product-image" data-lightbox="product-image">
                                 	<?if(@$item['file_name']) echo img('images/data/s/products_categories_list/'.$item['file_name'])?>
                                 </a>
                                 

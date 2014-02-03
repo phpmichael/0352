@@ -5,7 +5,7 @@
     <tr>
         <td width="50%">
             <?if(@$image):?>
-        	<a href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image">
+        	<a href="<?=base_url().'images/data/b/products/'.$image?>" class="product-image" data-lightbox="product-image">
         		<?=img(array('src'=>'images/data/m/products/'.$image))?>
         	</a>
         	<?endif?>
@@ -55,7 +55,7 @@
         <td colspan="2">
             <div class="additional-images">
                 <?foreach ($additional_images as $additional_image):?>
-            	   <a class="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
+            	   <a class="product-image" data-lightbox="product-image" href="<?=base_url().'images/data/b/'.$BC->_getCurrentTable().'/'.$additional_image['image']?>"><?=img('images/data/s/'.$BC->_getCurrentTable().'/'.$additional_image['image'])?></a>
             	<?endforeach?>
         	</div>
         </td>

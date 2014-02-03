@@ -10,7 +10,7 @@
 	                    <?=anchor_base('products/name/'.$row->slug.url_category_addition(),$row->name,"class='product-name'")?>
 	                </p>
                 
-                    <p class="product-image">
+                    <p class="product-image" data-lightbox="product-image">
                         <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'products/name/'.$row->slug.url_category_addition())?>">
                 			<?if(@$row->image) echo img(array('src'=>'images/data/m/products/'.$row->image,'alt'=>htmlspecialchars($row->alt),'width'=>$BC->settings_model['products_medium_width'],'height'=>$BC->settings_model['products_medium_height']))?>
                 		</a>

@@ -14,7 +14,7 @@ function hide_flash_msg(flash_msg_p,timeout)
 
 $j(document).ready(function() {
     //hide message on click
-	$j(".red p, .error p, .success p").live('click',function () 
+	$j(document.body).on('click', ".red p, .error p, .success p", function ()
 	{
 		hide_flash_msg(this, 1000);
 	});

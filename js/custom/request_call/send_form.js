@@ -31,7 +31,7 @@ $j(document).ready(
                 			return false;
     					},
     			        "Close": function() { 
-    						$j(this).dialog("destroy"); 
+    						$j(this).dialog("close");
     					}
     				}
     			

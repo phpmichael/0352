@@ -9,8 +9,8 @@ $j(document).ready(function()
         if(
             window.time_left <= 0 ||
             ( $j("#quiz-form input[name=custom_answer]").val() && $j("#quiz-form input[name=custom_answer]").val()!=undefined ) || 
-            $j("#quiz-form input[name=^answers]:checked").val()!=undefined || 
-            $j("#quiz-form input[name=answer]:checked").val()!=undefined )
+            $j("#quiz-form input[name=^answers]:checked").length>0 ||
+            $j("#quiz-form input[name=answer]:checked").length>0 )
         {
            $j("#quiz-form").submit(); 
            return true;

@@ -794,7 +794,7 @@
                 image.size = { width: this.width, height: this.height };
                 context.fireCallback(callback);
               }
-            ).error(
+            ).on('error',
               function() {
                 image.error = true;
                 image.preloaded = false;

@@ -35,7 +35,7 @@
 				    	<tr <?if($i%2):?>class="rowB"<?else:?>class="rowA"<?endif?>>
 				    	  <td>
 				    	  	<?$product = $BC->products_model->getOneById($item['id'])?>
-				    	  	<a title="<?=htmlspecialchars($product['name'])?>" href="<?=site_url($BC->_getBaseURL().'products/name/'.$product['slug'])?>" class="product-image">
+				    	  	<a title="<?=htmlspecialchars($product['name'])?>" href="<?=site_url($BC->_getBaseURL().'products/name/'.$product['slug'])?>" class="product-image" data-lightbox="product-image">
 	                			<?if(@$product['image']) echo img('images/data/s/products/'.$product['image'])?>
 	                		</a>
 				    	  </td>

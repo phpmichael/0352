@@ -3,7 +3,7 @@
 <div>
 
 	<?if(@$image):?>
-	<p class="product-image">
+	<p class="product-image" data-lightbox="product-image">
 		<a href="<?=base_url().'images/data/b/products/'.$image?>">
 			<?=img('images/data/m/products/'.$image)?>
 		</a>

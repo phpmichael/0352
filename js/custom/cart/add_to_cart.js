@@ -38,7 +38,7 @@ $j(document).ready(function()
     });
     
     //redirect to cart on click
-    $j(".go-to-cart").live('click',function()
+    $j(document.body).on('click', ".go-to-cart", function()
     {
     	location.href = window.appPackages.shop.cart_url;
     });

@@ -9,7 +9,7 @@
                     <td width="50%">
                         <div class="product_image_container">
                             <?if(@$photo1):?>
-                        	<a href="<?=base_url().'images/data/b/books/'.$photo1?>" class="product-image">
+                        	<a href="<?=base_url().'images/data/b/books/'.$photo1?>" class="product-image" data-lightbox="product-image">
                         		<?=img(array('src'=>'images/data/m/books/'.$photo1))?>
                         	</a>
                         	<?endif?>
@@ -60,25 +60,25 @@
                     <td colspan="2">
                         <div class="additional-images"> 
                         	<?if(@$photo2):?>
-                        	<a href="<?=base_url().'images/data/b/books/'.$photo2?>" class="product-image">
+                        	<a href="<?=base_url().'images/data/b/books/'.$photo2?>" class="product-image" data-lightbox="product-image">
                         		<?=img(array('src'=>'images/data/s/books/'.$photo2))?>
                         	</a>
                         	<?endif?>
                         	
                         	<?if(@$photo3):?>
-                        	<a href="<?=base_url().'images/data/b/books/'.$photo3?>" class="product-image">
+                        	<a href="<?=base_url().'images/data/b/books/'.$photo3?>" class="product-image" data-lightbox="product-image">
                         		<?=img(array('src'=>'images/data/s/books/'.$photo3))?>
                         	</a>
                         	<?endif?>
                         	
                         	<?if(@$photo4):?>
-                        	<a href="<?=base_url().'images/data/b/books/'.$photo4?>" class="product-image">
+                        	<a href="<?=base_url().'images/data/b/books/'.$photo4?>" class="product-image" data-lightbox="product-image">
                         		<?=img(array('src'=>'images/data/s/books/'.$photo4))?>
                         	</a>
                         	<?endif?>
                         	
                         	<?if(@$photo5):?>
-                        	<a href="<?=base_url().'images/data/b/books/'.$photo5?>" class="product-image">
+                        	<a href="<?=base_url().'images/data/b/books/'.$photo5?>" class="product-image" data-lightbox="product-image">
                         		<?=img(array('src'=>'images/data/s/books/'.$photo5))?>
                         	</a>
                         	<?endif?>
