@@ -34,6 +34,9 @@ class Formbuilder_model extends Base_model
 	
 	//javascript includes
 	private $includes = array();
+
+    //store if javascript already included (for loader in head)
+    private $js_included = FALSE;
 	
 	//number of input row (need for set background color)
 	private $list_row_number = 0;
@@ -582,6 +585,22 @@ class Formbuilder_model extends Base_model
 	{
 		return $this->includes;
 	}
+
+    /**
+     * Getter for $this->js_included
+     */
+    public function getJsIncluded()
+    {
+        return $this->js_included;
+    }
+
+    /**
+     * Setter for $this->js_included
+     */
+    public function setJsIncluded()
+    {
+        $this->js_included = TRUE;
+    }
 	
 	/**
 	 * Show form as tree.

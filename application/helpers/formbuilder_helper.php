@@ -13,7 +13,7 @@ function fb_form($form_id,$data_key=FALSE,$form_mode=FALSE)
 	if($form_mode) $formbuilder_model->setFormMode($form_mode);
 	$formbuilder_model->buildForm($form_id,$data_key);
 	
-	if( $form_mode != 'view' ) 
+	if( $form_mode != 'view' && !$formbuilder_model->getJsIncluded() )
 	{
 		echo load_inline_js('inc/js-fb-screen-process');
 	}
