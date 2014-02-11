@@ -181,7 +181,7 @@ function show_comment($view,$comment,array $params=array(),&$i)
 			</div>
 			
 			<div class="add-comment">
-				<a href="javascript:;" onclick="CommentOnComment('<?=$comment['id']?>')"><?=$params['comment_on_comment_text']?></a>
+				<a href="#" data-comment-id="<?=$comment['id']?>"><?=$params['comment_on_comment_text']?></a>
 				<?if(userAccess('comments','edit')):?><?=anchor_base("admin/comments/edit/id/desc/0/".$comment['id'],language('edit'))?><?endif?>
 			</div>
             
@@ -261,7 +261,7 @@ function show_add_comment_link(array $params=array())
 	$params = array_merge($defaults,$params);
 	
 	?>
-	<h3 id="respond"><a href="javascript:;" onclick="CommentOnComment(0)"><?=$params['add_comment_text']?></a><a name="add-comment"></a></h3>
+	<h3 id="respond"><a href="#" data-comment-id="0"><?=$params['add_comment_text']?></a><a name="add-comment"></a></h3>
 	<?
 }
 
