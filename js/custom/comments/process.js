@@ -25,22 +25,22 @@ $j(document).ready(
 			
 			return false;	
 		});
+
+        /* Click add comment */
+        $j("#commentsbox a[data-comment-id]").click(function(e){
+            e.preventDefault();
+
+            $j("#success").html('');
+            $j("#errors").html('');
+
+            var parent_id = $j(this).data('commentId');
+
+            //set id of parent comment //0 for regular comment
+            $j("#parent_id").val(parent_id);
+            //display comment form
+            $j("#commentform").show();
+            //go to add-comment anchor
+            window.location.hash='add-comment';
+        });
 	}
 );
-
-if ( typeof CommentOnComment != "function" )
-{
-	//Respond on user's comment
-    function CommentOnComment(parent_id)
-	{
-		$j("#success").html('');
-		$j("#errors").html('');
-	    
-	    //set id of parent comment //0 for regular comment
-		$j("#parent_id").val(parent_id);
-		//display comment form
-		$j("#commentform").show();
-		//go to add-comment anchor
-		window.location.hash='add-comment';
-	}
-}
