@@ -3,7 +3,7 @@ $BC->load->helper('poll');
 $BC->load->helper('social');
 $BC->load->helper('text');
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 	<?load_theme_view('inc/tpl-head')?>

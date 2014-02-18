@@ -1,7 +1,6 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8" />
 
-<title><?=$head['site_title']?><?if($head['page_title']):?> :: <?=$head['page_title']?><?endif?></title>
+<title><?if($head['page_title']):?><?=$head['page_title']?> - <?endif?> <?=$head['site_title']?></title>
 <meta name='description' content='<?=$head['meta_description']?>' />
 <meta name='keywords' content='<?=$head['meta_keywords']?>' />
 
