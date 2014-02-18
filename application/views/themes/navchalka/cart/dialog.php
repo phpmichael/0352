@@ -71,5 +71,3 @@
     <h2><?=language('your_cart_is_empty')?></h2>
     <?=anchor_base('books',language('back_to_catalog'))?>
 <?endif?>
-
-<?=include_js($BC->_getFolder('js').'custom/cart/cart.js')?>

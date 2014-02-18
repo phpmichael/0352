@@ -35,5 +35,3 @@
             </p>
     </form>
 </div>
-
-<?=include_js($BC->_getFolder('js').'custom/contact_us/send_form.js')?>

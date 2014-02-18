@@ -109,5 +109,3 @@
 	    <?=anchor_base('books',language('back_to_catalog'))?>
 	<?endif?>
 </div>
-
-<?=include_js($BC->_getFolder('js').'custom/cart/cart.js')?>

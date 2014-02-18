@@ -25,28 +25,20 @@ $BC->lang->load('calendar');
                                         <?=get_menu('left',"<li><a href='{link}'><span>{title}</span></a></li>")?>
                                     </ul>
                                     <ul class="nav navbar-nav pull-right">
-                                        <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="choose-lang">
-                                                <i class="flag-<?=strtolower($BC->lang_model->getLangCodeByLanguage($BC->config->item('language')))?>"></i> <?=language($BC->config->item('language'))?>
-                                                <span class="caret"></span>
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="choose-lang">
-                                                <?if($BC->config->item('language')!='ukrainian'):?>
-                                                <li>
-                                                    <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='UA'?'':'ua/')?>" title="<?=language('ukrainian')?>">
-                                                        <i class="flag-ua"></i> <?=language('ukrainian')?>
-                                                    </a>
-                                                </li>
-                                                <?endif?>
-                                                <?if($BC->config->item('language')!='russian'):?>
-                                                <li>
-                                                    <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='RU'?'':'ru/')?>" title="<?=language('russian')?>">
-                                                        <i class="flag-ru"></i> <?=language('russian')?>
-                                                    </a>
-                                                </li>
-                                                <?endif?>
-                                            </ul>
-                                        </li>
+                                        <?if($BC->config->item('language')!='ukrainian'):?>
+                                            <li>
+                                                <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='UA'?'':'ua/')?>" title="<?=language('ukrainian')?>">
+                                                    <i class="flag-ua"></i> <?=language('ukrainian')?>
+                                                </a>
+                                            </li>
+                                        <?endif?>
+                                        <?if($BC->config->item('language')!='russian'):?>
+                                            <li>
+                                                <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='RU'?'':'ru/')?>" title="<?=language('russian')?>">
+                                                    <i class="flag-ru"></i> <?=language('russian')?>
+                                                </a>
+                                            </li>
+                                        <?endif?>
                                     </ul>
 
                                 </div><!-- /.nav-collapse -->

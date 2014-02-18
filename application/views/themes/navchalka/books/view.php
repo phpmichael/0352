@@ -13,7 +13,7 @@
             <?if(@$photo1):?>
             <p>
 	        	<a href="<?=base_url().'images/data/b/books/'.$photo1?>" class="product-image" data-lightbox="product-image">
-	        		<?=img(array('src'=>'images/data/m/books/'.$photo1))?>
+                    <?=img(array('src'=>'images/data/m/books/'.$photo1, 'height'=>'160', 'width'=>'?'))?>
 	        	</a>
         	</p>
         	<?endif?>
@@ -107,22 +107,4 @@
         <?=$description?>
     <?endif?>
     
-    <?load_theme_view('inc/box-rate',array('post_id'=>$data_key,'rating'=>$rating,'already_rated'=>$already_rated,'table'=>$BC->_getCurrentTable()));?>
-    
-    <?load_theme_view('inc/box-post-tags',array('post_id'=>$data_key));?>
-    
-    <div>
-    	<?
-		    //show comments
-		    
-		    $sub_data['post_id'] = $data_key;
-		    $sub_data['table'] = $BC->_getCurrentTable();
-		    
-		    load_theme_view('inc/comments',$sub_data)
-		?>
-    </div>
-    
 </div>
-
-
-<?=load_inline_js('inc/js-add-to-cart'); ?>

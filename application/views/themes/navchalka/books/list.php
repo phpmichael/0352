@@ -24,5 +24,3 @@
 <?else:?>
     <h2><?=language('search_did_not_give_any_results')?></h2>
 <?endif?>
-
-<?=load_inline_js('inc/js-add-to-cart'); ?>

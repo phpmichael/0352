@@ -1,6 +1,3 @@
-<?=load_inline_js('inc/js-meio-mask')?>
-<?=load_inline_js('inc/js-init-mask')?>
-
 <div class="red"><?=validation_errors()?></div>
 
 <?if(@$success_updated):?>
