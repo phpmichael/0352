@@ -42,7 +42,7 @@
 <?//=include_js($BC->_getTheme().'js/jquery.once.js')?>
 <?//=include_js($BC->_getTheme().'js/drupal.js')?>
 <?=include_js($BC->_getTheme().'js/jquery.hoverintent.minified.js')?>
-<?=include_js($BC->_getTheme().'js/jquery.bgiframe.min.js')?>
+<?=include_minified($BC->_getTheme().'js/jquery.bgiframe.js','js')?>
 
 <!-- Scripts for menu -->
 <?//=include_js($BC->_getTheme().'js/superfish.js')?>
@@ -50,7 +50,7 @@
 <?//=include_js($BC->_getTheme().'js/supposition.js')?>
 <?//=include_js($BC->_getTheme().'js/sftouchscreen.js')?>
 
-<?=include_js($BC->_getTheme().'js/jquery.cycle.all.min.js')?>
+<?=include_minified($BC->_getTheme().'js/jquery.cycle.all.js','js')?>
 
 <script>
     /*jQuery(function(){
