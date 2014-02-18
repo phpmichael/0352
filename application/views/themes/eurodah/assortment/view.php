@@ -14,7 +14,7 @@
 						<div class="views-field views-field-body">
 						
 							<div style="position:relative;float:left">
-								<a href="<?=base_url()?>images/data/b/assortment/<?=$img?>" class="lightbox"><img src="<?=base_url()?>images/data/m/assortment/<?=$img?>" alt="<?=htmlspecialchars($name)?>" /></a>
+								<a href="<?=base_url()?>images/data/b/assortment/<?=$img?>" data-lightbox="assortment-image"><img src="<?=base_url()?>images/data/m/assortment/<?=$img?>" alt="<?=htmlspecialchars($name)?>" /></a>
 								<p><?social_buttons()?></p>
 							</div>
 							

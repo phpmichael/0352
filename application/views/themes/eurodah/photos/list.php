@@ -29,7 +29,7 @@
 
 	foreach ($list as $key=>$record)
 	{
-		$list[$key] = "<a href='".base_url()."images/data/b/photos/{$record['file_name']}' class='lightbox'>".img('images/data/s/photos/'.$record['file_name']).'</a>';
+		$list[$key] = "<a href='".base_url()."images/data/b/photos/{$record['file_name']}'  data-lightbox='gallery-image'>".img('images/data/s/photos/'.$record['file_name']).'</a>';
 	}
 
 	if(isset($list) && !empty($list)) 
