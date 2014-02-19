@@ -55,7 +55,10 @@ class Tools extends Admin
 	 * Main action.
 	 *
 	 */
-	public function Index(){}
+	public function Index()
+    {
+        parent::_OnOutput();
+    }
 	
 	/**
 	 * Create new project folder with symlinks.
@@ -188,6 +191,9 @@ class Tools extends Admin
      */
     public function backup()
     {
+        echo 'Backup running ... <br/>';
+        flush();
+
         $backupName = date('Y-m-d_H-i');
 
         $this->tools_model->backup('./backups/'.$backupName.'.sql.zip');
@@ -196,5 +202,7 @@ class Tools extends Admin
         $this->zip->read_dir('images/data/');
         $this->zip->read_dir('store/');
         $this->zip->archive('./backups/'.$backupName.'.data.zip');
+
+        echo 'Backup created.';
     }
 }

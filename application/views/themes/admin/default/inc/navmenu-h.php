@@ -214,7 +214,8 @@
       <ul>
       
         <li><?=anchor_base('tools/check_project_config','Check project configuration')?></li>
-        
+        <li><?=anchor_base('tools/backup','Backup')?></li>
+
       </ul>
     
     </li>
