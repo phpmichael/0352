@@ -975,25 +975,57 @@ abstract class Base_model extends CI_Model
      *
      * @param string $dbname
      */
-    protected function set_db($dbname)
+    protected function changeDbName($dbname)
     {
-    	$params['hostname'] = $this->db->hostname;
-		$params['username'] = $this->db->username;
-		$params['password'] = $this->db->password;
+    	$params = $this->getDbConfig();
+
 		$params['database'] = $dbname;
-		$params['dbdriver'] = $this->db->dbdriver;
-		$params['dbprefix'] = $this->db->dbprefix;
 		$params['pconnect'] = FALSE;
-		$params['db_debug'] = $this->db->db_debug;
-		$params['cache_on'] = $this->db->cache_on;
-		$params['cachedir'] = $this->db->cachedir;
-		$params['char_set'] = $this->db->char_set;
-		$params['dbcollat'] = $this->db->dbcollat;
-		$params['swap_pre'] = $this->db->swap_pre;
 		$params['autoinit'] = FALSE;
-		$params['stricton'] = $this->db->stricton;
     	
     	$this->db = $this->load->database( $params , TRUE );
+    }
+
+    /**
+     * Change DB driver (ie used mysql drive for backup db)
+     * @param string $driver
+     */
+    protected function changeDbDriver($driver)
+    {
+        $params = $this->getDbConfig();
+
+        $params['dbdriver'] = $driver;
+        $params['pconnect'] = FALSE;
+        $params['autoinit'] = FALSE;
+
+        $CI =& get_instance();
+
+        $CI->db = $this->load->database( $params , TRUE );
+    }
+
+    /**
+     * Return database config as array.
+     * @return array
+     */
+    private function getDbConfig()
+    {
+        $params['hostname'] = $this->db->hostname;
+        $params['username'] = $this->db->username;
+        $params['password'] = $this->db->password;
+        $params['database'] = $this->db->database;
+        $params['dbdriver'] = $this->db->dbdriver;
+        $params['dbprefix'] = $this->db->dbprefix;
+        $params['pconnect'] = $this->db->pconnect;
+        $params['db_debug'] = $this->db->db_debug;
+        $params['cache_on'] = $this->db->cache_on;
+        $params['cachedir'] = $this->db->cachedir;
+        $params['char_set'] = $this->db->char_set;
+        $params['dbcollat'] = $this->db->dbcollat;
+        $params['swap_pre'] = $this->db->swap_pre;
+        $params['autoinit'] = $this->db->autoinit;
+        $params['stricton'] = $this->db->stricton;
+
+        return $params;
     }
     
 }

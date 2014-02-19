@@ -2207,8 +2207,8 @@ class Formbuilder_model extends Base_model
 	    if($dbname)
 	    {
     	    //set use dbname for formbuilder and lang_gen models
-    		$this->set_db($dbname);
-    		$this->CI->lang_gen_model->set_db($dbname);
+    		$this->changeDbName($dbname);
+    		$this->CI->lang_gen_model->changeDbName($dbname);
 	    }
 	    
 	    $form = $data['form'];

@@ -57,5 +57,19 @@ class Tools_model extends Base_model
 	        @ob_flush();
 	    }
 	}
+
+    /**
+     * Backup database
+     * @param string $backupPath
+     */
+    public function backup($backupPath)
+    {
+        $this->changeDbDriver('mysql');//just mysql driver allowed
+
+        $this->load->dbutil();
+        $this->load->helper('file');
+
+        write_file($backupPath, $this->dbutil->backup());
+    }
 	
 }

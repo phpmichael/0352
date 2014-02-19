@@ -159,7 +159,8 @@ class Tools extends Admin
         }
     }
 
-    public function optimize_images($quality = 83){
+    public function optimize_images($quality = 83)
+    {
         $dirs = array(
             './images/data/b/slideshow/',
             './images/data/m/slideshow/',
@@ -180,5 +181,20 @@ class Tools extends Admin
                 imagejpeg($resource, $destination_filename, $quality);
             }
         }
+    }
+
+    /**
+     * Create backup
+     */
+    public function backup()
+    {
+        $backupName = date('Y-m-d_H-i');
+
+        $this->tools_model->backup('./backups/'.$backupName.'.sql.zip');
+
+        $this->load->library('zip');
+        $this->zip->read_dir('images/data/');
+        $this->zip->read_dir('store/');
+        $this->zip->archive('./backups/'.$backupName.'.data.zip');
     }
 }
