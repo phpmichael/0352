@@ -1,5 +1,3 @@
-## uncomment and config if you need url rewrite
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} !-f

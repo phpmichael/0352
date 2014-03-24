@@ -168,8 +168,8 @@ $cap_img = $captcha_model->make();
         
         while(i<lastPhoto)
         {
-            if(i>=photos.length) return 0;
-            
+            if(i>=photos.length) break;
+
             $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=base_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
             i++;
         }
