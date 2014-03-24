@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-/* @fileRef zero.css */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}:focus{outline:0;}body{line-height:1;color:black;background:white;}ol,ul{list-style:none;}table{border-collapse:separate;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}
-
-/* @fileRef dialog-cart.css */
-#dialog-cart-form{width:700px;}#dialog-cart-form table{border-collapse:separate;}#dialog-cart-form th{padding:5px;vertical-align:middle;color:#444;background:#ddd;}#dialog-cart-form td{padding:5px;vertical-align:middle;}#dialog-cart-form .row-even td{background:#eee;}#dialog-cart-form .row-odd td{background:#fff;}#dialog-cart-form .item-image-col{text-align:left;width:10%;}#dialog-cart-form .item-name-col{text-align:left;width:50%;}#dialog-cart-form .item-price-col{text-align:right;width:10%;}#dialog-cart-form .item-qty-col{text-align:right;width:10%;}#dialog-cart-form .item-subtotal-col{text-align:right;width:10%;}#dialog-cart-form .item-delete-col{text-align:right;width:10%;}
