@@ -77,7 +77,7 @@ $cap_img = $captcha_model->make();
     <a class="button-method button"><span class="wrap">image view mode</span> <span class="meth">fit</span></a> 
     
     <?for ($page_num=1;$page_num<=$photos_pages_count;$page_num++):?>
-    <a href="javascript:;" class="paginator" rel="<?=$page_num?>"><?=$page_num?></a>
+    <a href="javascript:;" class="paginator<?if($page_num===1):?> active<?endif?>" rel="<?=$page_num?>"><?=$page_num?></a>
     <?endfor;?>
     
       <div class="scroll">
@@ -164,7 +164,7 @@ $cap_img = $captcha_model->make();
         var i = (pageNum-1)*perPage+1;
         var lastPhoto = i+perPage;
         
-        $j("#thumbs").empty();
+        $j("#thumbs").empty().hide();
         
         while(i<lastPhoto)
         {
@@ -173,11 +173,15 @@ $cap_img = $captcha_model->make();
             $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=base_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
             i++;
         }
+        $j("#thumbs").fadeIn(1000);
     }
     
     show_photos(1,<?=$photos_per_page?>);
     
     $j(".paginator").click(function(){
+        $j(".paginator").removeClass('active');
+        $j(this).addClass('active');
+
         var pageNum = parseInt($j(this).attr('rel'));
         show_photos(pageNum,<?=$photos_per_page?>);
     });

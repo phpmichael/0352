@@ -470,3 +470,18 @@ a.jScrollArrowDown:hover {
 a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
 	/*background-color: #f00;*/
 }
+
+/* pagination */
+a.paginator{
+    padding: 5px 10px;
+    background: #2E2E2E;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 200%;
+}
+a.paginator:hover{
+    color: #CAB113;
+}
+a.paginator.active{
+    color: #6B6B6B;
+}
