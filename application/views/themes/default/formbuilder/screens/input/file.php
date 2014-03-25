@@ -10,7 +10,7 @@
     <?if($item['value']):?>
     <div>
     	<?if(preg_match("/\.(jpg|jpeg|png|gif)$/i",$item['value'])):?>
-        	<a href="<?=base_url().'images/data/b/'.$this->formbuilder_model->getFormFilesStorePath().'/'.$item['value']?>" class="lightbox"><?=img('images/data/s/'.$this->formbuilder_model->getFormFilesStorePath().'/'.$item['value'])?></a>
+        	<a href="<?=base_url().'images/data/b/'.$this->formbuilder_model->getFormFilesStorePath().'/'.$item['value']?>" data-lightbox="form"><?=img('images/data/s/'.$this->formbuilder_model->getFormFilesStorePath().'/'.$item['value'])?></a>
         <?else:?>
         	<a href="<?=base_url().'images/data/files/'.$this->formbuilder_model->getFormFilesStorePath().'/'.$item['value']?>"><?=language('file')?></a>
         <?endif?>
