@@ -1604,9 +1604,14 @@ class Formbuilder_model extends Base_model
 	    $this->CI->load->library('form_validation');
 	    
 	    $this->CI->form_validation->set_rules($configValidation);
-	    
+
 	    //check if valid
-	    return $this->CI->form_validation->run();
+        //while CodeIgniter validate $_POST and xss_clean it, use this trick $data->$_POST and $_POST->$data
+        $_POST = $data;
+	    $valid = $this->CI->form_validation->run();
+        $data = $_POST;
+
+        return $valid;
 	}
 
     /**
@@ -1810,7 +1815,7 @@ class Formbuilder_model extends Base_model
 	    
 	    //validate _POST
 	    $valid = $this->validateForm($data,$form_id);
-	    
+
 	    //if _POST not valid
 	    if(!$valid) return FALSE;
 	    
