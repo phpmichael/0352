@@ -24,8 +24,10 @@
             							<div class="views-field views-field-body">
             							
             								<div style="position:relative;">
-            									<img src="<?=base_url()?>images/data/m/assortment/<?=$assortment->img?>" width="210" height="160" alt="<?=htmlspecialchars($assortment->name)?>" />
-            									<div class="image-overlay"><div><span><?=$assortment->name?></span></div></div>
+                                                <a href="<?=site_url('assortment/name/'.$assortment->slug)?>">
+            									    <img src="<?=base_url()?>images/data/m/assortment/<?=$assortment->img?>" width="210" height="160" alt="<?=htmlspecialchars($assortment->name)?>" />
+            									    <div class="image-overlay"><div><span><?=$assortment->name?></span></div></div>
+                                                </a>
             								</div>
             								
             								<?if($assortment->main_category=='1'):?>
