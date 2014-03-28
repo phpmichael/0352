@@ -11,11 +11,14 @@
         		<?if(!empty($videos_records)):?>
 		
                 <?foreach ($videos_records as $record):?>
-                <p>
-                	<?=anchor($BC->_getBaseURI().'/view/'.$record['data_key'],$record['title'])?>
-                </p>
+                <h2>
+                	<?=$record['title']?>
+                </h2>
                 <p>
                 	<?=nl2br($record['description'])?>
+                </p>
+                <p>
+                    <?=show_embed_video($record);?>
                 </p>
                 <?endforeach;?>
                 
