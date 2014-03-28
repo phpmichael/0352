@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-<!--[if LT IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lt IE 9]><?=include_minified($BC->_getTheme().'js/html5.js','js')?><![endif]-->
 
 <!--[if lt IE 7]>
 <div style=' clear: both; text-align:center; position: relative;'>
@@ -28,7 +28,7 @@
 </style>
 <![endif]-->
 
-<?=include_css($BC->_getTheme().'css/index.css')?>
+<?=include_css($BC->_getTheme().'css/main.css')?>
 
 <?=include_minified($BC->_getTheme().'css/poll.css','inline_css')?>
 

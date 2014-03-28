@@ -17,10 +17,11 @@ $BC->load->helper('text');
 					<div class="col1">
 						<a href="<?=base_url()?>" title="<?=language('home_page')?>" rel="home" id="logo"><?=img(array('src'=>$BC->_getTheme()."images/eurodah_logo.jpg",'width'=>129,'height'=>106))?></a>
 					</div>
-					
-					<div id="header-title">
-						Євродах - Тернопіль
-					</div>
+
+                    <div id="header-title">
+                        <div>Металочерепиця - Тернопіль</div>
+                        <div>Євродах</div>
+                    </div>
 
 					<div class="col2">
 						<div class="region region-search">
