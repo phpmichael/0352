@@ -28,7 +28,7 @@
 </style>
 <![endif]-->
 
-<?=include_css($BC->_getTheme().'css/main.css')?>
+<?=include_css($BC->_getTheme().'css/main.css?v=2014-03-31')?>
 
 <?=include_minified($BC->_getTheme().'css/poll.css','inline_css')?>
 
