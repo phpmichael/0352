@@ -269,7 +269,7 @@ class Poll_model extends Base_model
 	        $results[$key]['amount'] = $this->getVotesForAnswer($answer['id']);
 	        $results[$key]['width'] = ($max_amount) ? ($results[$key]['amount']/$max_amount)*100 : 0;
 	        $results[$key]['color'] = $this->result_colors[$key];
-	        $results[$key]['answer'] = $answers[$key]['answer'];
+	        $results[$key]['answer'] = $answer['answer'];
 	    }
 	    
 	    return $results;
