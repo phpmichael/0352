@@ -18,7 +18,7 @@
 			$date = date('d/m/Y H:i',strtotime($record->pub_date));
 		    
 		    $posts_list[$key] = "
-			<h2>{$record->head}</h2>
+			<h2>".anchor_base('article/'.$record->slug,$record->head)."</h2>
 			
 			<div class='fl'><i>{$date}</i></div>
 			<div class='fr'><!--<i>".comments_number('articles',$record->id)."</i>--></div>
