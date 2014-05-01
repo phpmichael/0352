@@ -180,30 +180,32 @@ abstract class Posts_model extends Base_model
 		if( $query->num_rows()>0 ) $data['posts_list'] = $query->result();
 		else $data['posts_list'] = false;
 		
-		
-		// Pagination!
-		$this->load->library('pagination');
-		
-		$pagination_config = array(
-					'base_url'		 => base_url().$this->CI->_getBaseURI()."/{$action}/".$filter_ex['filter_str']."/page/",
-					'total_rows'	 => $total_rows,
-					'per_page'		 => $per_page,
-					'uri_segment'	 => $filter_ex['offset_uri_segment'],
-					'full_tag_open'	 => '<p>',
-					'full_tag_close' => '</p>',
-					'first_link'     => language('pagination_first'),
-					'last_link'     => language('pagination_last'),
-					);
+		if($action)
+        {
+            // Pagination!
+            $this->load->library('pagination');
 
-		//load specific pagination configuration
-		load_theme_view('inc/pagination');//init pagination_config for CI	
-		
-		if(!empty($this->CI->pagination_config)) $pagination_config = array_merge($pagination_config,$this->CI->pagination_config);
-		
-		$this->CI->pagination->initialize($pagination_config);
+            $pagination_config = array(
+                'base_url'		 => base_url().$this->CI->_getBaseURI()."/{$action}/".$filter_ex['filter_str']."/page/",
+                'total_rows'	 => $total_rows,
+                'per_page'		 => $per_page,
+                'uri_segment'	 => $filter_ex['offset_uri_segment'],
+                'full_tag_open'	 => '<p>',
+                'full_tag_close' => '</p>',
+                'first_link'     => language('pagination_first'),
+                'last_link'     => language('pagination_last'),
+            );
 
-		$data['paginate'] = $this->pagination->create_links();
-		
+            //load specific pagination configuration
+            load_theme_view('inc/pagination');//init pagination_config for CI
+
+            if(!empty($this->CI->pagination_config)) $pagination_config = array_merge($pagination_config,$this->CI->pagination_config);
+
+            $this->CI->pagination->initialize($pagination_config);
+
+            $data['paginate'] = $this->pagination->create_links();
+        }
+
 		return $data;
 	}
     
@@ -804,9 +806,15 @@ abstract class Posts_model extends Base_model
 	 */
     protected function _buildOrderBy(array $filter_data=array())
     {
-    	$sort_by = $this->db->escape_str($filter_data['sort_by']);
-    	$sort_order = $this->db->escape_str($filter_data['sort_order']);
-    	return "ORDER BY {$sort_by} {$sort_order}";
+    	if(isset($filter_data['sort_by']) && isset($filter_data['sort_order']))
+        {
+            $sort_by = $this->db->escape_str($filter_data['sort_by']);
+            $sort_order = $this->db->escape_str($filter_data['sort_order']);
+
+            return "ORDER BY {$sort_by} {$sort_order}";
+        }
+
+        return '';
     }
     
     /**
