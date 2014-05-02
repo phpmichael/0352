@@ -37,7 +37,10 @@ class Customers_model extends Base_model
 	 */
     public function checkLogin($email,$password)
     {
-    	$customer = $this->db->get_where($this->c_table,array('email'=>$email,'password'=>$password))->row_array();
+    	//hash password if it is not hashed yet
+        if(strlen($password)!=32) $password = md5($password);
+
+        $customer = $this->db->get_where($this->c_table,array('email'=>$email,'password'=>$password))->row_array();
     	if(empty($customer)) return FALSE;
     	return $customer;
     }
