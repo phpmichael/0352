@@ -358,5 +358,44 @@ class Groups_model extends Base_model
 		
 		return in_array($right,(array)@$rights[$panel][$section]);
 	}
-	
+
+    /**
+     * Check if user has access to API section
+     * @param array $user
+     * @param string $request_method
+     * @param string $section
+     * @param string $panel admin or front
+     * @return bool
+     */
+    public function hasApiAccess($user,$request_method,$section,$panel)
+    {
+        if($panel === 'admin')
+        {
+            $is_admin = $this->hasAdminAccess($user['group_id']);
+            if(!$is_admin) return FALSE;
+        }
+
+        switch($request_method)
+        {
+            case "post":
+                $right = 'add';
+                break;
+
+            case "put":
+                $right = 'edit';
+                break;
+
+            case "delete":
+                $right = 'delete';
+                break;
+
+            default:
+            case "get":
+                $right = 'view';
+                break;
+        }
+
+        $rights = $this->getGroupRights($user['group_id']);
+        return $this->allowedRight($section,$right,$rights,$panel);
+    }
 }
