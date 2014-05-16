@@ -44,7 +44,7 @@ class Lang_model extends Base_model
      */
     private function disableNotActiveLangs()
     {
-        $enabled_langs = explode(',',$this->CI->settings_model['enabled_langs']);
+        $enabled_langs = explode(',',$this->settings_model['enabled_langs']);
         
         /*foreach ($this->langArr as $lang=>$language)
         {
@@ -109,7 +109,7 @@ class Lang_model extends Base_model
 	 */
 	public function getDefaultLangCode()
 	{
-	    return $this->CI->settings_model['default_lang'];
+	    return $this->settings_model['default_lang'];
 	}
 	
 	/**
@@ -380,5 +380,38 @@ class Lang_model extends Base_model
             $this->insertOrUpdate($textcodeArr);
             sleep(1);
         }
+    }
+
+    /**
+     * Set application language.
+     *
+     * @param CI_Controller $controller
+     * @return void
+     */
+    public function setApplicationLanguage($controller)
+    {
+        $lang = $this->uri->segment(1);
+        $controller->setInterfaceLang($lang);
+
+        switch ($lang)
+        {
+            case "en":
+            case "ua":
+            case "ru":
+            case "nl":
+            case "pl":
+                $this->config->set_item('language',$this->getLanguageByLangCode(strtoupper($lang)));
+                $controller->incSegmentsOffset();
+                $folder_segment = $this->uri->slash_segment(2);
+            break;
+
+            default:
+                $this->config->set_item('language',$this->getDefaultLanguage());
+                $folder_segment = $this->uri->slash_segment(1);
+                $controller->setInterfaceLang('');
+        }
+
+        //check if admin or front controller
+        if( ($controller->_getFolder() != '') && ($folder_segment == $controller->_getFolder()) ) $controller->incSegmentsOffset();
     }
 }

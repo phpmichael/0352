@@ -1516,7 +1516,7 @@ class Formbuilder_model extends Base_model
 		$inputs = $this->getInputs($form_id);
 	    
 	    $this->setNotRequiredSkippedInputs($data,$inputs);
-	    
+
 	    if(empty($inputs)) return FALSE;
 	    
 	    $configValidation = array();
@@ -1606,7 +1606,7 @@ class Formbuilder_model extends Base_model
 	    $this->CI->form_validation->set_rules($configValidation);
 
 	    //check if valid
-        //while CodeIgniter validate $_POST and xss_clean it, use this trick $data->$_POST and $_POST->$data
+        //while CodeIgniter validate $_POST and xss_clean it, use this trick $data -> $_POST and $_POST -> $data
         $_POST = $data;
 	    $valid = $this->CI->form_validation->run();
         $data = $_POST;
@@ -1794,13 +1794,13 @@ class Formbuilder_model extends Base_model
 	    
 	    //get form by ID
 		$form = $this->getFormById($form_id);
-	    
+
 		//if there is no form with this ID
 	    if(empty($form)) return FALSE;
 	    
 	    //check $data_key (if it really exists in database)
 	    if( $data_key && !$this->isDataKeyExists($data_key,$form['store_in_table']) ) return FALSE;
-	    
+
 	    //generate and add slug
 	    $data = $this->addSlug2data($data);
 	    
@@ -1812,13 +1812,13 @@ class Formbuilder_model extends Base_model
 	    
 	    //if edit form - merge existed data with posted
 	    if($data_key) $data = array_merge($this->form_data,$data);
-	    
+
 	    //validate _POST
 	    $valid = $this->validateForm($data,$form_id);
 
 	    //if _POST not valid
 	    if(!$valid) return FALSE;
-	    
+
 	    //prepare multi-answers
 	    $data = $this->prepareValueOfMultiAnswers($data);
 	    

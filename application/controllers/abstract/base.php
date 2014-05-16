@@ -68,7 +68,7 @@ abstract class Base extends CI_Controller
 		parent::__construct();
 		
 		//set language based on URL
-		$this->setLanguage();
+		$this->lang_model->setApplicationLanguage($this);
 		
 		$router =& load_class('Router');
 		$this->controller = $router->fetch_class();
@@ -173,39 +173,6 @@ abstract class Base extends CI_Controller
 	// === Custom validation : End === //
 	
 	/**
-	 * Set language.
-	 *
-	 * @return void
-	 */
-	private function setLanguage()
-	{
-	    $CI =& get_instance();
-        
-        $this->interface_lang = $CI->uri->segment(1);
-        
-        switch ($this->interface_lang)
-        {
-            case "en":
-            case "ua":
-            case "ru":
-            case "nl":
-            case "pl":
-                $CI->config->set_item('language',$this->lang_model->getLanguageByLangCode(strtoupper($this->interface_lang)));
-                $this->segmentsOffset++;
-                $folder_segment = $this->uri->slash_segment(2);
-            break;
-            
-            default:
-                $CI->config->set_item('language',$this->lang_model->getDefaultLanguage());
-                $folder_segment = $this->uri->slash_segment(1);
-                $this->interface_lang = '';
-        }
-        
-        //check if admin or front controller
-		if( ($this->_getFolder() != '') && ($folder_segment == $this->_getFolder()) ) $this->segmentsOffset++;
-	}
-	
-	/**
 	 * Returns field's title by field's name. 
 	 * 
 	 * @uses self::$fields_titles
@@ -298,6 +265,16 @@ abstract class Base extends CI_Controller
 		}
 		return $lang;
 	}
+
+    /**
+     * Set interface language.
+     *
+     * @param string $lang
+     */
+    public function setInterfaceLang($lang)
+    {
+        $this->interface_lang = $lang;
+    }
 	
 	/**
 	 * Returns base URL. 
@@ -379,6 +356,14 @@ abstract class Base extends CI_Controller
 	{
 		return $this->segmentsOffset;
 	}
+
+    /**
+     * Increment segment offset
+     */
+    public function incSegmentsOffset()
+    {
+        $this->segmentsOffset++;
+    }
 	
 	/**
 	 * Returns current method. 
