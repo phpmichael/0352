@@ -220,3 +220,5 @@ pip-log.txt
 /user_guide
 /*.sql
 /books-changes.txt
+*.minify.css
+*.minify.js
