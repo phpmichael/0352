@@ -83,9 +83,9 @@ class Books extends REST_Controller
 
     public function index_delete()
     {
-        if($id = $this->delete('id'))
+        if($id = $this->get('id'))
         {
-            if($item = $this->books_model->getOneById($id))
+            if($item = $this->books_model->existsId($id))
             {
                 $this->books_model->deleteId($id);
 
@@ -123,6 +123,22 @@ class Books extends REST_Controller
     public function setInterfaceLang($lang)
     {
         $this->interface_lang = $lang;
+    }
+
+    /**
+     * Return interface language.
+     *
+     * @param bool $getDefault
+     * @return string
+     */
+    public function _getInterfaceLang($getDefault=FALSE)
+    {
+        $lang = $this->interface_lang;
+        if(!$lang && $getDefault)
+        {
+            return strtolower($this->lang_model->getDefaultLangCode());
+        }
+        return $lang;
     }
 
     /**
