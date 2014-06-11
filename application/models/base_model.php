@@ -180,6 +180,16 @@ abstract class Base_model extends CI_Model
 	    	return $post;
     	}
     }
+
+    /**
+     * Check if record with $id exists.
+     * @param integer|string(16) $id
+     * @return bool
+     */
+    public function existsId($id)
+    {
+        return (bool)$this->db->get_where($this->c_table, array( $this->id_column => $id ))->row_array();
+    }
     
     /**
 	 * Returns one record by unique column and its value (like email and its value).
