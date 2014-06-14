@@ -40,7 +40,7 @@ class Books extends REST_Controller
             }
             else
             {
-                $this->response(array('error' => 'Not found'), 404);
+                $this->response(array('error' => array('Not found')), 404);
             }
         }
         else
@@ -58,26 +58,46 @@ class Books extends REST_Controller
 
     public function index_post()
     {
-        $data = $this->post();
+        $data = $_POST = $this->post();
 
-        if(!$saved = $this->formbuilder_model->storeForm($data,$this->process_form_html_id))
+        if(empty($data))
         {
-            echo validation_errors();
+            $this->response(array('errors' => array('No data posted')), 200);
+        }
+        elseif($id = $this->formbuilder_model->storeForm($data,$this->process_form_html_id))
+        {
+            $this->response(array('success' => array('message' => 'Item saved', 'id' => $id)), 200);
+        }
+        else
+        {
+            $errors = explode("\n",validation_errors(' ',' '));
+            array_pop($errors);//remove last empty element
+            $this->response(array('errors' => $errors), 200);
         }
     }
 
     public function index_put()
     {
-        if(!($data_key = $this->put('data_key')))
+        if(!($id = $this->get('id')))
         {
-            $this->response(array('error' => 'Please provide item\'s ID'), 404);
+            $this->response(array('errors' => array('Please provide item\'s ID')), 404);
         }
 
         $data = $_POST = $this->put();
 
-        if(!$this->formbuilder_model->storeForm($data,$this->process_form_html_id,$data_key))
+        if(empty($data))
         {
-            $this->response(array('error' => validation_errors(' ',' ')), 200);
+            $this->response(array('errors' => array('No data posted')), 200);
+        }
+        elseif($this->formbuilder_model->storeForm($data,$this->process_form_html_id,$id))
+        {
+            $this->response(array('success' => array('message' => 'Item updated')), 200);
+        }
+        else
+        {
+            $errors = explode("\n",validation_errors(' ',' '));
+            array_pop($errors);//remove last empty element
+            $this->response(array('errors' => $errors), 200);
         }
     }
 
@@ -89,11 +109,11 @@ class Books extends REST_Controller
             {
                 $this->books_model->deleteId($id);
 
-                $this->response(array('success' => 'Book deleted'), 200);
+                $this->response(array('success' => array('message' => 'Item deleted')), 200);
             }
             else
             {
-                $this->response(array('error' => 'Not found'), 404);
+                $this->response(array('errors' => array('Not found')), 404);
             }
         }
     }
