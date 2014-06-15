@@ -8,6 +8,17 @@ abstract class API extends REST_Controller
     protected $process_form_html_id;
     protected $model_name;
     protected $model;
+    protected $messages = array(
+        'item_not_found' => 'Item not found',
+        'empty_data' => 'No data posted',
+        'item_saved' => 'Item saved',
+        'no_item_id' => 'No item\'s ID',
+        'item_updated' => 'Item updated',
+        'item_deleted' => 'Item deleted',
+        'enter_email_and_password' => 'Enter email and password',
+        'access_allowed' => 'Access allowed',
+        'access_denied' => 'Access denied',
+    );
 
     public function __construct()
     {
@@ -32,7 +43,7 @@ abstract class API extends REST_Controller
             }
             else
             {
-                $this->response(array('error' => array('Not found')), 404);
+                $this->response(array('error' => array($this->messages['item_not_found'])), 404);
             }
         }
         else
@@ -50,11 +61,11 @@ abstract class API extends REST_Controller
 
         if(empty($data))
         {
-            $this->response(array('errors' => array('No data posted')), 200);
+            $this->response(array('errors' => array($this->messages['empty_data'])), 200);
         }
         elseif($id = $this->model->storeForm($data,$this->process_form_html_id))
         {
-            $this->response(array('success' => array('message' => 'Item saved', 'id' => $id)), 200);
+            $this->response(array('success' => array('message' => $this->messages['item_saved'], 'id' => $id)), 200);
         }
         else
         {
@@ -68,7 +79,7 @@ abstract class API extends REST_Controller
     {
         if(!($id = $this->get('id')))
         {
-            $this->response(array('errors' => array('Please provide item\'s ID')), 404);
+            $this->response(array('errors' => array($this->messages['no_item_id'])), 404);
         }
 
         $data = $_POST = $this->put();
@@ -79,7 +90,7 @@ abstract class API extends REST_Controller
         }
         elseif($this->model->storeForm($data,$this->process_form_html_id,$id))
         {
-            $this->response(array('success' => array('message' => 'Item updated')), 200);
+            $this->response(array('success' => array('message' => $this->messages['item_updated'])), 200);
         }
         else
         {
@@ -97,7 +108,7 @@ abstract class API extends REST_Controller
             {
                 $this->model->deleteId($id);
 
-                $this->response(array('success' => array('message' => 'Item deleted')), 200);
+                $this->response(array('success' => array('message' => $this->messages['item_deleted'])), 200);
             }
             else
             {
@@ -115,15 +126,15 @@ abstract class API extends REST_Controller
 
         if(empty($email) || empty($password))
         {
-            $this->response(array('errors' => array('Provide email and password')), 200);
+            $this->response(array('errors' => array($this->messages['enter_email_and_password'])), 200);
         }
         elseif($this->hasAccess($email,$password))
         {
-            $this->response(array('success' => array('message' => 'Allowed')), 200);
+            $this->response(array('success' => array('message' => $this->messages['access_allowed'])), 200);
         }
         else
         {
-            $this->response(array('errors' => array('Denied')), 200);
+            $this->response(array('errors' => array($this->messages['access_denied'])), 200);
         }
     }
 
