@@ -152,6 +152,19 @@ abstract class Base_model extends CI_Model
 			}
 		}
 	}
+
+    /**
+     * Store form data.
+     *
+     * @param array $data
+     * @param integer $form_id
+     * @param bool|string(16) $data_key
+     * @return string(16)
+     */
+    public function storeForm($data,$form_id,$data_key=FALSE)
+    {
+        return $this->formbuilder_model->storeForm($data,$form_id,$data_key);
+    }
     
 	/**
 	 * Returns one record by ID.
