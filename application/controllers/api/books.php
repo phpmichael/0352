@@ -19,17 +19,6 @@ class Books extends REST_Controller
         $this->lang_model->setApplicationLanguage($this);
     }
 
-    protected function _perform_library_auth($email, $password)
-    {
-        //if($this->request->method === 'get') return TRUE;
-
-        $user = $this->customers_model->checkLogin($email,$password);
-        if(!$user) return FALSE;
-
-        $this->load->model('groups_model');
-        return $this->groups_model->hasApiAccess($user,$this->request->method,'books','admin');
-    }
-
     public function index_get()
     {
         if($id = $this->get('id'))
@@ -116,6 +105,43 @@ class Books extends REST_Controller
                 $this->response(array('errors' => array('Not found')), 404);
             }
         }
+    }
+
+    /* Auth functions */
+
+    public function auth_post()
+    {
+        $email = $this->post('email');
+        $password = $this->post('password');
+
+        if(empty($email) || empty($password))
+        {
+            $this->response(array('errors' => array('Provide email and password')), 200);
+        }
+        elseif($this->hasAccess($email,$password))
+        {
+            $this->response(array('success' => array('message' => 'Allowed')), 200);
+        }
+        else
+        {
+            $this->response(array('errors' => array('Denied')), 200);
+        }
+    }
+
+    protected function _perform_library_auth($email, $password)
+    {
+        return $this->hasAccess($email, $password);
+    }
+
+    protected function hasAccess($email, $password)
+    {
+        //if($this->request->method === 'get') return TRUE;
+
+        $user = $this->customers_model->checkLogin($email,$password);
+        if(!$user) return FALSE;
+
+        $this->load->model('groups_model');
+        return $this->groups_model->hasApiAccess($user,$this->request->method,'books','admin');
     }
 
 
