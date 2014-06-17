@@ -1,10 +1,20 @@
 <?php
 require_once(APPPATH.'libraries/REST_Controller.php');
 
+/**
+ * This is basic controller for api controllers.
+ *
+ * @package api
+ * @author Michael Kovalskiy
+ * @version 2014
+ * @access public
+ */
 abstract class API extends REST_Controller
 {
+    //start url section
     protected $segmentsOffset = 0;
     protected $interface_lang;
+    //this is for models that use formbuilder
     protected $process_form_html_id;
     protected $model_name;
     protected $model;
@@ -20,6 +30,9 @@ abstract class API extends REST_Controller
         'access_denied' => 'Access denied',
     );
 
+    /**
+     * Init models and set language
+     */
     public function __construct()
     {
         parent::__construct();
@@ -33,6 +46,9 @@ abstract class API extends REST_Controller
         $this->lang_model->setApplicationLanguage($this);
     }
 
+    /**
+     * Get one record by ID or get list of records by search criterias
+     */
     public function index_get()
     {
         if($id = $this->get('id'))
@@ -55,6 +71,9 @@ abstract class API extends REST_Controller
         }
     }
 
+    /**
+     * Add new record
+     */
     public function index_post()
     {
         $data = $_POST = $this->post();
@@ -75,6 +94,9 @@ abstract class API extends REST_Controller
         }
     }
 
+    /**
+     * Update existing record
+     */
     public function index_put()
     {
         if(!($id = $this->get('id')))
@@ -100,6 +122,9 @@ abstract class API extends REST_Controller
         }
     }
 
+    /**
+     * Delete record
+     */
     public function index_delete()
     {
         if($id = $this->get('id'))
@@ -119,6 +144,9 @@ abstract class API extends REST_Controller
 
     /* Auth functions */
 
+    /**
+     * Check auth credentials
+     */
     public function auth_post()
     {
         $email = $this->post('email');
@@ -138,11 +166,23 @@ abstract class API extends REST_Controller
         }
     }
 
+    /**
+     * Override default auth check in REST_Controller
+     * @param string $email
+     * @param null|string $password
+     * @return bool
+     */
     protected function _perform_library_auth($email, $password)
     {
         return $this->hasAccess($email, $password);
     }
 
+    /**
+     * Check if correct $email and $password combination, and if user has access to API section
+     * @param $email
+     * @param $password
+     * @return bool
+     */
     protected function hasAccess($email, $password)
     {
         //if($this->request->method === 'get') return TRUE;
@@ -152,22 +192,37 @@ abstract class API extends REST_Controller
 
         $this->load->model('groups_model');
         $section = str_replace('_model','',$this->model_name);
-        $panel = 'admin';
+        $panel = 'admin';//TODO: should be settable
         return $this->groups_model->hasApiAccess($user,$this->request->method,$section,$panel);
     }
 
 
-    //Additional methods like in  Base controller
+    // === Additional methods like in  Base controller === //
+
+    /**
+     * Returns segment offset (0 or 1).
+     *
+     * @return integer
+     */
     public function _getSegmentsOffset()
     {
         return $this->segmentsOffset;
     }
 
+    /**
+     * Return just current lang info
+     * @return bool
+     */
     public function _isJustCurrentLang()
     {
         return TRUE;
     }
 
+    /**
+     * Returns API folder name.
+     *
+     * @return string
+     */
     public function _getFolder()
     {
         return 'api/';
