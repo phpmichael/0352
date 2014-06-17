@@ -1764,8 +1764,8 @@ class Formbuilder_model extends Base_model
      */
     private function addSlug2data(array $data)
     {
-        //if there is defined from what var generate slug
-        if( $slug_from = @$data['slug_from'] ) 
+        //if there is defined from what var generate slug and this var exists
+        if( ($slug_from = @$data['slug_from']) && isset($data[$slug_from]) )
 		{
 			if( is_array($data[$slug_from]) ) 
 			{
