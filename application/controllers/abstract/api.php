@@ -14,6 +14,7 @@ abstract class API extends REST_Controller
     //start url section
     protected $segmentsOffset = 0;
     protected $interface_lang;
+    protected $panel = 'admin';
     //this is for models that use formbuilder
     protected $process_form_html_id;
     protected $model_name;
@@ -179,8 +180,8 @@ abstract class API extends REST_Controller
 
     /**
      * Check if correct $email and $password combination, and if user has access to API section
-     * @param $email
-     * @param $password
+     * @param string $email
+     * @param string $password
      * @return bool
      */
     protected function hasAccess($email, $password)
@@ -192,8 +193,7 @@ abstract class API extends REST_Controller
 
         $this->load->model('groups_model');
         $section = str_replace('_model','',$this->model_name);
-        $panel = 'admin';//TODO: should be settable
-        return $this->groups_model->hasApiAccess($user,$this->request->method,$section,$panel);
+        return $this->groups_model->hasApiAccess($user,$this->request->method,$section,$this->panel);
     }
 
 
