@@ -56,5 +56,26 @@ class Subscribers_model extends Base_model
     {
     	$this->db->delete($this->c_table, array('email'=>$email));
     }
+
+    /**
+     * Store form data.
+     *
+     * @param array $data
+     * @param bool $nn not used here, just in frombuilder it is form html id
+     * @param integer $id
+     * @return integer
+     */
+    public function storeForm($data, $nn, $id=0)
+    {
+        $configValidation = array(
+            array(
+                'field'   => 'email',
+                'label'   => 'E-Mail',
+                'rules'   => 'trim|required|max_length[255]|valid_email|callback__unique_field_for_edit[email,'.$id.']'
+            )
+        );
+
+        return parent::save($data, $configValidation);
+    }
     
 }

@@ -32,9 +32,6 @@ class Subscribers extends Admin
 		// === Init Language Section === //
 		$this->lang_model->init(array('label','admin'));
 		
-		// === Labels === //
-		$this->fields_titles['email'] = language('email');
-		
 		// === Page Titles === //
 		$this->page_titles['index'] = language('subscribers');
 		$this->page_titles['add'] = language('add');
@@ -53,33 +50,16 @@ class Subscribers extends Admin
 	 */
 	private function _processInsert(array $record=array())
 	{
-		$this->load->library('form_validation');
-		
-		$id = intval(@$record['id']);
-		
-		$configValidation = array(
-               array(
-                     'field'   => 'email', 
-                     'label'   => parent::_getFieldTitle('email'), 
-                     'rules'   => 'trim|required|max_length[255]|valid_email|callback__unique_field_for_edit[email,'.$id.']'
-                  )
-            );
+        if($this->input->post())
+        {
+            if($this->subscribers_model->storeForm($this->input->post(),'',@$record['id']))
+            {
+                redirect($this->_getBaseURI());
+            }
+        }
 
-		$this->form_validation->set_rules($configValidation);
-			
-		if ($this->form_validation->run() == FALSE)
-		{
-			$record['tpl_page'] = $this->_getController().'/add';
-		    parent::_OnOutput($record);
-		}
-		else
-		{
-			$post = array_merge($record,$_POST);
-			
-			$this->subscribers_model->insertOrUpdate($post);
-			
-			redirect($this->_getBaseURI());
-		}
+        $record['tpl_page'] = $this->_getController().'/add';
+        parent::_OnOutput($record);
 	}
 	
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
