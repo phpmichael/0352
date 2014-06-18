@@ -157,13 +157,35 @@ abstract class Base_model extends CI_Model
      * Store form data.
      *
      * @param array $data
-     * @param integer $form_id
+     * @param integer|string $form_id
      * @param bool|string(16) $data_key
      * @return string(16)
      */
     public function storeForm($data,$form_id,$data_key=FALSE)
     {
         return $this->formbuilder_model->storeForm($data,$form_id,$data_key);
+    }
+
+    /**
+     * Validate and save data.
+     * @param array $data
+     * @param array $configValidation
+     * @return bool|int
+     */
+    protected function save(array $data, $configValidation = array())
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules($configValidation);
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            return FALSE;
+        }
+        else
+        {
+            return $this->insertOrUpdate($data);
+        }
     }
     
 	/**
