@@ -9,7 +9,7 @@ require_once(APPPATH.'models/base_model.php');
  * @version 2011
  * @access public
  */
-abstract class Posts_model extends Base_model 
+abstract class Posts_model extends Base_model
 {
 	//name of table
     protected $c_table;
@@ -243,7 +243,12 @@ abstract class Posts_model extends Base_model
 	 */
     protected function _getPostCategories($post_id)
     {
-    	$post_id = $this->db->escape($post_id);
+    	if(!$this->db->table_exists($this->categories_list_table))
+        {
+            return array();
+        }
+
+        $post_id = $this->db->escape($post_id);
     	$post_categories = array();
     	
     	if($post_id)
@@ -667,7 +672,10 @@ abstract class Posts_model extends Base_model
 	 */
     private function _RemovePostCategories($post_id)
     {
-    	$this->db->delete($this->posts_categories_table, array('post_id' => $post_id, 'type'=>$this->c_type));
+    	if($this->db->table_exists($this->posts_categories_table))
+        {
+            $this->db->delete($this->posts_categories_table, array('post_id' => $post_id, 'type'=>$this->c_type));
+        }
     }
     
     /**
@@ -699,15 +707,18 @@ abstract class Posts_model extends Base_model
 	 * @return void
 	 */
     public function RemoveAdditionalImage($image_id)
-    {   	
-    	$post = $this->db->get_where('posts_images', array('id' => $image_id), 1)->row_array();
-    	
-    	if($post['image'])
-    	{
-	    	$this->unlinkImage($post['image']);
-    	}
-    	
-    	$this->db->delete('posts_images', array('id' => $image_id));
+    {
+        if($this->db->table_exists('posts_images'))
+        {
+            $post = $this->db->get_where('posts_images', array('id' => $image_id), 1)->row_array();
+
+            if($post['image'])
+            {
+                $this->unlinkImage($post['image']);
+            }
+
+            $this->db->delete('posts_images', array('id' => $image_id));
+        }
     }
     
     /**
