@@ -129,7 +129,7 @@ $cap_img = $captcha_model->make();
 
                     </div>
                 </div>
-                <div class="page" id="about_makeup">
+                <div class="page" id="page4">
                     <div class="scroll">
                         <?=$pages['about_makeup']['body']?>
 
@@ -145,7 +145,7 @@ $cap_img = $captcha_model->make();
             </h1>
             <div class="privacy">
                 Maria Kovalska &copy; 2012
-                <a href="#about_makeup" rel="slide" class="white und">
+                <a href="#page4" rel="slide" class="white und">
                     <?=$pages['about_makeup']['page_title']?>
                 </a>
                 <br />

@@ -310,14 +310,12 @@ body .gall_next{
 
 .pages{
 	width:2344px;
-	height:826px;
 	position:relative;
 }
 
 .page{
 	margin:20px 0 0 0;
 	width:586px;
-	height:776px;
 	float:left;	
 }
 
