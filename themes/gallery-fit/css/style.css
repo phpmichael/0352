@@ -300,15 +300,13 @@ body .gall_next{
 	border:1px solid #fff;
 }
 
-.scroll,.croll{
+.scroll{
 	width:514px;
 	height:690px;
 	overflow:hidden;
 	padding:0 20px;
 	position:relative;
 }
-
-.croll{height:auto;}
 
 .pages{
 	width:2344px;
