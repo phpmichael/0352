@@ -5,7 +5,7 @@
  
   #RewriteRule ^(.*)(\.html|.\php)$ index.php/$1 [L]
   #RewriteRule ^(.+)(?=\.html) index.php/$1 [L]
-  RewriteRule ^(.+)$ index.php/$1 [L]
+  RewriteRule .+ index.php/$1 [L]
 </IfModule>
 
 AddDefaultCharset utf-8
