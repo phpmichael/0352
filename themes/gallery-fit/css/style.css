@@ -481,3 +481,10 @@ a.paginator:hover{
 a.paginator.active{
     color: #6B6B6B;
 }
+
+/* Other */
+.share{
+    padding-left: 5px;
+    font-size: 180%;
+    color: #ff0000;
+}
