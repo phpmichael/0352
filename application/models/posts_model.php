@@ -182,28 +182,7 @@ abstract class Posts_model extends Base_model
 		
 		if($action)
         {
-            // Pagination!
-            $this->load->library('pagination');
-
-            $pagination_config = array(
-                'base_url'		 => base_url().$this->CI->_getBaseURI()."/{$action}/".$filter_ex['filter_str']."/page/",
-                'total_rows'	 => $total_rows,
-                'per_page'		 => $per_page,
-                'uri_segment'	 => $filter_ex['offset_uri_segment'],
-                'full_tag_open'	 => '<p>',
-                'full_tag_close' => '</p>',
-                'first_link'     => language('pagination_first'),
-                'last_link'     => language('pagination_last'),
-            );
-
-            //load specific pagination configuration
-            load_theme_view('inc/pagination');//init pagination_config for CI
-
-            if(!empty($this->CI->pagination_config)) $pagination_config = array_merge($pagination_config,$this->CI->pagination_config);
-
-            $this->CI->pagination->initialize($pagination_config);
-
-            $data['paginate'] = $this->pagination->create_links();
+            $data['paginate'] = $this->createPaginationLinks($action, $filter_ex, $total_rows, $per_page);
         }
 
 		return $data;
@@ -874,5 +853,43 @@ abstract class Posts_model extends Base_model
     public function getCtype()
     {
         return $this->c_type;
+    }
+
+    /**
+     * Crate pagination links
+     * @param string $action
+     * @param array $filter_ex
+     * @param integer $total_rows
+     * @param integer $per_page
+     * @return string
+     */
+    protected function createPaginationLinks($action, $filter_ex, $total_rows, $per_page)
+    {
+        if( !$action || empty($filter_ex) || !isset($filter_ex['filter_str']) || !isset($filter_ex['offset_uri_segment']) || !$per_page )
+        {
+            return '';
+        }
+
+        $this->load->library('pagination');
+
+        $pagination_config = array(
+            'base_url'		 => base_url().$this->CI->_getBaseURI()."/{$action}/".$filter_ex['filter_str']."/page/",
+            'total_rows'	 => $total_rows,
+            'per_page'		 => $per_page,
+            'uri_segment'	 => $filter_ex['offset_uri_segment'],
+            'full_tag_open'	 => '<p>',
+            'full_tag_close' => '</p>',
+            'first_link'     => language('pagination_first'),
+            'last_link'     => language('pagination_last'),
+        );
+
+        //load specific pagination configuration
+        load_theme_view('inc/pagination');//init pagination_config for CI
+
+        if(!empty($this->CI->pagination_config)) $pagination_config = array_merge($pagination_config,$this->CI->pagination_config);
+
+        $this->CI->pagination->initialize($pagination_config);
+
+        return $this->CI->pagination->create_links();
     }
 }
