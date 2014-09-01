@@ -1,5 +1,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # CORS OPTIONS method for access to REST services)
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ $1 [R=200,L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
  
@@ -39,4 +44,11 @@ AddDefaultCharset utf-8
     <FilesMatch "\.(js|css)$">
         Header append Vary: Accept-Encoding
     </FilesMatch>
+</ifModule>
+
+# CORS Headers (for access to REST services)
+<ifModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin: "*"
+    Header always set Access-Control-Allow-Methods "POST, GET, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "X-Requested-With, Content-type, Authorization"
 </ifModule>
