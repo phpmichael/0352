@@ -54,21 +54,11 @@ abstract class API extends REST_Controller
     {
         if($id = $this->get('id'))
         {
-            if($item = $this->model->getOneById($id))
-            {
-                $this->response($item, 200);
-            }
-            else
-            {
-                $this->response(array('error' => array($this->messages['item_not_found'])), 404);
-            }
+            $this->getItem($id);
         }
         else
         {
-            $filter_data = $this->model->getFilterData();
-            $data = $this->model->get('',$filter_data);
-
-            $this->response($data, 200);
+            $this->getItems();
         }
     }
 
@@ -260,5 +250,34 @@ abstract class API extends REST_Controller
     public function incSegmentsOffset()
     {
         $this->segmentsOffset++;
+    }
+
+
+    // === Stuff for easy extend === //
+    /**
+     * Return one item
+     * @param integer|string $id
+     */
+    protected function getItem($id)
+    {
+        if($item = $this->model->getOneById($id))
+        {
+            $this->response($item, 200);
+        }
+        else
+        {
+            $this->response(array('error' => array($this->messages['item_not_found'])), 404);
+        }
+    }
+
+    /**
+     * Return items list
+     */
+    protected function getItems()
+    {
+        $filter_data = $this->model->getFilterData();
+        $data = $this->model->get('',$filter_data);
+
+        $this->response($data, 200);
     }
 }
