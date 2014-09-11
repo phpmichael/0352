@@ -79,12 +79,12 @@ class Customers extends Front
 	private function _processInsert(array $record=array())
 	{
 		if( !$this->session->userdata('customer_id') ) 
-		{
+		{//register
 			// === CAPTCHA === //
 			$data["cap_img"] = $this->captcha_model->make();
 		}
 		else 
-		{
+		{//update
 			// === GET ID FROM SESSION === //
 			$id = $this->session->userdata('customer_id');
 	
@@ -98,152 +98,56 @@ class Customers extends Front
 				$this->_getBaseURI()."/editinfo" => '[page_title]'
 			);
 		}
-		
-		
-		$this->load->library('form_validation');
-		
-		if( !$this->session->userdata('customer_id') )
-		{//register
-			$configValidation1 = array(
-               array(
-                     'field'   => 'captcha', 
-                     'label'   => parent::_getFieldTitle('captcha'), 
-                     'rules'   => 'trim|required|callback__valid_captcha'
-                  ),
-               array(
-                     'field'   => 'email', 
-                     'label'   => parent::_getFieldTitle('email'), 
-                     'rules'   => 'trim|required|max_length[255]|valid_email|callback__unique_field[email]'
-                  ),
-               array(
-                     'field'   => 'password', 
-                     'label'   => parent::_getFieldTitle('password'), 
-                     'rules'   => 'trim|required|min_length[5]|max_length[16]|md5'
-                  ),
-               array(
-                     'field'   => 'repassword', 
-                     'label'   => parent::_getFieldTitle('repassword'), 
-                     'rules'   => 'trim|required|matches[password]'
-                  )
-            );
-		}
-		else 
-		{//update
-			$configValidation1 = array(
-               array(
-                     'field'   => 'password', 
-                     'label'   => parent::_getFieldTitle('password'), 
-                     'rules'   => 'trim|min_length[5]|max_length[16]|md5'
-                  )
-            );
-            
-            if($this->input->post('password'))
-            {
-            	$configValidation1[] = array(
-                     'field'   => 'repassword', 
-                     'label'   => parent::_getFieldTitle('repassword'), 
-                     'rules'   => 'trim|required|matches[password]'
-                  );
+
+        if($this->input->post())
+        {
+            $post = $this->input->post();
+
+            if( !$this->session->userdata('customer_id') )
+            {//register
+                if(!isset($post['captcha'])) $post['captcha'] = '';//always set captcha
             }
-		}
-		
-		$configValidation2 = array(
-               array(
-                     'field'   => 'name', 
-                     'label'   => parent::_getFieldTitle('name'), 
-                     'rules'   => 'trim|required|xss_clean'
-                  ),
-               array(
-                     'field'   => 'surname', 
-                     'label'   => parent::_getFieldTitle('surname'), 
-                     'rules'   => 'trim|required|xss_clean'
-                  ),
-               array(
-                     'field'   => 'phone', 
-                     'label'   => parent::_getFieldTitle('phone'), 
-                     'rules'   => 'trim|xss_clean'
-                  ),
-               array(
-                     'field'   => 'phone2', 
-                     'label'   => parent::_getFieldTitle('phone2'), 
-                     'rules'   => 'trim|xss_clean'
-                  ),
-               array(
-                     'field'   => 'website', 
-                     'label'   => parent::_getFieldTitle('website'), 
-                     'rules'   => 'trim|xss_clean'
-                  ),
-               array(
-                     'field'   => 'city', 
-                     'label'   => parent::_getFieldTitle('city'), 
-                     'rules'   => 'trim|xss_clean'
-                  ),
-               array(
-                     'field'   => 'address', 
-                     'label'   => parent::_getFieldTitle('address'), 
-                     'rules'   => 'trim|xss_clean'
-                  ),
-               array(
-                     'field'   => 'zip_code', 
-                     'label'   => parent::_getFieldTitle('zip_code'), 
-                     'rules'   => 'trim|xss_clean'
-                  )
-            );
-            
-        $configValidation = array_merge($configValidation1,$configValidation2);
+            else
+            {//update
+                $post['email'] = $data['email'];//don't change email
+                $post['id'] = $id;
+            }
 
-		$this->form_validation->set_rules($configValidation);
-			
-		if ($this->form_validation->run() == FALSE)
-		{
-			parent::_OnOutput($data);
-		}
-		else
-		{
-			$post = $_POST;
-			
-			//UPDATE
-			if( $this->session->userdata('customer_id') )
-			{
-				unset($post['email']);
-				if(!$post['password']) unset($post['password']);
-				
-				// === Update in DB === //
-				$post['id'] = $this->session->userdata('customer_id');
-				$this->customers_model->Update($post);
+            if($post['id'] = $this->customers_model->storeForm($post,'',intval(@$id)))
+            {
+                //UPDATE
+                if( $this->session->userdata('customer_id') )
+                {
+                    $data = array_merge($data,$post);
+                    $data['success_updated'] = true;
+                }
+                //ADD
+                else
+                {
+                    // === Subscribe === //
+                    if($this->input->post('subscribe'))
+                    {
+                        if(!$this->subscribers_model->EmailExists($this->input->post('email')))
+                        {
+                            $this->subscribers_model->addEmail($this->input->post('email'));
+                        }
+                    }
 
-				$data = array_merge($data,$post);
-				$data['success_updated'] = true;
-				
-				parent::_OnOutput($data);
-			}
-			//ADD
-			else 
-			{
-				// === Add to DB === //
-				$post['id'] = $this->customers_model->Insert($post);
-				
-				// === Subscribe === //
-				if($this->input->post('subscribe'))
-				{
-					if(!$this->subscribers_model->EmailExists($this->input->post('email')))
-					{
-						$this->subscribers_model->addEmail($this->input->post('email'));
-					}
-				}
-				
-				// === Mail Customer === //
-				$this->load->model('auto_responders_model');
-				$this->auto_responders_model->send(1,$post['email'],$post);
-				
-				// === Login Customer === //
-				$this->customers_model->setLogined($post);
-				
-				// === REDIRECT === //
-				if( $this->session->userdata('redirect_after_registration') ) redirect( $this->session->userdata('redirect_after_registration') );
-				else redirect($this->_getBaseURI().'/signin');
-			}
-		}
+                    // === Mail Customer === //
+                    $this->load->model('auto_responders_model');
+                    $this->auto_responders_model->send(1,$post['email'],$post);
+
+                    // === Login Customer === //
+                    $this->customers_model->setLogined($post);
+
+                    // === REDIRECT === //
+                    if( $this->session->userdata('redirect_after_registration') ) redirect( $this->session->userdata('redirect_after_registration') );
+                    else redirect($this->_getBaseURI().'/signin');
+                }
+            }
+        }
+
+        parent::_OnOutput($data);
 	}
 
 	// +++++++++++++ INNER METHODS +++++++++++++++ //

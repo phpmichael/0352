@@ -199,4 +199,108 @@ class Customers_model extends Base_model
     	//remove customer
     	parent::DeleteId($customer_id);
     }
+
+    /**
+     * Store form data.
+     *
+     * @param array $data
+     * @param bool $nn not used here, just in formbuilder it is form html id
+     * @param integer $id
+     * @return integer
+     */
+    public function storeForm($data, $nn, $id=0)
+    {
+        $configValidation = array(
+            array(
+                'field'   => 'email',
+                'label'   => language('email'),
+                'rules'   => 'trim|required|max_length[255]|valid_email|callback__unique_field_for_edit[email,'.$id.']'
+            ),
+            array(
+                'field'   => 'name',
+                'label'   => language('name'),
+                'rules'   => 'trim|required|xss_clean'
+            ),
+            array(
+                'field'   => 'surname',
+                'label'   => language('surname'),
+                'rules'   => 'trim|required|xss_clean'
+            ),
+            array(
+                'field'   => 'phone',
+                'label'   => language('phone'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                'field'   => 'phone2',
+                'label'   => language('phone2'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                'field'   => 'website',
+                'label'   => language('website'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                'field'   => 'city',
+                'label'   => language('city'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                'field'   => 'address',
+                'label'   => language('address'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                'field'   => 'zip_code',
+                'label'   => language('zip_code'),
+                'rules'   => 'trim|xss_clean'
+            )
+        );
+
+        if( !$id )
+        {//create
+            $configValidation[] = array(
+                'field'   => 'password',
+                'label'   => language('password'),
+                'rules'   => 'trim|required|min_length[5]|max_length[16]|md5'
+            );
+            $configValidation[] = array(
+                'field'   => 'repassword',
+                'label'   => language('repassword'),
+                'rules'   => 'trim|required|matches[password]'
+            );
+}
+        else
+        {//update
+            $configValidation[] = array(
+                'field'   => 'password',
+                'label'   => language('password'),
+                'rules'   => 'trim|min_length[5]|max_length[16]|md5'
+            );
+
+            if(isset($data['password']) && trim($data['password']))
+            {
+                $configValidation[] = array(
+                    'field'   => 'repassword',
+                    'label'   => language('repassword'),
+                    'rules'   => 'trim|required|matches[password]'
+                );
+            }
+            else unset($data['password']);
+        }
+
+        if(isset($data['captcha']))
+        {
+            $configValidation[] = array(
+                'field'   => 'captcha',
+                'label'   => language('captcha'),
+                'rules'   => 'trim|required|callback__valid_captcha'
+            );
+        }
+
+        $data[$this->id_column] = $id;
+
+        return parent::save($data, $configValidation);
+    }
 }
