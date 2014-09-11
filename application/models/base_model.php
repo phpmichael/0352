@@ -178,7 +178,13 @@ abstract class Base_model extends CI_Model
 
         $this->form_validation->set_rules($configValidation);
 
-        if ($this->form_validation->run() == FALSE)
+        //check if valid
+        //while CodeIgniter validate $_POST and xss_clean it, use this trick $data -> $_POST and $_POST -> $data
+        $_POST = $data;
+        $valid = $this->CI->form_validation->run();
+        $data = $_POST;
+
+        if ($valid == FALSE)
         {
             return FALSE;
         }
