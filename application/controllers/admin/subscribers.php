@@ -31,6 +31,9 @@ class Subscribers extends Admin
 		
 		// === Init Language Section === //
 		$this->lang_model->init(array('label','admin'));
+
+        // === Labels === //
+        $this->fields_titles['email'] = language('email');
 		
 		// === Page Titles === //
 		$this->page_titles['index'] = language('subscribers');
@@ -52,7 +55,7 @@ class Subscribers extends Admin
 	{
         if($this->input->post())
         {
-            if($this->subscribers_model->storeForm($this->input->post(),'',@$record['id']))
+            if($this->subscribers_model->storeForm($this->input->post(),'',intval(@$record['id'])))
             {
                 redirect($this->_getBaseURI());
             }

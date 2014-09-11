@@ -64,7 +64,7 @@ class Subscribers_model extends Posts_model
      * Store form data.
      *
      * @param array $data
-     * @param bool $nn not used here, just in frombuilder it is form html id
+     * @param bool $nn not used here, just in formbuilder it is form html id
      * @param integer $id
      * @return integer
      */
@@ -77,6 +77,8 @@ class Subscribers_model extends Posts_model
                 'rules'   => 'trim|required|max_length[255]|valid_email|callback__unique_field_for_edit[email,'.$id.']'
             )
         );
+
+        $data[$this->id_column] = $id;
 
         return parent::save($data, $configValidation);
     }
