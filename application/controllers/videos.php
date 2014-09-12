@@ -80,7 +80,9 @@ class Videos extends Front
 	 */
 	public function View($data_key)
 	{
-		$this->load->helper('text');
+		if(!$data_key) redirect($this->_getBaseURI());
+
+        $this->load->helper('text');
 		
 		// === DB query === //
 		$data['video'] = $this->videos_model->getOneById($data_key);
