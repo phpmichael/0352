@@ -247,16 +247,20 @@ abstract class Base_model extends CI_Model
         
         return $this->db->get_where($this->c_table, array($field_name => $field_value))->row_array();
     }
-    
+
     /**
-	 * Returns all records of table.
-	 * 
-	 * @return array
-	 */
-    public function getAll()
+     * Returns all records of table.
+     *
+     * @param array $fields
+     * @return array
+     */
+    public function getAll($fields = array())
     {
+    	if(empty($fields)) $selectFields = $this->c_table.'.*';
+        else $selectFields = $this->c_table.'.' . join(', '.$this->c_table.'.',$fields);
+
     	//multilang stuff
-		$this->db->select($this->c_table.'.* '.$this->_buildMultilangSelect());
+		$this->db->select($selectFields.' '.$this->_buildMultilangSelect());
 		$this->_buildMultilangJoin(FALSE);
         
         return $this->db->get($this->c_table)->result_array();
