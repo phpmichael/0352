@@ -30,6 +30,7 @@ abstract class API extends REST_Controller
         'access_allowed' => 'Access allowed',
         'access_denied' => 'Access denied',
     );
+    protected $c_table;
 
     /**
      * Init models and set language
@@ -45,6 +46,9 @@ abstract class API extends REST_Controller
 
         //set language based on URL
         $this->lang_model->setApplicationLanguage($this);
+
+        // === Init Language Section === //
+        $this->lang_model->init(array('label','admin'));
     }
 
     /**
@@ -250,6 +254,13 @@ abstract class API extends REST_Controller
     public function incSegmentsOffset()
     {
         $this->segmentsOffset++;
+    }
+
+    public function _unique_field_for_edit($field_value,$param)
+    {
+        $this->load->model('validate_model');
+        $this->validate_model->setTable($this->c_table);
+        return $this->validate_model->checkUniqueFieldOnEdit($field_value,$param);
     }
 
 
