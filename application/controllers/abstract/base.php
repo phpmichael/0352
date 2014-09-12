@@ -108,19 +108,15 @@ abstract class Base extends CI_Controller
 	 * Check if doesn't exist value $field_value for field $field_name, but used if you edit existed record. 
 	 * In example checks if email doesn't exist in table when you try to change email.
 	 * 
-	 * @param mixed $field_value
-	 * @param array $param
+	 * @param string $field_value
+	 * @param string $param
 	 * @return bool
 	 */
 	public function _unique_field_for_edit($field_value,$param)
 	{
-		if(!$field_value) return TRUE;//if no value means that is not required
-		
-		list($field_name,$current_id) = explode(',',$param);
-		
-		$id_column = ($this->db->field_exists('data_key',$this->c_table))?'data_key':'id';
-		
-		return !($this->db->get_where($this->c_table, array($field_name => $field_value,$id_column.' != '=>$current_id))->row_array());
+        $this->load->model('validate_model');
+        $this->validate_model->setTable($this->c_table);
+        return $this->validate_model->checkUniqueFieldOnEdit($field_value,$param);
 	}
 	
 	/**
