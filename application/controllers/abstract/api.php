@@ -31,6 +31,7 @@ abstract class API extends REST_Controller
         'access_denied' => 'Access denied',
     );
     protected $c_table;
+    protected $list_fields = array();
 
     /**
      * Init models and set language
@@ -286,9 +287,26 @@ abstract class API extends REST_Controller
      */
     protected function getItems()
     {
-        $filter_data = $this->model->getFilterData();
-        $data = $this->model->get('',$filter_data);
+        if($this->hasPagination())
+        {
+            $filter_data = $this->model->getFilterData();
+            $data = $this->model->get('',$filter_data);
+        }
+        else
+        {
+            $data['posts_list'] = $this->model->getAll($this->list_fields);
+        }
 
         $this->response($data, 200);
+    }
+
+    /**
+     * Check if need pagination
+     * @return bool
+     */
+    private function hasPagination()
+    {
+        $uriArr = $this->uri->uri_to_assoc($this->_getSegmentsOffset()+3);
+        return isset($uriArr['per_page']);
     }
 }
