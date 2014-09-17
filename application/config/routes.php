@@ -45,7 +45,10 @@ $languages = 'en|ru|ua|nl|pl';
 $route['default_controller'] = "pages";
 $route['scaffolding_trigger'] = "";
 
-//$route['404_override'] = 'pages/index/warranty'; 
+//$route['404_override'] = 'pages/index/warranty';
+
+//route for API
+$route['('.$languages.')?/?api/([a-z_]+)/(\d+|[A-Z0-9]{16})'] = 'api/$2/index/id/$3';
 
 //route for page: page/slug => pages/index/slug
 $route['('.$languages.')?/?page/(:any)'] = 'pages/index/$2'; 
@@ -53,7 +56,7 @@ $route['('.$languages.')?/?page/(:any)'] = 'pages/index/$2';
 //route for product/article
 $route['('.$languages.')?/?(product|article|book)/(:any)'] = '$2s/name/$3';
 
-//rouse for admin sign-in/sign-out
+//route for admin sign-in/sign-out
 $route['a-login'] = 'admin/managers/signin';
 $route['a-logout'] = 'admin/managers/signout';
 
