@@ -22,7 +22,7 @@ $config['force_https'] = FALSE;
 |	Default: xml
 |
 */
-$config['rest_default_format'] = 'xml';
+$config['rest_default_format'] = 'json';
 
 /*
 |--------------------------------------------------------------------------
@@ -106,7 +106,8 @@ $config['auth_library_function'] = '';
 | Acceptable values are; 'none', 'digest' and 'basic'.
 |
 */
-//$config['auth_override_class_method']['books']['index']['get'] = 'none';
+$config['auth_override_class_method']['books']['index']['get'] = 'none';
+$config['auth_override_class_method']['customers']['auth']['post'] = 'none';
 
 /*
 |--------------------------------------------------------------------------
