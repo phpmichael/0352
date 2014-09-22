@@ -98,6 +98,7 @@ class Tools_lib
                 'application/config/migration.php' => 0,
                 'application/config/mimes.php' => 0,
                 'application/config/profiler.php' => 0,
+                'application/config/rest.php' => 0,
                 'application/config/routes.php' => 0,
                 'application/config/smileys.php' => 0,
                 'application/config/user_agents.php' => 0,
