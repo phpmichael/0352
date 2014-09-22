@@ -256,7 +256,9 @@ abstract class Base_model extends CI_Model
      */
     public function getAll($fields = array())
     {
-    	if(empty($fields)) $selectFields = $this->c_table.'.*';
+        if( !$this->db->table_exists($this->c_table) ) return array();
+
+        if(empty($fields)) $selectFields = $this->c_table.'.*';
         else $selectFields = $this->c_table.'.' . join(', '.$this->c_table.'.',$fields);
 
     	//multilang stuff
@@ -650,7 +652,7 @@ abstract class Base_model extends CI_Model
 	public function getBySlug($slug)
 	{
 		if($this->db->field_exists('slug',$this->c_table)) return $this->getOneByUnique('slug',$slug);
-		
+
 		$lang = $this->CI->_getInterfaceLang(TRUE);
 		$lang_data = $this->CI->lang_gen_model->getSlugMultiData($lang,$slug,$this->c_table);
 		
