@@ -102,7 +102,9 @@ class Tools extends Admin
 	public function add_symlink($symlink, $is_dir, $projectName, $sourceName = '0352')
 	{
 	    if(!$projectName) return FALSE;
-		
+
+        $symlink = str_replace('--','/',$symlink);
+
 		$sourceDir = "{$this->pathToProjects}{$sourceName}/";
 	    $projectDir = "{$this->pathToProjects}{$projectName}/";
 		
