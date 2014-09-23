@@ -84,9 +84,7 @@ abstract class API extends REST_Controller
         }
         else
         {
-            $errors = explode("\n",validation_errors(' ',' '));
-            array_pop($errors);//remove last empty element
-            $this->response(array('errors' => $errors), 200);
+            $this->outputValidationErrors();
         }
     }
 
@@ -112,9 +110,7 @@ abstract class API extends REST_Controller
         }
         else
         {
-            $errors = explode("\n",validation_errors(' ',' '));
-            array_pop($errors);//remove last empty element
-            $this->response(array('errors' => $errors), 200);
+            $this->outputValidationErrors();
         }
     }
 
@@ -298,6 +294,16 @@ abstract class API extends REST_Controller
         }
 
         $this->response($data, 200);
+    }
+
+    /**
+     * Show validation errors
+     */
+    protected function outputValidationErrors()
+    {
+        $errors = explode("\n",validation_errors(' ',' '));
+        array_pop($errors);//remove last empty element
+        $this->response(array('errors' => $errors), 200);
     }
 
     /**
