@@ -12,7 +12,9 @@
 	<div class="clear"></div>
 <?endif?>
 
-<ul class="red"><?=$BC->upload->display_errors('<li>','</li>')?></ul>
+<?if(isset($BC->upload)):?>
+    <ul class="red"><?=$BC->upload->display_errors('<li>','</li>')?></ul>
+<?endif?>
 
 <ul>
 <?for($i=1;$i<=5;$i++):?>

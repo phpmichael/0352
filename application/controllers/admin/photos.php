@@ -63,22 +63,15 @@ class Photos extends Admin
 	private function _processInsert()
 	{
 		$data['file_names'] = array();
-	    
-		//  === LOAD UPLOAD CLASS === //
-		$this->load->library('upload', $this->photos_model->getUploadConfig());
 		
 		if($this->input->post('submit'))
 		{
 		    for($i=1;$i<=5;$i++)
 		    {
-		        if( $this->upload->do_upload("image_{$i}") )
-		        {
-		            $upload_data = $this->upload->data(); 
-		    
-			        $this->photos_model->Insert($upload_data);
-			        
-			        $data['file_names'][$i] = $upload_data['file_name'];
-		        }
+                if( $this->photos_model->storeForm(array("image_field"=>"image_{$i}"),'') )
+                {
+                    $data['file_names'][$i] = $this->photos_model->upload_data['file_name'];
+                }
 		    }
 		}
 		

@@ -48,6 +48,8 @@ class Photos_model extends Base_model
 	   'big_crop' => FALSE
 	);
 
+    public $upload_data = array();
+
 	/**
 	 * Init settings: read form table.
 	 *
@@ -357,4 +359,38 @@ class Photos_model extends Base_model
 			}
 		}
 	}
+
+    /**
+     * Store form data.
+     *
+     * @param array $data
+     * @param bool $nn not used here, just in formbuilder it is form html id
+     * @param integer $id
+     * @return integer|bool
+     */
+    public function storeForm($data, $nn, $id=0)
+    {
+        $this->CI->load->library('upload', $this->getUploadConfig());
+
+        if( !isset($data['image_field']) ) $data['image_field'] = 'image';
+
+        if( $this->upload->do_upload($data['image_field']) )
+        {
+            $this->upload_data = $this->upload->data();
+
+            $configValidation = array(
+                array(
+                    'field'   => 'file_name',
+                    'label'   => language('name'),
+                    'rules'   => 'trim|required|xss_clean'
+                ),
+            );
+
+            $data[$this->id_column] = $id;
+
+            return parent::save($this->upload_data, $configValidation);
+        }
+
+        return false;
+    }
 }
