@@ -21,15 +21,16 @@ class Agenda_model extends Base_model
 	 *
 	 * @param integer $start
 	 * @param integer $end
+	 * @param integer $customer_id
 	 * @return array
 	 */
-    public function getEvents($start,$end)
+    public function getEvents($start,$end, $customer_id=0)
     {
-        $start_date = date('Y-m-d',$start);
-        $end_date = date('Y-m-d',$end);
+        $start_date = date('Y-m-d', intval($start));
+        $end_date = date('Y-m-d', intval($end));
         
-        $customer_id = $this->CI->session->userdata('customer_id'); 
-        
+        if(!intval($customer_id)) $customer_id = intval($this->CI->session->userdata('customer_id'));
+
     	$events = $this->get(" customer_id = {$customer_id} AND start_date BETWEEN '{$start_date}' AND '{$end_date}'",'start_date, start_time');
         
         foreach ($events as &$event)
@@ -123,6 +124,19 @@ class Agenda_model extends Base_model
 		$event['end_time'] = date('H:i:s',$timestamp);
 		
 		return $this->update($event);
+    }
+
+    /**
+     * Return events of one day
+     * @param string $date Y-m-d
+     * @return array
+     */
+    public function getDayEvents($date)
+    {
+        $start = strtotime($date . ' 00:00:00');
+        $end = strtotime($date . ' 23:59:59');
+
+        return $this->getEvents($start, $end);
     }
     
     /**

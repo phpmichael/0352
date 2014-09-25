@@ -32,6 +32,7 @@ abstract class API extends REST_Controller
     );
     protected $c_table;
     protected $list_fields = array();
+    protected $user = false;
 
     /**
      * Init models and set language
@@ -179,12 +180,12 @@ abstract class API extends REST_Controller
     {
         //if($this->request->method === 'get') return TRUE;
 
-        $user = $this->customers_model->checkLogin($email,$password);
-        if(!$user) return FALSE;
+        $this->user = $this->customers_model->checkLogin($email,$password);
+        if(!$this->user) return FALSE;
 
         $this->load->model('groups_model');
         $section = str_replace('_model','',$this->model_name);
-        return $this->groups_model->hasApiAccess($user,$this->request->method,$section,$this->panel);
+        return $this->groups_model->hasApiAccess($this->user,$this->request->method,$section,$this->panel);
     }
 
 
