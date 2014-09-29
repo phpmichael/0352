@@ -129,14 +129,15 @@ class Agenda_model extends Base_model
     /**
      * Return events of one day
      * @param string $date Y-m-d
+     * @param integer $customer_id
      * @return array
      */
-    public function getDayEvents($date)
+    public function getDayEvents($date, $customer_id)
     {
         $start = strtotime($date . ' 00:00:00');
         $end = strtotime($date . ' 23:59:59');
 
-        return $this->getEvents($start, $end);
+        return $this->getEvents($start, $end, $customer_id);
     }
     
     /**

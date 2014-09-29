@@ -18,7 +18,7 @@ class Agenda extends API
         }
         elseif( $date = $this->get('date') )
         {
-            $events = $this->agenda_model->getDayEvents($date);
+            $events = $this->agenda_model->getDayEvents($date, $this->user['id']);
         }
         else
         {
