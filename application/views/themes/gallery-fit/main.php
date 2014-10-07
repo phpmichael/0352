@@ -86,8 +86,6 @@ $cap_img = $captcha_model->make();
                         <a href="javascript:;" class="paginator<?if($page_num===1):?> active<?endif?>" rel="<?=$page_num?>"><?=$page_num?></a>
                     <?endfor;?>
 
-                    <a rel="slide" href="#page3" class="share">Акція</a>
-
                     <div class="scroll">
                         <ul id="thumbs">
 
