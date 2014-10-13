@@ -97,6 +97,7 @@ class Tools_lib
                 'application/config/index.html' => 0,
                 'application/config/migration.php' => 0,
                 'application/config/mimes.php' => 0,
+                'application/config/output_cache.php' => 0,
                 'application/config/profiler.php' => 0,
                 'application/config/rest.php' => 0,
                 'application/config/routes.php' => 0,

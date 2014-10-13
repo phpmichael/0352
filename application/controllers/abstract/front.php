@@ -208,6 +208,8 @@ abstract class Front extends Base
 	 */
 	protected function _OnOutput( array $data = array() )
 	{
+	    $this->_outputCache();
+
 	    // === Set page title and meta data === //
 		$this->_buid_head_data();
 	    
@@ -238,6 +240,22 @@ abstract class Front extends Base
 		// === VIEW === //
 		parent::_OnOutput($data);
 	}
+
+    /**
+     * Cache output.
+     * If there is set cache time in $output_cache[controller][method] - cache URL
+     */
+    private function _outputCache()
+    {
+        $this->load->config('output_cache');
+        $output_cache = $this->config->item('output_cache');
+
+        if( isset($output_cache[$this->controller][$this->method]) )
+        {
+            $minutes = intval($output_cache[$this->controller][$this->method]);
+            if( $minutes ) $this->output->cache($minutes);
+        }
+    }
 	
 	/**
 	 * Check if loaded home page.
