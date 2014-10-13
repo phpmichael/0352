@@ -1,11 +1,14 @@
 <?php
+require_once(APPPATH.'controllers/abstract/admin.php');
 
-Class Customers extends CI_Controller 
+Class Customers extends Admin
 {
 
   public function __construct()
   {
       parent::__construct();
+
+      if( !userAccess('tools','view') ) die('No access');
       
       $this->load->library('unit_test');  
   }
