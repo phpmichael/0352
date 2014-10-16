@@ -26,18 +26,18 @@ $cap_img = $captcha_model->make();
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
     
     <?=include_minified($BC->_getTheme().'js/jquery-1.4.3.min.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/bgSlider.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/jquery.mousewheel.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/jScrollPane.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/slidePager.js','js')?>
-    <?/*=include_combined(array(
-                                $BC->_getTheme().'js/jquery-1.4.3.min.js',
+    <?//=include_minified($BC->_getTheme().'js/bgSlider.js','js')?>
+    <?//=include_minified($BC->_getTheme().'js/jquery.mousewheel.js','js')?>
+    <?//=include_minified($BC->_getTheme().'js/jScrollPane.js','js')?>
+    <?//=include_minified($BC->_getTheme().'js/slidePager.js','js')?>
+    <?=include_combined(array(
+                                //$BC->_getTheme().'js/jquery-1.4.3.min.js',
                                 $BC->_getTheme().'js/bgSlider.js',
-                                $BC->_getTheme().'js/jquery.mousewheel.js',
-                                $BC->_getTheme().'js/jScrollPane.js',
+                                $BC->_getTheme().'js/jquery.mousewheel.minify.js',
+                                $BC->_getTheme().'js/jScrollPane.minify.js',
                                 $BC->_getTheme().'js/slidePager.js'
                                 ),
-                        $BC->_getTheme().'js/combined.js','js')*/?>
+                        $BC->_getTheme().'js/combined.js','js')?>
        
     <!--[if lt IE 7]>
     <?=include_minified($BC->_getTheme().'js/ie6_script_other.js','js')?>
