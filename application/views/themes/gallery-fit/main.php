@@ -26,20 +26,12 @@ $cap_img = $captcha_model->make();
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
     
     <?=include_minified($BC->_getTheme().'js/jquery-1.4.3.min.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/cufon-yui.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/cufon-replace.js','inline_js')?>
-    <?=include_minified($BC->_getTheme().'js/Lobster_400.font.js','js')?>
-    <?=include_minified($BC->_getTheme().'js/Myriad_Pro_BoldCond_700.font.js','js')?>
     <?=include_minified($BC->_getTheme().'js/bgSlider.js','js')?>
     <?=include_minified($BC->_getTheme().'js/jquery.mousewheel.js','js')?>
     <?=include_minified($BC->_getTheme().'js/jScrollPane.js','js')?>
     <?=include_minified($BC->_getTheme().'js/slidePager.js','js')?>
     <?/*=include_combined(array(
-                                $BC->_getTheme().'js/jquery-1.4.3.min.js', 
-                                $BC->_getTheme().'js/cufon-yui.js', 
-                                $BC->_getTheme().'js/cufon-replace.js', 
-                                $BC->_getTheme().'js/Lobster_400.font.js', 
-                                $BC->_getTheme().'js/Myriad_Pro_BoldCond_700.font.js',
+                                $BC->_getTheme().'js/jquery-1.4.3.min.js',
                                 $BC->_getTheme().'js/bgSlider.js',
                                 $BC->_getTheme().'js/jquery.mousewheel.js',
                                 $BC->_getTheme().'js/jScrollPane.js',

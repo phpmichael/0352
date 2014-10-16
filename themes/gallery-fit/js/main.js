@@ -1,6 +1,5 @@
 $j = jQuery.noConflict();
 
-Cufon.now();
 $j(window).load(function(){
 	$j('.scroll').jScrollPane({showArrows:false,scrollbarWidth:25,dragMaxHeight:105,scrollbarHeight:175})
 })
@@ -15,7 +14,7 @@ $j(function(){
 	
 	$j('#bgSlider').css({left:'586px'})
 	
-	$j('.pages').slidePager({pagernav:'aside nav li',change:function(){Cufon.refresh()}})
+	$j('.pages').slidePager({pagernav:'aside nav li'})
 	
 	var moving=true,
 		footer=$j('footer').hide(),
@@ -87,7 +86,6 @@ $j(function(){
 		methods.push(methods.shift())
 		$j('>span.meth',this).text(methods[0])
 		$j().bgSlider.changeMethod(methods[0])
-		Cufon.refresh()
 		return false
 	})
 })
