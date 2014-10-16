@@ -1,7 +1,7 @@
 $j = jQuery.noConflict();
 
 $j(window).load(function(){
-	$j('.scroll').jScrollPane({showArrows:false,scrollbarWidth:25,dragMaxHeight:105,scrollbarHeight:175})
+	$j('.scroll').jScrollPane({showArrows:false,scrollbarWidth:25,dragMaxHeight:105,scrollbarHeight:175});
 })
 $j(function(){
 	$j(window.slidesArr).bgSlider({
@@ -10,82 +10,80 @@ $j(function(){
 					  current:0,
 					  pags:'#thumbs a',
 					  spinner:'<span class="spinner"></span>'
-				  })
+				  });
 	
-	$j('#bgSlider').css({left:'586px'})
+	$j('#bgSlider').css({left:'586px'});
 	
-	$j('.pages').slidePager({pagernav:'aside nav li'})
+	$j('.pages').slidePager({pagernav:'aside nav li'});
 	
 	var moving=true,
 		footer=$j('footer').hide(),
-		wH=$j(window).height()
+		wH=$j(window).height();
 	$j(window).bind('resize',function(){
-		wH=$j(window).height()
-	})
-	$j('aside').live('mousemove',function(){moving=false})
+		wH=$j(window).height();
+	});
+	$j('aside').live('mousemove',function(){moving=false});
 	
 	$j(document).bind('mousemove',function(e){
 		var gallact=$j('aside nav li').eq(0).hasClass('active'),
 			imag=$j('#bgSlider img'),
-			asideV=true
+			asideV=true;
 		
 		if(e.clientX>586&&gallact&&!moving)
 			$j('aside').stop().animate({left:-586+'px'},{step:function(now){
-				$j('#bgSlider').css({left:586+now+'px'})
+				$j('#bgSlider').css({left:586+now+'px'});
 			},complete:function(){
-				moving=false
-				$j('body .gall_prev,body .gall_next').show().css({opacity:.7})
-				$j().bgSlider.resize()
-				asideV=true
+				moving=false;
+				$j('body .gall_prev,body .gall_next').show().css({opacity:.7});
+				$j().bgSlider.resize();
+				asideV=true;
 			}}),
-			moving=true
+			moving=true;
 		if(e.clientX<40||e.clientX>586&&!gallact&&!moving)
 			imag.eq(0).stop(),
 			imag.animate({left:0},function(){
 				$j('aside').stop().animate({left:0},{
 					step:function(now){
-						$j('#bgSlider').css({left:586+now+'px'})						
+						$j('#bgSlider').css({left:586+now+'px'});
 					},complete:function(){
-						$j('body .gall_prev,body .gall_next').hide()
-						asideV=false
-					}})
+						$j('body .gall_prev,body .gall_next').hide();
+						asideV=false;
+					}});
 			}),
-			moving=true
+			moving=true;
 
 		if(wH-e.clientY<100)
-			footer.fadeIn()
+			footer.fadeIn();
 		else
-			footer.fadeOut()
+			footer.fadeOut();
 	})
 	
 	$j('.gall_prev,.gall_next')
 		.live('mouseenter',function(){
-			$j(this).stop()
-				.animate({opacity:1})
+			$j(this).stop().animate({opacity:1});
 		})
 		.live('mouseleave',function(){
-			$j(this).stop()
-				.animate({opacity:.7})
+			$j(this).stop().animate({opacity:.7});
 		})
 	
 	$j('body .gall_prev,body .gall_next').live('click',function(){
 		if($j(this).hasClass('gall_next'))
-			$j('#bgSlider').trigger('bgSliderNext')
+			$j('#bgSlider').trigger('bgSliderNext');
 		else
-			$j('#bgSlider').trigger('bgSliderPrev')
+			$j('#bgSlider').trigger('bgSliderPrev');
 		return false
 	})
 	
-	$j('#thumbs a').append('<span class="fader"></span>')
+	$j('#thumbs a').append('<span class="fader"></span>');
 	
-	$j('#thumbs a').live('mouseover',function(){$j(this).find('.fader').css({display:'block',opacity:0}).stop().animate({opacity:.73})})
-	$j('#thumbs a').live('mouseout',function(){$j(this).find('.fader').stop().animate({opacity:0},function(){$j(this).css({display:'none'})})})
+	$j('#thumbs a').live('mouseover',function(){$j(this).find('.fader').css({display:'block',opacity:0}).stop().animate({opacity:.73})});
+	$j('#thumbs a').live('mouseout',function(){$j(this).find('.fader').stop().animate({opacity:0},function(){$j(this).css({display:'none'})})});
 	
-	var methods=['fit','full']
+	var methods=['fit','full'];
 	$j('.button-method').live('click',function(){		
-		methods.push(methods.shift())
-		$j('>span.meth',this).text(methods[0])
-		$j().bgSlider.changeMethod(methods[0])
-		return false
+		methods.push(methods.shift());
+		$j('>span.meth',this).text(methods[0]);
+		$j().bgSlider.changeMethod(methods[0]);
+		return false;
 	})
 })
