@@ -29,7 +29,7 @@ $cap_img = $captcha_model->make();
             $BC->_getTheme().'js/jquery-1.4.3.min.js',
             $BC->_getTheme().'js/bgSlider.js',
             $BC->_getTheme().'js/jquery.mousewheel.minify.js',
-            $BC->_getTheme().'js/jScrollPane.minify.js',
+            $BC->_getTheme().'js/jScrollPane.js',
             $BC->_getTheme().'js/slidePager.js',
             $BC->_getTheme().'js/main.js','js'
             ),
