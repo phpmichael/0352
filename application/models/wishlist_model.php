@@ -18,12 +18,12 @@ class Wishlist_model extends Base_model
 	 * Add product to customer's wishlist.
 	 *
 	 * @param integer $customer_id
-	 * @param integer $product_id
+	 * @param integer|string $product_id
 	 * @return integer|bool
 	 */
 	public function add($customer_id,$product_id)
 	{
-		if(!intval($customer_id) || !intval($product_id)) return FALSE;
+		if(!intval($customer_id) || !$product_id) return FALSE;
 		
 		$exists = $this->db->get_where($this->c_table,array('customer_id'=>$customer_id,'product_id'=>$product_id))->result_array();
 		if($exists) return TRUE;
