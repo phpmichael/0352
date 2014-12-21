@@ -19,6 +19,11 @@ $j(document).ready(function()
         },'json');
         return false;
     });
+
+    //trigger "submit" of "add to cart" by button click
+    $j('.add-product-submit').click(function(){
+        $j(this).parents('.add-product').submit();
+    });
     
     //process "add to wishlist" click
     $j('.add-to-wishlist').click(function()
