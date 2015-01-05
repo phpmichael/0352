@@ -109,7 +109,7 @@ a, a:focus {outline: none;}
     border: 1px solid #ddd;
 }
 .product_image_container{text-align: center;}
-.product-title{text-align: center; height: 65px; overflow: hidden;}
+.product-title{text-align: center; padding-top: 5px; height: 65px; overflow: hidden;}
 .product-buy{text-align: center;}
 .product-price{margin:5px 3px;font-weight: bold; font-size: 16px; color: #E2A82B;}
 .product-old-price{margin:5px 3px;font-weight: normal; font-size: 14px; text-decoration: line-through;}
@@ -137,9 +137,17 @@ a, a:focus {outline: none;}
 #find-book .fb-output-screen .list-row-even{background:#EEE;}
 
 /* footer */
-footer{background: #eee; margin-top: 20px; padding-top: 20px;}
-footer .copyright{background: #444;text-align: center; color: #fff; font-size: 12px; height: 35px; line-height: 35px; margin-top:10px;}
-.logo-bottom{background: url('../img2/logo-bottom.png') 0 0; width: 197px; height: 90px;}
+footer{background: #eee; margin-top: 20px; padding-top: 8px;}
+footer .copyright{background: #444;text-align: center; color: #fff; font-size: 12px; height: 35px; line-height: 35px;}
+.logo-bottom{background: url('../img2/logo-bottom.png') no-repeat; width: 197px; height: 90px; float: right; margin-top: 20px;}
+
+footer h3{text-transform: uppercase; color: #00ABF0; font-size: 14px; font-weight: normal; margin-bottom: 0; }
+footer .nav>li{ line-height: 25px; }
+footer .nav>li>a{ color: #444; }
+footer .nav>li>a:hover{ color: #444; background: none; text-decoration: underline;}
+footer .email-icon{background: url('../img2/email-icon.png') no-repeat; width: 34px; height: 34px; padding: 5px 5px 5px 0;}
+footer .mobile-icon{background: url('../img2/mobile-icon.png') no-repeat; width: 34px; height: 34px; padding: 5px 5px 5px 0;}
+footer .phone-number{font-weight: normal;}
 
 .social-icon{width: 32px; height: 32px; display: block; float: left; margin: 10px 10px 0 0;}
 .social-google{background: url('../img/sprites.png'); background-position: -160px -350px; }

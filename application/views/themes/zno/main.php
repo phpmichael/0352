@@ -105,8 +105,9 @@ $BC->lang->load('calendar');
                     <div class="row-fluid">
                         <div class="wrapper">
                             <div class="span3">
+                                <h3><?=language('shop')?></h3>
                                 <ul class="nav">
-                                    <?=get_menu('bottom',"<li><a href='{link}'><span>{title}</span></a></li>")?>
+                                    <?=get_menu('bottom',"<li><a href='{link}'>{title}</a></li>")?>
                                 </ul>
                             </div>
 
