@@ -10,12 +10,16 @@ aside{}
 .fr{float:right;}
 .navbar .btn {margin-top:0;}
 a, a:focus {outline: none;}
+h2{color: #333; text-transform: uppercase; font-size: 18px; border-bottom: 1px solid #00ABF0;}
 
 .header{height: 115px;}
+header .navbar .nav>li>a{padding-left: 30px; padding-right: 30px;}
+header .navbar .nav>li>a.btn{padding: 5px 10px; margin-top: 10px; text-transform: uppercase;}
 
 .wrapper{width: 1100px; margin: 0 auto;}
 
 .left-sidebar{width: 223px; float: left;}
+.left-sidebar .sidebar-box{border: 1px solid #ddd; padding: 15px 0; text-align: center;}
 .main{width: 852px; float: left; margin: 0 0 0 25px;}
 
 /* logo */
@@ -45,12 +49,6 @@ a, a:focus {outline: none;}
 #cart h3{display:none;}
 
 /* catalog */
-/*.side-box{background: url('../img/side-box-bg.png') repeat-y;}
-.side-box-top{background: url('../img/side-box-sprites.png') no-repeat; height: 64px;}
-.side-box-top h3{margin: 0 0 0 15px; padding: 7px 0 7px 5px;}
-.side-box-bottom{background: url('../img/side-box-sprites.png') no-repeat 0 -70px; height: 16px;}*/
-
-/*.navbar h2.catalog i{display: inline-block; width: 16px; height: 16px; background: url('../img/side-box-sprites.png') no-repeat 0 -128px; padding-right: 5px;}*/
 .navbar h2.catalog{font-size: 16px; text-transform: uppercase; text-align: center; color: #fff; display: block; float: left; background: #E2A82B; width: 223px; height: 50px; line-height: 50px; margin: 0 50px 0 0; padding: 0;}
 .navbar h2.catalog i{vertical-align: middle; padding: 0 5px 5px 0;}
 
@@ -154,34 +152,3 @@ footer .phone-number{font-weight: normal;}
 .social-twitter{background: url('../img/sprites.png'); background-position: -195px -350px;}
 .social-vkontakte{background: url('../img/sprites.png'); background-position: -230px -350px;}
 .social-odnoklasniki{background: url('../img/sprites.png'); background-position: -265px -350px;}
-
-/* 2 lines as background */
-.fancy {
-    line-height: 0.5;
-    text-align: center;
-    color: #a7a7a7;
-    font-size: 22px;
-    padding-bottom: 10px;
-}
-.fancy span {
-    display: inline-block;
-    position: relative;
-}
-.fancy span:before,
-.fancy span:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    border-bottom: 1px solid #CDCDCD;
-    border-top: 1px solid #CDCDCD;
-    top: 5px;
-    width: 500px;
-}
-.fancy span:before {
-    right: 100%;
-    margin-right: 5px;
-}
-.fancy span:after {
-    left: 100%;
-    margin-left: 5px;
-}

@@ -51,7 +51,7 @@ $BC->lang->load('calendar');
                             <?load_theme_view('inc/search')?>
                             <div>
                                 <a href="#">Замовити зворотній дзвінок</a> <br/>
-                                <a href="#">Задати питання</a>
+                                <a href="contact_us">Задати питання</a>
                             </div>
                         </div>
 
@@ -70,6 +70,7 @@ $BC->lang->load('calendar');
 
                                         <ul class="nav">
                                             <?=get_menu('left',"<li><a href='{link}'><span>{title}</span></a></li>")?>
+                                            <li><a class="btn btn-primary" href="#">Довідник ЗНО</a></li>
                                         </ul>
 
                                     </div><!-- /.nav-collapse -->
