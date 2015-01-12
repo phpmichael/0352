@@ -22,6 +22,9 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 .left-sidebar{width: 223px; float: left;}
 .left-sidebar .sidebar-box{border: 1px solid #ddd; padding: 15px 0; text-align: center;}
 .left-sidebar .news-list{padding: 0;}
+.left-sidebar .news-list small{background: #ddd; padding: 3px;}
+.left-sidebar .news-list a{color: #777;}
+.left-sidebar .news-list a:hover{background: none; color:#3498db;}
 
 .main{width: 852px; float: left; margin: 0 0 0 25px;}
 
@@ -30,7 +33,7 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 
 /* phones */
 .phones-line{text-align: center;}
-.phone-number{font-size: 14px;font-weight: bold;color: #444444; line-height: 150%;}
+.phone-number{font-size: 14px;font-weight: bold;color: #444; line-height: 150%;}
 .phone-highlight{color:#444;}
 .phone-operator{font-weight: normal;color:#777;}
 
@@ -68,7 +71,6 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
     vertical-align: middle;
     display: block;
 }
-#products-categories>li.level1>a{}
 #products-categories li a:hover, #products-categories li a.active{color: #48AFEA;}
 #products-categories li li{display:none;}
 .cat-with-children, .cat-without-children{
@@ -80,7 +82,12 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 }
 .cat-with-children{background: url('../img2/checkbox-icon.png') no-repeat; }
 .cat-without-children{background: url('../img2/checkbox-icon.png') no-repeat; }
+#products-categories ul.level2{padding: 2px 0 10px 0; margin-left: 0;}
 #products-categories li.level2{background: none;}
+#products-categories li.level2>a{padding: 5px 0 5px 30px;}
+#products-categories li.level2>a>i{display: none;}
+#products-categories li.level2>a:hover{background: #F4B837; color: #fff;}
+#products-categories li.level2>a.active{background: #E2A82B; color: #fff;}
 
 /* search box */
 .search-box{margin: 5px auto;}
@@ -113,6 +120,8 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 }
 .product_image_container{text-align: center;}
 .product-title{text-align: center; padding-top: 5px; height: 65px; overflow: hidden;}
+.product-title a{color:#444;}
+.product-title a:hover{color:#3498db; text-decoration: none;}
 .product-buy{text-align: center;}
 .product-price{margin:5px 3px;font-weight: bold; font-size: 16px; color: #E2A82B;}
 .product-old-price{margin:5px 3px;font-weight: normal; font-size: 14px; text-decoration: line-through;}
