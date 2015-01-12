@@ -14,12 +14,15 @@ h2{color: #333; text-transform: uppercase; font-size: 18px; border-bottom: 1px s
 
 .header{height: 115px;}
 header .navbar .nav>li>a{padding-left: 30px; padding-right: 30px;}
-header .navbar .nav>li>a.btn{padding: 5px 10px; margin-top: 10px; text-transform: uppercase;}
+header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-transform: uppercase;}
 
 .wrapper{width: 1100px; margin: 0 auto;}
 
+/* Sidebar */
 .left-sidebar{width: 223px; float: left;}
 .left-sidebar .sidebar-box{border: 1px solid #ddd; padding: 15px 0; text-align: center;}
+.left-sidebar .news-list{padding: 0;}
+
 .main{width: 852px; float: left; margin: 0 0 0 25px;}
 
 /* logo */

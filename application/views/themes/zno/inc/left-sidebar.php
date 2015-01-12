@@ -4,6 +4,11 @@
     <a class="btn btn-primary" href="#">ОНЛАЙН ТЕСТИ ЗНО<i class="icon-chevron-right icon-white"></i></a>
 </div>
 
+<?//recent articles: just for home page?>
+<?if (($BC->is_home_page())):?>
+    <?load_theme_view('inc/box-recent-articles')?>
+<?endif?>
+
 <h2><?=language('follow_us')?></h2>
 <div class="row-fluid">
     <a class="social-icon social-google" href="#"></a>
