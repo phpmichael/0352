@@ -20,6 +20,12 @@
     </div>
 
     <div class="clearfix"></div>
+
+    <?if(trim($body)):?>
+    <div class="full-box">
+        <?=$body?>
+    </div>
+    <?endif?>
     
     <h2><?=language('novelty')?></h2>
 

@@ -98,6 +98,8 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 .slider-arrow-left{background: url('../img2/slider-arrow-left.png') no-repeat; width: 30px; height: 50px; position: absolute; top:100px; left: 0; z-index: 9; cursor: pointer;}
 .slider-arrow-right{background: url('../img2/slider-arrow-right.png') no-repeat; width: 30px; height: 50px; position: absolute; top:100px; right: 0; z-index: 9; cursor: pointer;}
 
+.full-box{background: #eee; border: 10px solid #ddd; padding: 15px; margin: 5px 0;}
+
 /* products grid */
 .products-grid {margin: 0;}
 .products-grid th,
