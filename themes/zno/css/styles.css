@@ -13,6 +13,7 @@ a, a:focus {outline: none;}
 h1, h2{color: #333; text-transform: uppercase; border-bottom: 1px solid #00ABF0;}
 h1{font-size: 180%;}
 h2{font-size: 130%;}
+.table-bordered{border-radius: 0;}
 
 .header{height: 115px;}
 header .navbar .nav>li>a{padding-left: 30px; padding-right: 30px;}
@@ -136,10 +137,7 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
     background:#3BA9E9;
     color:#fff;
     text-decoration:none;
-    padding:3px;
-    -webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
+    padding:5px;
 }
 
 .post-tags a:hover{
