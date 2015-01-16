@@ -50,8 +50,8 @@ $BC->lang->load('calendar');
                         <div class="span6">
                             <?load_theme_view('inc/search')?>
                             <div>
-                                <a href="#">Замовити зворотній дзвінок</a> <br/>
-                                <a href="contact_us">Задати питання</a>
+                                <a href="#"><?=language('request_a_call')?></a> <br/>
+                                <?=anchor_base('contact_us', language('ask_a_question'))?>
                             </div>
                         </div>
 
