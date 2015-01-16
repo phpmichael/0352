@@ -1,5 +1,7 @@
 <h1><?=$BC->_getPageTitle()?></h1>
 
+<p><?=nl2br(@$search_category_description)?></p>
+
 <div id="find-book">
 	<?fb_form("find_book",FALSE)?>
 </div>
