@@ -51,7 +51,7 @@ $BC->lang->load('calendar');
                             <?load_theme_view('inc/search')?>
                             <div>
                                 <a href="#"><?=language('request_a_call')?></a> <br/>
-                                <?=anchor_base('contact_us', language('ask_a_question'))?>
+                                <?=anchor_base($BC->config->item('language')=='ukrainian'?'page/vidstezhiti-vantazh':'page/otsledit-gruz', language('track_shipment'))?>
                             </div>
                         </div>
 

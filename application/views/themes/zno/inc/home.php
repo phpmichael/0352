@@ -32,7 +32,7 @@
     <div>
         <?
             load_model('books_model');
-            $recent_books = $BC->zen->books_model->getRecent(10);
+            $recent_books = $BC->zen->books_model->getRecent(15);
         ?>
     	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>
