@@ -58,6 +58,8 @@
                     <?=strip_tags(include_minified($BC->_getFolder('js').'custom/cart/show_short_cart.js','inline_js'))?>
                     <?=strip_tags(load_inline_js('inc/js-add-to-cart'))?>
 
+                    <?=strip_tags(include_minified($BC->_getTheme().'js/request-call.js','inline_js'))?>
+
                     <?if(in_array($BC->_getController(),array('contact_us'))):?>
                     <?=strip_tags(include_minified($BC->_getFolder('js').'custom/contact_us/send_form.js','inline_js'))?>
                     <?endif?>
