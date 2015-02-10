@@ -39,10 +39,7 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
             'field'=>'phone'
         ),
         array(
-            'field'=>'phone2'
-        ),
-        array(
-            'field'=>'website'
+            'field'=>'city'
         ),
         array(
             'field'=>'reg_date'
