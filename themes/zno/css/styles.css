@@ -146,11 +146,20 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 }
 
 
-#find-book .fb-output-screen{width:auto;}
-#find-book ul{margin:0;}
-#find-book li{list-style-type:none;}
-#find-book .fb-output-screen .list-row-odd{background:#F5F5F5;}
-#find-book .fb-output-screen .list-row-even{background:#EEE;}
+#find-book{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+}
+#show-grid-icon{
+    background: url('../img2/show-grid-icon.png') no-repeat; width: 30px; height: 30px; float: left; padding-left: 10px;
+}
+#show-list-icon{
+    background: url('../img2/show-list-icon.png') no-repeat; width: 30px; height: 30px; float: left; padding-left: 10px;
+}
+.pagination.pull-right{
+    margin: 0;
+}
 
 /* footer */
 footer{background: #eee; margin-top: 20px; padding-top: 8px;}

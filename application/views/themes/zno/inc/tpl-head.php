@@ -50,8 +50,20 @@
                 ],
                 complete: function(){
                     <?=strip_tags(include_minified($BC->_getTheme().'js/categories-nav.js','inline_js'))?>
+
                     <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('index','search')) && @$search_category_id):?>
                     $j(document).ready(function(){ open_level1_node($j("#products-categories a.active")); });
+                    <?endif?>
+
+                    <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('search'))):?>
+                    $j(document).ready(function(){
+                        $j('select[name=sort_by]').change(function(){
+                            location.href = search_url.replace('<?=$sort_by?>',this.value);
+                        });
+                        $j('.sort-direction').click(function(){
+                            location.href = search_url.replace('<?=$sort_order?>',$j(this).attr('rel'));
+                        });
+                    });
                     <?endif?>
 
                     <?=strip_tags(include_minified($BC->_getFolder('js').'custom/cart/cart.js','inline_js'))?>
