@@ -180,11 +180,19 @@ class Agenda_model extends Base_model
      */
     private function prepareEvent($event)
     {
-        $event['start'] = $event['start_date'].' '.$event['start_time'];    
-	    $start = strtotime($event['start']);
-		
-		$event['end'] = $event['end_date'].' '.$event['end_time'];    
-	    $end = strtotime($event['end']);
+        $start = $end = 0;
+
+        if( isset($event['start_date']) && isset($event['start_time']) )
+        {
+            $event['start'] = $event['start_date'].' '.$event['start_time'];
+            $start = strtotime($event['start']);
+        }
+
+        if( isset($event['end_date']) && isset($event['end_time']) )
+        {
+            $event['end'] = $event['end_date'].' '.$event['end_time'];
+            $end = strtotime($event['end']);
+        }
 	    
 	    //start of event couldn't be greater than end
 	    if($start > $end)
