@@ -16,3 +16,8 @@
     <a class="social-icon social-vkontakte" href="#"></a>
     <a class="social-icon social-odnoklasniki" href="#"></a>
 </div>
+
+<?if (($BC->is_home_page())):?>
+    <h2>Графік ЗНО-2015</h2>
+    <?=img(array('src'=>'store/zno-agenda-2015.png', 'height'=>'379', 'width'=>'196'))?>
+<?endif?>
