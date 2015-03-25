@@ -278,9 +278,11 @@ class Photos_model extends Base_model
      * @param integer $category_id
      * @param int|string $tag
      * @param integer $per_page
+     * @param string $order_by
+     * @param string $order_dir
      * @return array
      */
-    public function get($category_id = 0, $tag = 0, $per_page = 10)
+    public function get($category_id = 0, $tag = 0, $per_page = 10, $order_by = 'id', $order_dir = 'asc')
     {
     	//offset values
     	$offset_segment = $this->CI->_getSegmentsOffset()+5;
@@ -317,7 +319,7 @@ class Photos_model extends Base_model
 			$this->db->where( array('category_id' => $category_id) );
 		}
 		
-		$this->db->order_by("id", "asc");
+		$this->db->order_by($order_by, $order_dir);
 		$data['list'] = $this->db->get($this->c_table, $per_page, $offset)->result_array();
         //dump($this->db->last_query());exit;
 		
