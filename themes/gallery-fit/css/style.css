@@ -369,7 +369,7 @@ footer .privacy{
 	float:left;
 	width:456px;
 	border:1px #363636 solid;
-	background:url(../images/input-bg.png);
+	background-color:#1B1B1B;
 	padding:4px 0 4px 6px;
 	font:11px Verdana, Geneva, sans-serif, "Myriad Pro";
 	color:#868686;
