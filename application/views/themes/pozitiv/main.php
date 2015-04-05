@@ -27,7 +27,8 @@
 	    <header>
 	    	<div id="banner"></div>
 	    	<div id="top_right">
-	    		<a href="#"><?=img(array('src'=>$BC->_getTheme().'images/vk.png','width'=>28,'height'=>27,'alt'=>'ВКонтакте'))?></a> 
+	    		<a href="https://vk.com/club86482269"><?=img(array('src'=>$BC->_getTheme().'images/vkontakte.png','width'=>24,'height'=>24,'alt'=>'ВКонтакте'))?></a>
+	    		<a href="https://www.facebook.com/rootigor"><?=img(array('src'=>$BC->_getTheme().'images/facebook.png','width'=>24,'height'=>24,'alt'=>'Facebook'))?></a>
 	    		<a href="<?=base_url()?>" title="<?=language('ukrainian')?>" class="flag flag-ua">Укр</a> | <a href="<?=base_url().'ru/'?>" title="<?=language('russian')?>" class="flag flag-ru">Рус</a>
 	    	</div>
 	    </header>
