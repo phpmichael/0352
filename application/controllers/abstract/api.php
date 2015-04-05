@@ -75,6 +75,9 @@ abstract class API extends REST_Controller
     {
         $data = $_POST = $this->post();
 
+        //TODO: set logged customer id, next line doesn't help :(
+        //$data['customer_id'] = $this->user['id'];
+
         if(empty($data))
         {
             $this->response(array('errors' => array($this->messages['empty_data'])), 200);
