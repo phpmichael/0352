@@ -21,10 +21,13 @@ class Quiz extends Front
 		parent::__construct();
 
 		// === Check is logged customer === //
-		$this->_CheckLogged();
+		if( !in_array($this->_getMethod(), array('categories', 'index', 'rating')) )
+        {
+            $this->_CheckLogged();
+        }
 		
 		// === Load Models === //
-		$this->load->model('quiz_model');
+		$this->load->model(array('quiz_model', 'quiz_categories_model'));
 		
 		// === Init Language Section === //
 		$this->lang_model->init(array('label','front','quiz'));
@@ -92,6 +95,15 @@ class Quiz extends Front
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
 	// ============= ACTION METHODS ================ //
+
+    public function Categories()
+    {
+        $data['categories'] = $this->quiz_categories_model->GetChildren(0,TRUE);
+
+        $data['controller'] = $this->_getController();
+
+        parent::_OnOutput($data);
+    }
 
     /**
 	 * Show list with all active quizes.
