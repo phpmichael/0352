@@ -1,7 +1,7 @@
 <?load_theme_view('inc/box-products-categories')?>
 
 <div class="sidebar-box">
-    <a class="btn btn-primary" href="#">ОНЛАЙН ТЕСТИ ЗНО<i class="icon-chevron-right icon-white"></i></a>
+    <?=anchor_base('quiz/categories','ОНЛАЙН ТЕСТИ ЗНО <i class="icon-chevron-right icon-white"></i>','class="btn btn-primary"')?>
 </div>
 
 <?//recent articles: just for home page?>

@@ -15,7 +15,7 @@
 
             <?if(@$item['file_name']):?>
                 <p>
-                    <a title="<?=htmlspecialchars($item['category'])?>" href="<?=site_url($BC->_getBaseURL()."store/{$controller}/".urlencode($item['category']))?>">
+                    <a title="<?=htmlspecialchars($item['category'])?>" href="<?=site_url($BC->_getBaseURL()."store/{$controller}/".$item['id'])?>">
                         <?=img('images/data/s/quiz_categories_list/'.$item['file_name'])?>
                     </a>
                 </p>
