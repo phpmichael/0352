@@ -64,6 +64,14 @@
                     <?if($manufacturer):?>
                     <p><strong><?=fb_input_label("manufacturer_id","books")?>: <?=anchor_base('books/search/manufacturer/'.urlencode($manufacturer),$manufacturer)?></strong></p>
                     <?endif?>
+
+                    <?if(@$sample):?>
+                    <p>
+                        <a href="<?=base_url().'images/data/files/books/'.$sample?>" target="_blank">
+                            Зразок книги
+                        </a>
+                    </p>
+                    <?endif?>
                     
                     <p><?social_buttons()?></p>
                     
