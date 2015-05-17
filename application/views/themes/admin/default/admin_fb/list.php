@@ -15,12 +15,6 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_c
 ?>
 <!--Load Search Form-->
 
-<?if(isset($whole_price_update)):?>
-<div class="fr">
-    <?load_theme_view('inc/form-whole-prices-update');?>
-</div>
-<?endif?>
-
 <div class="clear"></div>
 
 <?=br(2)?>
@@ -38,6 +32,10 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_c
     
     <?//lopen form for delete records?>
     <?=aform_open__Delete_Selected()?>
+
+    <?if(isset($whole_price_update)):?>
+        <?load_theme_view('inc/form-whole-prices-update');?>
+    <?endif?>
     
     <?
     $cols = $BC->formbuilder_model->getColsList($BC->_getProcessFormId());

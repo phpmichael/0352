@@ -65,8 +65,9 @@ class Books extends Admin_fb
 	    $sign = $this->input->post('sign');
 	    $value = $this->input->post('value');
 	    $type = $this->input->post('type');
-	    
-	    $this->books_model->wholePricesUpdate($sign,$value,$type);
+        $selectedIds = $this->input->post('check');
+
+        $this->books_model->wholePricesUpdate($sign,$value,$type,$selectedIds);
 	    
 	    redirect(aurl());
 	}

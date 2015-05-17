@@ -1,9 +1,15 @@
 <?if(userAccess($BC->_getController(),'edit')):?>
-	<?=form_open($BC->_getBaseURI().'/whole_prices_update')?>
+	<div id="whole_prices_update">
     	<?=language('update_prices')?>:
     	<?=form_dropdown('sign',array('+'=>'+','-'=>'-'))?>
     	<?=form_input('value')?>
     	<?=form_dropdown('type',array('percents'=>'%','money'=>'money'))?>
-    	<?=form_submit('',language('change'))?>
-    </form>
+    	<?=form_button('',language('change'))?>
+    </div>
+
+    <script>
+        $j('#whole_prices_update button').click(function(){
+            $j('form[name=form]').attr('action','<?=aurl('whole_prices_update')?>').submit();
+        });
+    </script>
 <?endif?>

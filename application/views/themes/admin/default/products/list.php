@@ -14,12 +14,6 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_c
 ?>
 <!--Load Search Form-->
 
-
-<div class="fr">
-    <?load_theme_view('inc/form-whole-prices-update');?>
-</div>
-
-
 <div class="clear"></div>
 
 <br />
@@ -35,6 +29,8 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_c
 
     <?//lopen form for delete records?>
     <?=aform_open__Delete_Selected()?>
+
+    <?load_theme_view('inc/form-whole-prices-update');?>
     
     <?//set ouput format
     $cols = array(

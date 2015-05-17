@@ -241,19 +241,26 @@ class Products_model extends Posts_model
     }
     
     /**
-     * Update prices for all products.
+     * Update prices for selected products.
      *
      * @param string $sign +/-
      * @param float $value
      * @param string $type %/money
+     * @param array $selectedIds
      * @return bool
      */
-    public function wholePricesUpdate($sign,$value,$type)
+    public function wholePricesUpdate($sign,$value,$type,$selectedIds)
     {
         if(empty($value)) return FALSE;
-        
-        $records = $this->getAll();
-        
+
+        $ids = array();
+        foreach($selectedIds as $id=>$selected)
+        {
+            $ids[] = $id;//TODO: sanitize
+        }
+
+        $records = $this->db->get_where($this->c_table,$this->id_column." IN ('".join("','",$ids)."')")->result_array();
+
         foreach ($records as $record)
         {
             if($type=='money')

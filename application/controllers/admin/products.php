@@ -281,8 +281,9 @@ class Products extends Admin
 	    $sign = $this->input->post('sign');
 	    $value = $this->input->post('value');
 	    $type = $this->input->post('type');
+        $selectedIds = $this->input->post('check');
 	    
-	    $this->products_model->wholePricesUpdate($sign,$value,$type);
+	    $this->products_model->wholePricesUpdate($sign,$value,$type,$selectedIds);
 	    
 	    redirect(aurl());
 	}
