@@ -68,7 +68,7 @@
                     <?if(@$sample):?>
                     <p>
                         <a href="<?=base_url().'images/data/files/books/'.$sample?>" target="_blank">
-                            Зразок книги
+                            Фрагмент для ознайомлення (~<?=round(filesize('./images/data/files/books/'.$sample)/1024)?> Kb PDF)
                         </a>
                     </p>
                     <?endif?>
