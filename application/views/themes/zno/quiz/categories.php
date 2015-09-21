@@ -1,3 +1,5 @@
+<h2>В розробці</h2>
+<!--
 <h2><?=$BC->_getPageTitle()?></h2>
 
 <table class="table table-bordered table-striped">
@@ -30,4 +32,5 @@
     </tr>
     </tbody>
 </table>
+-->
 
