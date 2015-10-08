@@ -64,6 +64,11 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names, 'search_c
             {
                 $row[$col['field'].'__output'] = fb_answers($row[$col['field']]);
             }
+            //if category
+            elseif($col['field'] == 'category_id' && isset($categories_model))
+            {
+                $row[$col['field'].'__output'] = $categories_model->getTitle($row['category_id']);
+            }
         }
     }
     

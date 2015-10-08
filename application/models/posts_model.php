@@ -26,6 +26,8 @@ abstract class Posts_model extends Base_model
 	
 	//dir for upload images
 	protected $upload_path = './images/data/';
+    //allowed file types
+    protected $allowed_types = 'jpg|png';
 	//dir for big images
 	protected $big_dir = "b/";
 	//dir for medium images
@@ -475,10 +477,10 @@ abstract class Posts_model extends Base_model
     	
     	$config = array();
 		$config['upload_path'] = $this->upload_path;
-		$config['allowed_types'] = 'jpg|png';
+		$config['allowed_types'] = $this->allowed_types;
 		$config['encrypt_name'] = TRUE;
 		$config['max_size'] = ( (@$this->CI->settings_model['upload_max_filesize']) ? $this->CI->settings_model['upload_max_filesize'] : 2048 );
-		
+
 		//  === LOAD UPLOAD CLASS === //
 		$this->CI->load->library('upload', $config);
 		

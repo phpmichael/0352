@@ -927,11 +927,14 @@ class Formbuilder_model extends Base_model
 		switch($name)
 		{
 			case "articles_categories":
+			case "products_categories":
+			case "documents_categories":
 				$parent_id = intval(@$params[1]);
+
+                $model_name = $name."_model";
+				load_model($model_name);
 				
-				load_model("articles_categories_model");
-				
-				$records = $this->CI->articles_categories_model->getChildren($parent_id);
+				$records = $this->CI->$model_name->getChildren($parent_id);
 				
 				if(empty($records)) return array();
 				
@@ -943,10 +946,6 @@ class Formbuilder_model extends Base_model
 					$answers[$i]['value'] = $value;
 					$i++;
 				}
-			break;
-			
-			case "products_categories":
-				
 			break;
 			
 			case "products_manufacturers":

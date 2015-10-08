@@ -1,0 +1,1 @@
+<?load_theme_view('admin_fb/list',array('categories_model' => load_model('documents_categories_model')))?>

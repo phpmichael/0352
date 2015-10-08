@@ -940,6 +940,10 @@ abstract class Base_model extends CI_Model
     		case "photos":
     			$categories_model_name = "photos_categories";
     		break;
+
+            case "documents":
+                $categories_model_name = "documents_categories";
+            break;
     		
     		default:
     			$categories_model_name = FALSE;

@@ -60,6 +60,14 @@
         <?if(userAccess('slideshow','view')):?>
         <li><?=$BC->buildLeftMenuItem('slideshow','slideshow')?></li>
         <?endif?>
+
+        <?if(userAccess('documents','view')):?>
+        <li><?=$BC->buildLeftMenuItem('documents','documents')?></li>
+        <?endif?>
+
+        <?if(userAccess('documents_categories','view')):?>
+        <li><?=$BC->buildLeftMenuItem('documents_categories','documents_categories')?></li>
+        <?endif?>
       
       </ul>
       

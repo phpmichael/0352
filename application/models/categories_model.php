@@ -25,7 +25,7 @@ class Categories_model extends Base_model
 	public function getTitle($category_id)
 	{
 		$data = $this->getOneById($category_id);
-		
+
 		if(!$data) return FALSE;
 		
 		//if multilang array

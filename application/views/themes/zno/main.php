@@ -70,7 +70,7 @@ $BC->lang->load('calendar');
 
                                         <ul class="nav">
                                             <?=get_menu('left',"<li><a href='{link}'><span>{title}</span></a></li>")?>
-                                            <li><a class="btn btn-primary" href="#">Довідник ЗНО</a></li>
+                                            <li><a class="btn btn-primary" href="<?=site_url('documents')?>">Довідник ЗНО</a></li>
                                         </ul>
 
                                     </div><!-- /.nav-collapse -->

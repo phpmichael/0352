@@ -42,6 +42,7 @@
  * @property agenda_model $agenda_model
  * @property news_model $news_model
  * @property articles_model $articles_model
+ * @property documents_model $documents_model
  * @property poll_model $poll_model
  * @property products_model $products_model
  * @property products_manufacturers_model $products_manufacturers_model
@@ -52,6 +53,7 @@
  * @property auto_responders_model $auto_responders_model
  * @property comments_model $comments_model
  * @property articles_categories_model $articles_categories_model
+ * @property documents_categories_model $documents_categories_model
  * @property news_categories_model $news_categories_model
  * @property discount_coupons_model $discount_coupons_model
  * @property filters_model $filters_model
