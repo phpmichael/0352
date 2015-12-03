@@ -1,0 +1,158 @@
+/* Begin Structure */
+body {
+	font-family: Verdana, Tahoma, Serif;
+	background: #111;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	line-height: 130%;
+}
+
+strong{
+    font-weight: bold;
+}
+	
+a{
+	font-family: Verdana, Tahoma, Serif;
+	font-size: 12px;
+	color: #4573E4;
+	text-decoration: none;
+}
+
+a:hover{
+	color: red;
+}
+
+.clear{
+	clear: both;
+}
+
+#result_message{
+	color: #d22;
+}
+
+h1{
+	font-weight: 700;
+	font-size: 22px;
+	font-style: italic;
+	line-height: 160%;
+	margin-bottom: 10px;
+}
+
+h2{
+	font-size: 18px;
+	font-weight: 400;
+	font-style: italic;
+	padding-bottom: 10px;
+}
+
+input, textarea{
+	font-size: 12px;
+	font-family: Verdana, Tahoma, Serif;
+	color: #555;
+}
+
+input.button {
+    background-color: #959595;
+    color: #fff;
+    font-weight: 400;
+    border: 1px solid #000;
+    padding: 1px 5px;
+    cursor:pointer;
+}
+
+input.button:hover {
+	background-color: #bbb;
+}
+
+	
+#page {
+    margin: 0 auto;
+   	width: 1000px;
+   	text-align: left;
+   	background: url('../images/site/page.png') repeat-y;
+}
+
+#header	{
+	height: 158px;
+	background: url('../images/site/header.png') no-repeat;
+	clear: both;
+	cursor: pointer;
+}
+		
+#menu{
+	width: 178px;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+	
+	#menu_main a{
+		background: url('../images/site/menu_main.png') no-repeat;
+		width: 178px;
+		height: 46px;
+		display: block;
+		float:left;
+		margin-top: 30px;
+	}
+	
+	#menu_contacts a{
+		background: url('../images/site/menu_contacts.png') no-repeat;
+		width: 178px;
+		height: 50px;
+		display: block;
+		float:left;
+		margin-top: 5px;
+	}
+	
+	#menu_prices a{
+		background: url('../images/site/menu_prices.png') no-repeat;
+		width: 178px;
+		height: 54px;
+		display: block;
+		float:left;
+		margin-top: 5px;
+	}
+	
+	.tag_cloud{
+		text-align: center;
+		padding: 3px;
+		margin: 60px 0 30px;
+	}
+	
+	.tag_cloud a{
+		font-style: italic;
+	}
+	
+		div.tag_cloud a{
+			color: #eee;
+		}
+	
+		div.tag_cloud a.odd{
+			color: #959595;
+		}
+	
+		div.tag_cloud a:hover{
+			color: red;
+		}
+		
+	div.w88{
+		width: 88px;
+		float: left;
+	}
+			
+	
+#content{
+	width: 760px;/*820*/
+	float: left;
+	padding: 10px 10px 10px 30px;
+}
+	
+#footer {
+	height: 35px;
+	clear: both;
+	background: #000;
+	text-align: center;
+	border-top: 1px solid #fff;
+	padding-top: 15px;
+}
