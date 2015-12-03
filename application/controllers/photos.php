@@ -102,12 +102,12 @@ class Photos extends Front
 	 */
 	public function Index($parent_id=0)
 	{
-		if($parent_id=='category') //url like "photos/index/category/:id"
-		    $parent_id = $this->uri->segment($this->_getSegmentsOffset()+4);
+		if($parent_id==='category') //url like "photos/index/category/:id"
+		    $parent_id = intval($this->uri->segment($this->_getSegmentsOffset()+4));
 	    else $parent_id = intval($parent_id); //url like "photos/index/:id"
 	    
 	    $data['categories'] = $this->photos_categories_model->GetChildren($parent_id,TRUE);
-		
+
 		//if no subcategories - show posts
 		if(empty($data['categories']))
 		{

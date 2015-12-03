@@ -3,7 +3,7 @@
 	$BC->load->library('table');
 	
 	$tmpl = array (
-        'table_open'          => '<table width="100%" border="0" cellpadding="4" cellspacing="0">',
+        'table_open'          => '<table width="100%">',
 
         'heading_row_start'   => '<tr>',
         'heading_row_end'     => '</tr>',
@@ -34,7 +34,7 @@
 
 	if(isset($list) && !empty($list)) 
 	{
-		$list = $BC->table->make_columns($list, 4);
+		$list = $BC->table->make_columns($list, $BC->settings_model['gallery_table_cols']);
 		$gallery_table = $BC->table->generate($list);
 	}
 	else 
@@ -50,7 +50,7 @@
 
 <h2><?=$BC->_getPageTitle()?></h2>
 
-<div align="center">
+<div>
 	<?=$gallery_table?>
 </div>
 
