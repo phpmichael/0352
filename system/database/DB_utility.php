@@ -282,12 +282,13 @@ class CI_DB_utility extends CI_DB_forge {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * Database Backup
-	 *
-	 * @access	public
-	 * @return	void
-	 */
+    /**
+     * Database Backup
+     *
+     * @access    public
+     * @param array $params
+     * @return    string
+     */
 	function backup($params = array())
 	{
 		// If the parameters have not been submitted as an
