@@ -114,7 +114,7 @@ class Photos extends Front
 			redirect($this->_getBaseURI()."/show/".$parent_id);
 		}
 		
-		$data['tpl_page'] = $this->controller."/categories";
+		$data['tpl_page'] = $this->_getController()."/categories";
 
 		parent::_OnOutput($data);
 	}
