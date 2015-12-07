@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Return/output debug information.
+ * @param mixed $var
+ * @param bool $return
+ * @param bool $use_xdebug
+ * @return void|string
+ */
 function quark_dump($var, $return = FALSE, $use_xdebug = TRUE)
 {
 	$use_xdebug = $use_xdebug && function_exists('xdebug_var_dump');
