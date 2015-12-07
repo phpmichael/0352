@@ -34,6 +34,7 @@
                         alert(response.message);
                         return false;
                     }
+                    return true;
                 });
             },
 
@@ -46,6 +47,7 @@
                         alert(response.message);
                         return false;
                     }
+                    return true;
                 });
             },
 
@@ -128,6 +130,8 @@
 
                 $j(document).trigger('close.facebox');
 
+                return true;
+
             },'json');
 
             return false;
@@ -151,6 +155,8 @@
                         $j('#agenda').fullCalendar('refetchEvents');
 
                         $j(document).trigger('close.facebox');
+
+                        return true;
                     });
                 }
             }
