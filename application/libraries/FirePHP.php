@@ -781,10 +781,10 @@ class FirePHP {
    * Send header
    *
    * @param string $Name
-   * @param string_type $Value
+   * @param string $Value
    */
   protected function setHeader($Name, $Value) {
-    return header($Name.': '.$Value);
+     header($Name.': '.$Value);
   }
 
   /**
