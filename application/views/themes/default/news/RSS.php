@@ -5,6 +5,7 @@ else header("Content-type: application/rss+xml; charset=UTF-8");
 // ==== Content-Type for all browsers - application/rss+xml, IE6 - text/xml === //
 ?>
 <?echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n"?>
+<!--suppress HtmlUnknownTag -->
 <rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
