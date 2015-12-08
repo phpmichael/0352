@@ -92,8 +92,9 @@ class Api_translate_bing extends CI_Driver {
 }
 
 
+/** @noinspection PhpMissingDocCommentInspection */
 class AzureAccessTokenAuthentication {
-    /*
+    /**
      * Get the access token.
      *
      * @param string $grantType    Grant type.
@@ -149,7 +150,7 @@ class AzureAccessTokenAuthentication {
     }
 }
 
-/*
+/**
  * Processing the translator request.
  */
 Class AzureHTTPTranslator {

@@ -165,6 +165,8 @@ class JSMin {
      action treats a string as a single character. Wow!
      action recognizes a regular expression if it is preceded by ( or , or =.
   */
+
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function action($d) {
     switch($d) {
       case 1:
