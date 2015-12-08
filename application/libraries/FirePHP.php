@@ -812,7 +812,7 @@ class FirePHP {
      *
      * Uses PHP's jeson_encode() if available
      *
-     * @param object $Object The object to be encoded
+     * @param object|array $Object The object to be encoded
      * @param bool $skipObjectEncode
      * @return string The JSON string
      */
@@ -853,7 +853,7 @@ class FirePHP {
      * Encodes an object including members with
      * protected and private visibility
      *
-     * @param Object $Object The object to be encoded
+     * @param Object|array $Object The object to be encoded
      * @param int $ObjectDepth
      * @param int $ArrayDepth
      * @internal param int $Depth The current traversal depth
