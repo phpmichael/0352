@@ -169,9 +169,10 @@ class JSMin {
   /** @noinspection PhpMissingDocCommentInspection */
   protected function action($d) {
     switch($d) {
+      /** @noinspection PhpMissingBreakStatementInspection */
       case 1:
         $this->output .= $this->a;
-
+      /** @noinspection PhpMissingBreakStatementInspection */
       case 2:
         $this->a = $this->b;
 
@@ -371,6 +372,7 @@ class JSMin {
 
     if ($c === '/') {
       switch($this->peek()) {
+        /** @noinspection PhpMissingBreakStatementInspection */
         case '/':
           for (;;) {
             $c = $this->get();
@@ -379,7 +381,7 @@ class JSMin {
               return $c;
             }
           }
-
+        /** @noinspection PhpMissingBreakStatementInspection */
         case '*':
           $this->get();
 
