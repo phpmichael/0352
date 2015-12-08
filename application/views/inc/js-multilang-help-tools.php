@@ -15,7 +15,7 @@ $j(document).ready(function()
 			
 			if(from_lang!='<?=$lang_code?>')
 			{
-				trans_name = input.attr('name').replace("["+from_lang+"]",'[<?=$lang_code?>]');
+				var trans_name = input.attr('name').replace("["+from_lang+"]",'[<?=$lang_code?>]');
 				
 				$j("[name='"+trans_name+"']").val(response.<?=$lang_code?>);
 			}
@@ -34,7 +34,7 @@ $j(document).ready(function()
 			
 		if(from_lang!='<?=$lang_code?>')
 		{
-			trans_name = input.attr('name').replace("["+from_lang+"]",'[<?=$lang_code?>]');
+			var trans_name = input.attr('name').replace("["+from_lang+"]",'[<?=$lang_code?>]');
 			
 			$j("[name='"+trans_name+"']").val(text);
 		}

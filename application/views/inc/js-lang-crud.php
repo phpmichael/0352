@@ -5,7 +5,7 @@
         var delete_url = '<?=site_url($BC->_getBaseURI()."/delete")?>';
 
         $j("#add_tdata").click(function(){
-            link = $j('a[code=NEW]');
+            var link = $j('a[code=NEW]');
 
             if(link.length==0)
             {

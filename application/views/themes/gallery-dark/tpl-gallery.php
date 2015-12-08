@@ -90,7 +90,8 @@ $j(document).ready(function(){
         		
                 if( data.length != 0 )
                 {
-        			for(i in data)
+        			var i;
+                    for(i in data)
     	        	{
     	        		$j("#albums span").append("<a href='javascript:void(0)' category_id='"+data[i].id+"' has_children='"+data[i].has_children+"'><img src='<?=base_url()?>images/data/s/photos_categories_list/"+data[i].file_name+"' alt='' /></a>");
     	        	}

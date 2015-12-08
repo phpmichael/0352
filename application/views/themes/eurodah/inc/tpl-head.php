@@ -87,7 +87,7 @@ $j(document).ready(function() {
 		pager: '#slider-nav' ,
 		activePagerClass: 'active-slide',
 		pagerAnchorBuilder: function(idx, slide) {
-			page_id = parseInt(idx)+1;
+			var page_id = parseInt(idx)+1;
 	        return '<div class="pager-item pager-num-'+page_id+'"><a href="#">'+page_id+'</a></div>'; 
 	    } 
 	});
