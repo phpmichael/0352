@@ -806,15 +806,16 @@ class FirePHP {
   protected function newException($Message) {
     return new Exception($Message);
   }
-  
-  /**
-   * Encode an object into a JSON string
-   * 
-   * Uses PHP's jeson_encode() if available
-   * 
-   * @param object $Object The object to be encoded
-   * @return string The JSON string
-   */
+
+    /**
+     * Encode an object into a JSON string
+     *
+     * Uses PHP's jeson_encode() if available
+     *
+     * @param object $Object The object to be encoded
+     * @param bool $skipObjectEncode
+     * @return string The JSON string
+     */
   public function jsonEncode($Object, $skipObjectEncode=false)
   {
     if(!$skipObjectEncode) {
@@ -847,15 +848,17 @@ class FirePHP {
     }
     return $Table;
   }
-  
-  /**
-   * Encodes an object including members with
-   * protected and private visibility
-   * 
-   * @param Object $Object The object to be encoded
-   * @param int $Depth The current traversal depth
-   * @return array All members of the object
-   */
+
+    /**
+     * Encodes an object including members with
+     * protected and private visibility
+     *
+     * @param Object $Object The object to be encoded
+     * @param int $ObjectDepth
+     * @param int $ArrayDepth
+     * @internal param int $Depth The current traversal depth
+     * @return array All members of the object
+     */
   protected function encodeObject($Object, $ObjectDepth = 1, $ArrayDepth = 1)
   {
     $return = array();
