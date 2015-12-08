@@ -22,11 +22,11 @@ $j(document).ready(
 		);
 
 		/* Save Sortable */
-		$j("#save").click(function(e){
+		$j("#save").click(function(){
 
 			var sortables = $j('ul#sortable_group').sortable('serialize');
 
-			$j.post(window.sort_process.save_sort_url, {sortables: sortables}, function(data) {
+			$j.post(window.sort_process.save_sort_url, {sortables: sortables}, function() {
 				document.location.href=window.sort_process.redirect_after_sort_url;
 			});
 

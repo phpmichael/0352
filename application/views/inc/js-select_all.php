@@ -8,7 +8,7 @@
 	    }
     );
     
-    function toggleTableRow(event)
+    function toggleTableRow()
     {
     	if(this.checked) $j(this).parents().addClass('selected');
     	else $j(this).parents().removeClass('selected');
