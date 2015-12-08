@@ -16,6 +16,8 @@
  * Minify Driver
  *
  * @subpackage	Drivers
+ * @property Minify_js $js
+ * @property Minify_css $css
  */
 class Minify extends CI_Driver_Library {
 

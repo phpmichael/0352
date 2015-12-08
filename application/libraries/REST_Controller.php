@@ -12,6 +12,7 @@
  * @license         http://philsturgeon.co.uk/code/dbad-license
  * @link			https://github.com/philsturgeon/codeigniter-restserver
  * @version         3.0.0-pre
+ * @property        Format $format
  */
 abstract class REST_Controller extends CI_Controller
 {

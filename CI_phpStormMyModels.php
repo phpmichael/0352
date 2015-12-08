@@ -49,6 +49,7 @@
  * @property categories_model $categories_model
  * @property tile_model $tile_model
  * @property quiz_model $quiz_model
+ * @property quiz_categories_model $quiz_categories_model
  * @property discounts_model $discounts_model
  * @property auto_responders_model $auto_responders_model
  * @property comments_model $comments_model
@@ -67,6 +68,7 @@
  * @property menu_model $menu_model
  * @property spiderweb_model $spiderweb_model
  * @property tools_model $tools_model
+ * @property validate_model $validate_model
  * @property tools_lib $tools_lib
  * @property uploader_lib $uploader_lib
  * @property resizer $resizer

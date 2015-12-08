@@ -22,7 +22,11 @@
  * @subpackage	Libraries
  * @category	Core
  * @author		ExpressionEngine Dev Team
- * @link		
+ * @link
+ * @property    CI_Cache_memcached $memcached
+ * @property    CI_Cache_apc $apc
+ * @property    CI_Cache_file $file
+ * @property    CI_Cache_dummy $dummy
  */
 class CI_Cache extends CI_Driver_Library {
 	
