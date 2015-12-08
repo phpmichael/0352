@@ -1,5 +1,8 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+/**
+ * Class Fire_Profiler
+ */
 class Fire_Profiler {
 
 	private $firephp;
