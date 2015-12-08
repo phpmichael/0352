@@ -16,6 +16,7 @@
  *
  * @subpackage Drivers
  */
+/** @noinspection PhpMultipleClassesDeclarationsInOneFile */
 class Minify_js extends CI_Driver {
 
 	/**

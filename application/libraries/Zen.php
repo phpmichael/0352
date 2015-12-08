@@ -27,6 +27,7 @@
 if (!defined("BASEPATH"))
     exit("No direct script access allowed");
 
+/** @noinspection PhpMultipleClassesDeclarationsInOneFile */
 class Zen {
     
     // default values

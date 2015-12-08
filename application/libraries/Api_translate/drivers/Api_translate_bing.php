@@ -13,6 +13,7 @@
  *
  * @subpackage	Drivers
  */
+/** @noinspection PhpMultipleClassesDeclarationsInOneFile */
 class Api_translate_bing extends CI_Driver {
     
     public $max_chars_amount = 3000;
