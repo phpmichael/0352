@@ -6,7 +6,7 @@ div#codeigniter-debug-toolbar pre,
 div#codeigniter-debug-toolbar h1,
 div#codeigniter-debug-toolbar img,
 div#codeigniter-debug-toolbar a,
-div#codeigniter-debug-toolbar ul, 
+div#codeigniter-debug-toolbar ul,
 div#codeigniter-debug-toolbar li,
 div#codeigniter-debug-toolbar table,
 div#codeigniter-debug-toolbar tr,
@@ -21,7 +21,6 @@ div#codeigniter-debug-toolbar th {
 	background: transparent;
 	line-height: 1;
 	text-transform: none;
-	font-size:100%;
 }
 div#codeigniter-debug-toolbar table {
 	border-collapse: collapse;
