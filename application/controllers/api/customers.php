@@ -1,6 +1,10 @@
 <?php
 require_once(APPPATH.'controllers/abstract/api.php');
 
+
+/**
+ * API Customers controller
+ */
 class Customers extends API
 {
     protected $model_name = "customers_model";

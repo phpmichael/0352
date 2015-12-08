@@ -1,6 +1,9 @@
 <?php
 require_once(APPPATH.'controllers/abstract/api.php');
 
+/**
+ * API Books controller
+ */
 class Books extends API
 {
     protected $process_form_html_id = "books";
