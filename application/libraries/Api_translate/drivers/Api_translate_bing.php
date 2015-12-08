@@ -153,15 +153,15 @@ class AzureAccessTokenAuthentication {
  * Processing the translator request.
  */
 Class AzureHTTPTranslator {
-    /*
+    /**
      * Create and execute the HTTP CURL request.
      *
-     * @param string $url        HTTP Url.
+     * @param string $url HTTP Url.
      * @param string $authHeader Authorization Header string.
-     * @param string $postData   Data to post.
+     * @param string $postData Data to post.
      *
+     * @throws Exception
      * @return string.
-     *
      */
     function curlRequest($url, $authHeader, $postData=''){
         //Initialize the Curl Session.
@@ -193,11 +193,12 @@ Class AzureHTTPTranslator {
         return $curlResponse;
     }
 
-    /*
+    /**
      * Create Request XML Format.
      *
-     * @param string $languageCode  Language code
+     * @param string $languageCode Language code
      *
+     * @throws Exception
      * @return string.
      */
     function createReqXML($languageCode) {

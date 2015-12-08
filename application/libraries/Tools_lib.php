@@ -3,7 +3,11 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Tools_lib 
+/**
+ * Library Tools
+ * Used for create new project
+ */
+class Tools_lib
 {
     /**
 	 * Constructor

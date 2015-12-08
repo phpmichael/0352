@@ -257,6 +257,12 @@ abstract class API extends REST_Controller
         $this->segmentsOffset++;
     }
 
+    /**
+     * Validate if unique value while edit record
+     * @param $field_value
+     * @param $param
+     * @return bool
+     */
     public function _unique_field_for_edit($field_value,$param)
     {
         $this->load->model('validate_model');

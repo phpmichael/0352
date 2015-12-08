@@ -81,8 +81,9 @@ class Grabber extends Admin
 	        //dump($domain.$link);
 	    }
 	}
-	
-	public function about_com_article($url,$category)
+
+    /** @noinspection PhpMissingDocCommentInspection */
+    public function about_com_article($url,$category)
 	{
 	    //$url = "http://cancer.about.com/od/cancerfactsandstatistics/a/deathdecline.htm";
 	    //$url = "http://cancer.about.com/od/cancerfactsandstatistics/a/baby_products.htm";
@@ -137,7 +138,12 @@ class Grabber extends Admin
 
         return TRUE;
 	}
-	
+
+    /**
+     * Return keywords array
+     * @param $string
+     * @return array
+     */
     private function generate_keywords($string)
     {
           $stopWords = array('i','a','about','an','and','are','as','at','be','by','com','de','en','for','from','how','in','is','it','la','of','on','or','that','the','this','to','was','what','when','where','who','will','with','und','the','www');

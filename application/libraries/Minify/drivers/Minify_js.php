@@ -141,13 +141,14 @@ class JSMin {
 
   // -- Public Static Methods --------------------------------------------------
 
+  /** @noinspection PhpMissingDocCommentInspection */
   public static function minify($js) {
     $jsmin = new JSMin($js);
     return $jsmin->min();
   }
 
   // -- Public Instance Methods ------------------------------------------------
-
+  /** @noinspection PhpMissingDocCommentInspection */
   public function __construct($input) {
     $this->input       = str_replace("\r\n", "\n", $input);
     $this->inputLength = strlen($this->input);
@@ -243,6 +244,7 @@ class JSMin {
     }
   }
 
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function get() {
     $c = $this->lookAhead;
     $this->lookAhead = null;
@@ -270,10 +272,12 @@ class JSMin {
   /* isAlphanum -- return true if the character is a letter, digit, underscore,
         dollar sign, or non-ASCII character.
   */
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function isAlphaNum($c) {
     return ord($c) > 126 || $c === '\\' || preg_match('/^[\w\$]$/', $c) === 1;
   }
 
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function min() {
     $this->a = "\n";
     $this->action(3);
@@ -358,6 +362,8 @@ class JSMin {
   /* next -- get the next character, excluding comments. peek() is used to see
              if a '/' is followed by a '/' or '*'.
   */
+
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function next() {
     $c = $this->get();
 
@@ -396,7 +402,7 @@ class JSMin {
 
     return $c;
   }
-
+  /** @noinspection PhpMissingDocCommentInspection */
   protected function peek() {
     $this->lookAhead = $this->get();
     return $this->lookAhead;
@@ -404,6 +410,7 @@ class JSMin {
 }
 
 // -- Exceptions ---------------------------------------------------------------
+/** @noinspection PhpMissingDocCommentInspection */
 class JSMinException extends Exception {}
 
 /* End of file Minify_js.php */

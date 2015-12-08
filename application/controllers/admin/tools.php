@@ -164,6 +164,10 @@ class Tools extends Admin
         }
     }
 
+    /**
+     * Optimize all images from directories
+     * @param int $quality
+     */
     public function optimize_images($quality = 83)
     {
         $dirs = array(

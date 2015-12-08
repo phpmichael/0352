@@ -7,7 +7,10 @@ class Fire_Profiler {
 
 	private $firephp;
 
-	public function __construct()
+    /**
+     * init FirePHP
+     */
+    public function __construct()
 	{
 		$this->firephp = FirePHP::getInstance(true);
 	}

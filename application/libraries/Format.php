@@ -57,7 +57,8 @@ class Format {
 
 	// FORMATING OUTPUT ---------------------------------------------------------
 
-	public function to_array($data = null)
+    /** @noinspection PhpMissingDocCommentInspection */
+    public function to_array($data = null)
 	{
 		// If not just null, but nothing is provided
 		if ($data === null and ! func_num_args())
@@ -84,7 +85,8 @@ class Format {
 	}
 
 	// Format XML for output
-	public function to_xml($data = null, $structure = null, $basenode = 'xml')
+    /** @noinspection PhpMissingDocCommentInspection */
+    public function to_xml($data = null, $structure = null, $basenode = 'xml')
 	{
 		if ($data === null and ! func_num_args())
 		{
@@ -188,8 +190,12 @@ class Format {
 		return $ci->table->generate();
 	}
 
-	// Format CSV for output
-	public function to_csv()
+    /**
+     * Format CSV for output
+     * @return string
+     * @throws Exception
+     */
+    public function to_csv()
 	{
 		$data = (array)$this->_data;
 
@@ -221,8 +227,11 @@ class Format {
 		return $output;
 	}
 
-	// Encode as JSON
-	public function to_json()
+    /**
+     * Encode as JSON
+     * @return string
+     */
+    public function to_json()
 	{
 		$callback = isset($_GET['callback']) ? $_GET['callback'] : '';
 		if ($callback === '')
@@ -244,27 +253,41 @@ class Format {
 		}
 	}
 
-	// Encode as Serialized array
-	public function to_serialized()
+    /**
+     * Encode as Serialized array
+     * @return string
+     */
+    public function to_serialized()
 	{
 		return serialize($this->_data);
 	}
 
-	// Output as a string representing the PHP structure
-	public function to_php()
+    /**
+     * Output as a string representing the PHP structure
+     * @return mixed
+     */
+    public function to_php()
 	{
 		return var_export($this->_data, TRUE);
 	}
 
-	// Format XML for output
-	protected function _from_xml($string)
+    /**
+     * Format XML for output
+     * @param $string
+     * @return array
+     */
+    protected function _from_xml($string)
 	{
 		return $string ? (array) simplexml_load_string($string, 'SimpleXMLElement', LIBXML_NOCDATA) : array();
 	}
 
-	// Format CSV for output
-	// This function is DODGY! Not perfect CSV support but works with my REST_Controller
-	protected function _from_csv($string)
+    /**
+     * Format CSV for output
+     * This function is DODGY! Not perfect CSV support but works with my REST_Controller
+     * @param $string
+     * @return array
+     */
+    protected function _from_csv($string)
 	{
 		$data = array();
 
@@ -285,14 +308,22 @@ class Format {
 		return $data;
 	}
 
-	// Encode as JSON
-	private function _from_json($string)
+    /**
+     * Encode as JSON
+     * @param $string
+     * @return array
+     */
+    private function _from_json($string)
 	{
 		return json_decode(trim($string));
 	}
 
-	// Encode as Serialized array
-	private function _from_serialize($string)
+    /**
+     * Encode as Serialized array
+     * @param $string
+     * @return mixed
+     */
+    private function _from_serialize($string)
 	{
 		return unserialize(trim($string));
 	}

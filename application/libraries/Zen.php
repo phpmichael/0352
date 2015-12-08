@@ -28,6 +28,7 @@ if (!defined("BASEPATH"))
     exit("No direct script access allowed");
 
 /** @noinspection PhpMultipleClassesDeclarationsInOneFile */
+/** @noinspection PhpMissingDocCommentInspection */
 class Zen {
     
     // default values
@@ -43,7 +44,8 @@ class Zen {
     private $monks = array();
     private static $instance;
     private $ci;
-    
+
+    /** @noinspection PhpMissingDocCommentInspection */
     public function __construct($config = array()) {
         // singleton
         self::$instance = & $this;
@@ -243,6 +245,8 @@ class Zen {
 
 }
 
+
+/** @noinspection PhpMissingDocCommentInspection */
 class Monk {
     
     // reference to the actual object we are imitating

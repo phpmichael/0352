@@ -516,18 +516,18 @@ abstract class REST_Controller extends CI_Controller
 		exit($output);
 	}
 
-	/*
+	/**
 	 * Detect SSL use
 	 *
 	 * Detect whether SSL is being used or not
 	 */
 	protected function _detect_ssl()
 	{
-    		return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on");
+    	return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on");
 	}
 
 
-	/*
+	/**
 	 * Detect input format
 	 *
 	 * Detect which format the HTTP Body is provided in
