@@ -8,6 +8,8 @@ require_once(APPPATH.'controllers/abstract/front.php');
  * @author Michael Kovalskiy
  * @version 2011
  * @access public
+ * @property Products_model $process_form_model
+ * @property Formbuilder_model $model
  */
 class Products extends Front 
 {
