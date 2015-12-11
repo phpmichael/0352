@@ -8,6 +8,7 @@ require_once(APPPATH.'libraries/REST_Controller.php');
  * @author Michael Kovalskiy
  * @version 2014
  * @access public
+ * @property Posts_model $model
  */
 abstract class API extends REST_Controller
 {
