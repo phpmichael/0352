@@ -44,12 +44,14 @@ class Minify extends CI_Controller {
 		echo $this->unit->report();
 	}
 
-	private function _test_css()
+    /** @noinspection PhpUnusedPrivateMethodInspection */
+    private function _test_css()
 	{
 		$file = 'test/css/calendar.css';
 		$this->unit->run($this->minify->css->min($file), 'is_string', 'test min css');
 	}
 
+    /** @noinspection PhpUnusedPrivateMethodInspection */
 	private function _test_js_min()
 	{
 		$file = 'test/js/colorbox.js';
