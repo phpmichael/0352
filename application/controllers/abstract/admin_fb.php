@@ -8,6 +8,7 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  * @author Michael Kovalskiy
  * @version 2012
  * @access public
+ * @property Formbuilder_model $model
  */
 class Admin_fb extends Admin 
 {
