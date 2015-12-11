@@ -167,7 +167,7 @@ class Customers extends Front
 	}
 
 	/**
-	 * Check if email desn't exists (by AJAX). Used in registration.
+	 * Check if email not exists (by AJAX). Used in registration.
 	 * 
 	 * @return string
 	 */

@@ -25,7 +25,7 @@ Class Customers extends Admin
     public function index()
     {
         $this->unit->run(strlen($this->customers_model->generatePassword(1)), 10, 'generate password 10 chars length');
-        $this->unit->run($this->customers_model->checkLogin('php.michael@gmail.com','wrongpassword'), FALSE, 'check invalid login data');
+        $this->unit->run($this->customers_model->checkLogin('php.michael@gmail.com','wrongPassword'), FALSE, 'check invalid login data');
 
         echo $this->unit->report();
     }
