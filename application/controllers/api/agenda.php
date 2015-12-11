@@ -1,6 +1,9 @@
 <?php
 require_once(APPPATH.'controllers/abstract/api.php');
 
+/**
+ *  API Agenda controller
+ */
 class Agenda extends API
 {
     protected $process_form_html_id = "agenda";
