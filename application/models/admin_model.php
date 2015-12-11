@@ -8,6 +8,7 @@ require_once(APPPATH.'models/base_model.php');
  * @author Michael Kovalskiy
  * @version 2011
  * @access public
+ * @property Base_model $model
  */
 class Admin_model extends Base_model
 {
