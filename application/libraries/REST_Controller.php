@@ -449,8 +449,6 @@ abstract class REST_Controller extends CI_Controller
 	 */
 	public function response($data = null, $http_code = null)
 	{
-		global $CFG;
-
 		// If data is NULL and not code provide, error and bail
 		if ($data === NULL && $http_code === null)
 		{
@@ -470,7 +468,7 @@ abstract class REST_Controller extends CI_Controller
 		else
 		{
 			// Is compression requested?
-			if ($CFG->item('compress_output') === TRUE && $this->_zlib_oc == FALSE)
+			if ($this->config->item('compress_output') === TRUE && $this->_zlib_oc == FALSE)
 			{
 				if (extension_loaded('zlib'))
 				{
@@ -515,7 +513,7 @@ abstract class REST_Controller extends CI_Controller
 		// but it will not modify the content-length header to compensate for
 		// the reduction, causing the browser to hang waiting for more data.
 		// We'll just skip content-length in those cases.
-		if ( ! $this->_zlib_oc && ! $CFG->item('compress_output'))
+		if ( ! $this->_zlib_oc && ! $this->config->item('compress_output'))
 		{
 			header('Content-Length: ' . strlen($output));
 		}
