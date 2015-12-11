@@ -57,7 +57,11 @@ class Format {
 
 	// FORMATING OUTPUT ---------------------------------------------------------
 
-    /** @noinspection PhpMissingDocCommentInspection */
+    /**
+     * Convert to array
+     * @param mixed $data
+     * @return array
+     */
     public function to_array($data = null)
 	{
 		// If not just null, but nothing is provided
