@@ -181,6 +181,13 @@ abstract class REST_Controller extends CI_Controller
 	 */
 	protected $_apiuser;
 
+    /**
+     * Assign the class/method auth type override array from the config
+     *
+     * @var array
+     */
+    protected $overrides_array = array();
+
 	/**
 	 * Developers can extend this class and add a check in here.
 	 */
@@ -1060,10 +1067,10 @@ abstract class REST_Controller extends CI_Controller
 	public function head($key = NULL, $xss_clean = TRUE)
 	{
 		if ($key === NULL) {
-			return $this->head_args;
+			return $this->_head_args;
 		}
 
-		return array_key_exists($key, $this->head_args) ? $this->_xss_clean($this->head_args[$key], $xss_clean) : FALSE;
+		return array_key_exists($key, $this->_head_args) ? $this->_xss_clean($this->_head_args[$key], $xss_clean) : FALSE;
 	}
 
 	/**
