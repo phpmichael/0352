@@ -894,16 +894,20 @@ class FirePHP {
         foreach( $properties as $raw_name => $property ) {
           
           $name = $raw_name;
+          /** @noinspection PhpUndefinedMethodInspection */
           if($property->isStatic()) {
             $name = 'static:'.$name;
           }
+          /** @noinspection PhpUndefinedMethodInspection */
           if($property->isPublic()) {
             $name = 'public:'.$name;
           } else
+          /** @noinspection PhpUndefinedMethodInspection */
           if($property->isPrivate()) {
             $name = 'private:'.$name;
             $raw_name = "\0".$class."\0".$raw_name;
           } else
+          /** @noinspection PhpUndefinedMethodInspection */
           if($property->isProtected()) {
             $name = 'protected:'.$name;
             $raw_name = "\0".'*'."\0".$raw_name;
@@ -913,6 +917,7 @@ class FirePHP {
                && is_array($this->objectFilters[$class])
                && in_array($raw_name,$this->objectFilters[$class]))) {
 
+            /** @noinspection PhpUndefinedMethodInspection */
             if(array_key_exists($raw_name,$members)
                && !$property->isStatic()) {
               
@@ -923,6 +928,7 @@ class FirePHP {
                 $property->setAccessible(true);
                 $return[$name] = $this->encodeObject($property->getValue($Object), $ObjectDepth + 1, 1);
               } else
+              /** @noinspection PhpUndefinedMethodInspection */
               if($property->isPublic()) {
                 $return[$name] = $this->encodeObject($property->getValue($Object), $ObjectDepth + 1, 1);
               } else {
