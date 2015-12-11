@@ -8,6 +8,7 @@ require_once(APPPATH.'controllers/admin/categories.php');
  * @author Michael Kovalskiy
  * @version 2011
  * @access public
+ * @property Photos_categories_model $model
  */
 class Photos_Categories extends Categories 
 {
