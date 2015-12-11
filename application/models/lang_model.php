@@ -385,10 +385,10 @@ class Lang_model extends Base_model
     /**
      * Set application language.
      *
-     * @param CI_Controller $controller
+     * @param Base $controller
      * @return void
      */
-    public function setApplicationLanguage($controller)
+    public function setApplicationLanguage(Base $controller)
     {
         $lang = $this->uri->segment(1);
         $controller->setInterfaceLang($lang);
