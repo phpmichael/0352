@@ -8,6 +8,7 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  * @author Michael Kovalskiy
  * @version 2011
  * @access public
+ * @property Categories_model $model
  */
 class Categories extends Admin 
 {
