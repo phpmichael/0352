@@ -167,7 +167,7 @@ class CI_Input {
 	* @access	public
 	* @param	string
 	* @param	bool
-	* @return	string
+	* @return	string|array
 	*/
 	function post($index = NULL, $xss_clean = FALSE)
 	{
