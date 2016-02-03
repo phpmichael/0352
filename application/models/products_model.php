@@ -285,8 +285,10 @@ class Products_model extends Posts_model
                     $record['price'] = $record['price'] + ($record['price']*$value/100);
                 }
             }
+
+            $precision = isset($this->settings_model['prices_update_precision']) ? intval($this->settings_model['prices_update_precision']) : 2;
             
-            $price = round($record['price'],2);
+            $price = round($record['price'],$precision);
             
             $this->db->update($this->c_table, array('price'=>$price), array($this->id_column => $record[$this->id_column]) );
         }
