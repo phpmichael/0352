@@ -40,7 +40,7 @@ class MY_Log extends CI_Log
 	    {
 	        $user_agent = "";
 	        
-	        if($level=='error') $user_agent = "   User Agent: {$_SERVER['HTTP_USER_AGENT']}";
+	        if($level=='error' && isset($_SERVER['HTTP_USER_AGENT'])) $user_agent = "   User Agent: {$_SERVER['HTTP_USER_AGENT']}";
 	        
 	        parent::write_log($level, $msg . $user_agent, $php_error);
 	    }
