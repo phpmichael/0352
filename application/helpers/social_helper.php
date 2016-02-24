@@ -17,7 +17,7 @@ function social_button($button_name,array $social_params=array())
 	if(!isset($social_params['page_url'])) $social_params['page_url'] = current_url();
 	if(!isset($social_params['button_size'])) $social_params['button_size'] = (isset($CI->settings_model['social_buttons_default_size']))?$CI->settings_model['social_buttons_default_size']:'24x24';
 	
-	load_theme_view('inc/social_buttons/'.$button_name,array('social_params'=>$social_params));
+	return load_theme_view('inc/social_buttons/'.$button_name,array('social_params'=>$social_params));
 }
 
 /**
