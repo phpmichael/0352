@@ -44,8 +44,8 @@ div#codeigniter-debug-toolbar h1 {
   font-weight: bold;
 	margin-top: 30px;
   margin-bottom: 10px;
-  padding:0px 5px;
-  border: 0px;
+  padding:0 5px;
+  border: 0;
   background-color: #eee;
 	color: #000;
 	display:block;
@@ -58,8 +58,8 @@ div#codeigniter-debug-toolbar a:hover {
 div#codeigniter-debug-toolbar pre { line-height: 1.3 }
 div#codeigniter-debug-toolbar .top {
 	position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 0;
+	top: 0;
 	width: 100%;
 	z-index: 9999;
 	border-bottom: 1px solid #aaa;
@@ -73,7 +73,7 @@ div#codeigniter-debug-toolbar table {
   font-size: 11px;
 	border: 1px solid #999;
 	width: 99%;
-	margin:0px 5px;
+	margin:0 5px;
 	font-family: monospace;
 }
 div#codeigniter-debug-toolbar td {
@@ -125,14 +125,14 @@ div#codeigniter-debug-toolbar div#debug-toolbar ul.menu li.last {
 }
 
 /* Benchmarks */
-div#codeigniter-debug-toolbar div#debug-benchmarks { padding: 3px 0px; }
+div#codeigniter-debug-toolbar div#debug-benchmarks { padding: 3px 0; }
 
 /* SQL queries */
-div#codeigniter-debug-toolbar div#debug-database { padding: 3px 0px; }
+div#codeigniter-debug-toolbar div#debug-database { padding: 3px 0; }
 
 /* Vars & Config */
 div#codeigniter-debug-toolbar div#debug-vars {
-	padding: 3px 0px; 
+	padding: 3px 0;
 }
 div#codeigniter-debug-toolbar div#debug-vars pre {
 	background-color: #ddd;
@@ -174,12 +174,12 @@ div#codeigniter-debug-toolbar div#debug-vars .configmenu li:hover.even pre { bac
 
 /* Logs & Msgs */
 div#codeigniter-debug-toolbar div#debug-log {
-	padding: 3px 0px;
+	padding: 3px 0;
 	font-size: 11px;
 }
 
 /* Ajax */
 div#codeigniter-debug-toolbar div#debug-ajax {
-	padding: 3px 0px;
+	padding: 3px 0;
 	font-size: 11px;
 }
