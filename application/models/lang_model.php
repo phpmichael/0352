@@ -388,7 +388,7 @@ class Lang_model extends Base_model
      * @param Base $controller
      * @return void
      */
-    public function setApplicationLanguage(Base $controller)
+    public function setApplicationLanguage($controller)//TODO: Severity warning: should be Base but Customers given (on api/customers)
     {
         $lang = $this->uri->segment(1);
         $controller->setInterfaceLang($lang);
