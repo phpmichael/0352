@@ -77,9 +77,9 @@ abstract class Base_model extends CI_Model
     public function Update($post)
     {
 		$post = $this->updateMultilangFields($post);
-        
+
         $post = $this->prepareTablePost($post);
-    	
+
     	$this->db->update($this->c_table, $post, array($this->id_column => $post[$this->id_column]) );
 		
     	return $post[$this->id_column];
@@ -174,14 +174,12 @@ abstract class Base_model extends CI_Model
      */
     protected function save(array $data, $configValidation = array())
     {
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules($configValidation);
-
         //check if valid
         //while CodeIgniter validate $_POST and xss_clean it, use this trick $data -> $_POST and $_POST -> $data
         $_POST = $data;
-        $valid = $this->CI->form_validation->run();
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules($configValidation);
+        $valid = $this->form_validation->run();
         $data = $_POST;
 
         if ($valid == FALSE)
