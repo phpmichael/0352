@@ -17,7 +17,7 @@
 			<div id="menu_prices"><a href="<?=site_url('page/cini')?>"></a></div>
 			<div class="clear"></div>
 
-            <?load_theme_view('inc/tpl-tags-cloud'); ?>
+            <?//load_theme_view('inc/tpl-tags-cloud'); ?>
 			
 			<?load_theme_view('inc/tpl-partners'); ?>
 			
