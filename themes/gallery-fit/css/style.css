@@ -469,11 +469,11 @@ a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
 
 /* pagination */
 a.paginator{
-    padding: 5px 10px;
+    padding: 4px 8px;
     background: #2E2E2E;
     border-radius: 10px;
     text-decoration: none;
-    font-size: 200%;
+    font-size: 180%;
 }
 a.paginator:hover{
     color: #CAB113;
