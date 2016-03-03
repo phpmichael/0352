@@ -12,34 +12,40 @@
                         <?=form_hidden('id',$row->data_key)?>
                         <?=form_hidden('qty',1)?>
 
-                        <div class="product_image_container">
-                            <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
-                                <?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?'))?>
-                            </a>
-                        </div>
+                        <div itemscope itemtype="http://schema.org/Book">
+                            <link itemprop="additionalType" href="http://schema.org/Product"/>
 
-                        <div class="product-title">
-                            <?=anchor_base('book/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>
-                        </div>
+                            <div class="product_image_container">
+                                <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
+                                    <?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?'))?>
+                                </a>
+                            </div>
 
-                        <div class="product-buy">
+                            <div class="product-title" itemprop="name">
+                                <?=anchor_base('book/'.$row->slug.url_category_addition(),$row->name,'class="product_name"')?>
+                            </div>
 
-                            <?if($row->in_stock):?>
+                            <div class="product-buy">
 
-                                <div class="product-price pull-left">
-                                    <?=exchange($row->price)?>
-                                </div>
+                                <?if($row->in_stock):?>
 
-                                <div class="pull-left">
-                                    <?=form_button('','<i class="icon-shopping-cart"></i>'.language('buy'),"class='btn add-product-submit'")?>
-                                    <?if(!is_product_in_wishlist($row->data_key)):?>
-                                        <?=form_button('','<i class="icon-star"></i>',"class='add-to-wishlist btn' id='add-to-wishlist-".$row->data_key."'")?>
-                                    <?endif?>
-                                </div>
-                            <?else:?>
-                                <?=language('not_in_stock')?>
-                            <?endif?>
+                                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                        <div class="product-price pull-left" itemprop="price" content="<?=exchange($row->price,FALSE)?>">
+                                            <?=exchange($row->price)?>
+                                        </div>
+                                    </div>
 
+                                    <div class="pull-left">
+                                        <?=form_button('','<i class="icon-shopping-cart"></i>'.language('buy'),"class='btn add-product-submit'")?>
+                                        <?if(!is_product_in_wishlist($row->data_key)):?>
+                                            <?=form_button('','<i class="icon-star"></i>',"class='add-to-wishlist btn' id='add-to-wishlist-".$row->data_key."'")?>
+                                        <?endif?>
+                                    </div>
+                                <?else:?>
+                                    <?=language('not_in_stock')?>
+                                <?endif?>
+
+                            </div>
                         </div>
 
 		             </form>
