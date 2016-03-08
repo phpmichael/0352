@@ -18,6 +18,8 @@ $BC->lang->load('calendar');
         
                 <header>
 
+                    <?load_theme_view('inc/tpl-noscript')?>
+
                     <div class="info-bar">
                         <div class="wrapper row-fluid">
                             <div class="span2">

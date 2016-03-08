@@ -179,3 +179,8 @@ footer .phone-number{font-weight: normal;}
 .social-twitter{background: url('../img/sprites.png'); background-position: -195px -350px;}
 .social-vkontakte{background: url('../img/sprites.png'); background-position: -230px -350px;}
 .social-odnoklasniki{background: url('../img/sprites.png'); background-position: -265px -350px;}
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; background:#ffff90; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; }
+.noscript p { margin:0; }
