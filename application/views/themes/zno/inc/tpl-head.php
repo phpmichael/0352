@@ -5,6 +5,9 @@
 <meta name='description' content='<?=$head['meta_description']?>' />
 <meta name='keywords' content='<?=$head['meta_keywords']?>' />
 
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
 <?=include_minified($BC->_getTheme().'css/bootstrap.css','css')?>
 
 <?=include_minified($BC->_getTheme().'css/styles.css','css')?>
