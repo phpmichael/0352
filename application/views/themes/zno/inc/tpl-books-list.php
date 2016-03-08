@@ -6,7 +6,7 @@
 
 		<?$i=0; foreach ($posts_list as $row): $i++?>
 		<tr>
-	        <td width="160px" style="text-align:center;">
+	        <td style="width:160px; text-align:center;">
 	        	<form method="post" action="<?=relative_url($BC->_getBaseURL()."/cart/add")?>" class="add-product">
                     <?=form_hidden('id',$row->data_key)?>
                     <?=form_hidden('qty',1)?>
