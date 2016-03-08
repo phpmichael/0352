@@ -66,6 +66,12 @@ abstract class Base extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+
+        //redirect domains to 'base_url'
+        if( in_array($this->input->server('HTTP_HOST'), $this->config->item('rewrite_domains')) )
+        {
+            redirect($this->input->server('REQUEST_URI'),'location',301);
+        }
 		
 		//set language based on URL
 		$this->lang_model->setApplicationLanguage($this);

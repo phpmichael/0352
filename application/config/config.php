@@ -18,6 +18,8 @@ $config['relative_url']	= '/CI/0352/';//special var for AJAX requests
 $config['base_url']	= 'http://localhost'.$config['relative_url'];//regular base url
 $config['static_url']	= $config['base_url'];//base url for static files: js, css, images
 
+$config['rewrite_domains'] = array('www.localhost');//redirect domains to main
+
 /*
 |--------------------------------------------------------------------------
 | Index File
