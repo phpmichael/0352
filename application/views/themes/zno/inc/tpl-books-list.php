@@ -13,13 +13,13 @@
 
                     <div itemscope itemtype="http://schema.org/Book" itemid="#book-<?=$row->data_key?>">
                         <link itemprop="additionalType" href="http://schema.org/Product"/>
-                    
+
 	                    <div class="product_image_container">
 	                        <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
                     			<?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?', 'alt'=>htmlspecialchars($row->name)))?>
                     		</a>
 	                    </div>
-	                    
+
 	                    <div>
 
                             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -35,8 +35,8 @@
                                      <?=language('not_in_stock')?>
                                 <?endif?>
                             </div>
-                                
-	                    </div
+
+	                    </div>
                     </div>
 	
 	             </form>
