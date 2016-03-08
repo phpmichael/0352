@@ -1,7 +1,7 @@
 /* General: Start */
 body{
     background:url(../images/bg2.jpg) center center;
-    font-family:Verdana,Tahoma,Arial;
+    font-family: Verdana,Tahoma,serif;
     font-size:12px;
     line-height:160%;
     color:#fff;
@@ -108,4 +108,9 @@ img{
 #content .ad-gallery .ad-image-wrapper {
 	height:500px;
 }
-/* AD gallery: End */	
+/* AD gallery: End */
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; background:#ffff90; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; }
+.noscript p { margin:0; }

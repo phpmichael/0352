@@ -22,6 +22,8 @@
 
 <body>
 
+    <?load_theme_view('inc/tpl-noscript')?>
+
 	<div id="wrapper">
 
 	    <header>
