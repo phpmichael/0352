@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <?load_theme_view('inc/tpl-noscript')?>
 	<div id="page">
 		
 		<div id="header" onclick="location.href='<?=base_url()?>'"></div>	
