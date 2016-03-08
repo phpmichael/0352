@@ -21,7 +21,7 @@
                 <?if(@$photo1):?>
                 <p>
                     <a href="<?=base_url().'images/data/b/books/'.$photo1?>" class="product-image" data-lightbox="product-image">
-                        <?=img(array('src'=>'images/data/b/books/'.$photo1, 'height'=>'60%', 'width'=>'60%'))?>
+                        <?=img(array('src'=>'images/data/b/books/'.$photo1, 'height'=>'60%', 'width'=>'60%', 'alt'=>htmlspecialchars($name)))?>
                     </a>
                 </p>
                 <?endif?>
