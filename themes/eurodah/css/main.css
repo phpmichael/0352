@@ -487,3 +487,8 @@ blockquote:after {content: close-quote;}
 #header-title div:last-child{font-size:270%;line-height:42px;text-align:center;color:#8B99C6;}
 
 #partner-slider{width:200px;height:150px;overflow:hidden;margin:10px auto;}
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; background:#ffff90; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; }
+.noscript p { margin:0; }

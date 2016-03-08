@@ -10,6 +10,7 @@ $BC->load->helper('text');
 </head>
 
 <body>
+    <?load_theme_view('inc/tpl-noscript')?>
     <div id="page-wrapper">
         <div id="page">
 			<header id="header">
