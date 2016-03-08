@@ -2,6 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title><?=$BC->_getPageTitle()?></title>
+<meta name='description' content='<?=$head['meta_description']?>' />
+<meta name='keywords' content='<?=$head['meta_keywords']?>' />
 
 <?=include_minified($BC->_getTheme().'css/bootstrap.css','css')?>
 
