@@ -488,3 +488,8 @@ a.paginator.active{
     font-size: 180%;
     color: #ff0000;
 }
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; background:#ffff90; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; }
+.noscript p { margin:0; }

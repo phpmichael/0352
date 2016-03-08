@@ -50,6 +50,8 @@ $cap_img = $captcha_model->make();
 
 <body>
 
+    <?load_theme_view('inc/tpl-noscript')?>
+
     <div class="glob">
 
         <a class="gall_prev"></a>
