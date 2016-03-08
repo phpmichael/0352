@@ -30,7 +30,7 @@
 
                             <div>
                                 <?if($row->in_stock):?>
-                                     <?=form_submit('',language('buy'),"class='btn'")?>
+                                     <?=form_submit('add_to_cart',language('buy'),"class='btn'")?>
                                 <?else:?>
                                      <?=language('not_in_stock')?>
                                 <?endif?>

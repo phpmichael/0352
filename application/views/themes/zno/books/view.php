@@ -37,7 +37,7 @@
 
                             <?=form_input('qty',1,"size='1' class='input-mini' style='margin:0;'")?>
 
-                            <?=form_submit('',language('buy'),"class='btn btn-primary'")?>
+                            <?=form_submit('add_to_cart',language('buy'),"class='btn btn-primary'")?>
 
                         <?else:?>
 

@@ -36,9 +36,9 @@
                                     </div>
 
                                     <div class="pull-left">
-                                        <?=form_button('','<i class="icon-shopping-cart"></i>'.language('buy'),"class='btn add-product-submit'")?>
+                                        <?=form_button('add_to_cart','<i class="icon-shopping-cart"></i>'.language('buy'),"class='btn add-product-submit'")?>
                                         <?if(!is_product_in_wishlist($row->data_key)):?>
-                                            <?=form_button('','<i class="icon-star"></i>',"class='add-to-wishlist btn' id='add-to-wishlist-".$row->data_key."'")?>
+                                            <?=form_button('add_to_wishlist','<i class="icon-star"></i>',"class='add-to-wishlist btn' id='add-to-wishlist-".$row->data_key."'")?>
                                         <?endif?>
                                     </div>
                                 <?else:?>
