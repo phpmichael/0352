@@ -1,2 +1,2 @@
-<?=include_css($BC->_getFolder('js').'jquery/tipTipv13/tipTip.css')?>
-<?=include_js($BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minified.js')?>
+<?=include_minified($BC->_getFolder('js').'jquery/tipTipv13/tipTip.css','css')?>
+<?=include_minified($BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.js','js')?>

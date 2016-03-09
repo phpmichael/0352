@@ -48,8 +48,8 @@
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.css'?>",
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.js'?>",
 
-                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/tipTip.css'?>",
-                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minified.js'?>"
+                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/tipTip.minify.css'?>",
+                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minify.js'?>"
                 ],
                 complete: function(){
                     <?=strip_tags(include_minified($BC->_getTheme().'js/categories-nav.js','inline_js'))?>
