@@ -121,6 +121,25 @@ class Lang_model extends Base_model
 	{
 	    return $this->getLanguageByLangCode($this->getDefaultLangCode());
 	}
+
+    /**
+     * Return code of current language.
+     * @return string
+     */
+    public function getCurrentLangCode()
+    {
+        return $this->getLangCodeByLanguage($this->getCurrentLanguage());
+    }
+
+    /**
+     * Return current language.
+     * @return string
+     */
+    public function getCurrentLanguage()
+    {
+        $CI =& get_instance();
+        return $CI->config->item('language');
+    }
 	
     
     /**
@@ -133,10 +152,7 @@ class Lang_model extends Base_model
 	{    
 	    //$this->benchmark->mark('code_start');
 	    
-	    $CI =& get_instance();
-		$language = $CI->config->item('language');
-		
-		$lang = $this->getLangCodeByLanguage($language);
+        $lang = $this->getCurrentLangCode();
 		
 		if($sections!='all')
 		{

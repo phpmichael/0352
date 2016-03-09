@@ -3,7 +3,7 @@ $BC->load->helper(array('customer','blog','social','formbuilder'));
 $BC->lang->load('calendar');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?=$BC->lang_model->getCurrentLangCode()?>">
 <head>
 
     <?load_theme_view('inc/tpl-head')?>
