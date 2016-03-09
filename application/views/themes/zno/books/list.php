@@ -32,7 +32,7 @@
         $sort_by,"style='width:160px'")?>
 
         <a href="javascript:void(0)" title="<?=language('sort_direction')?>" class="sort-direction" rel="<?if($sort_order=='asc'):?>desc<?else:?>asc<?endif?>">
-            <img src="<?=base_url().$BC->_getTheme()?>img2/arrow-<?=$sort_order?>.png" class="v-middle" alt="" />
+            <img src="<?=base_url().$BC->_getTheme()?>img2/arrow-<?=$sort_order?>.png" class="v-middle" alt="<?=$sort_order?>" />
         </a>
     </div>
     <?if($paginate):?>
