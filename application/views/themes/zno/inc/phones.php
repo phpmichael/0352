@@ -25,7 +25,7 @@ for($i=1; $i<=3; $i++){
 
     <div class="pull-left email-icon"></div>
     <div class="pull-left">
-        <a href="contact_us">E-mail</a>
+        <a href="<?=site_url('contact_us')?>">E-mail</a>
     </div>
 
     <div class="clearfix"></div>
