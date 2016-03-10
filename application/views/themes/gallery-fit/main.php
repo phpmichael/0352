@@ -17,7 +17,7 @@ $captcha_model = load_model('captcha_model');
 $cap_img = $captcha_model->make();
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="<?=$BC->lang_model->getCurrentLangCode()?>">
 <head>
     <meta charset="UTF-8">
     
