@@ -805,6 +805,8 @@ abstract class Posts_model extends Base_model
             $sort_by = $this->db->escape_str($filter_data['sort_by']);
             $sort_order = $this->db->escape_str($filter_data['sort_order']);
 
+            if( !$this->db->field_exists($sort_by, $this->c_table) ) return '';
+
             if( !in_array(strtolower($sort_order), array('asc','desc')) ) $sort_order = 'asc';
 
             return "ORDER BY {$sort_by} {$sort_order}";
