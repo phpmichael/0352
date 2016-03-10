@@ -22,6 +22,8 @@ $cap_img = $captcha_model->make();
     <meta charset="UTF-8">
     
     <title><?=$head['site_title']?></title>
+
+    <meta name='description' content='<?=$head['meta_description']?>' />
     
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
 
