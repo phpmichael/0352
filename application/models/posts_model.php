@@ -117,6 +117,8 @@ abstract class Posts_model extends Base_model
 			
 			$filter_data = array_merge($filter_data, $query_arr);
 		}
+
+        if( isset($filter_data['sort_order']) && !in_array(strtolower($filter_data['sort_order']), array('asc','desc')) ) $filter_data['sort_order'] = 'asc';
 		
 		return $filter_data;
     }
