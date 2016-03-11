@@ -86,14 +86,14 @@ $cap_img = $captcha_model->make();
                 </div>
                 <div class="page" id="page2">
                     <div class="scroll">
-                        <img src="<?=$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
+                        <img src="<?=static_url().$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
                         <?=$pages['about']['body']?>
                     </div>
                 </div>
                 <div class="page" id="page3">
                     <div class="scroll">
-                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img src="<?=$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
-                        <a href="https://vk.com/maria.kovalska" target="_blank"><img src="<?=$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
+                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
+                        <a href="https://vk.com/maria.kovalska" target="_blank"><img src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
 
                         <?=$pages['contacts']['body']?>
 
@@ -150,13 +150,13 @@ $cap_img = $captcha_model->make();
 
     </div>
 
-    <!-- Load Application Packeges config -->
-    <?=include_js($BC->_getBaseURL().'app_js/config')?>
+    <!-- Load Application Packages config -->
+    <script src="<?=base_url().$BC->_getBaseURL().'app_js/config'?>"></script>
 
     <script>
         var slidesArr = [];
         <?$i=-1; foreach ($photos as $record): $i++;?>
-        slidesArr[<?=$i?>] = '<?=relative_url().('images/data/b/photos/'.$record['file_name'])?>';
+        slidesArr[<?=$i?>] = '<?=static_url().('images/data/b/photos/'.$record['file_name'])?>';
         <?endforeach?>
     </script>
 
@@ -178,7 +178,7 @@ $cap_img = $captcha_model->make();
             {
                 if(i>=photos.length) break;
 
-                $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=base_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
+                $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=static_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
                 i++;
             }
             $j("#thumbs").fadeIn(1000);
