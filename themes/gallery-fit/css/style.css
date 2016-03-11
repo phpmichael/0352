@@ -319,6 +319,23 @@ body .gall_next{
 	float:left;	
 }
 
+.page h2{
+    font-size: 180%;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.page h3{
+    font-size: 140%;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.page ul.makeup-types{
+    list-style-type: circle;
+    margin-left: 15px;
+}
+
 #page1{
 	margin-top:10px;
 }
