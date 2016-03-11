@@ -331,17 +331,17 @@ footer h1{
 }
 
 footer h1 a{
-	font:48px/1.2em Arial, Helvetica, sans-serif;
+	font:46px/1.2em Arial, Helvetica, sans-serif;
 	color:#fff;
 	z-index:10;
 	text-decoration:none;
 }
 
 footer h1 .slogan{
-	font:11px Verdana, Geneva, sans-serif, "Myriad Pro";
+	font:14px Verdana, Geneva, sans-serif, "Myriad Pro";
 	color:#868686;
 	position:absolute;
-	left:388px;
+	left:420px;
 	top:30px;
 	white-space:nowrap;
 }

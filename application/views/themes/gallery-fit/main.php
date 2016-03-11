@@ -135,8 +135,8 @@ $cap_img = $captcha_model->make();
         </aside>
         <footer>
             <h1>
-                <a href="<?=base_url()?>">Maria Kovalska</a>
-                <span class="slogan">The art of <span class="white">make-up</span></span>
+                <a href="<?=base_url()?>">Марія Ковальська</a>
+                <span class="slogan">Візажист <span class="white">в Тернополі</span></span>
             </h1>
             <div class="privacy">
                 Maria Kovalska &copy; 2012
