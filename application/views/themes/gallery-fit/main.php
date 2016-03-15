@@ -26,7 +26,6 @@ $cap_img = $captcha_model->make();
     <meta name='description' content='<?=$head['meta_description']?>' />
     
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
-    <?=include_minified($BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.fadein.min.css','inline_css')?>
 
     <?=include_combined(array(
             $BC->_getTheme().'js/jquery-1.12.1.min.js',
@@ -34,8 +33,7 @@ $cap_img = $captcha_model->make();
             $BC->_getTheme().'js/jquery.mousewheel.min.js',
             $BC->_getTheme().'js/jScrollPane.js',
             $BC->_getTheme().'js/slidePager.js',
-            $BC->_getTheme().'js/main.js',
-            $BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.extra.min.js'
+            $BC->_getTheme().'js/main.js'
             ),
     $BC->_getTheme().'js/combined.js','js')?>
        

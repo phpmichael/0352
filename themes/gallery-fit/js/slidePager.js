@@ -27,7 +27,15 @@ jQuery.fn.extend({
 			}
 			jQuery(opt.pagernav).removeClass('active').eq(curr).addClass('active');
 			if(opt.change)opt.change(n);
-		}		
+
+            lazyLoad(n+1);
+		}
+        var lazyLoad=function(pageNumber)
+        {
+            jQuery('#page'+pageNumber).find('img[data-src]').each(function(index, element){
+                jQuery(element).attr('src',jQuery(element).data('src'));
+            });
+        }
 		var findIdx=function(str){
 			str=str.split('#')[1];
 			var idx=0,tmp;
