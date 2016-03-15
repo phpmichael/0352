@@ -1,4 +1,4 @@
-if(jQuery.browser.msie)jQuery(function(){							 
+jQuery(function(){
 
 var relative_path_prefix=function(bg){
 	return bg.replace('../','themes/gallery-fit/')

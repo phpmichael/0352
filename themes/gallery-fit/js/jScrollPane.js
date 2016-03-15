@@ -198,18 +198,18 @@ jQuery.fn.jScrollPane = function(settings)
 					initDrag();
 					dragMiddle = getPos(event, 'Y') - dragPosition - currentOffset.top;
 					jQuery('html').bind('mouseup', onStopDrag).bind('mousemove', updateScroll);
-					if (jQuery.browser.msie) {
+					/*if (jQuery.browser.msie) {
 						jQuery('html').bind('dragstart', ignoreNativeDrag).bind('selectstart', ignoreNativeDrag);
-					}
+					}*/
 					return false;
 				};
 				var onStopDrag = function()
 				{
 					jQuery('html').unbind('mouseup', onStopDrag).unbind('mousemove', updateScroll);
 					dragMiddle = percentInView*paneHeight/2;
-					if (jQuery.browser.msie) {
+					/*if (jQuery.browser.msie) {
 						jQuery('html').unbind('dragstart', ignoreNativeDrag).unbind('selectstart', ignoreNativeDrag);
-					}
+					}*/
 				};
 				var positionDrag = function(destY)
 				{
