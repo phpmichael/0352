@@ -144,7 +144,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
@@ -795,7 +795,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
 }
 label {
   display: block;
@@ -3621,7 +3621,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
@@ -4991,7 +4991,7 @@ a.badge:hover {
 }
 .navbar .brand {
   padding: 14px 20px 16px;
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 .navbar li {
@@ -4999,7 +4999,7 @@ a.badge:hover {
 }
 .navbar .nav > li > a {
   padding: 16px 10px 14px;
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 .navbar .search-query {
@@ -5017,7 +5017,7 @@ a.badge:hover {
 }
 @media (max-width: 979px) {
   .navbar .nav-collapse .nav li > a {
-    font-family: "Open Sans", Arial, serif;
+    font-family: Helvetica, Arial, serif;
     font-weight: normal;
     color: #ffffff;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
@@ -5056,7 +5056,7 @@ a.badge:hover {
   }
 }
 div.subnav {
-  font-family: "Open Sans", Arial, serif;
+  font-family: Helvetica, Arial, serif;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
 }
 div.subnav-fixed {
