@@ -88,7 +88,7 @@ $cap_img = $captcha_model->make();
                 </div>
                 <div class="page" id="page2">
                     <div class="scroll">
-                        <img src="<?=static_url().$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
+                        <img data-src="<?=static_url().$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
                         <?=$pages['about']['body']?>
                     </div>
                 </div>
