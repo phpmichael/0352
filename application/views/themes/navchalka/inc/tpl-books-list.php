@@ -13,7 +13,7 @@
                     
 	                    <div class="product_image_container">
 	                        <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
-                    			<?if(@$row->photo1) echo img(array('src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?'))?>
+                    			<?if(@$row->photo1) echo img(array('data-src'=>static_url().'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?'))?>
                     		</a>
 	                    </div>
 	                    

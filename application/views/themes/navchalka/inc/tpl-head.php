@@ -14,6 +14,7 @@
     <?=include_minified($css_file,'inline_css')?>
 <?endforeach?>
 <?=include_minified('css/dialog-cart.css','inline_css')?>
+<?=include_minified($BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.fadein.min.css','inline_css')?>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -46,7 +47,9 @@
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.js'?>",
 
                     "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/tipTip.minify.css'?>",
-                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minify.js'?>"
+                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minify.js'?>",
+
+                    "<?=static_url().$BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.extra.min.js'?>"
                 ],
                 complete: function(){
                     <?=strip_tags(include_minified($BC->_getTheme().'js/categories-nav.js','inline_js'))?>
