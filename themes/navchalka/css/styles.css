@@ -97,6 +97,7 @@ a, a:focus {outline: none;}
     border: 2px solid #CACACA;
     border-radius: 5px;
     margin: 25px auto 0 auto;
+    overflow: hidden;
 }
 .slider-arrow-left{background: url('../img/sprites.png') no-repeat 0 -400px; width: 25px; height: 43px; position: absolute; top:80px; left: 4px; z-index: 9; cursor: pointer;}
 .slider-arrow-right{background: url('../img/sprites.png') no-repeat -26px -400px; width: 25px; height: 43px; position: absolute; top:80px; right: 4px; z-index: 9; cursor: pointer;}
