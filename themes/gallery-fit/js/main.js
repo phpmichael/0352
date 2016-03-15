@@ -8,7 +8,7 @@ $j(function(){
 					  preload:false,
 					  bgstretch:true,
 					  current:0,
-					  pags:'#thumbs a',
+					  pags:'#thumbs',
 					  spinner:'<span class="spinner"></span>'
 				  });
 	
@@ -22,7 +22,7 @@ $j(function(){
 	$j(window).bind('resize',function(){
 		wH=$j(window).height();
 	});
-	$j('aside').live('mousemove',function(){moving=false});
+	$j('aside').on('mousemove',function(){moving=false});
 	
 	$j(document).bind('mousemove',function(e){
 		var gallact=$j('aside nav li').eq(0).hasClass('active'),
@@ -59,14 +59,14 @@ $j(function(){
 	})
 	
 	$j('.gall_prev,.gall_next')
-		.live('mouseenter',function(){
+		.on('mouseenter',function(){
 			$j(this).stop().animate({opacity:1});
 		})
-		.live('mouseleave',function(){
+		.on('mouseleave',function(){
 			$j(this).stop().animate({opacity:.7});
 		})
 	
-	$j('body .gall_prev,body .gall_next').live('click',function(){
+	$j('body .gall_prev,body .gall_next').on('click',function(){
 		if($j(this).hasClass('gall_next'))
 			$j('#bgSlider').trigger('bgSliderNext');
 		else
@@ -76,11 +76,15 @@ $j(function(){
 	
 	$j('#thumbs a').append('<span class="fader"></span>');
 	
-	$j('#thumbs a').live('mouseover',function(){$j(this).find('.fader').css({display:'block',opacity:0}).stop().animate({opacity:.73})});
-	$j('#thumbs a').live('mouseout',function(){$j(this).find('.fader').stop().animate({opacity:0},function(){$j(this).css({display:'none'})})});
+	$j('#thumbs').on('mouseover', 'a',function(){
+        $j(this).find('.fader').css({display:'block',opacity:0}).stop().animate({opacity:.73})
+    });
+	$j('#thumbs').on('mouseout', 'a',function(){
+        $j(this).find('.fader').stop().animate({opacity:0},function(){$j(this).css({display:'none'})})
+    });
 	
 	var methods=['fit','full'];
-	$j('.button-method').live('click',function(){		
+	$j('.button-method').on('click',function(){		
 		methods.push(methods.shift());
 		$j('>span.meth',this).text(methods[0]);
 		$j().bgSlider.changeMethod(methods[0]);

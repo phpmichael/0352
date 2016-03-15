@@ -17,7 +17,8 @@ jQuery.fn.extend({
 		var rollTo=function(n,clbck){
 			if(!block){
 				block=true;
-				var pos=n*jQuery('.page').attr('offsetWidth')+opt.borders*n;
+				var pos=n*jQuery('.page').width()+opt.borders*n;
+
 				keeper.animate({left:'-'+pos+'px'},opt.speed,opt.easing,function(){
 					block=false;
 					if(opt.after)opt.after(n);

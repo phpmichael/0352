@@ -44,7 +44,7 @@ jQuery.fn.jScrollPane = function(settings)
 				var trackHeight = paneHeight;
 				$this.wrap(
 					jQuery('<div></div>').attr(
-						{'className':'jScrollPaneContainer'}
+						{'class':'jScrollPaneContainer'}
 					).css(
 						{
 							'height':paneHeight+'px', 
@@ -84,10 +84,10 @@ jQuery.fn.jScrollPane = function(settings)
 			if (percentInView < .99) {
 				var $container = $this.parent();
 				$container.append(
-					jQuery('<div></div>').attr({'className':'jScrollPaneTrack'}).css({'width':settings.scrollbarWidth+'px'}).append(
-						jQuery('<div></div>').attr({'className':'jScrollPaneDrag'}).css({'width':settings.scrollbarWidth+'px'}).append(
-							jQuery('<div></div>').attr({'className':'jScrollPaneDragTop'}).css({'width':settings.scrollbarWidth+'px'}),
-							jQuery('<div></div>').attr({'className':'jScrollPaneDragBottom'}).css({'width':settings.scrollbarWidth+'px'})
+					jQuery('<div></div>').attr({'class':'jScrollPaneTrack'}).css({'width':settings.scrollbarWidth+'px'}).append(
+						jQuery('<div></div>').attr({'class':'jScrollPaneDrag'}).css({'width':settings.scrollbarWidth+'px'}).append(
+							jQuery('<div></div>').attr({'class':'jScrollPaneDragTop'}).css({'width':settings.scrollbarWidth+'px'}),
+							jQuery('<div></div>').attr({'class':'jScrollPaneDragBottom'}).css({'width':settings.scrollbarWidth+'px'})
 						)
 					)
 				);
@@ -128,7 +128,7 @@ jQuery.fn.jScrollPane = function(settings)
 					$container
 						.append(
 							jQuery('<a></a>')
-								.attr({'href':'javascript:;', 'className':'jScrollArrowUp'})
+								.attr({'href':'javascript:;', 'class':'jScrollArrowUp'})
 								.css({'width':settings.scrollbarWidth+'px'})
 								.html('Scroll up')
 								.bind('mousedown', function()
@@ -140,7 +140,7 @@ jQuery.fn.jScrollPane = function(settings)
 									return false;
 								}),
 							jQuery('<a></a>')
-								.attr({'href':'javascript:;', 'className':'jScrollArrowDown'})
+								.attr({'href':'javascript:;', 'class':'jScrollArrowDown'})
 								.css({'width':settings.scrollbarWidth+'px'})
 								.html('Scroll down')
 								.bind('mousedown', function()
@@ -187,7 +187,7 @@ jQuery.fn.jScrollPane = function(settings)
 				var initDrag = function()
 				{
 					ceaseAnimation();
-					currentOffset = $drag.offset(false);
+					currentOffset = $drag.offset();
 					currentOffset.top -= dragPosition;
 					maxY = trackHeight - $drag[0].offsetHeight;
 					mouseWheelMultiplier = 2 * settings.wheelSpeed * maxY / contentHeight;

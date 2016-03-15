@@ -26,14 +26,16 @@ $cap_img = $captcha_model->make();
     <meta name='description' content='<?=$head['meta_description']?>' />
     
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
+    <?=include_minified($BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.fadein.min.css','inline_css')?>
 
     <?=include_combined(array(
-            $BC->_getTheme().'js/jquery-1.4.3.min.js',
+            $BC->_getTheme().'js/jquery-1.12.1.min.js',
             $BC->_getTheme().'js/bgSlider.js',
-            $BC->_getTheme().'js/jquery.mousewheel.minify.js',
+            $BC->_getTheme().'js/jquery.mousewheel.min.js',
             $BC->_getTheme().'js/jScrollPane.js',
             $BC->_getTheme().'js/slidePager.js',
-            $BC->_getTheme().'js/main.js'
+            $BC->_getTheme().'js/main.js',
+            $BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.extra.min.js'
             ),
     $BC->_getTheme().'js/combined.js','js')?>
        
@@ -92,8 +94,12 @@ $cap_img = $captcha_model->make();
                 </div>
                 <div class="page" id="page3">
                     <div class="scroll">
-                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
-                        <a href="https://vk.com/maria.kovalska" target="_blank"><img src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
+                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank">
+                            <img data-src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook">
+                        </a>
+                        <a href="https://vk.com/maria.kovalska" target="_blank">
+                            <img data-src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte">
+                        </a>
 
                         <?=$pages['contacts']['body']?>
 
@@ -181,6 +187,7 @@ $cap_img = $captcha_model->make();
                 $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=static_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
                 i++;
             }
+            $j('#thumbs a').append('<span class="fader"></span>');
             $j("#thumbs").fadeIn(1000);
         }
 

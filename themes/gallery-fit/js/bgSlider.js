@@ -125,7 +125,7 @@ jQuery.fn.extend({
 				loadSrc(src[opt.current]);
 			}
 		});
-		if(opt.pags)jQuery(opt.pags).live('click',function(){
+		if(opt.pags)jQuery(opt.pags).on('click', 'a',function(){
 			if(!block){
 				block=true;
 				loadSrc(src[opt.current=this.rel-1]);
