@@ -26,26 +26,16 @@ $cap_img = $captcha_model->make();
     <meta name='description' content='<?=$head['meta_description']?>' />
     
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
+    <!--[if IE]>
+    <?=include_minified($BC->_getTheme().'css/ie_style.css','css')?>
+    <![endif]-->
 
-    <?=include_combined(array(
-            $BC->_getTheme().'js/jquery-1.12.1.min.js',
-            $BC->_getTheme().'js/bgSlider.js',
-            $BC->_getTheme().'js/jquery.mousewheel.min.js',
-            $BC->_getTheme().'js/jScrollPane.js',
-            $BC->_getTheme().'js/slidePager.js',
-            $BC->_getTheme().'js/main.js'
-            ),
-    $BC->_getTheme().'js/combined.js','js')?>
-       
     <!--[if lt IE 7]>
     <?=include_minified($BC->_getTheme().'js/ie6_script_other.js','js')?>
     <![endif]-->
     <!--[if lt IE 9]>
     <?=include_minified($BC->_getTheme().'js/html5.js','js')?>
     <?=include_minified($BC->_getTheme().'js/multiplyBG.js','js')?>
-    <![endif]-->
-    <!--[if IE]>
-    <?=include_minified($BC->_getTheme().'css/ie_style.css','css')?>
     <![endif]-->
     
 </head>
@@ -147,30 +137,34 @@ $cap_img = $captcha_model->make();
                 <a href="#page4" rel="slide" class="white und">
                     <?=$pages['about_makeup']['page_title']?>
                 </a>
-                <br />
-                <!-- {%FOOTER_LINK} -->
             </div>
         </footer>
 
     </div>
 
-    <!-- Load Application Packages config -->
+    <?=include_combined(array(
+            $BC->_getTheme().'js/jquery-1.12.1.min.js',
+            $BC->_getTheme().'js/bgSlider.js',
+            $BC->_getTheme().'js/jquery.mousewheel.min.js',
+            $BC->_getTheme().'js/jScrollPane.js',
+            $BC->_getTheme().'js/slidePager.js',
+            $BC->_getTheme().'js/main.js'
+        ),
+        $BC->_getTheme().'js/combined.js','js')?>
+
     <script>
+        //Load Application Packages config
         var appPackages = {};
         appPackages.contact_us = {};
         appPackages.contact_us.form_action = "<?=relative_url($BC->_getBaseURL()."contact_us/send")?>";
         appPackages.contact_us.messages = {};
         appPackages.contact_us.messages.your_message_sent = "<?=language('your_message_sent')?>";
-    </script>
 
-    <script>
         var slidesArr = [];
         <?$i=-1; foreach ($photos as $record): $i++;?>
         slidesArr[<?=$i?>] = '<?=static_url().('images/data/b/photos/'.$record['file_name'])?>';
         <?endforeach?>
-    </script>
 
-    <script>
         var photos = [];
 
         <?$i=0;foreach ($photos as $record):$i++;?>
