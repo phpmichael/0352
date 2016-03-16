@@ -4,7 +4,7 @@ jQuery.fn.extend({
 		var block = false,
             keeper,
             sCSS = {position:'fixed',left:0,top:0,height:'900px',right:0,zIndex:-1,overflow:'hidden'},
-            iCSS = {position:'absolute',top:0,left:0,zIndex:-1},
+            iCSS = {position:'absolute',top:0,left:0},
             spinner;
 
 		var defaultOptions = {

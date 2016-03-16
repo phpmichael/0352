@@ -110,5 +110,5 @@ $j(function(){
 		$j('>span.meth',this).text(methods[0]);
 		$j().bgSlider.changeMethod(methods[0]);
 		return false;
-	})
+	});
 })
