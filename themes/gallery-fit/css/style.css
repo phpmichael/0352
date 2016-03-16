@@ -51,39 +51,11 @@ table, table td {
 	border:none;
 	border-collapse:collapse;
 }
-.fleft {
-	float:left;
-}
-.fright {
-	float:right;
-}
-.clear {
-	clear:both;
-}
-.col-1, .col-2, .col-3 {
-	float:left;
-}
-.alignright {
-	text-align:right;
-}
-.aligncenter {
-	text-align:center;
-}
-.wrapper {
-	width:100%;
-	overflow:hidden;
-}
-.container {
-	width:100%;
-}
 a.und, .und a {
 	text-decoration:none;
 }
 a.und:hover, .und a:hover {
 	text-decoration:underline;
-}
-.nocolor, .nocolor a{
-	color:inherit;
 }
 /*==== GLOBAL =====*/
 aside{
@@ -94,7 +66,7 @@ aside{
 	overflow:hidden;
 	z-index:10;
 	color:#868686;
-	font:11px/20px Verdana, Geneva, sans-serif, "Myriad Pro";
+	font:11px/20px Verdana, Geneva, sans-serif;
 }
 
 footer {
@@ -158,20 +130,11 @@ textarea{
 	background:url(../images/button-sprite.png) 0 -88px repeat-x;
 }
 
-.extra-wrap {
-	overflow:hidden;
-}
 p {
 	margin-bottom:20px;
 }
-.p1 {
-	margin-bottom:10px;
-}
 .p2 {
 	margin-bottom:20px;
-}
-.p3 {
-	margin-bottom:30px;
 }
 
 .white{
@@ -184,24 +147,6 @@ a {
 }
 a:hover {
 	text-decoration:none;
-}
-/*==================boxes====================*/
-
-dl.address dd {
-	text-align:right;
-	clear:both;
-}
-dl.address dd span {
-	float:left;
-}
-dl.img-box,.img-box-set dl {
-	overflow:hidden;
-}
-dl.img-box dt ,.img-box-set dl dt{
-	float:left;
-}
-dl.img-box dd ,.img-box-set dl dd{
-	overflow:hidden;
 }
 
 /*======aside========*/
@@ -356,7 +301,7 @@ footer h1 a{
 }
 
 footer h1 .slogan{
-	font:14px Verdana, Geneva, sans-serif, "Myriad Pro";
+	font:14px Verdana, Geneva, sans-serif;
 	color:#868686;
 	position:absolute;
 	left:420px;
@@ -369,7 +314,7 @@ footer .privacy{
 	position:absolute;
 	top:50px;
 	right:50px;
-	font:11px Verdana, Geneva, sans-serif, "Myriad Pro";
+	font:11px Verdana, Geneva, sans-serif;
 }
 /*----- forms -----*/
 
@@ -389,7 +334,7 @@ footer .privacy{
 	border:1px #363636 solid;
 	background-color:#1B1B1B;
 	padding:4px 0 4px 6px;
-	font:11px Verdana, Geneva, sans-serif, "Myriad Pro";
+	font:11px Verdana, Geneva, sans-serif;
 	color:#868686;
 }
 
@@ -431,7 +376,6 @@ footer .privacy{
 	top: 0;
 	height: 100%;
 	background:#333;
-	-moz-border-radius:5px;
 	border-radius:5px;
 }
 .jScrollPaneDrag {
@@ -452,38 +396,6 @@ footer .privacy{
 	left: 0;
 	overflow: hidden;
 }
-a.jScrollArrowUp {
-	display: block;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 0;
-	text-indent: -2000px;
-	overflow: hidden;
-	/*background-color: #666;*/
-	height: 9px;
-}
-a.jScrollArrowUp:hover {
-	/*background-color: #f60;*/
-}
-
-a.jScrollArrowDown {
-	display: block;
-	position: absolute;
-	z-index: 1;
-	bottom: 0;
-	right: 0;
-	text-indent: -2000px;
-	overflow: hidden;
-	/*background-color: #666;*/
-	height: 9px;
-}
-a.jScrollArrowDown:hover {
-	/*background-color: #f60;*/
-}
-a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
-	/*background-color: #f00;*/
-}
 
 /* pagination */
 a.paginator{
@@ -498,13 +410,6 @@ a.paginator:hover{
 }
 a.paginator.active{
     color: #6B6B6B;
-}
-
-/* Other */
-.share{
-    padding-left: 5px;
-    font-size: 180%;
-    color: #ff0000;
 }
 
 /* Noscript Notice */
