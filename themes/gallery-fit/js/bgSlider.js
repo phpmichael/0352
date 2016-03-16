@@ -40,9 +40,9 @@ jQuery.fn.extend({
 
 			if(opt.method == 'fit')
 				if(bw/bh<k)
-					image.width('auto').height(bh).css({top:t,left:l});
+					image.width('auto').height(bh).css({top:t,left:'0px'});
 				else
-					image.width(bw).height('auto').css({top:t,left:l});
+					image.width(bw).height('auto').css({top:t,left:'0px'});
 			else
 				if(!(bw/bh<k))
 					image.width('auto').height(bh).css({top:t,left:l});
