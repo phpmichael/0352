@@ -3,7 +3,7 @@ jQuery.fn.extend({
 		var src = this;
 		var block = false,
             keeper,
-            sCSS = {position:'fixed',left:0,top:0,height:'900px',right:0,zIndex:-1,overflow:'hidden'},
+            sCSS = {position:'fixed',left:0,top:0,height:'900px',right:0,overflow:'hidden'},
             iCSS = {position:'absolute',top:0,left:0},
             spinner;
 
