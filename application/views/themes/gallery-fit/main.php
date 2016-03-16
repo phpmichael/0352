@@ -155,7 +155,13 @@ $cap_img = $captcha_model->make();
     </div>
 
     <!-- Load Application Packages config -->
-    <script src="<?=base_url().$BC->_getBaseURL().'app_js/config'?>"></script>
+    <script>
+        var appPackages = {};
+        appPackages.contact_us = {};
+        appPackages.contact_us.form_action = "<?=relative_url($BC->_getBaseURL()."contact_us/send")?>";
+        appPackages.contact_us.messages = {};
+        appPackages.contact_us.messages.your_message_sent = "<?=language('your_message_sent')?>";
+    </script>
 
     <script>
         var slidesArr = [];
