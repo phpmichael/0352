@@ -5,12 +5,9 @@ $j(window).load(function(){
 })
 $j(function(){
 	$j(window.slidesArr).bgSlider({
-					  preload:false,
-					  bgstretch:true,
-					  current:0,
-					  pags:'#thumbs',
-					  spinner:'<span class="spinner"></span>'
-				  });
+        pags:'#thumbs',
+        spinner:'<span class="spinner"></span>'
+    });
 	
 	$j('#bgSlider').css({left:'586px'});
 	
