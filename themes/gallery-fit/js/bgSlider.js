@@ -27,7 +27,7 @@ jQuery.fn.extend({
 		spinner=jQuery(opt.spinner);
 		
 		var resize=jQuery.fn.bgSlider.resize=function(){
-			var im=jQuery('#bgSlider img').eq(0),
+			var im=jQuery('#bgSlider').find('img').eq(0),
 				w=im.width(),
 				l=im.css('left'),
 				t='0px',
@@ -59,9 +59,7 @@ jQuery.fn.extend({
 		var loadSrc=function(src){
 			if(!opt.bgstretch)return loadURL(src);
 			if(opt.pags)
-				//opt.pags.parent().eq(opt.current).addClass('current').siblings().removeClass('current')
-				opt.pags=jQuery("#thumbs a");
-				opt.pags.filter("[rel="+(parseInt(opt.current+1))+"]").parent().addClass('current').siblings().removeClass('current');
+				opt.pags.find("a").filter("[rel="+(parseInt(opt.current+1))+"]").parent().addClass('current').siblings().removeClass('current');
 			if(opt.slideshow)
 				clearInterval(opt.slideshow),
 				opt.slideshow=setInterval(function(){keeper.trigger('bgSliderNext')},opt.interval);
@@ -89,7 +87,7 @@ jQuery.fn.extend({
 	
 		var loadURL=function(src){
 			if(opt.pags)
-				opt.pags.parent().eq(opt.current).addClass('current').siblings().removeClass('current');
+                opt.pags.find("a").filter("[rel="+(parseInt(opt.current+1))+"]").parent().addClass('current').siblings().removeClass('current');
 			if(opt.slideshow)
 				clearInterval(opt.slideshow),
 				opt.slideshow=setInterval(function(){keeper.trigger('bgSliderNext')},opt.interval);
@@ -101,6 +99,7 @@ jQuery.fn.extend({
 				block=false;
 			});
 		}
+
 		jQuery('body').append(keeper=jQuery('<div id="bgSlider"></div>').css(sCSS));
 		
 		keeper.bind('bgSliderRefresh',function(){
