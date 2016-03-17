@@ -61,7 +61,7 @@ a.und:hover, .und a:hover {
 aside{
 	width:586px;
 	min-height:100%;
-	background:url(../images/aside-bot.png) repeat-x bottom, url(../images/aside-top.png) 0 110px repeat-x #000;
+	background: url(../images/aside-top.png) 0 110px repeat-x #000;
 	position:relative;
 	overflow:hidden;
 	z-index:10;
