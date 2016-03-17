@@ -176,8 +176,13 @@ nav li.active a{
 }
 
 nav li a:hover,nav li.active a{
-	color:#6b6b6b;
-	background:url(../images/nav-sprite.png) 0 0 no-repeat, url(../images/nav-sprite.png) 100% -72px no-repeat, url(../images/nav-sprite.png) 0 -144px repeat-x;
+     color:#6b6b6b;
+     background: #333;
+     border-radius: 15px;
+ }
+
+nav li.active a{
+    background: #1A1A1A;
 }
 
 nav li.active .__mbgh__{
