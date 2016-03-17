@@ -11,10 +11,6 @@ $photos_pages_count = ceil(count($photos)/$photos_per_page);
 $pages['contacts'] = $BC->pages_model->getByLink('contact_us');
 $pages['about'] = $BC->pages_model->getByLink('about');
 $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
-
-//get captcha image
-$captcha_model = load_model('captcha_model');
-$cap_img = $captcha_model->make();
 ?>
 <!DOCTYPE HTML>
 <html lang="<?=$BC->lang_model->getCurrentLangCode()?>">
@@ -90,31 +86,6 @@ $cap_img = $captcha_model->make();
                         </a>
 
                         <?=$pages['contacts']['body']?>
-
-                        <p class="required">* <?=language('required_fields')?></p>
-                        <div class="green" id="success"></div>
-                        <div class="red" id="errors"></div>
-
-                        <form id="contact_form" action="#" method="post">
-                            <input type="submit" style="display:none" />
-                            <label><?=language('name')?>:
-                                <input type="text" name="name">
-                            </label>
-                            <label><?=language('email')?>:
-                                <input type="text" name="email">
-                            </label>
-                            <label><?=language('message')?>:
-                                <textarea name="message"></textarea>
-                            </label>
-                            <?=$cap_img?>
-                            <label><?=language('captcha')?>:
-                                <input type="text" name="captcha">
-                            </label>
-                            <div class="btns und">
-                                <a href="javascript:void(0)" onclick="$j('#contact_form :input[type=submit]').click()"><?=language('submit')?></a>
-                            </div>
-                            <div>&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;</div>
-                        </form>
 
                     </div>
                 </div>
