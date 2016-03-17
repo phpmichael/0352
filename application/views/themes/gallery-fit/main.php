@@ -78,15 +78,10 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
                 </div>
                 <div class="page" id="page3">
                     <div class="scroll">
-                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank">
-                            <img data-src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook">
-                        </a>
-                        <a href="https://vk.com/maria.kovalska" target="_blank">
-                            <img data-src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte">
-                        </a>
+                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
+                        <a href="https://vk.com/maria.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
 
                         <?=$pages['contacts']['body']?>
-
                     </div>
                 </div>
                 <div class="page" id="page4">

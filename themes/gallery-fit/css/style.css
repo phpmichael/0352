@@ -89,20 +89,6 @@ body>.glob{
 	height:100%;
 	overflow:hidden;
 }
-
-/*----- forms parameters -----*/
-
-input, select, textarea {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:1em;
-	vertical-align:middle;
-	font-weight:normal;
-	margin:0;
-}
-
-textarea{
-	overflow:auto;
-}
 /*----- other -----*/
 
 .button{
@@ -321,39 +307,6 @@ footer .privacy{
 	right:50px;
 	font:11px Verdana, Geneva, sans-serif;
 }
-/*----- forms -----*/
-
-#contact_form{
-	width:464px;
-	overflow:hidden;
-}
-
-#contact_form label{
-	float:left;
-	margin-bottom:24px;
-}
-
-#contact_form input,#contact_form textarea{
-	float:left;
-	width:456px;
-	border:1px #363636 solid;
-	background-color:#1B1B1B;
-	padding:4px 0 4px 6px;
-	font:11px Verdana, Geneva, sans-serif;
-	color:#868686;
-}
-
-#contact_form textarea{
-	height:220px;
-}
-
-#contact_form .btns a{
-	margin-right:30px;
-}
-
-#errors p{
-    margin-bottom:1px;
-}
 
 /*==========================================*/
 
@@ -365,41 +318,6 @@ footer .privacy{
 	height:100%;
 	z-index:10;
 	background:url(../images/ajax-loader.gif) no-repeat 50% 50%;
-}
-
-/*==========================================*/
-.jScrollPaneContainer {
-	position: relative;
-	overflow: hidden;
-	z-index: 1;
-}
-
-.jScrollPaneTrack {
-	position: absolute;
-	cursor: pointer;
-	right: 0;
-	top: 0;
-	height: 100%;
-	background:#333;
-	border-radius:5px;
-}
-.jScrollPaneDrag {
-	position: absolute;
-	background:url(../images/shattle.png);
-	cursor: pointer;
-	overflow: hidden;
-}
-.jScrollPaneDragTop {
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-}
-.jScrollPaneDragBottom {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
 }
 
 /* pagination */
