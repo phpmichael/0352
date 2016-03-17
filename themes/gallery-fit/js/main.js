@@ -1,9 +1,5 @@
 $j = jQuery.noConflict();
 
-$j(window).load(function(){
-	$j('.scroll').jScrollPane({showArrows:false,scrollbarWidth:25,dragMaxHeight:105,scrollbarHeight:175});
-});
-
 $j(function(){
     var asideWidth = 586;
 

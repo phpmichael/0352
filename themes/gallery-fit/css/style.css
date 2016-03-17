@@ -254,7 +254,7 @@ body .gall_next{
 .scroll{
 	width:514px;
 	height:690px;
-	overflow:hidden;
+	overflow:auto;
 	padding:0 20px;
 	position:relative;
 }

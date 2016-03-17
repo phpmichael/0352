@@ -145,8 +145,6 @@ $cap_img = $captcha_model->make();
     <?=include_combined(array(
             $BC->_getTheme().'js/jquery-1.12.1.min.js',
             $BC->_getTheme().'js/bgSlider.js',
-            $BC->_getTheme().'js/jquery.mousewheel.min.js',
-            $BC->_getTheme().'js/jScrollPane.js',
             $BC->_getTheme().'js/slidePager.js',
             $BC->_getTheme().'js/main.js'
         ),
