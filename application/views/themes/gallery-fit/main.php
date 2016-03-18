@@ -117,13 +117,6 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
         $BC->_getTheme().'js/combined.js','js')?>
 
     <script>
-        //Load Application Packages config
-        var appPackages = {};
-        appPackages.contact_us = {};
-        appPackages.contact_us.form_action = "<?=relative_url($BC->_getBaseURL()."contact_us/send")?>";
-        appPackages.contact_us.messages = {};
-        appPackages.contact_us.messages.your_message_sent = "<?=language('your_message_sent')?>";
-
         var slidesArr = [];
         <?$i=-1; foreach ($photos as $record): $i++;?>
         slidesArr[<?=$i?>] = '<?=static_url().('images/data/b/photos/'.$record['file_name'])?>';
@@ -163,8 +156,6 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
             show_photos(pageNum,<?=$photos_per_page?>);
         });
     </script>
-
-    <?=include_minified($BC->_getFolder('js').'custom/contact_us/send_form.js','inline_js')?>
 
 </body>
 </html> 
