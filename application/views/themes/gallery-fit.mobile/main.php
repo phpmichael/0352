@@ -1,7 +1,7 @@
 <?
 //get photos list
 $photos_model = load_model('photos_model');
-$photosData = $photos_model->get(0,0,999);
+$photosData = $photos_model->get(0,0,999,'id','desc');
 $photos = $photosData['list'];
 
 //get pages data
