@@ -8,6 +8,10 @@
 <link rel="icon" href="<?=static_url()?>favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="<?=static_url()?>favicon.ico" type="image/x-icon" />
 
+<?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('view','name'))):?>
+<link rel="canonical" href="<?=site_url(preg_replace('/s$/','',$BC->_getController()).'/'.$slug)?>" />
+<?endif?>
+
 <?=include_minified($BC->_getTheme().'css/bootstrap.css','css')?>
 
 <?=include_minified($BC->_getTheme().'css/styles.css','css')?>
