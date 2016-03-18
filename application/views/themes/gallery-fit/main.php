@@ -16,11 +16,11 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
 <html lang="<?=$BC->lang_model->getCurrentLangCode()?>">
 <head>
     <meta charset="UTF-8">
-    
+
     <title><?=$head['site_title']?></title>
 
     <meta name='description' content='<?=$head['meta_description']?>' />
-    
+
     <?=include_minified($BC->_getTheme().'css/style.css','css')?>
     <!--[if IE]>
     <?=include_minified($BC->_getTheme().'css/ie_style.css','css')?>
@@ -33,129 +33,125 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
     <?=include_minified($BC->_getTheme().'js/html5.js','js')?>
     <?=include_minified($BC->_getTheme().'js/multiplyBG.js','js')?>
     <![endif]-->
-    
+
 </head>
 
 <body>
 
-    <?load_theme_view('inc/tpl-noscript')?>
+<?load_theme_view('inc/tpl-noscript')?>
 
-    <div class="glob">
+<div class="glob">
 
-        <a class="gall_prev"></a>
-        <a class="gall_next"></a>
+    <a class="gall_prev"></a>
+    <a class="gall_next"></a>
 
-        <aside>
-            <nav>
-                <ul>
-                    <li class="active"><a href="#page1" rel="slide">Галерея</a></li>
-                    <li><a href="#page2" rel="slide"><?=$pages['about']['page_title']?></a></li>
-                    <li><a href="#page3" rel="slide"><?=$pages['contacts']['page_title']?></a></li>
-                </ul>
-            </nav>
-            <div class="pages">
-                <div class="page" id="page1">
-                    <a class="button-method button">
-                        <span class="wrap">image view mode</span>
-                        <span class="meth">fit</span>
-                    </a>
-
-                    <?for ($page_num=1;$page_num<=$photos_pages_count;$page_num++):?>
-                        <a href="javascript:;" class="paginator<?if($page_num===1):?> active<?endif?>" rel="<?=$page_num?>"><?=$page_num?></a>
-                    <?endfor;?>
-
-                    <div class="scroll">
-                        <ul id="thumbs">
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="page" id="page2">
-                    <div class="scroll">
-                        <img data-src="<?=static_url().$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
-                        <?=$pages['about']['body']?>
-                    </div>
-                </div>
-                <div class="page" id="page3">
-                    <div class="scroll">
-                        <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
-                        <a href="https://vk.com/maria.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
-
-                        <?=$pages['contacts']['body']?>
-                    </div>
-                </div>
-                <div class="page" id="page4">
-                    <div class="scroll">
-                        <?=$pages['about_makeup']['body']?>
-
-                        <p><?=$BC->settings_model['site_partners']?></p>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <footer>
-            <h1>
-                <a href="<?=base_url()?>">Марія Ковальська</a>
-                <span class="slogan">Візажист <span class="white">в Тернополі</span></span>
-            </h1>
-            <div class="privacy">
-                Maria Kovalska &copy; 2012
-                <a href="#page4" rel="slide" class="white und">
-                    <?=$pages['about_makeup']['page_title']?>
+    <aside>
+        <nav>
+            <ul>
+                <li class="active"><a href="#page1" rel="slide">Галерея</a></li>
+                <li><a href="#page2" rel="slide"><?=$pages['about']['page_title']?></a></li>
+                <li><a href="#page3" rel="slide"><?=$pages['contacts']['page_title']?></a></li>
+            </ul>
+        </nav>
+        <div class="pages">
+            <div class="page" id="page1">
+                <a class="button-method button">
+                    <span class="wrap">image view mode</span>
+                    <span class="meth">fit</span>
                 </a>
+
+                <?for ($page_num=1;$page_num<=$photos_pages_count;$page_num++):?>
+                    <a href="javascript:;" class="paginator<?if($page_num===1):?> active<?endif?>" rel="<?=$page_num?>"><?=$page_num?></a>
+                <?endfor;?>
+
+                <div class="scroll">
+                    <ul id="thumbs">
+
+                    </ul>
+                </div>
             </div>
-        </footer>
+            <div class="page" id="page2">
+                <div class="scroll">
+                    <img data-src="<?=static_url().$BC->_getTheme()?>images/maria-kovalska.jpg" width="510" height="376" class="p2" alt="Maria Kovalska">
+                    <?=$pages['about']['body']?>
+                </div>
+            </div>
+            <div class="page" id="page3">
+                <div class="scroll">
+                    <a href="https://www.facebook.com/mariia.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/facebook.png" width="24" height="24" alt="Facebook"></a>
+                    <a href="https://vk.com/maria.kovalska" target="_blank"><img data-src="<?=static_url().$BC->_getTheme()?>images/vkontakte.png" width="24" height="24" alt="VKontakte"></a>
 
-    </div>
+                    <?=$pages['contacts']['body']?>
+                </div>
+            </div>
+            <div class="page" id="page4">
+                <div class="scroll">
+                    <?=$pages['about_makeup']['body']?>
 
-    <?=include_combined(array(
-            $BC->_getTheme().'js/jquery-1.12.1.min.js',
-            $BC->_getTheme().'js/bgSlider.js',
-            $BC->_getTheme().'js/slidePager.js',
-            $BC->_getTheme().'js/main.js'
-        ),
-        $BC->_getTheme().'js/combined.js','js')?>
+                    <p><?=$BC->settings_model['site_partners']?></p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <h1>
+            <a href="<?=base_url()?>">Марія Ковальська</a>
+            <span class="slogan">Візажист <span class="white">в Тернополі</span></span>
+        </h1>
+        <div class="privacy">
+            Maria Kovalska &copy; 2012
+            <a href="#page4" rel="slide" class="white und">
+                <?=$pages['about_makeup']['page_title']?>
+            </a>
+        </div>
+    </footer>
 
-    <script>
-        var slidesArr = [];
-        <?$i=-1; foreach ($photos as $record): $i++;?>
-        slidesArr[<?=$i?>] = '<?=static_url().('images/data/b/photos/'.$record['file_name'])?>';
-        <?endforeach?>
+</div>
 
-        var photos = [];
+<?=include_combined(array(
+        $BC->_getTheme().'js/jquery-1.12.1.min.js',
+        $BC->_getTheme().'js/bgSlider.js',
+        $BC->_getTheme().'js/slidePager.js',
+        $BC->_getTheme().'js/main.js'
+    ),
+    $BC->_getTheme().'js/combined.js','js')?>
 
-        <?$i=0;foreach ($photos as $record):$i++;?>
-        photos[<?=$i?>] = '<?=$record['file_name']?>';
-        <?endforeach?>
+<script>
+    var slidesUrl = '<?=static_url().'images/data/b/photos/'?>';
 
-        function show_photos(pageNum,perPage)
+    var slidesArr = [];
+    <?$i=-1; foreach ($photos as $record): $i++;?>
+    slidesArr[<?=$i?>] = slidesUrl+'<?=$record['file_name']?>';
+    <?endforeach?>
+
+    function show_photos(pageNum,perPage)
+    {
+        var i = (pageNum-1)*perPage;
+        var lastPhoto = i+perPage;
+
+        $j("#thumbs").empty().hide();
+
+        while(i<lastPhoto)
         {
-            var i = (pageNum-1)*perPage+1;
-            var lastPhoto = i+perPage;
+            if(i>=slidesArr.length) break;
 
-            $j("#thumbs").empty().hide();
-
-            while(i<lastPhoto)
-            {
-                if(i>=photos.length) break;
-
-                $j("#thumbs").append("<li><a href='javascript:;' rel='"+i+"'><img src='<?=static_url().'images/data/s/photos/'?>"+photos[i]+"' width='230' height='162' alt='' /></a></li>");
-                i++;
-            }
-            $j('#thumbs a').append('<span class="fader"></span>');
-            $j("#thumbs").fadeIn(1000);
+            $j("#thumbs").append("<li><a href='javascript:;' rel='"+(i+1)+"'><img src='"+slidesArr[i].replace('/b/','/s/')+"' width='230' height='162' alt='' /></a></li>");
+            i++;
         }
+        $j('#thumbs a').append('<span class="fader"></span>');
+        $j("#thumbs").fadeIn(1000);
+    }
 
-        show_photos(1,<?=$photos_per_page?>);
+    show_photos(1,<?=$photos_per_page?>);
 
-        $j(".paginator").click(function(){
-            $j(".paginator").removeClass('active');
-            $j(this).addClass('active');
+    $j(".paginator").click(function(){
+        $j(".paginator").removeClass('active');
+        $j(this).addClass('active');
 
-            var pageNum = parseInt($j(this).attr('rel'));
-            show_photos(pageNum,<?=$photos_per_page?>);
-        });
-    </script>
+        var pageNum = parseInt($j(this).attr('rel'));
+        show_photos(pageNum,<?=$photos_per_page?>);
+    });
+</script>
 
 </body>
 </html> 
