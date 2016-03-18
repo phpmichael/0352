@@ -214,9 +214,5 @@ $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
                 show_photos(6);
             });
         </script>
-        <!-- Load Application Packeges config -->
-        <?=include_js($BC->_getBaseURL().'app_js/config')?>
-        
-        <?=include_minified($BC->_getFolder('js').'custom/contact_us/send_form.js','inline_js')?>
     </body>
 </html>
