@@ -3,7 +3,8 @@
 
 <title><?=$BC->_getPageTitle()?></title>
 <meta name='description' content='<?=$head['meta_description']?>' />
-<meta name='keywords' content='<?=$head['meta_keywords']?>' />
+
+<?load_theme_view('inc/meta-noindex')?>
 
 <link rel="icon" href="<?=static_url()?>favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="<?=static_url()?>favicon.ico" type="image/x-icon" />
