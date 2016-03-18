@@ -19,8 +19,8 @@
         $search_url .= '/sort_by/'.$sort_by;
         $search_url .= '/sort_order/'.$sort_order;
     ?>
-    <?=anchor_base('books/search/' . str_replace($display_style,'grid',$search_url) ,' ',"id='show-grid-icon'")?>
-    <?=anchor_base('books/search/' . str_replace($display_style,'list',$search_url) ,' ',"id='show-list-icon'")?>
+    <?=anchor_base('books/search/' . str_replace($display_style,'grid',$search_url) ,' ',"id='show-grid-icon' rel='nofollow'")?>
+    <?=anchor_base('books/search/' . str_replace($display_style,'list',$search_url) ,' ',"id='show-list-icon' rel='nofollow'")?>
     <div class="pull-left">
         <?=language('sort_by')?>:
         <?=form_dropdown('sort_by',array(
