@@ -89,7 +89,7 @@
                             <strong>
                                 <?=fb_input_label("manufacturer_id","books")?>:
                                 <span itemprop="publisher">
-                                    <?=anchor_base('books/search/manufacturer/'.urlencode($manufacturer),$manufacturer)?>
+                                    <?=anchor_base('books/search/manufacturer/'.urlencode($manufacturer),$manufacturer,'rel="nofollow"')?>
                                 </span>
                             </strong>
                         </p>
