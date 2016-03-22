@@ -13,7 +13,7 @@ $pages['about'] = $BC->pages_model->getByLink('about');
 $pages['about_makeup'] = $BC->pages_model->getBySlug('pro-makiyazh');
 ?>
 <!DOCTYPE HTML>
-<html lang="<?=$BC->lang_model->getCurrentLangCode()?>">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
 
