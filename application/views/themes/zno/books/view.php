@@ -103,8 +103,6 @@
                         </p>
                         <?endif?>
 
-                        <p><?social_buttons()?></p>
-
                     </div>
                  </form>
             </td>
