@@ -28,6 +28,11 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
+<!-- Load Application Packages config -->
+<script>
+<?=load_theme_view('app_js/config')?>
+</script>
+
 <script src="<?=static_url().$BC->_getFolder('js').'loaders/yepnope.min.js'?>"></script>
 
 <script>
@@ -38,8 +43,7 @@
             FaceBoxPath = "<?=base_url().$BC->_getFolder('js')?>jquery/facebox/";
 
             yepnope({
-                load: ["<?=base_url().$BC->_getBaseURL().'app_js/config'?>",
-
+                load: [
                     <?if($BC->is_home_page()):?>
                     "<?=static_url().$BC->_getTheme().'js/jquery.cycle.all.min.js'?>",
                     "<?=static_url().$BC->_getTheme().'js/slider.minify.js'?>",
