@@ -218,7 +218,6 @@ pip-log.txt
 /application/cache
 /images/captcha
 /user_guide
-/*.sql
 /books-changes.txt
 *.minify.css
 *.minify.js
