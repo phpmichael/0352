@@ -6,7 +6,7 @@
 		body {
 			background-color:	#fff;
 			margin:				40px;
-			font-family:		Lucida Grande, Verdana, Sans-serif;
+			font-family:		Lucida Grande, Verdana, sans-serif;
 			font-size:			12px;
 			color:				#000;
 		}
