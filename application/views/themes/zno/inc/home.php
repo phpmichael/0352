@@ -20,12 +20,6 @@
     </div>
 
     <div class="clearfix"></div>
-
-    <?if(trim($body)):?>
-    <div class="full-box">
-        <?=$body?>
-    </div>
-    <?endif?>
     
     <h2><?=language('novelty')?></h2>
 
@@ -36,5 +30,11 @@
         ?>
     	<?load_theme_view('inc/tpl-books-grid',$recent_books);?>
     </div>
+
+    <?if(trim($body)):?>
+        <div>
+            <?=$body?>
+        </div>
+    <?endif?>
     
 </div>
