@@ -139,11 +139,21 @@
         </tr>
         </table>
 
-        <?if(@($description)):?>
-            <div itemprop="description">
-                <?=$description?>
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#tab-description" aria-controls="tab-description" role="tab" data-toggle="tab"><?=fb_input_label("description","books")?></a></li>
+                <li role="presentation"><a href="#tab-contents" aria-controls="tab-contents" role="tab" data-toggle="tab"><?=fb_input_label("contents","books")?></a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tab-description" itemprop="description">
+                    <?=$description?>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tab-contents">
+                    <?=$contents?>
+                </div>
             </div>
-        <?endif?>
+        </div>
 
     </div>
 </div>

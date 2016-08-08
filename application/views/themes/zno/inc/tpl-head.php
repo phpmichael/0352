@@ -52,6 +52,7 @@
                     <?if( in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('view','name'))):?>
                     "<?=static_url().$BC->_getFolder('js').'jquery/lightbox/css/lightbox.minify.css'?>",
                     "<?=static_url().$BC->_getFolder('js').'jquery/lightbox/js/lightbox.minify.js'?>",
+                    "<?=static_url().$BC->_getTheme().'js/bootstrap.min.js'?>",
                     <?endif?>
 
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.css'?>",
