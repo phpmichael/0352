@@ -59,10 +59,10 @@
                         </p>
                         <?endif?>
 
-                        <?if($language):?>
+                        <?if($size):?>
                         <p>
-                            <strong><?=fb_input_label("language","books")?>:</strong>
-                            <span itemprop="inLanguage"><?=fb_answers($language)?></span>
+                            <strong><?=fb_input_label("size","books")?>:</strong>
+                            <span><?=fb_answers($size)?></span>
                         </p>
                         <?endif?>
 
