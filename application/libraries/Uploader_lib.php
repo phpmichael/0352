@@ -224,10 +224,13 @@ class Uploader_lib
      */
     public function unlinkFile($file_name)
     {
-        @unlink($this->upload_path."files/".$this->short_path.'/'.$file_name);
-        @unlink($this->upload_path."s/".$this->short_path.'/'.$file_name);
-    	@unlink($this->upload_path."m/".$this->short_path.'/'.$file_name);
-    	@unlink($this->upload_path."b/".$this->short_path.'/'.$file_name);
+        if($file_name)
+		{
+			@unlink($this->upload_path."files/".$this->short_path.'/'.$file_name);
+			@unlink($this->upload_path."s/".$this->short_path.'/'.$file_name);
+			@unlink($this->upload_path."m/".$this->short_path.'/'.$file_name);
+			@unlink($this->upload_path."b/".$this->short_path.'/'.$file_name);
+		}
     }
 
 }
