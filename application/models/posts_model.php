@@ -712,9 +712,12 @@ abstract class Posts_model extends Base_model
      */
     private function unlinkImage($image)
     {
-        @unlink($this->upload_path.$this->small_dir.$this->c_table.'/'.$image);
-    	@unlink($this->upload_path.$this->medium_dir.$this->c_table.'/'.$image);
-    	@unlink($this->upload_path.$this->big_dir.$this->c_table.'/'.$image);
+		if($image)
+		{
+			@unlink($this->upload_path . $this->small_dir . $this->c_table . '/' . $image);
+			@unlink($this->upload_path . $this->medium_dir . $this->c_table . '/' . $image);
+			@unlink($this->upload_path . $this->big_dir . $this->c_table . '/' . $image);
+		}
     }
     
     //Check if post is valid (in date range)

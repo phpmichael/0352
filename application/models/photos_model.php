@@ -268,8 +268,11 @@ class Photos_model extends Base_model
      */
     public function DeletePhoto($file_name)
     {
-        @unlink($this->upload_path.$this->big_dir.$this->c_table.'/'.$file_name);
-		@unlink($this->upload_path.$this->small_dir.$this->c_table.'/'.$file_name);
+		if($file_name)
+		{
+			@unlink($this->upload_path.$this->big_dir.$this->c_table.'/'.$file_name);
+			@unlink($this->upload_path.$this->small_dir.$this->c_table.'/'.$file_name);
+		}
     }
 
     /**
