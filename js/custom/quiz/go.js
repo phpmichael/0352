@@ -43,7 +43,8 @@ function quizTimer()
         $j("#quiz-form").find("input[type=submit]").click();
         return true;
     }
-    
+
+    var min, sec;
     //convert seconds to min:sec
     if( window.time_left>= 60 )
     {
