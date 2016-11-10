@@ -1,26 +1,28 @@
 $j(document).ready(function()
 {
+    var quizForm = $j("#quiz-form");
     //run timer
     setTimeout("quizTimer()",1000);
     
     //check if user set answer before submit
-    $j("#quiz-form input[type=submit]").click(function()
+    quizForm.find("input[type=submit]").click(function()
     {
         if(
             window.time_left <= 0 ||
-            ( $j("#quiz-form input[name=custom_answer]").val() && $j("#quiz-form input[name=custom_answer]").val()!=undefined ) || 
-            $j("#quiz-form input[name=^answers]:checked").length>0 ||
-            $j("#quiz-form input[name=answer]:checked").length>0 )
+            ( quizForm.find("input[name=custom_answer]").val() && quizForm.find("input[name=custom_answer]").val()!=undefined ) ||
+            quizForm.find("input[name^=answers]:checked").length > 0 ||
+            quizForm.find("input[name=answer]:checked").length > 0
+        )
         {
-           $j("#quiz-form").submit(); 
-           return true;
+            quizForm.submit();
+            return true;
         }
         else
         {
             //show confirm box if user didn't answer
             if( confirm(window.are_you_sure) )
             {
-                $j("#quiz-form").submit();
+                quizForm.submit();
                 return true;
             }
         }
@@ -38,7 +40,7 @@ function quizTimer()
     //if no more time - submit form 
     if(window.time_left <= 0)
     {
-        $j("#quiz-form input[type=submit]").click();
+        $j("#quiz-form").find("input[type=submit]").click();
         return true;
     }
     
