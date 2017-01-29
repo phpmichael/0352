@@ -39,4 +39,5 @@
 var time_left = <?=$quiz['question']['time']?>;
 var are_you_sure = "<?=language('are_you_sure')?>";
 </script>
-<?=include_js($BC->_getFolder('js').'custom/quiz/go.js')?>
+<?=include_minified($BC->_getFolder('js').'custom/quiz/timer.js','inline_js')?>
+<?=include_minified($BC->_getFolder('js').'custom/quiz/go.js','inline_js')?>
