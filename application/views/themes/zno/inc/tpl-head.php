@@ -23,6 +23,10 @@
 <?endforeach?>
 <?=include_minified('css/dialog-cart.css','inline_css')?>
 
+<?if(in_array($BC->_getController(),array('quiz'))):?>
+<?=include_minified('themes/default/css/quiz.css','css')?>
+<?endif?>
+
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -53,6 +57,10 @@
                     "<?=static_url().$BC->_getFolder('js').'jquery/lightbox/css/lightbox.minify.css'?>",
                     "<?=static_url().$BC->_getFolder('js').'jquery/lightbox/js/lightbox.minify.js'?>",
                     "<?=static_url().$BC->_getTheme().'js/bootstrap.min.js'?>",
+                    <?endif?>
+
+                    <?if( in_array($BC->_getController(),array('quiz')) && in_array($BC->_getMethod(),array('go'))):?>
+                    "<?=static_url().$BC->_getFolder('js').'custom/quiz/timer.js'?>",
                     <?endif?>
 
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.css'?>",
@@ -94,6 +102,10 @@
                     <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('search')) ):?>
                     <?$BC->formbuilder_model->setJsIncluded()?>
                     <?=strip_tags(include_minified($BC->_getFolder('js').'custom/fb/process.js','inline_js'))?>
+                    <?endif?>
+
+                    <?if(in_array($BC->_getController(),array('quiz')) && in_array($BC->_getMethod(),array('go'))):?>
+                    <?=strtr(include_minified($BC->_getFolder('js').'custom/quiz/go.js','inline_js'),array('<script>'=>'','</script>'=>''))?>
                     <?endif?>
 
                     <?foreach ($BC->_getJSFiles() as $js_file):?>

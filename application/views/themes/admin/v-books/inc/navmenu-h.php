@@ -207,8 +207,8 @@
     </li>
     <?endif?>
 
-    <?if(userAccess('quiz_categories','view')):?>
-        <li><?=$BC->buildLeftMenuItem('quiz_categories','quiz_list')?></li>
+    <?if(userAccess('quiz','view')):?>
+        <li><?=$BC->buildLeftMenuItem('quiz','quiz_list')?></li>
     <?endif?>
     
     <?if(userAccess('poll','view')):?>
