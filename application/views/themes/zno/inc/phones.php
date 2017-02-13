@@ -40,6 +40,16 @@ for($i=1; $i<=3; $i++){
 
 <div class="span6">
     <h3><?=language('schedule_call_center')?></h3>
-    <div class="call-center-row"><em><?=lang('cal_mo')?>-<?=lang('cal_sa')?></em>: <?=sprintf( language('from_x_till_x'), '<strong>8:00</strong>', '<strong>21:00</strong>' )?></div>
-    <div class="call-center-row"><em><?=lang('cal_sunday')?></em>: <?=sprintf( language('from_x_till_x'), '<strong>10:00</strong>', '<strong>19:00</strong>' )?></div>
+    <div class="call-center-row">
+        <em><?=lang('cal_mo')?>-<?=lang('cal_fr')?></em>:
+        <?=sprintf( language('from_x_till_x'), '<strong>9:00</strong>', '<strong>19:00</strong>' )?>
+    </div>
+    <div class="call-center-row">
+        <em><?=lang('cal_saturday')?></em>:
+        <?=sprintf( language('from_x_till_x'), '<strong>10:00</strong>', '<strong>13:00</strong>' )?>
+    </div>
+    <div class="call-center-row">
+        <em><?=lang('cal_sunday')?></em>:
+        <strong>Вихідний</strong>
+    </div>
 </div>
