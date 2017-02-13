@@ -107,6 +107,16 @@
 </tr>
 <?endif?>
 
+<?if(userAccess('orders','edit')):?>
+	<tr>
+		<th colspan="2"><b><?=language('orders')?></b></th>
+	</tr>
+	<tr>
+		<td><?=language('order_minimum_sum')?>:</td>
+		<td><?=form_input("order_minimum_sum",set_value('order_minimum_sum',@$order_minimum_sum));?></td>
+	</tr>
+<?endif?>
+
 <?if(userAccess('poll','config')):?>
 <tr>
 	<th colspan="2"><b><?=language('poll_settings')?></b></th>

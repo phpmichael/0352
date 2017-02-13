@@ -1,5 +1,7 @@
 <h1><?=$BC->_getPageTitle()?></h1>
 
+<?load_theme_view('inc/flash-errors')?>
+
 <div>
     <?$cart_contents = $this->cart->contents();?>
 

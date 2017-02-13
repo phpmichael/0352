@@ -121,6 +121,13 @@ class Orders extends Front
 	 */
 	public function confirm()
 	{
+        //validate order
+        if( !$this->orders_model->validate() )
+        {
+            $this->session->set_flashdata('errors', $this->orders_model->getErrors());
+            redirect($this->_getBaseURL().'cart');
+        }
+
 	    //if login not required to make order
 	    if( @$this->settings_model['order_not_require_login'] )
 	    {

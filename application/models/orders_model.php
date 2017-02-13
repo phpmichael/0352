@@ -30,6 +30,27 @@ class Orders_model extends Base_model
 	   4 => 'declined',
 	   5 => 'shipped',
 	);
+
+    private $errors = array();
+
+	public function validate()
+    {
+        if($order_minimum_sum = @$this->CI->settings_model['order_minimum_sum'])
+        {
+            $total = $this->CI->cart->total();
+
+            if($total < $order_minimum_sum)
+            {
+                $this->errors[] = sprintf( language('order_minimum_sum_x'), exchange($order_minimum_sum));
+            }
+        }
+        return empty($this->errors);
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
+    }
 	
 	/**
 	 * Calculate order total.
