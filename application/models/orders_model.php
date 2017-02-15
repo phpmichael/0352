@@ -329,6 +329,27 @@ class Orders_model extends Base_model
 	{
 	    return $this->db->get_where($this->tables['orders_customer_info'],array('orders_customer_info_id' => $orders_customer_info_id))->result_array();
 	}
+
+    /**
+     * Return orders for display like calendar (id, title, start, end)
+     * @param int $start
+     * @param int $end
+     * @return array
+     */
+	public function calendar($start, $end)
+	{
+		$items = $this->db
+                        ->select('orders.id, CONCAT(customers.name, " ", customers.surname, " ", total) AS title, date AS start, "" AS end', false)
+                        ->join('customers', 'customers.id=orders.customer_id')
+                        ->get_where($this->c_table, array('UNIX_TIMESTAMP(date) >=' => $start, 'UNIX_TIMESTAMP(date) <=' => $end))
+                        ->result_array();
+        
+        foreach ($items as &$item)
+        {
+            $item['allDay'] = false;
+        }
+        return $items;
+	}
 	
 	// === Dashboard: Start === //
     /**

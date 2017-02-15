@@ -130,4 +130,24 @@ class Orders extends Admin
 		$this->_processInsert($record);
 	}
 
+	/**
+	 * Show orders like calendar
+	 *
+	 */
+	public function Calendar()
+	{
+		if( ($start = intval($this->input->get('start'))) && ($end = intval($this->input->get('end'))) )
+		{
+			$items = $this->orders_model->calendar($start, $end);
+
+			echo json_encode($items);
+		}
+		else
+		{
+			$data['tpl_page'] = $this->_getController().'/calendar';
+
+			parent::_OnOutput($data);
+		}
+	}
+
 }
