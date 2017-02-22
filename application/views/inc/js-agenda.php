@@ -16,7 +16,7 @@
 
             editable: true,
 
-            timeFormat: 'H(:mm)', // uppercase H for 24-hour clock
+            timeFormat: 'H:mm', // uppercase H for 24-hour clock
 
             //agenda options
             minTime: 8,
