@@ -17,6 +17,7 @@
             editable: true,
 
             timeFormat: 'H:mm', // uppercase H for 24-hour clock
+            axisFormat: 'H:mm', // for agenda view (left)
 
             //agenda options
             minTime: 8,
