@@ -46,6 +46,7 @@ class Orders extends Admin
 		// === Page Titles === //
 		$this->page_titles['index'] = language('orders');
 		$this->page_titles['edit'] = language('edit');
+		$this->page_titles['calendar'] = 'Orders Calendar';
 		//default page title
 		$this->_setDefaultPageTitle();
 		
