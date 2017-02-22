@@ -4,7 +4,7 @@
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: 'month,basicWeek,basicDay'
             },
             firstDay: 1, //start week from Monday
             weekMode: 'liquid', //change default view of 6 row always
