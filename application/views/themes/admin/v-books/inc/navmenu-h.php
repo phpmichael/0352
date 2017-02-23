@@ -151,7 +151,11 @@
         <?endif?>
         
         <?if(userAccess('orders','view')):?>
-        <li><?=$BC->buildLeftMenuItem('orders','orders')?></li>
+        <li><?=$BC->buildLeftMenuItem('orders','orders')?>
+            <ul>
+                <li><?=$BC->buildLeftMenuItem('orders/calendar','orders_calendar')?></li>
+            </ul>
+        </li>
         <?endif?>
         
         <?if(userAccess('shipping','view')):?>
