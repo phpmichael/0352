@@ -31,6 +31,15 @@ class Orders_model extends Base_model
 	   5 => 'shipped',
 	);
 
+	private $statusBgColor = array(
+        0 => '#ECC849',
+        1 => '#1FA463',
+        2 => '#388E3C',
+        3 => '#997EE5',
+        4 => '#CC0001',
+        5 => '#4862A3',
+    );
+
     private $errors = array();
 
 	public function validate()
@@ -339,7 +348,7 @@ class Orders_model extends Base_model
 	public function calendar($start, $end)
 	{
 		$items = $this->db
-                        ->select('orders.id, CONCAT(customers.name, " ", customers.surname, " ", total) AS title, date AS start, "" AS end', false)
+                        ->select('orders.id, CONCAT(customers.name, " ", customers.surname, " ", total) AS title, date AS start, "" AS end, status', false)
                         ->join('customers', 'customers.id=orders.customer_id')
                         ->get_where($this->c_table, array('UNIX_TIMESTAMP(date) >=' => $start, 'UNIX_TIMESTAMP(date) <=' => $end))
                         ->result_array();
@@ -347,6 +356,7 @@ class Orders_model extends Base_model
         foreach ($items as &$item)
         {
             $item['allDay'] = false;
+            $item['color'] = $this->statusBgColor[$item['status']];
         }
         return $items;
 	}
