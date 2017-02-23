@@ -52,6 +52,7 @@
         $row['total__output'] = exchange($row['total']);
         $row['date__output'] = substr($row['date'],0,16);
         $row['status__output'] = $BC->orders_model->getStatusText($row['status']);
+        $row['status__bgColor'] = $BC->orders_model->getStatusBgColor($row['status']);
     }
     
     show_records_table($cols,$rows);

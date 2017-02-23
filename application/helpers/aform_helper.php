@@ -52,10 +52,11 @@ function show_records_table( array $cols, array $rows, $__no_checkbox=FALSE, $__
             	   <?=(($__no_checkbox || isset($row['__no_checkbox']))?"":form_checkbox("check[{$row[$id_field]}]",'1',false))?> <?//checkbox?>
                 </td> 
             	<?foreach ($cols as $col): 
-            	   //set output [col_name]__output if exists, if no - just [col_name]
-            	   $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : $row[$col['field']])
+            	    //set output [col_name]__output if exists, if no - just [col_name]
+            	    $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : $row[$col['field']]);
+					$bgColor = (isset($row[$col['field'].'__bgColor']) ? $row[$col['field'].'__bgColor'] : '');
             	?>
-            	<td><?=$output?></td> 
+            	<td style="<?if($bgColor):?>background-color:<?=$bgColor?><?endif?>"><?=$output?></td>
             	<?endforeach?>
             	<?if($__edit):?>
             	<td><?=anchor_edit($row[$id_field])?></td> <?//link for edit record?>

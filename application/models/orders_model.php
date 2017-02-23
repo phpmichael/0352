@@ -259,6 +259,16 @@ class Orders_model extends Base_model
 	{
 	    return language($this->statuses[$status]);
 	}
+
+    /**
+     * Return status background color
+     * @param integer $status
+     * @return string
+     */
+    public function getStatusBgColor($status)
+    {
+        return $this->statusBgColor[$status];
+    }
 	
 	/**
 	 * Return array of statuses (translated).
