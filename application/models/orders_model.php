@@ -385,6 +385,9 @@ class Orders_model extends Base_model
     	<p>
     		".$this->CI->filters_model->filterAnchorByCode('pending_orders',language('amount_of_pending'),'orders')." - ".$this->count(array('status'=>0))."
     	</p>
+    	<p>
+    		".anchor_base('orders/calendar', language('orders_calendar'))."
+    	</p>
     	";
     	
     	return $widget;
