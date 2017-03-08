@@ -211,4 +211,29 @@ class Tools extends Admin
 
         echo 'Backup created.';
     }
+
+    /**
+     * Geocode all customers
+     */
+    public function Geocode()
+    {
+        $this->load->library('googlegeocoder');
+
+        $customers = $this->customers_model->getAll(array('id', 'city', 'address', 'lat', 'lng'));
+
+        foreach ($customers as $customer)
+        {
+            if($customer['lat'] == 0.0000000 && $customer['lng'] == 0.0000000 && !empty($customer['city']) && !empty($customer['address']))
+            {
+                if($result = $this->googlegeocoder->geocode($customer['city'].', '.$customer['address']))
+                {
+                    $this->customers_model->insertOrUpdate(array(
+                        'id' => $customer['id'],
+                        'lat' => $result->lat,
+                        'lng' => $result->lng
+                    ));
+                }
+            }
+        }
+    }
 }
