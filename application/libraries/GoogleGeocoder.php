@@ -4,7 +4,8 @@ class GoogleGeocoder
 {
     public function __construct()
     {
-        $this->baseURL = "https://maps.google.com/maps/api/geocode/json?sensor=false";
+        $this->CI = &get_instance();
+        $this->baseURL = "https://maps.google.com/maps/api/geocode/json?sensor=false&key=".$this->CI->settings_model['google_map_api_key'];
     }
 
     public function geocode($address)
