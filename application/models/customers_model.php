@@ -303,4 +303,15 @@ class Customers_model extends Base_model
 
         return parent::save($data, $configValidation);
     }
+
+    /**
+     * Return customers for display on map
+     * @param int $limit
+     * @return array
+     */
+	public function getMapList($limit)
+    {
+        if(!$limit) $limit = 9999;
+        return $this->db->get_where($this->c_table, array('lat >' => 0, 'lng >' => 0), $limit)->result_array();
+    }
 }

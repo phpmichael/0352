@@ -113,4 +113,26 @@ class Customers extends Admin
 		$this->_processInsert($record);
 	}
 
+    /**
+     * Display customers map
+     */
+    public function map()
+    {
+        if($this->input->get('format') == 'json')
+        {
+            $limit = intval($this->input->get('limit'));
+            $customers = $this->customers_model->getMapList($limit);
+            echo json_encode(
+                array(
+                    'customers' => $customers
+                )
+            );
+        }
+        else
+        {
+            $data['tpl_page'] = $this->_getController().'/map';
+            parent::_OnOutput($data);
+        }
+    }
+
 }
