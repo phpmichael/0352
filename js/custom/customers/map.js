@@ -1,6 +1,7 @@
 var customersMap = {
     map: {
-        container: 'map',
+        containerId: 'map',
+        container: {},
         icons: {
             center: {
                 path: google.maps.SymbolPath.CIRCLE,
@@ -26,27 +27,35 @@ var customersMap = {
             zoom: 6
         }
     },
-    sourceUrl: 'map?format=json',
+    source: {
+        url: 'map',
+        params: {
+            format: 'json',
+            limit: 100
+        }
+    },
     customers: [],
     load: function(){
         var self = this;
-        jQuery.getJSON(this.sourceUrl, function(response){
+        jQuery.getJSON(this.source.url, this.source.params, function(response){
             self.customers = response.customers;
             self.init();
         });
     },
     init: function(){
+        var self = this;
+
         if(this.customers.length==0) return false;
 
         this.map.options.center = new google.maps.LatLng(this.map.center.lat, this.map.center.lng);
 
-        var map = new google.maps.Map (document.getElementById(this.map.container), this.map.options );
+        this.map.container = new google.maps.Map (document.getElementById(this.map.containerId), this.map.options );
 
         var marker = new google.maps.Marker({
             position: this.map.options.center,
             icon: this.map.icons.center
         });
-        marker.setMap(map);
+        marker.setMap(this.map.container);
 
         var i, customer;
         for(i=0; i < this.customers.length; i++) {
@@ -63,7 +72,7 @@ var customersMap = {
                 + "\n Phone: "+customer.phone,
                 customerId: customer.id
             });
-            marker.setMap(map);
+            marker.setMap(this.map.container);
         }
     }
 };
