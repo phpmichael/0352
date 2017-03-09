@@ -28,7 +28,8 @@ var customersMap = {
         }
     },
     marker: {
-        clickMode: 'route'
+        clickMode: 'route',
+        center: {}
     },
     source: {
         url: '',
@@ -54,11 +55,11 @@ var customersMap = {
 
         self.map.container = new google.maps.Map (document.getElementById(self.map.containerId), self.map.options );
 
-        var marker = new google.maps.Marker({
+        self.marker.center = new google.maps.Marker({
             position: self.map.options.center,
             icon: self.map.icons.center
         });
-        marker.setMap(self.map.container);
+        self.marker.center.setMap(self.map.container);
 
         var i, customer;
         for(i=0; i < self.customers.length; i++) {
@@ -84,8 +85,13 @@ var customersMap = {
                         self.route(this.position.lat(),this.position.lng());
                         break;
                     case 'change-center':
+                        //change icon for center marker
+                        self.marker.center.setIcon(self.map.icons.customer);
+
                         //set center icon for current marker
                         this.setIcon(self.map.icons.center);
+                        //change center marker to current
+                        self.marker.center = this;
 
                         //change center position to current marker
                         self.map.center.lat = this.position.lat();
