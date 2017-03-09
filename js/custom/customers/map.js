@@ -35,7 +35,8 @@ var customersMap = {
         url: '',
         params: {
             format: 'json',
-            limit: 100
+            limit: 100,
+            routeToClientId: 0
         }
     },
     customers: [],
@@ -44,10 +45,16 @@ var customersMap = {
 
         jQuery.getJSON(self.source.url, self.source.params, function(response){
             self.customers = response.customers;
+
             if(typeof(response.map.center) !== 'undefined'){
                 self.map.center = response.map.center;
             }
+
             self.init();
+
+            if(typeof(response.routeTo.lat) !== 'undefined' && typeof(response.routeTo.lng) !== 'undefined'){
+                self.route(response.routeTo.lat, response.routeTo.lng);
+            }
         });
     },
     init: function(){

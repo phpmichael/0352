@@ -12,6 +12,7 @@
 <?=include_js($BC->_getFolder('js').'custom/customers/map.js')?>
 <script>
     $j(document).ready(function(){
+        //customersMap.source.params.routeToClientId = 190;
         customersMap.load();
 
         $j('input[name=markerClickMode]').click(function(){

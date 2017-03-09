@@ -122,6 +122,9 @@ class Customers extends Admin
         {
             $limit = intval($this->input->get('limit'));
             $customers = $this->customers_model->getMapList($limit);
+
+            $routeTo = $this->customers_model->getLatLngById(intval($this->input->get('routeToClientId')));
+
             echo json_encode(
                 array(
                     'customers' => $customers,
@@ -130,7 +133,8 @@ class Customers extends Admin
                             'lat' => 49.556937,
                             'lng' => 25.637646
                         )
-                    )
+                    ),
+                    'routeTo' => $routeTo
                 )
             );
         }

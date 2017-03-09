@@ -314,4 +314,23 @@ class Customers_model extends Base_model
         if(!$limit) $limit = 9999;
         return $this->db->get_where($this->c_table, array('lat >' => 0, 'lng >' => 0), $limit)->result_array();
     }
+
+    /**
+     * Return geo position for customer
+     * @param int $customer_id
+     * @return array|bool
+     */
+    public function getLatLngById($customer_id)
+    {
+        if(!$customer_id) return FALSE;
+
+        $customer = $this->getOneById($customer_id);
+
+        if (!$customer) return FALSE;
+
+        return array(
+            'lat' => $customer['lat'],
+            'lng' => $customer['lng'],
+        );
+    }
 }
