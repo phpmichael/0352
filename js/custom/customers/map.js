@@ -28,7 +28,7 @@ var customersMap = {
         }
     },
     source: {
-        url: 'map',
+        url: '',
         params: {
             format: 'json',
             limit: 100
