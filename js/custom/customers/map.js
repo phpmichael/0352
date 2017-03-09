@@ -41,8 +41,12 @@ var customersMap = {
     customers: [],
     load: function(){
         var self = this;
+
         jQuery.getJSON(self.source.url, self.source.params, function(response){
             self.customers = response.customers;
+            if(typeof(response.map.center) !== 'undefined'){
+                self.map.center = response.map.center;
+            }
             self.init();
         });
     },

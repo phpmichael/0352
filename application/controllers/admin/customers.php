@@ -124,7 +124,13 @@ class Customers extends Admin
             $customers = $this->customers_model->getMapList($limit);
             echo json_encode(
                 array(
-                    'customers' => $customers
+                    'customers' => $customers,
+                    'map' => array(
+                        'center' => array(
+                            'lat' => 49.556937,
+                            'lng' => 25.637646
+                        )
+                    )
                 )
             );
         }
