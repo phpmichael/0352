@@ -73,6 +73,36 @@ var customersMap = {
                 customerId: customer.id
             });
             marker.setMap(self.map.container);
+
+            //create route to customer on click
+            google.maps.event.addListener(marker, 'click', function(){
+                self.route(this.position.lat(),this.position.lng());
+            });
         }
+
+        //init google direction service
+        self.directions.service = new google.maps.DirectionsService;
+        self.directions.display = new google.maps.DirectionsRenderer;
+    },
+    directions: {
+        service: {},
+        display: {}
+    },
+    route: function(lat, lng){
+        var self = this;
+
+        self.directions.display.setMap(self.map.container);
+
+        self.directions.service.route({
+            origin: self.map.center.lat+','+self.map.center.lng,
+            destination: lat+','+lng,
+            travelMode: google.maps.TravelMode.DRIVING
+        }, function(response, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                self.directions.display.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
     }
 };
