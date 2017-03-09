@@ -37,7 +37,7 @@ var customersMap = {
     customers: [],
     load: function(){
         var self = this;
-        jQuery.getJSON(this.source.url, this.source.params, function(response){
+        jQuery.getJSON(self.source.url, self.source.params, function(response){
             self.customers = response.customers;
             self.init();
         });
@@ -45,24 +45,24 @@ var customersMap = {
     init: function(){
         var self = this;
 
-        if(this.customers.length==0) return false;
+        if(self.customers.length==0) return false;
 
-        this.map.options.center = new google.maps.LatLng(this.map.center.lat, this.map.center.lng);
+        self.map.options.center = new google.maps.LatLng(self.map.center.lat, self.map.center.lng);
 
-        this.map.container = new google.maps.Map (document.getElementById(this.map.containerId), this.map.options );
+        self.map.container = new google.maps.Map (document.getElementById(self.map.containerId), self.map.options );
 
         var marker = new google.maps.Marker({
-            position: this.map.options.center,
-            icon: this.map.icons.center
+            position: self.map.options.center,
+            icon: self.map.icons.center
         });
-        marker.setMap(this.map.container);
+        marker.setMap(self.map.container);
 
         var i, customer;
-        for(i=0; i < this.customers.length; i++) {
-            customer = this.customers[i];
+        for(i=0; i < self.customers.length; i++) {
+            customer = self.customers[i];
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(customer.lat,customer.lng),
-                icon: this.map.icons.customer,
+                icon: self.map.icons.customer,
                 title: " ID: "+customer.id
                 + "\n Name: "+customer.name
                 + "\n Surname: "+customer.surname
@@ -72,7 +72,7 @@ var customersMap = {
                 + "\n Phone: "+customer.phone,
                 customerId: customer.id
             });
-            marker.setMap(this.map.container);
+            marker.setMap(self.map.container);
         }
     }
 };
