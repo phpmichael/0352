@@ -27,6 +27,9 @@ var customersMap = {
             zoom: 6
         }
     },
+    marker: {
+        clickMode: 'route'
+    },
     source: {
         url: '',
         params: {
@@ -76,7 +79,23 @@ var customersMap = {
 
             //create route to customer on click
             google.maps.event.addListener(marker, 'click', function(){
-                self.route(this.position.lat(),this.position.lng());
+                switch (self.marker.clickMode) {
+                    case 'route':
+                        self.route(this.position.lat(),this.position.lng());
+                        break;
+                    case 'change-center':
+                        //set center icon for current marker
+                        this.setIcon(self.map.icons.center);
+
+                        //change center position to current marker
+                        self.map.center.lat = this.position.lat();
+                        self.map.center.lng = this.position.lng();
+
+                        //move map center
+                        self.map.options.center = new google.maps.LatLng(self.map.center.lat,self.map.center.lng);
+                        self.map.container.setCenter(self.map.options.center);
+                        break;
+                }
             });
         }
 
