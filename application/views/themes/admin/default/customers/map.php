@@ -4,6 +4,8 @@
 
     <input type="radio" name="markerClickMode" value="change-center" id="mode-change-center">
     <label for="mode-change-center">Change center</label>
+
+    <input type="search" name="search" placeholder="Search location">
 </p>
 
 <div id="map" style="width:100%; height:450px; border:1px solid grey"></div>
@@ -17,6 +19,10 @@
 
         $j('input[name=markerClickMode]').click(function(){
             customersMap.marker.clickMode = this.value;
+        });
+
+        $j('input[name=search]').keypress(function(e){
+            if(e.which == 13) customersMap.changeCenter(this.value);
         });
     });
 </script>

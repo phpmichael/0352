@@ -66,11 +66,7 @@ var customersMap = {
 
         self.map.container = new google.maps.Map (document.getElementById(self.map.containerId), self.map.options );
 
-        self.marker.center = new google.maps.Marker({
-            position: self.map.options.center,
-            icon: self.map.icons.center
-        });
-        self.marker.center.setMap(self.map.container);
+        self.addMarkerCenter();
 
         var i, customer, position, marker;
         for(i=0; i < self.customers.length; i++) {
@@ -97,7 +93,7 @@ var customersMap = {
                         self.route(this.position.lat(),this.position.lng());
                         break;
                     case 'change-center':
-                        self.setCenter(this);
+                        self.changeCenter(this);
                         break;
                 }
             });
@@ -114,20 +110,45 @@ var customersMap = {
         service: {},
         display: {}
     },
-    setCenter: function(marker){
+    addMarkerCenter: function(){
+        var self = this;
+
+        self.marker.center = new google.maps.Marker({
+            position: self.map.options.center,
+            icon: self.map.icons.center
+        });
+        self.marker.center.setMap(self.map.container);
+    },
+    changeCenter: function(center){
         var self = this;
 
         //change icon for center marker
-        self.marker.center.setIcon(self.map.icons.customer);
+        if(typeof(self.marker.center.customerId) !== 'undefined') self.marker.center.setIcon(self.map.icons.customer);
+        //remove center marker
+        else self.marker.center.setMap(null);
 
-        //set center icon for current marker
-        marker.setIcon(self.map.icons.center);
-        //change center marker to current
-        self.marker.center = marker;
+        if(typeof(center) === 'string' ){
+            self.geocode(center, function(lat, lng){
+                self.setCenter(lat, lng);
+                self.addMarkerCenter();
+            });
+        }
+        else{
+            var marker = center;
 
-        //change center position to current marker
-        self.map.center.lat = marker.position.lat();
-        self.map.center.lng = marker.position.lng();
+            //set center icon for current marker
+            marker.setIcon(self.map.icons.center);
+            //change center marker to current
+            self.marker.center = marker;
+            //change center position to current marker
+            self.setCenter(marker.position.lat(), marker.position.lng());
+        }
+    },
+    setCenter: function(lat, lng){
+        var self = this;
+
+        self.map.center.lat = lat;
+        self.map.center.lng = lng;
 
         //move map center
         self.map.options.center = new google.maps.LatLng(self.map.center.lat,self.map.center.lng);
@@ -180,6 +201,19 @@ var customersMap = {
             }
             else{
                 window.alert('DistanceMatrix request failed due to ' + status);
+            }
+        });
+    },
+    geocode: function(address, callback){
+        var self = this;
+
+        var geoCoder = new google.maps.Geocoder();
+        geoCoder.geocode({'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                callback(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+            } else {
+                window.alert('Geocode was not successful for the following reason: ' + status);
+                return false;
             }
         });
     }
