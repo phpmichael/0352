@@ -72,11 +72,12 @@ var customersMap = {
         });
         self.marker.center.setMap(self.map.container);
 
-        var i, customer;
+        var i, customer, position, marker;
         for(i=0; i < self.customers.length; i++) {
             customer = self.customers[i];
+            position = new google.maps.LatLng(customer.lat,customer.lng);
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(customer.lat,customer.lng),
+                position: position,
                 icon: self.map.icons.customer,
                 title: " ID: "+customer.id
                 + "\n Name: "+customer.name
