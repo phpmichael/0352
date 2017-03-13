@@ -6,6 +6,8 @@
     <label for="mode-change-center">Change center</label>
 
     <input type="search" name="search" placeholder="Search location">
+
+    <a id="use-my-position">My Position</a>
 </p>
 
 <div id="map" style="width:100%; height:450px; border:1px solid grey"></div>
@@ -23,6 +25,11 @@
 
         $j('input[name=search]').keypress(function(e){
             if(e.which == 13) customersMap.changeCenter(this.value);
+        });
+
+        $j('#use-my-position').click(function (e) {
+            e.preventDefault();
+            customersMap.changeCenter('use-my-position');
         });
     });
 </script>

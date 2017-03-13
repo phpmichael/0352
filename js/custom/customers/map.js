@@ -128,10 +128,18 @@ var customersMap = {
         else self.marker.center.setMap(null);
 
         if(typeof(center) === 'string' ){
-            self.geocode(center, function(lat, lng){
-                self.setCenter(lat, lng);
-                self.addMarkerCenter();
-            });
+            if(center == 'use-my-position'){
+                navigator.geolocation.getCurrentPosition(function(location) {
+                    self.setCenter(location.coords.latitude, location.coords.longitude);
+                    self.addMarkerCenter();
+                });
+            }
+            else{
+                self.geocode(center, function(lat, lng){
+                    self.setCenter(lat, lng);
+                    self.addMarkerCenter();
+                });
+            }
         }
         else{
             var marker = center;
