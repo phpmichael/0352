@@ -39,7 +39,7 @@ var customersMap = {
             routeToClientId: 0
         }
     },
-    customers: [],
+    customers: [],//with have 2 new fields: "position" and "distance"
     load: function(){
         var self = this;
 
@@ -75,9 +75,9 @@ var customersMap = {
         var i, customer, position, marker;
         for(i=0; i < self.customers.length; i++) {
             customer = self.customers[i];
-            position = new google.maps.LatLng(customer.lat,customer.lng);
+            customer.position = new google.maps.LatLng(customer.lat,customer.lng);
             marker = new google.maps.Marker({
-                position: position,
+                position: customer.position,
                 icon: self.map.icons.customer,
                 title: " ID: "+customer.id
                 + "\n Name: "+customer.name
@@ -120,6 +120,9 @@ var customersMap = {
         //init google direction service
         self.directions.service = new google.maps.DirectionsService;
         self.directions.display = new google.maps.DirectionsRenderer;
+
+        //get distance to customers
+        //self.distanceMatrix();
     },
     directions: {
         service: {},
@@ -139,6 +142,33 @@ var customersMap = {
                 self.directions.display.setDirections(response);
             } else {
                 window.alert('Directions request failed due to ' + status);
+            }
+        });
+    },
+    distanceMatrix: function(){
+        var self = this;
+
+        var distanceMatrixService = new google.maps.DistanceMatrixService();
+        var limit = 25, destinations = [];
+
+        for(var i=0; i < self.customers.length && i < limit; i++) {
+            destinations.push(self.customers[i].position);
+        }
+
+        distanceMatrixService.getDistanceMatrix({
+            origins: [self.map.options.center],
+            destinations: destinations,
+            travelMode: google.maps.TravelMode.DRIVING
+        }, function (response, status) {
+            if(status === 'OK'){
+                var i;
+                for(i=0; i < response.rows[0].elements.length; i++){
+                    self.customers[i].distance = response.rows[0].elements[i].distance.text;
+                    console.log(self.customers[i].city+' '+self.customers[i].distance);
+                }
+            }
+            else{
+                window.alert('DistanceMatrix request failed due to ' + status);
             }
         });
     }
