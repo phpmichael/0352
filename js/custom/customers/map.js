@@ -97,21 +97,7 @@ var customersMap = {
                         self.route(this.position.lat(),this.position.lng());
                         break;
                     case 'change-center':
-                        //change icon for center marker
-                        self.marker.center.setIcon(self.map.icons.customer);
-
-                        //set center icon for current marker
-                        this.setIcon(self.map.icons.center);
-                        //change center marker to current
-                        self.marker.center = this;
-
-                        //change center position to current marker
-                        self.map.center.lat = this.position.lat();
-                        self.map.center.lng = this.position.lng();
-
-                        //move map center
-                        self.map.options.center = new google.maps.LatLng(self.map.center.lat,self.map.center.lng);
-                        self.map.container.setCenter(self.map.options.center);
+                        self.setCenter(this);
                         break;
                 }
             });
@@ -127,6 +113,31 @@ var customersMap = {
     directions: {
         service: {},
         display: {}
+    },
+    setCenter: function(marker){
+        var self = this;
+
+        //change icon for center marker
+        self.marker.center.setIcon(self.map.icons.customer);
+
+        //set center icon for current marker
+        marker.setIcon(self.map.icons.center);
+        //change center marker to current
+        self.marker.center = marker;
+
+        //change center position to current marker
+        self.map.center.lat = marker.position.lat();
+        self.map.center.lng = marker.position.lng();
+
+        //move map center
+        self.map.options.center = new google.maps.LatLng(self.map.center.lat,self.map.center.lng);
+        self.map.container.setCenter(self.map.options.center);
+
+        //get new distance to customers
+        //self.distanceMatrix();
+
+        //clear route
+        self.directions.display.setMap();
     },
     route: function(lat, lng){
         var self = this;
