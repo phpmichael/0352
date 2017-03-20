@@ -42,7 +42,7 @@ class Captcha_model extends CI_Model
 		if ( $cap ) 
 		{
 			$data = array(
-				'captcha_id' => '',
+				'captcha_id' => NULL,
 				'captcha_time' => $cap['time'],
 				'ip_address' => $this ->input->ip_address(),
 				'word' => $cap['word'] ,
