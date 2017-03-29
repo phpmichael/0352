@@ -29,7 +29,27 @@
 			<?foreach ($answers[$q['id']] as $q_answer):?>
 			
 				<div class="clearfix">
-					<?if(is_array($customer_answers[$q['id']])):?>
+					<?if(!empty($connected_answers[$q['id']])):?>
+
+						<div>
+							<?=htmlspecialchars($q_answer['answer'])?> - 
+
+							<?foreach ($connected_answers[$q['id']] as $connected_answer):?>
+								<?if($connected_answer['id'] == $customer_answers[$q['id']][$q_answer['id']]):?>
+									<?if($customer_answers[$q['id']][$q_answer['id']] == $correct_answers[$q['id']][$q_answer['id']]):?>
+										<div class="quiz-answer quiz-answer-correct"></div>
+										<?=htmlspecialchars($connected_answer['answer'])?>
+									<?else:?>
+										<div class="quiz-answer"></div>
+										<span class="red"><?=htmlspecialchars($connected_answer['answer'])?><span>
+									<?endif?>
+								<?elseif($connected_answer['id'] == $correct_answers[$q['id']][$q_answer['id']]):?>
+									<span class="success">(<?=htmlspecialchars($connected_answer['answer'])?>)</span>
+								<?endif?>
+							<?endforeach?>
+						</div>
+
+					<?elseif(is_array($customer_answers[$q['id']])):?>
 					
 						<div class="pull-left"><input type="checkbox" disabled="disabled" <?if( in_array($q_answer['id'],$customer_answers[$q['id']]) ):?>checked="checked"<?endif?> /></div>
 						

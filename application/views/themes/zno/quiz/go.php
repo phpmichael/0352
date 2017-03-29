@@ -16,18 +16,49 @@
 <br />
 
 <form id="quiz-form" class="form-inline form-horizontal" action="<?=site_url($BC->_getBaseURL().'quiz/submit/'.$quiz['quiz']['id'].'/'.$quiz['question']['id']);?>" method="post">
-		
-<?foreach ($quiz['answers'] as $answer):?>
-	<div>
-		<?if($quiz['type']=='input'):?>
-			<?=form_input('custom_answer','')?>
-		<?elseif($quiz['type']=='checkbox'):?>
-			<?=form_checkbox('answers['.$answer['id'].']',1,FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
-		<?else:?>
-			<?=form_radio('answer',$answer['id'],FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
-		<?endif?>
-	</div>
-<?endforeach;?>
+
+<?if($quiz['type']=='multi-radio'):?>
+    <!-- Answers List -->
+    <p>
+        <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
+            <?=$aIndex+1?>: <?=htmlspecialchars($answer['answer'])?>
+        <?endforeach;?>
+    </p>
+    <!-- Connected Answers List -->
+    <p>
+        <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
+            <?=chr(65+$caIndex)?>: <?=htmlspecialchars($connected_answer['answer'])?>
+        <?endforeach;?>
+    </p>
+    <!-- Multi-radio Matrix -->
+    <div>
+        &nbsp;&nbsp;
+        <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
+            &nbsp;<?=chr(65+$caIndex)?>
+        <?endforeach;?>
+    </div>
+    <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
+        <div>
+            <?=$aIndex+1?>
+            <?foreach ($quiz['connected_answers'] as $connected_answer):?>
+                <?=form_radio('answers['.$answer['id'].']',$connected_answer['id'],FALSE,"id='answer_{$answer['id']}_{$connected_answer['id']}'")?>
+                <!-- <label for="answer_<?=$answer['id']?>_<?=$connected_answer['id']?>"><?=htmlspecialchars($connected_answer['answer'])?></label>-->
+            <?endforeach;?>
+        </div>
+    <?endforeach;?>
+<?else:?>
+    <?foreach ($quiz['answers'] as $answer):?>
+        <div>
+            <?if($quiz['type']=='input'):?>
+                <?=form_input('custom_answer','')?>
+            <?elseif($quiz['type']=='checkbox'):?>
+                <?=form_checkbox('answers['.$answer['id'].']',1,FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
+            <?else:?>
+                <?=form_radio('answer',$answer['id'],FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
+            <?endif?>
+        </div>
+    <?endforeach;?>
+<?endif;?>
 
 <p><?=form_submit("submit",language('next'));?></p>
 

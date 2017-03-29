@@ -63,17 +63,22 @@ class Quiz_model extends Base_model
 	}
 	
 	/**
-	 * Returns array of answers for question. If $randomize=TRUE in random order.
+	 * Returns array of answers for question.
 	 * 
 	 * @param integer $question_id
-	 * @param bool $randomize
 	 * @return array
 	 */
-	public function getAnswers($question_id,$randomize=FALSE)
+	public function getAnswers($question_id)
 	{
-		if($randomize) $this->db->order_by('RAND()');
-		return $this->db->get_where('quiz_answers',array('question_id'=>$question_id))->result_array();
+		$this->db->order_by('id');
+		return $this->db->get_where('quiz_answers',array('question_id'=>$question_id, 'connect_answer' => 0))->result_array();
 	}
+
+    public function getConnectedAnswers($question_id)
+    {
+        $this->db->order_by('id');
+        return $this->db->get_where('quiz_answers',array('question_id'=>$question_id, 'connect_answer !=' => 0))->result_array();
+    }
 	
 	/**
 	 * Returns array of correct answers for question.
@@ -260,15 +265,22 @@ class Quiz_model extends Base_model
 		    $this->questionStarted($customer_id,$quiz_id,$record['question']['id']);
 		}
 		
-		//get randomized answers for question
-		$record['answers'] = $this->getAnswers($record['question']['id'],TRUE);
+		//get answers for question
+		$record['answers'] = $this->getAnswers($record['question']['id']);
 		//get correct answers for question
 		$record['correct_answers'] = $this->getCorrectAnswers($record['question']['id']);
 		//if one answer - show input, few correct answers - then checkboxes, if just one correct - radiobox
 		if(count($record['answers'])==1) $record['type'] = 'input';
 		elseif(count($record['correct_answers'])>1) $record['type'] = 'checkbox';
-		else $record['type'] = 'radio';
-		
+		elseif(count($record['correct_answers'])==1) $record['type'] = 'radio';
+        elseif(count($record['correct_answers'])==0)
+        {
+            $record['type'] = 'multi-radio';
+            $record['connected_answers'] = $this->getConnectedAnswers($record['question']['id']);
+        }
+
+        //TODO: if not multi-radio - randomize order of answers
+		//dump($record);exit;
 		return $record;
 	}
 	
@@ -348,16 +360,17 @@ class Quiz_model extends Base_model
 	 * @param integer $customer_id
 	 * @param integer $question_id
 	 * @param integer $answer_id
+	 * @param integer $connect_answer
 	 * @return void
 	 */
-	public function storeAnswer($quiz_id,$customer_id,$question_id,$answer_id)
+	public function storeAnswer($quiz_id,$customer_id,$question_id,$answer_id,$connect_answer=0)
 	{
 		//mark question as answered
 		$this->questionEnded($customer_id,$quiz_id,$question_id);
 	    
 	    $this->c_table = 'quiz_store';
 		
-		parent::insert(array('quiz_id'=>$quiz_id,'customer_id'=>$customer_id,'question_id'=>$question_id,'answer_id'=>$answer_id));
+		parent::insert(array('quiz_id'=>$quiz_id,'customer_id'=>$customer_id,'question_id'=>$question_id,'answer_id'=>$answer_id,'connect_answer'=>$connect_answer));
 	}
 
     /**
@@ -503,6 +516,7 @@ class Quiz_model extends Base_model
 	 */
 	public function checkIfCorrectAnswers($quiz_id,$customer_id)
 	{
+		//TODO: add check for multi-radio
 		$result['scores'] = 0;
 		$result['correctArr'] = array();
 		$result['answers'] = array();
@@ -510,9 +524,12 @@ class Quiz_model extends Base_model
 		$result['customer_answers'] = array();
 		
 		$answered_questions = $this->getCustomerAnsweredQuestions($quiz_id,$customer_id);
-		
+
 		if(empty($answered_questions)) return $result;
-		
+
+		$customer_question_answers = array();
+		$has_connect_answers = array();
+
 		foreach ($answered_questions as $aq)
 		{
 			if($aq['custom_answer']) 
@@ -521,31 +538,63 @@ class Quiz_model extends Base_model
 			}
 			else 
 			{
-				$customer_question_answers[$aq['question_id']][] = $aq['answer_id'];
+				if($aq['connect_answer'])
+				{
+					$has_connect_answers[$aq['question_id']] = TRUE;
+					$customer_question_answers[$aq['question_id']][$aq['answer_id']] = $aq['connect_answer'];
+				}
+				else $customer_question_answers[$aq['question_id']][] = $aq['answer_id'];
 			}
 		}
-		
+
 		foreach ($customer_question_answers as $question_id=>$cqa)
 		{
+			$connected_answers = array();
 			if(is_array($cqa))
 			{
-				$correct_question_answers = $this->getCorrectAnswersIDs($question_id);
-				
-				sort($correct_question_answers);
-				sort($cqa);
-				
-				if( $correct_question_answers != $cqa ) 
+				if(isset($has_connect_answers[$question_id]))//multi-radio
 				{
-					$result['correctArr'][$question_id] = FALSE;
+					$correct_question_answers = array();
+
+					$connected_answers = $this->getConnectedAnswers($question_id);
+					$count_connected = count($connected_answers);
+
+					foreach ($connected_answers as $connected_answer)
+					{
+						$correct_question_answers[$connected_answer['connect_answer']] = $connected_answer['id'];
+
+						if($cqa[$connected_answer['connect_answer']] == $connected_answer['id'])
+						{
+							$result['scores'] += 1/$count_connected;
+						}
+					}
+					$result['correctArr'][$question_id] = ($result['scores'] == 1) ? TRUE : FALSE;
+					
+					ksort($cqa);
+					ksort($correct_question_answers);
 				}
-				else 
+				else//checkbox/radio
 				{
-					$result['correctArr'][$question_id] = TRUE;
-					$result['scores']++;
+					$correct_question_answers = $this->getCorrectAnswersIDs($question_id);
+
+					sort($correct_question_answers);
+					sort($cqa);
+
+					if( $correct_question_answers != $cqa )
+					{
+						$result['correctArr'][$question_id] = FALSE;
+					}
+					else
+					{
+						$result['correctArr'][$question_id] = TRUE;
+						$result['scores']++;
+					}
 				}
 			}
-			else 
+			else //input
 			{
+				$correct_question_answers = array();
+
 				if( $result['correctArr'][$question_id] = $this->checkIfCorrectCustomAnswer($question_id,$cqa) )
 				{
 					$result['scores']++;
@@ -555,6 +604,7 @@ class Quiz_model extends Base_model
 			$result['answers'][$question_id] = $this->getAnswers($question_id);
 			$result['correct_answers'][$question_id] = @$correct_question_answers;
 			$result['customer_answers'][$question_id] = $cqa;
+			$result['connected_answers'][$question_id] = $connected_answers;
 		}
 		
 		return $result;

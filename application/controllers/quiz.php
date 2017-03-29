@@ -256,9 +256,10 @@ class Quiz extends Front
         			elseif( !empty($_POST['answers']) )
         			{
         				$answers = $_POST['answers'];
-        				foreach ($answers as $answer_id=>$selected)
+        				foreach ($answers as $answer_id=>$value)
         				{
-        					$this->quiz_model->storeAnswer($quiz_id,$customer_id,$question_id,$answer_id);
+        					$connect_answer = (intval($value)===1) ? 0 : intval($value);//1 - just selected checkbox, another - value of multi-radio
+							$this->quiz_model->storeAnswer($quiz_id,$customer_id,$question_id,$answer_id,$connect_answer);
         				}
         			}
         			else
@@ -297,12 +298,14 @@ class Quiz extends Front
 		$data['quiz'] = $this->quiz_model->getOneById($quiz_id);
 		$data['quiz_questions'] = $this->quiz_model->getFinishedQuizQuestions($quiz_id);
 		$result = $this->quiz_model->checkIfCorrectAnswers($quiz_id,$customer_id);
+		//dump($result);exit;
 		$scores = $result['scores'];
 		$data['correctArr'] = $result['correctArr'];
 		$data['answers'] = $result['answers'];
 		$data['correct_answers'] = $result['correct_answers'];
 		$data['customer_answers'] = $result['customer_answers'];
-		
+		$data['connected_answers'] = $result['connected_answers'];
+
 		//save quiz data in archive
 		$archive_id = $this->quiz_model->addToArchive($customer_id,$quiz_id,$scores,$data);
 		
