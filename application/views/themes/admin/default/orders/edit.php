@@ -2,6 +2,8 @@
     <?fb_form("orders_customer_info",$orders_customer_info_id,'view')?>
 <?else:?>
 	<?=language('customer')?>: <?=(userAccess('customers','edit')? anchor_base("/customers/edit/id/desc/0/".$customer_id, $BC->customers_model->getFullNameById($customer_id)) : $BC->customers_model->getFullNameById($customer_id) )?>
+
+    <?=load_theme_view('orders/shipping/buttons')?>
 <?endif?>
 
 <div class="red"><?=validation_errors()?></div>

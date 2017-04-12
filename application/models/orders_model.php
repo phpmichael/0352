@@ -173,6 +173,17 @@ class Orders_model extends Base_model
 	{
 	    return $this->db->query("SELECT * FROM {$this->tables['orders_cart']} WHERE order_id = ?",array($order_id))->result_array();
 	}
+
+	/**
+	 * Return order's shipping title
+	 * @param integer $order_id
+	 * @return string
+	 */
+	public function getShippingTitle($order_id)
+	{
+		$order = $this->getOneById($order_id);
+		return $order['shipping_title'];
+	}
 	
 	/**
 	 * Return order box.
