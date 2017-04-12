@@ -49,12 +49,12 @@ class Shipping extends Admin_fb
             $text['str'] = $customer['phone'];
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
 
-            $text['x'] = 300;
+            $text['x'] = 55;
             $text['y'] = 1188;
             $text['str'] = $customer['address'];
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
 
-            $text['x'] = 300;
+            $text['x'] = 55;
             $text['y'] = 1232;
             $text['str'] = $customer['city'].', '.$customer['zip_code'];
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
