@@ -1,7 +1,5 @@
 <h1><?=$BC->_getPageTitle()?></h1>
 
-<p><?=nl2br(@$search_category_description)?></p>
-
 <div id="find-book">
     <?
         $search_url = '';
@@ -56,5 +54,7 @@
 <?else:?>
     <h2><?=language('search_did_not_give_any_results')?></h2>
 <?endif?>
+
+<p style="clear:both"><?=nl2br(@$search_category_description)?></p>
 
 <script>var search_url = '<?=site_url('books/search/' . $search_url)?>';</script>
