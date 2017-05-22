@@ -15,7 +15,7 @@ $answers = multi2singleArray('value','label',$answers);
     	<?=form_dropdown($BC->formbuilder_model->getInputName($item),$answers,$item['value'],$BC->formbuilder_model->buildInputExtra($item))?>
     	<?=(isset($item['hint'])?$item['hint']:'')?>
     <?else:?>
-		<?=$answers[$item['value']]?>
+		<?=(isset($answers[$item['value']])?$answers[$item['value']]:$item['value'])?>
 	<?endif?>
     
 </div>
