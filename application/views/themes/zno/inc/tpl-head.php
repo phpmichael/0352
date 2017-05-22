@@ -15,6 +15,10 @@
 
 <?=include_minified($BC->_getTheme().'css/bootstrap.css','css')?>
 
+<?if(in_array($BC->_getController(),array('orders')) && in_array($BC->_getMethod(),array('fill_customer_info')) ):?>
+<?=include_css($BC->_getFolder('js').'jquery/ui/1.10.4/themes/smoothness/jquery-ui.min.css')?>
+<?endif?>
+
 <?=include_minified($BC->_getTheme().'css/styles.css','css')?>
 
 <!-- CSS -->
@@ -63,6 +67,10 @@
                     "<?=static_url().$BC->_getFolder('js').'custom/quiz/timer.js'?>",
                     <?endif?>
 
+                    <?if(in_array($BC->_getController(),array('orders')) && in_array($BC->_getMethod(),array('fill_customer_info')) ):?>
+                    "<?=static_url().$BC->_getFolder('js').'jquery/ui/1.10.4/jquery-ui.min.js'?>",
+                    <?endif?>
+
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.css'?>",
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.js'?>",
 
@@ -99,9 +107,14 @@
 
                     <?=strip_tags(include_minified($BC->_getFolder('js').'jquery/facebox/init.js','inline_js'))?>
 
-                    <?if(in_array($BC->_getController(),array('products','books')) && in_array($BC->_getMethod(),array('search')) ):?>
+                    <?if(in_array($BC->_getController(),array('products','books','orders')) && in_array($BC->_getMethod(),array('search','fill_customer_info')) ):?>
                     <?$BC->formbuilder_model->setJsIncluded()?>
                     <?=strip_tags(include_minified($BC->_getFolder('js').'custom/fb/process.js','inline_js'))?>
+                    <?endif?>
+
+                    <?if(in_array($BC->_getController(),array('orders')) && in_array($BC->_getMethod(),array('fill_customer_info')) ):?>
+                    <?$BC->formbuilder_model->setJsIncluded()?>
+                    <?=strip_tags(include_minified($BC->_getFolder('js').'custom/shipping/novaposhta/find.js','inline_js'))?>
                     <?endif?>
 
                     <?if(in_array($BC->_getController(),array('quiz')) && in_array($BC->_getMethod(),array('go'))):?>
