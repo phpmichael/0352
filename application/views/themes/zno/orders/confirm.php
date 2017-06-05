@@ -14,11 +14,13 @@
 	</thead>
 	
 	<tfoot>
+		<!--
 		<tr>
 	   	  <td></td>
 	   	  <td colspan="2" style="text-align:right;"><strong><?=language('subtotal')?></strong></td>
 	      <td style="text-align:right;"><?=exchange($this->cart->total())?></td>
 	    </tr>
+	    -->
 		
 	    <?if( $discount_coupon = $this->discount_coupons_model->getActiveDiscountCoupon() ):?>
 	    <tr>

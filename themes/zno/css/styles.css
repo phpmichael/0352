@@ -184,3 +184,11 @@ footer .phone-number{font-weight: normal;}
 .noscript { border:1px solid #ddd; background:#ffff90; text-align:center; color:#2f2f2f; }
 .noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; }
 .noscript p { margin:0; }
+
+.main>.fb-output-screen{width:auto; padding:5px;}
+.main>.fb-output-screen .error{color:red;}
+.main>.fb-output-screen form ul{margin:0;}
+.main>.fb-output-screen form li{list-style-type:none;}
+.main>.fb-output-screen form li.list-row-odd{background:#fff;}
+.main>.fb-output-screen form li.list-row-even{background:#fff;}
+.main>.fb-output-screen label.desc, .fb-output-screen legend.desc{font-weight: normal;}

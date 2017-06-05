@@ -38,8 +38,7 @@ $BC->lang->load('calendar');
                                 <?load_theme_view('inc/phones-line')?>
                             </div>
                             <div class="span3">
-                                <?=anchor_base('customers/register', '<i class="icon-user icon-white"></i> '.language('register'), 'class="btn btn-primary"')?>
-                                <?=anchor_base('customers/signin', '<i class="icon-chevron-right icon-white"></i> '.language('login'), 'class="btn btn-primary"')?>
+
                             </div>
                         </div>
                     </div>
