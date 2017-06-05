@@ -352,12 +352,12 @@ class Orders_model extends Base_model
 	/**
 	 * Return information of customer.
 	 *
-	 * @param integer $orders_customer_info_id
+	 * @param string $orders_customer_info_id
 	 * @return array
 	 */
 	public function getOrderCustomerInfo($orders_customer_info_id)
 	{
-	    return $this->db->get_where($this->tables['orders_customer_info'],array('orders_customer_info_id' => $orders_customer_info_id))->result_array();
+	    return $this->db->get_where($this->tables['orders_customer_info'],array('data_key' => $orders_customer_info_id))->row_array();
 	}
 
     /**
@@ -369,10 +369,11 @@ class Orders_model extends Base_model
 	public function calendar($start, $end)
 	{
 		$items = $this->db
-                        ->select('orders.id, CONCAT(customers.name, " ", customers.surname, " ", total) AS title, date AS start, "" AS end, status', false)
-                        ->join('customers', 'customers.id=orders.customer_id')
-                        ->get_where($this->c_table, array('UNIX_TIMESTAMP(date) >=' => $start, 'UNIX_TIMESTAMP(date) <=' => $end))
-                        ->result_array();
+            ->select('orders.id, CONCAT(IF(ISNULL(oci.name), c.name, oci.name), " ", IF(ISNULL(oci.surname), c.surname, oci.surname), " ", total) AS title, date AS start, "" AS end, status', false)
+            ->join('customers AS c', 'c.id=orders.customer_id', 'left')
+            ->join('orders_customer_info AS oci', 'oci.data_key=orders.orders_customer_info_id', 'left')
+            ->get_where($this->c_table, array('UNIX_TIMESTAMP(date) >=' => $start, 'UNIX_TIMESTAMP(date) <=' => $end))
+            ->result_array();
         
         foreach ($items as &$item)
         {
