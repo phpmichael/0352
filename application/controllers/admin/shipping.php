@@ -23,14 +23,15 @@ class Shipping extends Admin_fb
      * Generate "UkrPost" postal order from blank
      * @param int $customer_id
      */
-    public function printUrkPost($customer_id)
+    public function printUrkPost($orders_customer_info_id)
     {
         $blankPath = './store/blank/UkrPost.jpg';
         $fontPath = './fonts/arial.ttf';
+        $this->load->model('orders_model');
 
         if( !file_exists($blankPath) ) echo 'Blank not exists: '.$blankPath;
         elseif( !file_exists($fontPath) ) echo 'Font not exists: '.$fontPath;
-        elseif( !($customer = $this->customers_model->getOneById($customer_id)) ) echo 'Customer not exists: '.$customer_id;
+        elseif( !($customer = $this->orders_model->getOrderCustomerInfo($orders_customer_info_id) ) ) echo 'Customer not exists: '.$orders_customer_info_id;
         else
         {
             $image = imagecreatefromjpeg($blankPath);
@@ -49,14 +50,22 @@ class Shipping extends Admin_fb
             $text['str'] = $customer['phone'];
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
 
+            $font['size'] = 27;
+            $text['x'] = 255;
+            $text['y'] = 1138;
+            $text['str'] = "вул. {$customer['street']} {$customer['house_number']}";
+            if($customer['apartment_number']) $text['str'] .= " кв. {$customer['apartment_number']}";
+            imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
+
             $text['x'] = 55;
             $text['y'] = 1188;
-            $text['str'] = $customer['address'];
+            $text['str'] = "Населений пункт: {$customer['place']}";
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
 
             $text['x'] = 55;
             $text['y'] = 1232;
-            $text['str'] = $customer['city'].', '.$customer['zip_code'];
+            $text['str'] = ($customer['rayon']) ? "{$customer['rayon']} район, " : "";
+            $text['str'] .= "{$customer['region']} обл., {$customer['zip_code']}";
             imagettftext($image, $font['size'], 0, $text['x'], $text['y'], $font['color'], $font['path'], $text['str']);
 
 
