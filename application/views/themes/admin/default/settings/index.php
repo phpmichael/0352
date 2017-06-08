@@ -285,6 +285,8 @@
 </tr>
 <?endif?>
 
+<?=load_theme_view('settings/inc/novaposhta')?>
+
 </table>
 
 <p><?=form_submit("submit",language('save'));?></p>
