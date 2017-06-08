@@ -360,6 +360,16 @@ class Orders_model extends Base_model
 	    return $this->db->get_where($this->tables['orders_customer_info'],array('data_key' => $orders_customer_info_id))->row_array();
 	}
 
+	/**
+	 * Update customer's information.
+	 * @param string $orders_customer_info_id
+	 * @param array $post
+	 */
+	public function updateOrderCustomerInfo($orders_customer_info_id, $post)
+	{
+		$this->db->update($this->tables['orders_customer_info'], $post, array('data_key' => $orders_customer_info_id) );
+	}
+
     /**
      * Return orders for display like calendar (id, title, start, end)
      * @param int $start
