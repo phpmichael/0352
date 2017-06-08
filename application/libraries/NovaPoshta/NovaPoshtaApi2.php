@@ -761,13 +761,13 @@ class NovaPoshtaApi2 {
             throw new \Exception('LastName is required filed for recipient');
         if ( ! $counterparty['Phone'])
             throw new \Exception('Phone is required filed for recipient');
-        if ( ! ($counterparty['City'] OR $counterparty['CityRef']))
-            throw new \Exception('City is required filed for recipient');
-        if ( ! ($counterparty['Region'] OR $counterparty['CityRef']))
-            throw new \Exception('Region is required filed for recipient');
+        //if ( ! ($counterparty['City'] OR $counterparty['CityRef']))
+        //    throw new \Exception('City is required filed for recipient');
+        //if ( ! ($counterparty['Region'] OR $counterparty['CityRef']))
+        //    throw new \Exception('Region is required filed for recipient');
 
         // Set defaults
-        if ( ! $counterparty['CounterpartyType']) {
+        if ( ! isset($counterparty['CounterpartyType'])) {
             $counterparty['CounterpartyType'] = 'PrivatePerson';
         }
     }
@@ -791,7 +791,7 @@ class NovaPoshtaApi2 {
         ( ! $params['PayerType']) AND $params['PayerType'] = 'Recipient';
         ( ! $params['SeatsAmount']) AND $params['SeatsAmount'] = '1';
         ( ! $params['CargoType']) AND $params['CargoType'] = 'Cargo';
-        ( ! $params['VolumeGeneral']) AND $params['VolumeGeneral'] = '0.0004';
+        //( ! $params['VolumeGeneral']) AND $params['VolumeGeneral'] = '0.0004';
     }
 
     /**
@@ -859,7 +859,7 @@ class NovaPoshtaApi2 {
             $recipientWarehouse = $this->getWarehouse($recipient['CityRecipient'], $recipient['Warehouse']);
             $recipient['RecipientAddress'] = $recipientWarehouse['data'][0]['Ref'];
         }
-        if ( ! $recipient['Recipient']) {
+        if ( ! isset($recipient['Recipient'])) {
             $recipientCounterparty = $this->model('Counterparty')->save($recipient);
             $recipient['Recipient'] = $recipientCounterparty['data'][0]['Ref'];
             $recipient['ContactRecipient'] = $recipientCounterparty['data'][0]['ContactPerson']['data'][0]['Ref'];
