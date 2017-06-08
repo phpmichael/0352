@@ -74,4 +74,99 @@ class Shipping extends Admin_fb
             imagedestroy($image);
         }
     }
+    
+    public function novaposhtaSend($orderId=false)
+    {
+        if($this->input->post())
+        {
+            $post = $this->input->post();
+
+            //simple validate
+            if(!intval($post['orderId']) || !$post['PayerType'] || !$post['CargoType'] || !$post['Weight'] || !$post['BackwardDeliveryExists'])
+            {
+                die('Invalid params');
+            }
+
+            $settings = $this->settings_model;
+
+            require_once(APPPATH.'libraries/NovaPoshta/NovaPoshtaApi2.php');
+            $np = new LisDev\Delivery\NovaPoshtaApi2($settings['novaposhta_apiKey'],'ua',TRUE,'curl');
+
+            $sender = array();
+            $sender['Sender'] = $settings['novaposhta_Sender'];//Sender Ref
+            $sender['CitySender'] = $settings['novaposhta_CitySender'];//City Ref
+            $sender['SenderAddress'] = $settings['novaposhta_SenderAddress'];//Department Ref !!!
+
+            $contactSender = $np->getCounterpartyContactPersons($sender['Sender']);
+            $sender['ContactSender'] = $contactSender['data'][0]['Ref'];
+            $sender['SendersPhone'] = $contactSender['data'][0]['Phones'];
+
+            $this->load->model('orders_model');
+            $order = $this->orders_model->getOneById($post['orderId']);
+            if(!$order) die('Order not found');
+            $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
+            if(!$customer) die('Customer info not found');
+            $recipient = array(
+                'FirstName' => $customer['name'],
+                'LastName' => $customer['surname'],
+                'Phone' => preg_replace('/[^0-9]/','',$customer['phone']),//TODO: validate phone on enter in form
+                'CityRecipient' => $customer['city_ref'],
+                'RecipientAddress' => $customer['department_ref'],
+            );
+
+            $params = array(
+                'DateTime' => str_replace('/','.',$post['DateTime']),
+                'ServiceType' => 'WarehouseWarehouse',
+                'PaymentMethod' => 'Cash',
+                'PayerType' => $post['PayerType'],
+                'Cost' => $order['total'],
+                'SeatsAmount' => '1',
+                'Description' => $post['Description'],
+                'CargoType' => $post['CargoType'],
+                'Weight' => $post['Weight'],
+            );
+
+            if($post['BackwardDeliveryExists'] == 'yes')
+            {
+                $params['BackwardDeliveryData'] = array(
+                    'PayerType' => $post['BackwardDeliveryPayerType'],
+                    'CargoType' => 'Money',
+                    'RedeliveryString' => $order['total']
+                );
+            }
+
+            $result = $np->newInternetDocument($sender,$recipient,$params);
+
+            if($result['success'])
+            {
+                $docNumber = $result['data'][0]['IntDocNumber'];
+                $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number'=>$docNumber));
+
+                // === Mail Customer === //
+                //$this->load->model('auto_responders_model');
+                //$this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$docNumber));
+
+                redirect($this->_getBaseURL()."orders/edit/id/desc/0/".$orderId);
+            }
+            else dump($result);
+        }
+        elseif(!$orderId)
+        {
+            echo 'orderId is required';
+        }
+        else
+        {
+            $this->formbuilder_model->setFormMode('edit');
+            $this->formbuilder_model->setFormData(array(
+                'orderId' => $orderId,
+                'DateTime' => date('d.m.Y')
+            ));
+
+            $data['tpl_page'] = 'admin_fb/build';
+            $data['form_id'] = 'novaposhta-send';
+            $data['data_key'] = false;
+
+            parent::_OnOutput($data);
+        }
+    }
 }
