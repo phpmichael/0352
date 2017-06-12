@@ -26,14 +26,28 @@ class Orders_customer_info extends Admin_fb
      */
     public function Edit()
     {
-        //TODO: check if need Novaposhta script before include this
-        // === CSS Styles === //
-        $this->css_files[] = 'js/jquery/ui/1.10.4/themes/smoothness/jquery-ui.min.css';
-        // === JS Styles === //
-        $this->js_files[] = 'js/jquery/ui/1.10.4/jquery-ui.min.js';
-        $this->js_files[] = 'js/custom/shipping/novaposhta/find.js';
+        $this->includeJs();
 
         parent::Edit();
+    }
+
+    /**
+     * Include CSS/JS for process form
+     */
+    private function includeJs()
+    {
+        $data_key = $this->segment_item;
+        $data = $this->orders_customer_info_model->getOneById($data_key);
+
+        //check if need Novaposhta script before include this
+        if(!empty($data) && isset($data['shipping_type']) && in_array($data['shipping_type'], array('novaposhta','ukrposhta')))
+        {
+                // === CSS Styles === //
+            $this->css_files[] = 'js/jquery/ui/1.10.4/themes/smoothness/jquery-ui.min.css';
+            // === JS Styles === //
+            $this->js_files[] = 'js/jquery/ui/1.10.4/jquery-ui.min.js';
+            $this->js_files[] = 'js/custom/shipping/novaposhta/find.js';
+        }
     }
 
 }
