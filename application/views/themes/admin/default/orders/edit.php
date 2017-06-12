@@ -1,5 +1,6 @@
 <?if(@$orders_customer_info_id):?>
     <?fb_form("orders_customer_info",$orders_customer_info_id,'view')?>
+	<?=(userAccess('orders_customer_info','edit')? anchor_base("/orders_customer_info/edit/pub_date/asc/0/".$orders_customer_info_id, language('edit')) : '' )?> | 
 	<?=load_theme_view('orders/shipping/buttons')?>
 <?else:?>
 	<?=language('customer')?>: <?=(userAccess('customers','edit')? anchor_base("/customers/edit/id/desc/0/".$customer_id, $BC->customers_model->getFullNameById($customer_id)) : $BC->customers_model->getFullNameById($customer_id) )?>
