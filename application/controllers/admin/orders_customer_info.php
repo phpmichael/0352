@@ -26,12 +26,13 @@ class Orders_customer_info extends Admin_fb
      */
     public function Edit()
     {
+        //TODO: check if need Novaposhta script before include this
         // === CSS Styles === //
         $this->css_files[] = 'js/jquery/ui/1.10.4/themes/smoothness/jquery-ui.min.css';
         // === JS Styles === //
         $this->js_files[] = 'js/jquery/ui/1.10.4/jquery-ui.min.js';
         $this->js_files[] = 'js/custom/shipping/novaposhta/find.js';
-        
+
         parent::Edit();
     }
 
