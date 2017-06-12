@@ -69,6 +69,7 @@
  * @property spiderweb_model $spiderweb_model
  * @property tools_model $tools_model
  * @property validate_model $validate_model
+ * @property orders_customer_info_model $orders_customer_info_model
  * @property tools_lib $tools_lib
  * @property uploader_lib $uploader_lib
  * @property resizer $resizer
