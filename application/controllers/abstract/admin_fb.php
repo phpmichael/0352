@@ -19,6 +19,8 @@ class Admin_fb extends Admin
 	protected $model_name = 'formbuilder_model';
 	//special model for process form data
 	protected $process_form_model;
+	//template for add/edit form
+	protected $process_page_tpl = 'admin_fb/build';
 
     /**
      * Init models, set pages' titles, fields' titles, set languages' sections.
@@ -102,7 +104,7 @@ class Admin_fb extends Admin
 		
 		$this->formbuilder_model->setFormMode($form_mode);
 		
-	    $data['tpl_page'] = 'admin_fb/build';
+	    $data['tpl_page'] = $this->process_page_tpl;
 	    $data['form_id'] = $this->process_form_id;
 	    $data['data_key'] = $data_key;
 	    

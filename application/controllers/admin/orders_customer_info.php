@@ -12,6 +12,7 @@ require_once(APPPATH.'controllers/abstract/admin_fb.php');
 class Orders_customer_info extends Admin_fb
 {
 	protected $process_form_html_id = "orders_customer_info";
+    protected $process_page_tpl = 'orders_customer_info/build';
 
 	// +++++++++++++ INNER METHODS +++++++++++++++ //
 
