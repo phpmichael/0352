@@ -24,6 +24,10 @@
     <?=include_css($BC->_getTheme().'navmenu-h.css')?>
     <?=include_js($BC->_getTheme().'navmenu-h.js')?>
 
+    <?foreach ($BC->_getJSFiles() as $js_file):?>
+    <?=include_js($js_file)?>
+    <?endforeach?>
+
     <!-- No-Cache -->
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
