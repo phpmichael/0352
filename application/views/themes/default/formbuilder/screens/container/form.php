@@ -5,8 +5,14 @@
 		<div class="error">
 	    	<?=validation_errors()?>
 	    </div>
-	
-		<?=(($item['multipart']=='yes')?form_open_multipart($item['action']):form_open(str_replace('[LANG]',$BC->_getInterfaceLang(),$item['action'])))?>
+
+		<?
+			$form_action = str_replace('[LANG]',$BC->_getInterfaceLang(),$item['action']);
+			$form_attributes = array( 'data_key' => $BC->formbuilder_model->getDataKey() );
+			if($item['multipart']=='yes') $form_attributes['enctype'] = 'multipart/form-data';
+		?>
+
+		<?=form_open($form_action,$form_attributes)?>
 	
 	<?endif?>
 	

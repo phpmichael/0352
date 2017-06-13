@@ -7,9 +7,9 @@
 	    </div>
 	
 	    <?
-	       $form_action = str_replace('[LANG]',$BC->_getInterfaceLang(),$item['action']);
-	       $form_attributes = array( 'data_key' => $BC->formbuilder_model->getDataKey() );
-	       if($item['multipart']=='yes') $form_attributes['enctype'] = 'multipart/form-data';
+			$form_action = str_replace('[LANG]',$BC->_getInterfaceLang(),$item['action']);
+			$form_attributes = array( 'data_key' => $BC->formbuilder_model->getDataKey() );
+			if($item['multipart']=='yes') $form_attributes['enctype'] = 'multipart/form-data';
 	    ?>
 	    
 		<?=form_open($form_action,$form_attributes)?>
