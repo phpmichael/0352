@@ -27,17 +27,21 @@ class Orders_customer_info extends Admin_fb
      */
     public function Edit()
     {
-        $this->includeJs();
+        $this->load->model('orders_model');
+
+        $data_key = $this->segment_item;
+
+        $this->includeJs($data_key);
 
         parent::Edit();
     }
 
     /**
      * Include CSS/JS for process form
+     * @param string $data_key
      */
-    private function includeJs()
+    private function includeJs($data_key)
     {
-        $data_key = $this->segment_item;
         $data = $this->orders_customer_info_model->getOneById($data_key);
 
         //check if need Novaposhta script before include this
