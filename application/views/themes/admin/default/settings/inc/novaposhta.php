@@ -1,4 +1,4 @@
-<?if($novaposhta_apiKey):?>
+<?if(@$novaposhta_apiKey):?>
     <tr>
         <th colspan="2"><b>Нова Пошта</b></th>
     </tr>
