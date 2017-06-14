@@ -192,3 +192,10 @@ footer .phone-number{font-weight: normal;}
 .main>.fb-output-screen form li.list-row-odd{background:#fff;}
 .main>.fb-output-screen form li.list-row-even{background:#fff;}
 .main>.fb-output-screen label.desc, .fb-output-screen legend.desc{font-weight: normal;}
+
+.main>.fb-output-screen .shipping-type{position: relative;}
+.main>.fb-output-screen .shipping-type span{position: absolute; left: 10px;}
+.main>.fb-output-screen .shipping-type span:first-child{top: 45px;}
+.main>.fb-output-screen .shipping-type span:last-child{top: 135px;}
+.main>.fb-output-screen .shipping-type span label.choice{width:100%;}
+.main>.fb-output-screen .shipping-type-desc{font-size: 80%; margin: 8px;}
