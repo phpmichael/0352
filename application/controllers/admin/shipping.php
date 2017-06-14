@@ -135,7 +135,12 @@ class Shipping extends Admin_fb
                 );
             }
 
-            $result = $np->newInternetDocument($sender,$recipient,$params);
+            try {
+                $result = $np->newInternetDocument($sender, $recipient, $params);
+            }
+            catch(Exception $exception){
+                die('Exception: '.$exception->getMessage());
+            }
 
             if($result['success'])
             {
