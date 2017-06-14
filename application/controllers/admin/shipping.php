@@ -128,7 +128,7 @@ class Shipping extends Admin_fb
 
             if($post['BackwardDeliveryExists'] == 'yes')
             {
-                $params['BackwardDeliveryData'] = array(
+                $params['BackwardDeliveryData'][0] = array(
                     'PayerType' => $post['BackwardDeliveryPayerType'],
                     'CargoType' => 'Money',
                     'RedeliveryString' => $order['total']
