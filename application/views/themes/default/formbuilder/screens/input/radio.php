@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset <?if($item['html_class']):?>class='<?=$item['html_class']?>'<?endif?>>
 
     <?load_theme_view($BC->formbuilder_model->getInputPartsPath().'legend',array('item'=>$item))?>
 
