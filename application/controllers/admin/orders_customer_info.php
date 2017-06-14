@@ -27,8 +27,6 @@ class Orders_customer_info extends Admin_fb
      */
     public function Edit()
     {
-        $this->load->model('orders_model');
-
         $data_key = $this->segment_item;
 
         $this->includeJs($data_key);
