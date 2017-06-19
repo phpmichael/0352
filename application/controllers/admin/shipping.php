@@ -77,12 +77,18 @@ class Shipping extends Admin_fb
     
     public function novaposhtaSend($orderId=false)
     {
+        if(!$orderId) die('orderId is required');
+
+        $this->load->model('orders_model');
+        $order = $this->orders_model->getOneById($orderId);
+        if(!$order) die('Order not found');
+
         if($this->input->post())
         {
             $post = $this->input->post();
 
             //simple validate
-            if(!intval($post['orderId']) || !$post['PayerType'] || !$post['CargoType'] || !$post['Weight'] || !$post['BackwardDeliveryExists'])
+            if(!$post['PayerType'] || !$post['CargoType'] || !$post['Weight'] || !$post['BackwardDeliveryExists'])
             {
                 die('Invalid params');
             }
@@ -101,15 +107,17 @@ class Shipping extends Admin_fb
             $sender['ContactSender'] = $contactSender['data'][0]['Ref'];
             $sender['SendersPhone'] = $contactSender['data'][0]['Phones'];
 
-            $this->load->model('orders_model');
-            $order = $this->orders_model->getOneById($post['orderId']);
-            if(!$order) die('Order not found');
+
             $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
             if(!$customer) die('Customer info not found');
+
+            $phone = preg_replace('/[^0-9]/','',$customer['phone']);
+            if(!preg_match('/^380/',$phone)) $phone = '380'.$phone;
+
             $recipient = array(
                 'FirstName' => $customer['name'],
                 'LastName' => $customer['surname'],
-                'Phone' => preg_replace('/[^0-9]/','',$customer['phone']),//TODO: validate phone on enter in form
+                'Phone' => $phone,//TODO: validate phone on enter in form
                 'CityRecipient' => $customer['city_ref'],
                 'RecipientAddress' => $customer['department_ref'],
             );
@@ -131,7 +139,7 @@ class Shipping extends Admin_fb
                 $params['BackwardDeliveryData'][0] = array(
                     'PayerType' => $post['BackwardDeliveryPayerType'],
                     'CargoType' => 'Money',
-                    'RedeliveryString' => $order['total']
+                    'RedeliveryString' => $post['RedeliveryString']
                 );
             }
 
@@ -155,16 +163,13 @@ class Shipping extends Admin_fb
             }
             else dump($result);
         }
-        elseif(!$orderId)
-        {
-            echo 'orderId is required';
-        }
         else
         {
             $this->formbuilder_model->setFormMode('edit');
             $this->formbuilder_model->setFormData(array(
                 'orderId' => $orderId,
-                'DateTime' => date('d.m.Y')
+                'DateTime' => date('d.m.Y'),
+                'RedeliveryString' => $order['total']
             ));
 
             $data['tpl_page'] = 'admin_fb/build';
