@@ -7,7 +7,7 @@ $j(document).ready(function(){
             city: ".fb-output-screen input[name=city]",
             city_ref: ".fb-output-screen input[name=city_ref]",
             department: ".fb-output-screen select[name=department]",
-            department_ref: ".fb-output-screen input[name=department_ref]",
+            department_ref: ".fb-output-screen input[name=department_ref]"
         },
         fillCity: function(){
             $j(novaposhta.inputs.city).autocomplete({
@@ -82,6 +82,10 @@ $j(document).ready(function(){
                 $j(novaposhta.inputs.department).empty();
 
                 var i, item, option;
+
+                option = new Option("Виберіть відділення Нової пошти","");
+                $j(novaposhta.inputs.department).append(option);
+
                 for(i in data.data){
                     item = data.data[i];
 
