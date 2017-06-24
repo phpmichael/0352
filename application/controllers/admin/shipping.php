@@ -172,9 +172,8 @@ class Shipping extends Admin_fb
                 'RedeliveryString' => $order['total']
             ));
 
-            $data['tpl_page'] = 'admin_fb/build';
-            $data['form_id'] = 'novaposhta-send';
-            $data['data_key'] = false;
+            $data['tpl_page'] = 'shipping/novaposhta-send';
+            $data['order_id'] = $orderId;
 
             parent::_OnOutput($data);
         }
