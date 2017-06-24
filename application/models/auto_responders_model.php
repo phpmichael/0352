@@ -45,13 +45,18 @@ class Auto_responders_model extends Base_model
 	    
 	    //get settings
 	    $settings = $this->CI->settings_model;
-		
+
+		$lang = strtoupper($this->CI->_getInterfaceLang(TRUE));
+
+		$subject = is_array($auto_responder['subject']) ? $auto_responder['subject'][$lang] : $auto_responder['subject'];
+		$message = is_array($auto_responder['message']) ? $auto_responder['message'][$lang] : $auto_responder['message'];
+
 	    //replace template vars and send email
 	    return $this->CI->email_templater->mail(
             $to_email,
-            $auto_responder['subject'],
-            $auto_responder['message'],
-            "{$settings['site_title_'.strtoupper($this->CI->_getInterfaceLang(TRUE))]} <{$settings['send_email_from']}>",
+            $subject,
+            $message,
+            "{$settings['site_title_'.$lang]} <{$settings['send_email_from']}>",
             $data
 		);
 	}
