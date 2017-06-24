@@ -74,7 +74,11 @@ class Shipping extends Admin_fb
             imagedestroy($image);
         }
     }
-    
+
+    /**
+     * Send shipping in for to NovaPoshta
+     * @param bool $orderId
+     */
     public function novaposhtaSend($orderId=false)
     {
         if(!$orderId) die('orderId is required');
@@ -155,10 +159,6 @@ class Shipping extends Admin_fb
                 $docNumber = $result['data'][0]['IntDocNumber'];
                 $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number'=>$docNumber));
 
-                // === Mail Customer === //
-                //$this->load->model('auto_responders_model');
-                //$this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$docNumber));
-
                 redirect($this->_getBaseURL()."orders/edit/id/desc/0/".$orderId);
             }
             else dump($result);
@@ -177,5 +177,27 @@ class Shipping extends Admin_fb
 
             parent::_OnOutput($data);
         }
+    }
+
+    /**
+     * Send E-Invoice Number (novaposhta, ukrposhta)
+     * @param int $orderId
+     */
+    public function sendEN($orderId)
+    {
+        if(!$orderId) die('orderId is required');
+
+        $this->load->model('orders_model');
+        $order = $this->orders_model->getOneById($orderId);
+        if(!$order) die('Order not found');
+
+        $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
+        $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number_sent'=>1));
+
+        // === Mail Customer === //
+        $this->load->model('auto_responders_model');
+        $this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$customer['doc_number']));
+
+        redirect($this->_getBaseURL().'orders/edit/id/desc/0/'.$order['id']);
     }
 }
