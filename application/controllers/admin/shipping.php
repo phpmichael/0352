@@ -194,9 +194,13 @@ class Shipping extends Admin_fb
         $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
         $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number_sent'=>1));
 
+        if($customer['shipping_type']=='ukrposhta') $shipping_company = 'Укрпоштою';
+        elseif($customer['shipping_type']=='novaposhta') $shipping_company = 'Новою поштою';
+        else $shipping_company = '';
+
         // === Mail Customer === //
         $this->load->model('auto_responders_model');
-        $this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$customer['doc_number']));
+        $this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$customer['doc_number'],'shipping_company'=>$shipping_company));
 
         redirect($this->_getBaseURL().'orders/edit/id/desc/0/'.$order['id']);
     }
