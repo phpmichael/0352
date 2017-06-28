@@ -18,7 +18,7 @@ class Resizer
 	private $height;
 	private $type;
 	private $size_str;
-	private $quality = 85;
+	private $quality = 95;
 
     /**
      * Initialize preferences if they set.
