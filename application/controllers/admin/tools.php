@@ -11,7 +11,7 @@ require_once(APPPATH.'controllers/abstract/admin.php');
  */
 class Tools extends Admin 
 {
-	private $pathToProjects = "F:/OpenServer/domains/localhost/CI/";
+	private $pathToProjects = "/var/www/localhost/CI/";
 
     /**
      * Init models, set pages' titles, fields' titles, set languages' sections.
@@ -73,7 +73,7 @@ class Tools extends Admin
 		
 		$sourceDir = "{$this->pathToProjects}{$sourceName}/";
 	    $projectDir = "{$this->pathToProjects}{$projectName}/";
-	    
+
 	    $this->tools_lib->createProject($sourceDir,$projectDir);
 
         return TRUE;

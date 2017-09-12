@@ -160,7 +160,7 @@ class Tools_lib
      */
     public function mksymlink($target,$linkname,$is_dir=false) 
     {
-        $is_windows = TRUE;
+        $is_windows = FALSE;
         /*echo "------------------------------------------------------------------<br/>";
         echo $target;
         echo '<br/>';
