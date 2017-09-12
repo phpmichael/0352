@@ -37,7 +37,7 @@ class CI_Log {
 	 */
 	public function __construct()
 	{
-		$config =& get_config();
+		$config = get_config();
 
 		$this->_log_path = ($config['log_path'] != '') ? $config['log_path'] : APPPATH.'logs/';
 
