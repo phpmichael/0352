@@ -118,6 +118,7 @@ class Shipping extends Admin_fb
             $phone = preg_replace('/[^0-9]/','',$customer['phone']);
             if(!preg_match('/^380/',$phone)) $phone = '380'.$phone;
 
+            //TODO: check if there is "city_ref"
             $recipient = array(
                 'FirstName' => $customer['name'],
                 'LastName' => $customer['surname'],
