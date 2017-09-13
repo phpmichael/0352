@@ -200,7 +200,7 @@ class Menu extends Admin
      */
 	public function Sort($menu)
 	{
-		$this->menu_model->Sort($this->parseSortables(),$menu);
+		$this->menu_model->Sort($this->parseSortables(),array('menu'=>$menu));
 	}
 	
 	/**
@@ -213,7 +213,7 @@ class Menu extends Admin
 	{
 		$menu = $this->uri->segment($this->_getSegmentsOffset()+3);
 		
-		$this->menu_model->DeleteSelected(@$_POST['check'],$menu);
+		$this->menu_model->DeleteSelectedInMenu(@$_POST['check'],$menu);
 
 		// === REDIRECT === //
 		redirect($this->_getBaseURI()."/".$menu);

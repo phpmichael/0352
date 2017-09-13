@@ -14,28 +14,6 @@ class Menu_model extends Base_model
 	//name of table
 	protected $c_table = 'menu';
 	
-	/**
-	 * Reset Sorting (after menu item deleted).
-	 * 
-	 * @param string $menu
-	 * @return void
-	 */
-	protected function reset_sort($menu)
-	{
-		parent::reset_sort(array('menu' => $menu));
-	}
-	
-	/**
-	 * Generate value for sort column.
-	 * 
-	 * @param string $menu
-	 * @return integer
-	 */
-	protected function last_sort_val($menu)
-	{	
-		return parent::last_sort_val(array('menu' => $menu));
-	}
-	
 	
 	/**
 	 * Insert data. Returns ID field.
@@ -47,8 +25,8 @@ class Menu_model extends Base_model
 	public function Insert($post)
 	{
 		//set sort = last sort + 1
-	    $post['sort'] = $this->last_sort_val($post['menu']);
-		
+	    $post['sort'] = parent::last_sort_val(array('menu' => $post['menu']));
+
 		return parent::Insert($post);
 	}
 	
@@ -66,7 +44,7 @@ class Menu_model extends Base_model
 		
 		if( $current['menu'] != $post['menu'] )
 		{
-			$post['sort'] = $this->last_sort_val($post['menu']);
+			$post['sort'] = parent::last_sort_val(array('menu' => $post['menu']));
 		}
 		
 		//update multilang data
@@ -78,7 +56,7 @@ class Menu_model extends Base_model
 		//reset sort if menu changed (ie from left to bottom)
 		if( $current['menu'] != $post['menu'] )
 		{
-			$this->reset_sort($current['menu']);
+            parent::reset_sort(array('menu' => $current['menu']));
 		}
 	}
 	
@@ -90,7 +68,7 @@ class Menu_model extends Base_model
 	 * @param string $menu
 	 * @return void
 	 */
-	public function DeleteSelected($delArr,$menu)
+	public function DeleteSelectedInMenu($delArr,$menu)
 	{
 		if( !empty($delArr) )
 		{
@@ -99,20 +77,8 @@ class Menu_model extends Base_model
 				$this->DeleteId($id);
 			}
 		}
-		
-		$this->reset_sort($menu);
-	}
-	
-	/**
-	 * Sort records.
-	 * 
-	 * @param array $sortables
-	 * @param string $menu
-	 * @return void
-	 */
-	public function Sort($sortables,$menu)
-	{		
-		parent::Sort($sortables,array('menu'=>$menu));
+
+        parent::reset_sort(array('menu' => $menu));
 	}
 	
 	/**
