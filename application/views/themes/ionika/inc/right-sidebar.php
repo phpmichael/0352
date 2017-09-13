@@ -43,15 +43,6 @@
             <?endif?>
             
             <?if (!in_array($BC->_getController(),array('cart','wishlist','orders'))):?>
-                <script src="http://userapi.com/js/api/openapi.js?52"></script>
-                <!-- VK Widget -->
-                <div id="vk_groups"></div>
-                <script>
-                VK.Widgets.Group("vk_groups", {mode: 2, width: "220", height: "300"}, -108105904);
-                </script>
-                
-                <br />
-                
                 <div id="fb-root"></div>
                 <script>(function(d, s, id) {
                   var js, fjs = d.getElementsByTagName(s)[0];
