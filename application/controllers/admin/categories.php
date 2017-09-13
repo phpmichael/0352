@@ -167,7 +167,7 @@ class Categories extends Admin
 	 */
 	public function Sort()
 	{
-		$this->model->Sort($this->parseSortables(),$this->parent_id);
+		$this->model->Sort($this->parseSortables(),array('parent_id'=>$this->parent_id));
 	}
 	
 	/**
@@ -178,7 +178,7 @@ class Categories extends Admin
 	 */
 	public function Delete_Selected()
 	{
-		$this->model->DeleteSelected(@$_POST['check'],$this->parent_id);
+		$this->model->DeleteSelectedInParent(@$_POST['check'],$this->parent_id);
 
 		// === REDIRECT === //
 		redirect($this->_getBaseURI()."/index/{$this->parent_id}/");

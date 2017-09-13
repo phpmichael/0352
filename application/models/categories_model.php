@@ -188,28 +188,6 @@ class Categories_model extends Base_model
 	// === Admin === //
 	
 	/**
-	 * Reset Sorting (after category deleted).
-	 * 
-	 * @param integer $parent_id
-	 * @return void
-	 */
-	protected function reset_sort($parent_id)
-	{
-		parent::reset_sort(array('parent_id' => $parent_id));
-	}
-	
-	/**
-	 * Generate value for sort column.
-	 * 
-	 * @param integer $parent_id
-	 * @return integer
-	 */
-	protected function last_sort_val($parent_id)
-	{		
-		return parent::last_sort_val(array('parent_id' => $parent_id));
-	}
-	
-	/**
 	 * Insert data. Returns ID field.
 	 * Overloads parent method.
 	 * 
@@ -218,8 +196,8 @@ class Categories_model extends Base_model
 	 */
 	public function Insert($post)
 	{
-		$post['sort'] = $this->last_sort_val($post['parent_id']);
-		
+		$post['sort'] = parent::last_sort_val(array('parent_id' => $post['parent_id']));
+
 		return parent::Insert($post);
 	}
 	
@@ -231,7 +209,7 @@ class Categories_model extends Base_model
 	 * @param integer $parent_id
 	 * @return void
 	 */
-	public function DeleteSelected($delArr,$parent_id)
+	public function DeleteSelectedInParent($delArr,$parent_id)
 	{
 		if( !empty($delArr) )
 		{
@@ -240,8 +218,8 @@ class Categories_model extends Base_model
 				$this->recursiveDelete($id);
 			}
 		}
-		
-		$this->reset_sort($parent_id);
+
+        parent::reset_sort(array('parent_id' => $parent_id));
 	}
 	
 	/**
@@ -263,18 +241,6 @@ class Categories_model extends Base_model
 		}
 			
 		$this->DeleteId($id);
-	}
-	
-	/**
-	 * Sort records.
-	 * 
-	 * @param array $sortables
-	 * @param integer $parent_id
-	 * @return void
-	 */
-	public function Sort($sortables,$parent_id)
-	{	
-		parent::Sort($sortables,array('parent_id'=>$parent_id));
 	}
 	
 }
