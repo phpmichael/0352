@@ -19,7 +19,6 @@
                 	<ul>
                 		<li><a href="#tabs-1">Comment</a></li>
                 		<li><a href="#tabs-2">Facebook </a></li>
-                		<li><a href="#tabs-3">VKontakte</a></li>
                 	</ul>
                 	
                 	<div id="tabs-1">
@@ -35,9 +34,6 @@
                 	</div>
                 	<div id="tabs-2">
                 		<?load_theme_view('inc/comments-facebook')?>
-                	</div>
-                	<div id="tabs-3">
-                		<?load_theme_view('inc/comments-vkontakte')?>
                 	</div>
                 </div>
 				

@@ -99,7 +99,6 @@
                 	<ul>
                 		<li><a href="#tabs-1">Regular Comments</a></li>
                 		<li><a href="#tabs-2">Facebook Comments</a></li>
-                		<li><a href="#tabs-3">VKontakte Comments</a></li>
                 	</ul>
                 	
                 	<div id="tabs-1">
@@ -114,9 +113,6 @@
                 	</div>
                 	<div id="tabs-2">
                 		<?load_theme_view('inc/comments-facebook')?>
-                	</div>
-                	<div id="tabs-3">
-                		<?load_theme_view('inc/comments-vkontakte')?>
                 	</div>
                 </div>
                 
