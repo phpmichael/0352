@@ -206,7 +206,10 @@ class Menu extends Admin
 	/**
 	 * Delete selected menu items.
 	 * Overrides parent method.
-	 * 
+	 *
+     * @param string $orderby
+     * @param string $orderseq
+     * @param int|string $offset
 	 * @return void
 	 */
 	public function Delete_Selected($orderby = '', $orderseq = '', $offset = '')
