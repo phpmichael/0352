@@ -209,7 +209,7 @@ class Menu extends Admin
 	 * 
 	 * @return void
 	 */
-	public function Delete_Selected()
+	public function Delete_Selected($orderby = '', $orderseq = '', $offset = '')
 	{
 		$menu = $this->uri->segment($this->_getSegmentsOffset()+3);
 		
