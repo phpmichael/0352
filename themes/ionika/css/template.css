@@ -387,7 +387,7 @@ a.reg:hover {
 	 margin:0;
 	 padding:0;
 }
-.header-splash { background:url(../images/header-splash.png) center top no-repeat; width:100%;}
+.header-splash { /*background:url(../images/header-splash.png) center top no-repeat;*/ width:100%;}
 .header-1 { position:relative; height:99px; /*background:url(../images/header-bg.gif) repeat-x;*/  }
     .header-1 .top-right {
         height:31px;

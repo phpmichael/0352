@@ -20,6 +20,13 @@ button{
     /*behavior: url(/PIE.htc);position:relative;left:0;top:0;/*Fix rounded corners for IE*/
 }
 
+.btn-cart{
+	font-size:20px;
+	height:36px;
+	padding:0 10px;
+	margin:3px;
+}
+
 input[type=submit]:hover, 
 input[type=button]:hover, 
 button:hover{
