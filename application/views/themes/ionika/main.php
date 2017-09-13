@@ -27,7 +27,7 @@ $BC->load->helper('social');
                     	<span><?=img(array('src'=>$BC->_getTheme().'images/con_tel.png','width'=>20,'height'=>20,'class'=>'move-down'))?> <?=$BC->settings_model['site_phone1']?>, <?=$BC->settings_model['site_phone2']?>, </span> 
                     	<a href="javascript:;" class="request-call"><?=language('request_a_call')?></a>
                     	<a href="http://vk.com/klavishko"><?=img(array('src'=>$BC->_getTheme().'images/vkontakte.png','width'=>24,'height'=>24,'class'=>'move-down'))?> vk.com/klavishko</a>
-                    	<a href="http://facebook.com/ionikator"><?=img(array('src'=>$BC->_getTheme().'images/facebook.png','width'=>24,'height'=>24,'class'=>'move-down'))?> facebook.com/ionikator</a>
+                    	<a href="http://facebook.com/klavishko"><?=img(array('src'=>$BC->_getTheme().'images/facebook.png','width'=>24,'height'=>24,'class'=>'move-down'))?> facebook.com/klavishko</a>
                     	<a href="<?=base_url().($BC->_getInterfaceLang(TRUE)=='ua'?'':'ua/')?>" title="<?=language('ukrainian')?>"><?=img(array('src'=>'images/flags/ua.png','width'=>18,'height'=>12))?></a> 
                         <a href="<?=base_url().($BC->_getInterfaceLang(TRUE)=='ru'?'':'ru/')?>" title="<?=language('russian')?>"><?=img(array('src'=>'images/flags/ru.png','width'=>18,'height'=>12))?></a>
                     </div>
@@ -44,7 +44,7 @@ $BC->load->helper('social');
                 
                 </div>
 
-                <?if (!in_array($BC->_getController(),array('articles'))):?>
+                <?if (false):?>
                 <div class="border-bot">
                 
                     <div id="slider">

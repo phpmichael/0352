@@ -17,9 +17,9 @@
     			
     			<div id="tabs">
                 	<ul>
-                		<li><a href="#tabs-1">Regular Comments</a></li>
-                		<li><a href="#tabs-2">Facebook Comments</a></li>
-                		<li><a href="#tabs-3">VKontakte Comments</a></li>
+                		<li><a href="#tabs-1">Comment</a></li>
+                		<li><a href="#tabs-2">Facebook </a></li>
+                		<li><a href="#tabs-3">VKontakte</a></li>
                 	</ul>
                 	
                 	<div id="tabs-1">
