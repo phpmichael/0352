@@ -194,7 +194,7 @@ class Lang_model extends Base_model
 	 * @param string $code
 	 * @return string
 	 */
-	public function get($code)
+	public function getByCode($code)
 	{
 	    //if( isset($this->text[$section][$code]) )
 		if( isset($this->text[$code]) )
@@ -272,7 +272,8 @@ class Lang_model extends Base_model
 		}
 		else 
 		{
-			$post = $this->Update($post,$code);
+		    $post['code'] = $code;
+			$post = $this->Update($post);
 		}
 		
 		return $post;
@@ -299,16 +300,15 @@ class Lang_model extends Base_model
      * Overloads parent method.
      *
      * @param array $post
-     * @param $code
      * @return array
      */
-	public function Update($post,$code)
+	public function Update($post)
     {
 		$post = parent::prepareTablePost($post);
 		//dump($post);exit;
 		$post['code'] = ($post['code']) ? $this->generateCode($post['code'],$post[$this->id_column]) : $this->generateCode($post['EN'],$post[$this->id_column]) ;
     	//dump($post);exit;
-    	$this->db->update($this->c_table, $post, array('code' => $code) );
+    	$this->db->update($this->c_table, $post, array('code' => $post['code']) );
 		
     	return $post;
     }

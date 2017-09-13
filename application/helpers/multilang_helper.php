@@ -9,7 +9,7 @@
 function language($code)
 {
 	$CI =& get_instance();
-	return $CI->lang_model->get($code);
+	return $CI->lang_model->getByCode($code);
 }
 
 /**
