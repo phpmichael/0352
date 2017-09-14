@@ -95,7 +95,7 @@ class Spiderweb_model extends Base_model
     		    $data['body_lang_id'] = $record['body_lang_id'];
     		    $data['id'] = $record['id'];
     		    //dump($data['id']);exit;
-    		    $this->CI->{$this->c_table.'_model'}->Update($data,FALSE);
+    		    $this->CI->{$this->c_table.'_model'}->Update($data);
     		}
     	}
     	

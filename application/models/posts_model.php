@@ -66,28 +66,6 @@ abstract class Posts_model extends Base_model
     }
     
     /**
-	 * Insert or update data. Depends if ID field presents in array.
-	 * Overrides parent method.
-	 * 
-	 * @param array $post
-	 * @param array|bool $categories
-	 * @return integer
-	 */
-    public function insertOrUpdate($post,$categories=FALSE)
-    {
-    	//UPDATE
-		if( @$post[$this->id_column] )
-		{
-			return $this->Update($post,$categories);
-		}
-		//ADD
-		else 
-		{
-			return $this->Insert($post,$categories);
-		}
-    }
-    
-    /**
 	 * Request from pagination.
 	 * 
 	 * @param array $filter_data
@@ -325,19 +303,15 @@ abstract class Posts_model extends Base_model
 	 * Overrides param method.
 	 * 
 	 * @param array $post
-	 * @param array|bool $categories
 	 * @return integer
 	 */
-    public function Insert($post,$categories=FALSE)
+    public function Insert($post)
     {
     	$post['pub_date'] = date('Y-m-d H:i:s');
 		if($this->c_type!='company') //not need for customers
 			$post['customer_id'] = $this->CI->session->userdata('customer_id'); 
 		
 		$post_id = parent::Insert($post);
-		
-		//add categories
-		if(is_array($categories)) $this->_AddPostCategories($post_id,$categories);
 		
 		//add image
 		$this->uploadImages($post_id);
@@ -376,23 +350,13 @@ abstract class Posts_model extends Base_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @param array|bool $categories
 	 * @return integer
 	 */
-    public function Update($post,$categories=FALSE)
+    public function Update($post)
     {
 		parent::Update($post);
 		
 		$post_id = $post[$this->id_column];
-		
-		if(is_array($categories))
-		{
-			//remove old categories
-			$this->_RemovePostCategories($post_id);
-			
-			//add new categories
-			$this->_AddPostCategories($post_id,$categories);
-		}
 		
 		//add image
 		$this->uploadImages($post_id);
@@ -425,7 +389,7 @@ abstract class Posts_model extends Base_model
 	 * @param array $categories
 	 * @return void
 	 */
-    protected function _AddPostCategories($post_id,$categories)
+    public function AddPostCategories($post_id,$categories)
     {
     	$categories = array_unique($categories);
         
@@ -629,7 +593,7 @@ abstract class Posts_model extends Base_model
     	}
     	
     	//delete post categories
-    	$this->_RemovePostCategories($post_id);
+    	$this->RemovePostCategories($post_id);
     	
     	//delete tags
 		$tags_model = load_model('tags_model');
@@ -653,7 +617,7 @@ abstract class Posts_model extends Base_model
 	 * @param integer $post_id
 	 * @return void
 	 */
-    private function _RemovePostCategories($post_id)
+    public function RemovePostCategories($post_id)
     {
     	if($this->db->table_exists($this->posts_categories_table))
         {

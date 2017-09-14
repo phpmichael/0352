@@ -128,13 +128,25 @@ class Posters extends Front
 			if( isset($id) )
 			{
 				// === Add to DB === //			
-				$this->posters_model->Update($post,$this->input->post('category'));
+				$this->posters_model->Update($post);
+
+                $categories = $this->input->post('category');
+                if(is_array($categories))
+                {
+                    //remove old categories
+                    $this->posters_model->RemovePostCategories($id);
+                    //add new categories
+                    $this->posters_model->AddPostCategories($id, $categories);
+                }
 			}
 			//ADD
 			else 
 			{
 				// === Add to DB === //			
-				$this->posters_model->Insert($post,$this->input->post('category'));
+				$id = $this->posters_model->Insert($post);
+
+                $categories = $this->input->post('category');
+                if(is_array($categories)) $this->posters_model->AddPostCategories($id, $categories);
 			}
 			
 			redirect($this->_getBaseURI().'/my');
