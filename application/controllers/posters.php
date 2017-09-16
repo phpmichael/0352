@@ -131,13 +131,7 @@ class Posters extends Front
 				$this->posters_model->Update($post);
 
                 $categories = $this->input->post('category');
-                if(is_array($categories))
-                {
-                    //remove old categories
-                    $this->posters_model->RemovePostCategories($id);
-                    //add new categories
-                    $this->posters_model->AddPostCategories($id, $categories);
-                }
+                if(is_array($categories)) $this->posters_model->UpdatePostCategories($id, $categories);
 			}
 			//ADD
 			else 

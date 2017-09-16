@@ -151,13 +151,7 @@ class Jobs extends Front
 				$this->jobs_model->Update($post);
 
                 $categories = $this->input->post('category');
-                if(is_array($categories))
-                {
-                    //remove old categories
-                    $this->jobs_model->RemovePostCategories($id);
-                    //add new categories
-                    $this->jobs_model->AddPostCategories($id, $categories);
-                }
+                if(is_array($categories)) $this->jobs_model->UpdatePostCategories($id, $categories);
 
 			}
 			//ADD

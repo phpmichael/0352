@@ -617,12 +617,25 @@ abstract class Posts_model extends Base_model
 	 * @param integer $post_id
 	 * @return void
 	 */
-    public function RemovePostCategories($post_id)
+    private function RemovePostCategories($post_id)
     {
     	if($this->db->table_exists($this->posts_categories_table))
         {
             $this->db->delete($this->posts_categories_table, array('post_id' => $post_id, 'type'=>$this->c_type));
         }
+    }
+
+    /**
+     * Remove post's categories
+     * @param int $post_id
+     * @param array $categories
+     */
+    public function UpdatePostCategories($post_id, array $categories)
+    {
+        //remove old categories
+        $this->RemovePostCategories($post_id);
+        //add new categories
+        $this->AddPostCategories($post_id, $categories);
     }
     
     /**
