@@ -77,12 +77,11 @@ class Products_model extends Posts_model
 	 * Overrides parent method.
 	 * 
 	 * @param array $post
-	 * @param array $categories
 	 * @return integer
 	 */
-    public function insertOrUpdate($post,$categories)
+    public function insertOrUpdate($post)
     {
-    	$product_id = parent::insertOrUpdate($post,$categories);
+    	$product_id = parent::insertOrUpdate($post);
     	
     	//set attributes
     	if(isset($post['products_attributes'])) $this->CI->products_attributes_model->setProductAttributes($product_id,$post['products_attributes']);
