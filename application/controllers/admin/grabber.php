@@ -129,7 +129,9 @@ class Grabber extends Admin
 	    $post['date'] = date("Y-m-d H:i:s");
 	    
 	    //add article
-	    $article_id = $this->articles_model->insertOrUpdate($post,$post['category']);
+	    $article_id = $this->articles_model->insertOrUpdate($post);
+
+        if(is_array($category)) $this->articles_model->UpdatePostCategories($article_id, $category);
 	    
 	    //add tags
 	    $this->tags_model->Insert("articles",$article_id,$post['meta_keywords']['EN']);

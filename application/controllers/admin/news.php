@@ -131,7 +131,10 @@ class News extends Admin
 			
 			if(!isset($post['date'])) $post['date'] = date("Y-m-d H:i:s");
 			
-			$this->news_model->insertOrUpdate($post,$this->input->post('category'));
+			$this->news_model->insertOrUpdate($post);
+
+            $id = $categories = $this->input->post('category');
+            if(is_array($categories)) $this->news_model->UpdatePostCategories($id, $categories);
 			
 			redirect($this->_getBaseURI());
 		}
