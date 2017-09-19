@@ -58,9 +58,9 @@ abstract class Posts_model extends Base_model
         
         foreach ($settings->toArray() as $param=>$value)
         {
-            if( preg_match("/^{$this->c_table}_(\w+)/",$param,$match) && isset($this->$match[1]) ) 
+            if( preg_match("/^{$this->c_table}_(\w+)/",$param,$match) && isset($this->{$match[1]}) )
             {
-                $this->$match[1] = $settings[$param];
+                $this->{$match[1]} = $settings[$param];
             }
         }
     }
