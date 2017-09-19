@@ -297,7 +297,7 @@ abstract class API extends REST_Controller
         if($this->hasPagination())
         {
             $filter_data = $this->model->getFilterData();
-            $data = $this->model->get('',$filter_data);
+            $data = $this->model->getAction('',$filter_data);
         }
         else
         {

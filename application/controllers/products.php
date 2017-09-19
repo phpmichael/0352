@@ -141,7 +141,7 @@ class Products extends Front
 		}
 		else 
 		{
-			$data = $this->process_form_model->get("search", $filter_data);
+			$data = $this->process_form_model->getAction("search", $filter_data);
 		}
 		
 		$data = array_merge($data,$filter_data);

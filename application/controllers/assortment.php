@@ -125,7 +125,7 @@ class Assortment extends Front
 		$filter_data = $this->assortment_model->getFilterData();
 		
 		// === Posters === //
-		$data = $this->assortment_model->get("search", $filter_data);
+		$data = $this->assortment_model->getAction("search", $filter_data);
 		
 		$data = array_merge($data,$filter_data);
 

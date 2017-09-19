@@ -124,7 +124,7 @@ class Companies extends Front
 		}
 		else 
 		{
-			$data = $this->companies_model->get("search", $filter_data);
+			$data = $this->companies_model->getAction("search", $filter_data);
 		}
 		
 		$data = array_merge($data,$filter_data);

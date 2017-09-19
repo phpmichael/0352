@@ -130,7 +130,7 @@ class Documents extends Front
         }
         else
         {
-            $data = $this->documents_model->get("search", $filter_data);
+            $data = $this->documents_model->getAction("search", $filter_data);
         }
 
         $data = array_merge($data,$filter_data);

@@ -94,7 +94,7 @@ class Articles extends Front
         $this->load->helper('text');
         
         // === Articles List === //
-        $data = $this->articles_model->get($this->_getMethod(),$filter_data);
+        $data = $this->articles_model->getAction($this->_getMethod(),$filter_data);
         
         $data = array_merge($data,$filter_data);
         
@@ -175,7 +175,7 @@ class Articles extends Front
         $this->load->helper('text');
 
         // === Articles List === //
-        $data = $this->articles_model->get();
+        $data = $this->articles_model->getAction();
         
         // === Set page title and meta data === //
 		$this->_buid_head_data();

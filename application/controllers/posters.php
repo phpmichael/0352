@@ -220,7 +220,7 @@ class Posters extends Front
 		}
 		else 
 		{
-			$data = $this->posters_model->get("search", $filter_data);
+			$data = $this->posters_model->getAction("search", $filter_data);
 		}
 		
 		$data = array_merge($data,$filter_data);

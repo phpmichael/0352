@@ -239,7 +239,7 @@ class Jobs extends Front
 			$data['paginate'] = '';
 		}
 		else {
-			$data = $this->jobs_model->get("search", $filter_data);
+			$data = $this->jobs_model->getAction("search", $filter_data);
 		}
 		
 		$data = array_merge($data,$filter_data);

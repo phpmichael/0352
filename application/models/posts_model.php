@@ -129,7 +129,7 @@ abstract class Posts_model extends Base_model
 	 * @param array $filter_data
 	 * @return array
 	 */
-    public function get($action="index", $filter_data = array())
+    public function getAction($action="index", $filter_data = array())
     {
     	$filter_ex = $this->explodeFilter($filter_data);
     	
