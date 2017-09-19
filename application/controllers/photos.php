@@ -140,7 +140,7 @@ class Photos extends Front
         if($category_id) $category = $this->photos_categories_model->getOneById($category_id);
 
         // === Photos List === //
-        $data = $this->photos_model->get($category_id,$tag,$per_page);
+        $data = $this->photos_model->getPhotos($category_id,$tag,$per_page);
 		
 		if($category_id) $add_to_page_title = ': '.$category['category'];
 		elseif($tag) $add_to_page_title = ': '.$tag;

@@ -285,7 +285,7 @@ class Photos_model extends Base_model
      * @param string $order_dir
      * @return array
      */
-    public function get($category_id = 0, $tag = 0, $per_page = 10, $order_by = 'id', $order_dir = 'asc')
+    public function getPhotos($category_id = 0, $tag = 0, $per_page = 10, $order_by = 'id', $order_dir = 'asc')
     {
     	//offset values
     	$offset_segment = $this->CI->_getSegmentsOffset()+5;

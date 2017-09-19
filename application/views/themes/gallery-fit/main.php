@@ -1,7 +1,7 @@
 <?
 //get photos list
 $photos_model = load_model('photos_model');
-$photosData = $photos_model->get(0,0,999,'id','desc');
+$photosData = $photos_model->getPhotos(0,0,999,'id','desc');
 $photos = $photosData['list'];
 $photos_per_page = 10;
 $photos_pages_count = ceil(count($photos)/$photos_per_page);

@@ -2,7 +2,7 @@
 //get photos list
 $photos_model = load_model('photos_model');
 //$photos = $photos_model->getRandom(20);
-$photosData = $photos_model->get(0,0,999);
+$photosData = $photos_model->getPhotos(0,0,999);
 $photos = $photosData['list'];
 
 //get pages data
