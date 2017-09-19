@@ -131,7 +131,7 @@ class Tags_model extends Base_model
 	 * @param string $tags
 	 * @return string
 	 */
-	public function Insert($table,$post_id,$tags)
+	public function addPostTags($table,$post_id,$tags)
 	{
 	    $tags = explode(",",$tags);
 

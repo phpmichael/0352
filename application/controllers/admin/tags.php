@@ -89,7 +89,7 @@ class Tags extends Admin
 		}
 		else
 		{
-		    $this->tags_model->Insert($table,$post_id,$this->input->post('tags'));
+		    $this->tags_model->addPostTags($table,$post_id,$this->input->post('tags'));
 			
 			redirect($this->_getBaseURL().$table.'/index/'.$this->segment_orderby.'/'.$this->segment_orderseq.'/'.$this->segment_offset);
 		}
