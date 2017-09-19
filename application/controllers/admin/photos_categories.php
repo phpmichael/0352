@@ -100,7 +100,7 @@ class Photos_Categories extends Categories
 			
 			$post['parent_id'] = $this->parent_id;
 			
-			$this->model->insertOrUpdate($post,$upload_data);
+			$this->model->insertOrUpdateWithUpload($post,$upload_data);
 			
 			redirect($this->_getBaseURI()."/index/".$this->parent_id);
 		}

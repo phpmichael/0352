@@ -108,17 +108,17 @@ class Photos_categories_model extends Categories_model
 	 * @param array $upload_data
 	 * @return void
 	 */
-	public function insertOrUpdate($post,$upload_data)
+	public function insertOrUpdateWithUpload($post,$upload_data)
     {
     	//UPDATE
 		if( @$post[$this->id_column] )
 		{
-			$this->Update($post,$upload_data);
+			$this->UpdateWithUpload($post,$upload_data);
 		}
 		//ADD
 		else 
 		{
-			$this->Insert($post,$upload_data);
+			$this->InsertWithUpload($post,$upload_data);
 		}
     }
 	
@@ -130,7 +130,7 @@ class Photos_categories_model extends Categories_model
 	 * @param array $upload_data
 	 * @return integer
 	 */
-	public function Insert($post,$upload_data)
+	public function InsertWithUpload($post,$upload_data)
 	{
 	    if(!empty($upload_data))
 	    {
@@ -151,7 +151,7 @@ class Photos_categories_model extends Categories_model
 	 * @param array $upload_data
 	 * @return integer
 	 */
-	public function Update($post,$upload_data=array())
+	public function UpdateWithUpload($post,$upload_data=array())
 	{
 	    if( !empty($upload_data['file_name']) )
         {
