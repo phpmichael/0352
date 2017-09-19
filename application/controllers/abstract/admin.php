@@ -258,7 +258,7 @@ abstract class Admin extends Base
 		$this->_setPageTitle($title);
 
 		$this->admin_model->init($this->c_table);
-		$data = $this->admin_model->get($per_page,$where,$join,$orderby,$orderseq,$offset);
+		$data = $this->admin_model->listData($per_page,$where,$join,$orderby,$orderseq,$offset);
 		
 		$records_amount_str = ' <strong>'.sprintf( language('x_of_x_records'), ($offset+1).'-'.min(($per_page+$offset),$data['total_rows']),$data['total_rows']).'</strong> ';
 

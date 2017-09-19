@@ -54,7 +54,7 @@ class Admin_model extends Base_model
 	 * @param integer $offset
 	 * @return array
 	 */
-	public function get($per_page = 10, $where = '', $join = '', $orderby = '', $orderseq = '', $offset = 0)
+	public function listData($per_page = 10, $where = '', $join = '', $orderby = '', $orderseq = '', $offset = 0)
 	{
 		$multilang_select = $this->_buildMultilangSelect();
 		$multilang_join = $this->_buildMultilangJoin();
