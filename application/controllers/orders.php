@@ -147,18 +147,25 @@ class Orders extends Front
     		    redirect($this->_getBaseURL()."customers/register");
     		}
 	    }
-		
-		// === Current Location === //
-		$data['current_location_arr'] =
-		array(
-			$this->_getBaseURL()."products"=>language('catalog'),
-			$this->_getBaseURL()."cart"=>language('shopping_cart')
-		);
-		
-		if( @$this->settings_model['order_not_require_login'] ) $data['current_location_arr'][$this->_getBaseURI()."/fill_customer_info"] = language('your_information');
-		$data['current_location_arr'][$this->_getBaseURI()."/".$this->_getMethod()] = '[page_title]';
-	    
-	    parent::_OnOutput($data);
+
+        if( @$this->settings_model['order_not_require_confirm'] )
+        {
+            redirect($this->_getBaseURI().'/place');
+        }
+        else
+        {
+            // === Current Location === //
+            $data['current_location_arr'] =
+                array(
+                    $this->_getBaseURL()."products"=>language('catalog'),
+                    $this->_getBaseURL()."cart"=>language('shopping_cart')
+                );
+
+            if( @$this->settings_model['order_not_require_login'] ) $data['current_location_arr'][$this->_getBaseURI()."/fill_customer_info"] = language('your_information');
+            $data['current_location_arr'][$this->_getBaseURI()."/".$this->_getMethod()] = '[page_title]';
+
+            parent::_OnOutput($data);
+        }
 	}
 	
 	/**
