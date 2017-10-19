@@ -401,7 +401,7 @@ class Products_model extends Posts_model
     {
     	$filter_data = array('featured'=>1,'per_page'=>$limit,'sort_by'=>'RAND()','sort_order'=>'ASC','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
 	
     /**
@@ -414,7 +414,7 @@ class Products_model extends Posts_model
     {
     	$filter_data = array('specials'=>1,'per_page'=>$limit,'sort_by'=>'RAND()','sort_order'=>'ASC','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
     
     /**
@@ -442,7 +442,7 @@ class Products_model extends Posts_model
     {
         $filter_data = array('tags'=>$tags,'exclude_ids'=>$exclude_ids,'per_page'=>$limit,'sort_by'=>'RAND()','sort_order'=>'ASC','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
     
     // === Dashboard: Start === //

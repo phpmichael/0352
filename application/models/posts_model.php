@@ -805,7 +805,7 @@ abstract class Posts_model extends Base_model
     {
     	$filter_data = array('per_page'=>$limit,'sort_by'=>'views','sort_order'=>'desc','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
     
     /**
@@ -818,7 +818,7 @@ abstract class Posts_model extends Base_model
     {
     	$filter_data = array('per_page'=>$limit,'sort_by'=>'pub_date','sort_order'=>'desc','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
     
     /**
@@ -832,7 +832,7 @@ abstract class Posts_model extends Base_model
     {
         $filter_data = array('per_page'=>$limit,'category'=>$category_id,'sort_by'=>'RAND()','offset'=>0);
     	
-    	return $this->get('index',$filter_data);
+    	return $this->getAction('index',$filter_data);
     }
 
     /*
