@@ -75,7 +75,9 @@
                     "<?=static_url().$BC->_getFolder('js').'jquery/facebox/facebox.minify.js'?>",
 
                     "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/tipTip.minify.css'?>",
-                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minify.js'?>"
+                    "<?=static_url().$BC->_getFolder('js').'jquery/tipTipv13/jquery.tipTip.minify.js'?>",
+
+                    "<?=static_url().$BC->_getFolder('js').'jquery/lazy-load-xt/jquery.lazyloadxt.extra.min.js'?>"
                 ],
                 complete: function(){
                     <?=strip_tags(include_minified($BC->_getTheme().'js/categories-nav.js','inline_js'))?>
