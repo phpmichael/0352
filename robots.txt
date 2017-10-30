@@ -1,10 +1,7 @@
 User-agent: *
 Disallow: /application/
-Disallow: /css/
 Disallow: /images/captcha/
-Disallow: /js/
 Disallow: /system/
-Disallow: /themes/
 Disallow: /user_guide/
 Disallow: /index.php
 Disallow: /PIE.htc
