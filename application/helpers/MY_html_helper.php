@@ -36,17 +36,17 @@ if ( ! function_exists('img'))
         foreach ($src as $k=>$v)
         {
 
-            if ($k == 'src' AND strpos($v, '://') === FALSE)
+            if (in_array($k, array('src','data-src')) AND strpos($v, '://') === FALSE)
             {
                 $CI =& get_instance();
 
                 if ($index_page === TRUE)
                 {
-                    $img .= ' src="'.$CI->config->site_url($v).'"';
+                    $img .= ' '.$k.'="'.$CI->config->site_url($v).'"';
                 }
                 else
                 {
-                    $img .= ' src="'.$CI->config->slash_item('static_url').$v.'"';
+                    $img .= ' '.$k.'="'.$CI->config->slash_item('static_url').$v.'"';
                 }
             }
             else
