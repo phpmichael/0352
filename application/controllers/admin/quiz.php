@@ -46,7 +46,8 @@ class Quiz extends Admin
 		$this->fields_titles['questions_count'] = language('questions_count');
 		$this->fields_titles['correct_count'] = language('correct_answered_count');
 		$this->fields_titles['time'] = language('minutes');
-		
+		$this->fields_titles['connected_answer'] = 'Connected Answer';
+
 		// === Page Titles === //
 		$this->page_titles['index'] = language('quiz_list');
 		$this->page_titles['add'] = language('add');
@@ -284,7 +285,7 @@ class Quiz extends Admin
 	 * 
 	 * @return void
 	 */
-	public function Delete_Selected()
+	public function Delete_Selected($orderby='',$orderseq='',$offset='')
 	{
 		$this->quiz_model->DeleteSelectedQuiz(@$_POST['check']);
 
@@ -356,7 +357,8 @@ class Quiz extends Admin
 	public function Answers_List($quiz_id,$question_id)
 	{
 		$data['answers'] = $this->quiz_model->getAnswers($question_id);
-		
+		$data['connected_answers'] = $this->quiz_model->getConnectedAnswers($question_id);
+
 		$data['tpl_page'] = $this->_getController().'/'.$this->_getMethod();
 		parent::_OnOutput($data);
 	}

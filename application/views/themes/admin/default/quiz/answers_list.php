@@ -57,12 +57,34 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
             'width'=>50
         )
     );
+
+    //set connected answer: start
+    if(!empty($connected_answers)){
+        $col = array(
+            'field'=>'connected_answer',
+            'just_text'=>TRUE
+        );
+        $cols[] = $col;
+    }
+    //set connected answer: end
     
     $rows = $answers;
     
     //prepare rows for output
     foreach ($rows as &$row)
     {
+        //set connected answer: start
+        if(!empty($connected_answers))
+        {
+            foreach ($connected_answers as $connected_answer)
+            {
+                if($connected_answer['connect_answer'] == $row['id']){
+                    $row['connected_answer'] = $connected_answer['answer'] .' '. anchor_admin('answers_edit',$connected_answer['id']);
+                }
+            }
+        }
+        //set connected answer: end
+
         $row['correct__output'] = (($row['correct'])?language('yes'):language('no'));
         $row['answer_edit__output'] = anchor_admin('answers_edit',$row['id']);
     }

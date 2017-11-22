@@ -28,6 +28,14 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
 	<td><?=$BC->_getFieldTitle("correct")?>:</td>
 	<td><?=form_dropdown("correct",array(0=>'No',1=>'Yes'),set_value('correct',@$correct));?></td>
 </tr>
+<?if($answers_for_connect = $BC->quiz_model->getAnswersForConnect($question_id, @$id)):?>
+<tr>
+    <td>Connect Answer</td>
+    <td>
+        <?=form_dropdown("connect_answer",$answers_for_connect,set_value('connect_answer',@$connect_answer));?>
+    </td>
+</tr>
+<?endif?>
 </table>
 
 <p><?=form_submit("submit",language('save'));?></p>

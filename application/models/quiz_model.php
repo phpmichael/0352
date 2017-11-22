@@ -74,10 +74,52 @@ class Quiz_model extends Base_model
 		return $this->db->get_where('quiz_answers',array('question_id'=>$question_id, 'connect_answer' => 0))->result_array();
 	}
 
+    /**
+     * Return array of answers connected to other answers
+     * @param integer $question_id
+     * @return array
+     */
     public function getConnectedAnswers($question_id)
     {
         $this->db->order_by('id');
         return $this->db->get_where('quiz_answers',array('question_id'=>$question_id, 'connect_answer !=' => 0))->result_array();
+    }
+
+    /**
+     * Return array of answers available for connect to current $answer_id or new answer
+     * @param integer $question_id
+     * @param bool|integer $answer_id
+     * @return array
+     */
+    public function getAnswersForConnect($question_id, $answer_id=false)
+    {
+        //get all not connected yet
+        $answers = $this->getAnswers($question_id);
+        foreach ($answers as $answer)
+        {
+            //No ability connect if there is correct answer(s)!
+            if($answer['correct']) return array();
+        }
+
+        $dropdown_answers = multi2singleArray('id', 'answer', $answers);
+        //No ability connect answer to itself
+        if($answer_id) unset($dropdown_answers[$answer_id]);
+
+        $connected_answers = $this->getConnectedAnswers($question_id);
+        if(!empty($connected_answers))
+        {
+            foreach ($connected_answers as $connected_answer)
+            {
+                if($connected_answer['id'] !== $answer_id)
+                {
+                    //No ability connect the same answer to few other
+                    unset($dropdown_answers[$connected_answer['connect_answer']]);
+                }
+            }
+        }
+
+        //first option for ability disconnect
+        return array(0 => '-') + $dropdown_answers;
     }
 	
 	/**
@@ -568,6 +610,7 @@ class Quiz_model extends Base_model
 							$result['scores'] += 1/$count_connected;
 						}
 					}
+
 					$result['correctArr'][$question_id] = ($result['scores'] == 1) ? TRUE : FALSE;
 					
 					ksort($cqa);
