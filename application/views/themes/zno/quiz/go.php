@@ -31,14 +31,15 @@
         <?endforeach;?>
     </p>
     <!-- Multi-radio Matrix -->
-    <div>
-        &nbsp;&nbsp;
+    <div class="multi-radio-chars">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
-            &nbsp;<?=chr(65+$caIndex)?>
+            <div>
+                <?=chr(65+$caIndex)?>
+            </div>
         <?endforeach;?>
     </div>
     <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
-        <div>
+        <div class="multi-radio-row">
             <?=$aIndex+1?>
             <?foreach ($quiz['connected_answers'] as $connected_answer):?>
                 <?=form_radio('answers['.$answer['id'].']',$connected_answer['id'],FALSE,"id='answer_{$answer['id']}_{$connected_answer['id']}'")?>
@@ -60,7 +61,7 @@
     <?endforeach;?>
 <?endif;?>
 
-<p><?=form_submit("submit",language('next'));?></p>
+<div><?=form_submit("submit",language('next'));?></div>
 
 </form>
 
