@@ -299,7 +299,7 @@ class Quiz_model extends Base_model
 		    //get what question already answered
     		$answered_questions = $this->getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id);
     		//get random not answered question from quiz
-    		$this->db->order_by('RAND()');
+    		//$this->db->order_by('RAND()');
     		if( !empty($answered_questions) ) $this->db->where_not_in('id',$answered_questions);
     		$record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id))->row_array();
     		
