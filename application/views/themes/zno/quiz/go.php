@@ -19,17 +19,18 @@
 
 <?if($quiz['type']=='multi-radio'):?>
     <!-- Answers List -->
-    <p>
+    <ul class="multi-radio-answers-list">
         <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
-            <?=$aIndex+1?>: <?=htmlspecialchars($answer['answer'])?>
+            <li><?=$aIndex+1?>: <?=htmlspecialchars($answer['answer'])?></li>
         <?endforeach;?>
-    </p>
+    </ul>
     <!-- Connected Answers List -->
-    <p>
+    <ul class="multi-radio-connected-answers-list">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
-            <?=chr(65+$caIndex)?>: <?=htmlspecialchars($connected_answer['answer'])?>
+            <li><?=chr(65+$caIndex)?>: <?=htmlspecialchars($connected_answer['answer'])?></li>
         <?endforeach;?>
-    </p>
+    </ul>
+
     <!-- Multi-radio Matrix -->
     <div class="multi-radio-chars">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>

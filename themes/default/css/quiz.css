@@ -55,6 +55,18 @@
 }
 
 /* Multi-radio: start */
+.multi-radio-connected-answers-list{
+    float: left;
+    list-style-type: none;
+    margin: -10px 3px 9px 20px;
+}
+
+.multi-radio-answers-list{
+    float: left;
+    list-style-type: none;
+    margin: -10px 3px 9px 3px;
+}
+
 .multi-radio-row{
     clear: both;
 }
@@ -80,6 +92,7 @@
 
 .multi-radio-chars{
     margin-left: 9px;
+    clear: both;
 }
 
 .multi-radio-chars>div{
