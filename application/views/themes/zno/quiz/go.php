@@ -27,7 +27,7 @@
     <!-- Connected Answers List -->
     <ul class="multi-radio-connected-answers-list">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
-            <li><?=chr(65+$caIndex)?>: <?=htmlspecialchars($connected_answer['answer'])?></li>
+            <li><?=lang_chr($caIndex)?>: <?=htmlspecialchars($connected_answer['answer'])?></li>
         <?endforeach;?>
     </ul>
 
@@ -35,7 +35,7 @@
     <div class="multi-radio-chars">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
             <div>
-                <?=chr(65+$caIndex)?>
+                <?=lang_chr($caIndex)?>
             </div>
         <?endforeach;?>
     </div>

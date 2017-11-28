@@ -57,3 +57,18 @@ function get_languages_list($translate=FALSE)
     
     return $langArr;
 }
+
+/**
+ * Return char for list based on current language
+ * @param int $i
+ * @return string
+ */
+function lang_chr($i)
+{
+    $CI =& get_instance();
+
+    $lang = $CI->lang_model->getCurrentLangCode();
+
+    if($lang == 'UA') return mb_substr('АБВГДЕЄЖЗ', $i, 1);
+    return chr(65+$i);
+}
