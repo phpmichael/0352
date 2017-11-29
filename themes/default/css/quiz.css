@@ -58,13 +58,13 @@
 .multi-radio-connected-answers-list{
     float: left;
     list-style-type: none;
-    margin: -10px 3px 9px 20px;
+    margin: -10px 3px 9px 3px;
 }
 
 .multi-radio-answers-list{
     float: left;
     list-style-type: none;
-    margin: -10px 3px 9px 3px;
+    margin: -10px 3px 9px 20px;
 }
 
 .multi-radio-row{
@@ -84,6 +84,18 @@
 
 .multi-radio-row input[type=radio]:checked {
     background: #000;
+}
+
+.multi-radio-row input[type=radio].checked {
+    background: #000;
+}
+
+.multi-radio-row input[type=radio].incorrect {
+    background: #f00;
+}
+
+.multi-radio-row input[type=radio].correct {
+    background: #0f0;
 }
 
 .multi-radio-row input[type=radio]:focus {

@@ -603,9 +603,9 @@ class Quiz_model extends Base_model
 
 					foreach ($connected_answers as $connected_answer)
 					{
-						$correct_question_answers[$connected_answer['connect_answer']] = $connected_answer['id'];
+						$correct_question_answers[$connected_answer['id']] = $connected_answer['connect_answer'];
 
-						if($cqa[$connected_answer['connect_answer']] == $connected_answer['id'])
+						if($cqa[$connected_answer['id']] == $connected_answer['connect_answer'])
 						{
 							$result['scores'] += 1/$count_connected;
 						}
