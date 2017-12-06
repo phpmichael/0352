@@ -611,7 +611,7 @@ class Quiz_model extends Base_model
 						}
 					}
 
-					$result['correctArr'][$question_id] = ($result['scores'] == 1) ? TRUE : FALSE;
+					$result['correctArr'][$question_id] = ($result['scores'] > 0.9) ? TRUE : FALSE;
 					
 					ksort($cqa);
 					ksort($correct_question_answers);
