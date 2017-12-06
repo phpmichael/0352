@@ -86,16 +86,28 @@
     background: #000;
 }
 
-.multi-radio-row input[type=radio].checked {
-    background: #000;
+.multi-radio-row input[type=radio].correct.checked {
+    background: #f5ff38;
 }
 
 .multi-radio-row input[type=radio].incorrect {
-    background: #f00;
+    background: #fff;
+    border: 1px solid #f00;
+    color: #f00;
+    text-align: center;
+    line-height: 100%;
+}
+.multi-radio-row input[type=radio].incorrect:after,
+.multi-radio-row input[type=radio].correct:after{
+    content: "X";
 }
 
 .multi-radio-row input[type=radio].correct {
-    background: #0f0;
+    background: #fff;
+    border: 1px solid #1dbf48;
+    color: #1dbf48;
+    text-align: center;
+    line-height: 100%;
 }
 
 .multi-radio-row input[type=radio]:focus {

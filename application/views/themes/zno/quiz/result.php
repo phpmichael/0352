@@ -66,37 +66,7 @@
                     <?endforeach;?>
                 </ul>
 
-                <div class="clearfix"></div>
-
-                <div class="pull-left">
-                    <h5><?=language('correct_answer')?>&nbsp;</h5>
-
-                    <!-- Multi-radio Matrix -->
-                    <div class="multi-radio-chars">
-                        <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>
-                            <div>
-                                <?=lang_chr($aIndex)?>
-                            </div>
-                        <?endforeach;?>
-                    </div>
-
-                    <?foreach ($connected_answers[$q['id']] as $aIndex=>$connected_answer):?>
-                        <div class="multi-radio-row">
-                            <?=$aIndex+1?>
-                            <?foreach ($answers[$q['id']] as $q_answer):?>
-                                <?
-                                $correct = ($q_answer['id'] == $correct_answers[$q['id']][$connected_answer['id']] ) ? 1 : 0 ;
-                                $css_class = $correct ? 'correct' : '';
-                                ?>
-                                <?=form_radio('answers['.$connected_answer['id'].']',$q_answer['id'],FALSE,"disabled='disabled' class='$css_class'")?>
-                            <?endforeach;?>
-                        </div>
-                    <?endforeach;?>
-                </div>
-
-                <div class="pull-left">
-                    <h5><?=language('your_answer')?></h5>
-
+                <div>
                     <!-- Multi-radio Matrix -->
                     <div class="multi-radio-chars">
                         <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>
@@ -115,16 +85,17 @@
                                 $checked = ($q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']] ) ? 1 : 0 ;
                                 if($checked){
                                     if(!$correct) $css_class = 'incorrect';
-                                    else $css_class = 'checked';
+                                    else $css_class = 'correct checked';
                                 }
-                                else $css_class = '';
+                                else {
+                                    $css_class = $correct ? 'correct' : '';
+                                }
                                 ?>
                                 <?=form_radio('answers['.$connected_answer['id'].']',$q_answer['id'],FALSE,"disabled='disabled' class='$css_class'")?>
                             <?endforeach;?>
                         </div>
                     <?endforeach;?>
                 </div>
-                <div class="clearfix"></div>
                 <!-- Multi-radio: end -->
             <?else:?>
 
