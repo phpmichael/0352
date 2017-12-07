@@ -86,28 +86,29 @@
     background: #000;
 }
 
-.multi-radio-row input[type=radio].correct.checked {
+.multi-radio-row .multi-radio-result{
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #000;
+    background: #fff;
+    width: 15px;
+    height: 15px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.multi-radio-row .multi-radio-result.correct.checked {
     background: #f5ff38;
 }
 
-.multi-radio-row input[type=radio].incorrect {
-    background: #fff;
+.multi-radio-row .multi-radio-result.incorrect {
     border: 1px solid #f00;
     color: #f00;
-    text-align: center;
-    line-height: 100%;
-}
-.multi-radio-row input[type=radio].incorrect:after,
-.multi-radio-row input[type=radio].correct:after{
-    content: "X";
 }
 
-.multi-radio-row input[type=radio].correct {
-    background: #fff;
+.multi-radio-row .multi-radio-result.correct {
     border: 1px solid #1dbf48;
     color: #1dbf48;
-    text-align: center;
-    line-height: 100%;
 }
 
 .multi-radio-row input[type=radio]:focus {

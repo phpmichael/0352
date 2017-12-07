@@ -91,7 +91,10 @@
                                     $css_class = $correct ? 'correct' : '';
                                 }
                                 ?>
-                                <?=form_radio('answers['.$connected_answer['id'].']',$q_answer['id'],FALSE,"disabled='disabled' class='$css_class'")?>
+                                <!--<?=form_radio('answers['.$connected_answer['id'].']',$q_answer['id'],FALSE,"disabled='disabled' class='$css_class'")?>-->
+                                <div class="multi-radio-result <?=$css_class?>">
+                                    <?if($css_class):?>X<?else:?>&nbsp;<?endif?>
+                                </div>
                             <?endforeach;?>
                         </div>
                     <?endforeach;?>
