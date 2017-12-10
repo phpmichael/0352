@@ -18,12 +18,22 @@
 	<td><?=$BC->_getFieldTitle("question")?>: <span class="red">*</span></td>
 	<td><?=form_textarea("question",set_value('question',@$question),"class='textarea'");?></td>
 </tr>
+<?if(@$BC->settings_model['quiz_question_field_description']):?>
+<tr>
+    <td><?=$BC->_getFieldTitle("description")?>: </td>
+    <td><?=form_textarea("description",set_value('description',@$description),"class='richtext'");?></td>
+</tr>
+<?endif?>
+<?if(@$BC->settings_model['quiz_question_field_code']):?>
 <tr>
 	<td><?=$BC->_getFieldTitle("code")?>: </td>
 	<td><?=form_textarea("code",set_value('code',@$code),"class='textarea'");?></td>
 </tr>
+<?endif?>
 </table>
 
 <p><?=form_submit("submit",language('save'));?></p>
 
 </form>
+
+<?=load_inline_js('inc/js-tinymce')?>

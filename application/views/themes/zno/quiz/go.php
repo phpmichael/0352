@@ -6,6 +6,10 @@
 
 <div><?=htmlspecialchars($quiz['question']['question'])?></div>
 
+<?if($quiz['question']['description']):?>
+    <?=$quiz['question']['description']?>
+<?endif?>
+
 <?if($quiz['question']['code']):?>
 	<div class="code">
 		<?=highlight_code($quiz['question']['code'])?>

@@ -17,6 +17,10 @@
 		<div <?if($correctArr[$q['id']]):?>class="quiz-question-answered"<?else:?>class="quiz-question-wrong"<?endif?>>
 			<?=$num?>. <?=htmlspecialchars($q['question'])?>
 		</div>
+
+        <?if($q['description']):?>
+            <?=$q['description']?>
+        <?endif?>
 		
 		<?if($q['code']):?>
 			<div class="code">

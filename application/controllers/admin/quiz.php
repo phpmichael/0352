@@ -175,22 +175,27 @@ class Quiz extends Admin
 		$this->load->library('form_validation');
 		
 		$configValidation = array(
-              array(
-                     'field'   => 'time', 
-                     'label'   => parent::_getFieldTitle('time'), 
-                     'rules'   => 'trim|required|natural'
-                  ), 
-		      array(
-                     'field'   => 'question', 
-                     'label'   => parent::_getFieldTitle('question'), 
-                     'rules'   => 'trim|required'
-                  ),
-               array(
-                     'field'   => 'code', 
-                     'label'   => parent::_getFieldTitle('code'), 
-                     'rules'   => 'trim'
-                  )
-            );
+            array(
+                 'field'   => 'time',
+                 'label'   => parent::_getFieldTitle('time'),
+                 'rules'   => 'trim|required|natural'
+              ),
+            array(
+                 'field'   => 'question',
+                 'label'   => parent::_getFieldTitle('question'),
+                 'rules'   => 'trim|required'
+              ),
+            array(
+                'field'   => 'description',
+                'label'   => parent::_getFieldTitle('description'),
+                'rules'   => 'trim|xss_clean'
+            ),
+            array(
+                 'field'   => 'code',
+                 'label'   => parent::_getFieldTitle('code'),
+                 'rules'   => 'trim'
+            )
+        );
 
 		$this->form_validation->set_rules($configValidation);
 			
