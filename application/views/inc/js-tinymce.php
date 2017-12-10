@@ -19,7 +19,7 @@ function init_richtext()
         theme_advanced_resizing : false,
 
         /* Path */
-        relative_urls : true,
+        relative_urls : false,
         remove_script_host : true
 	});
 }
