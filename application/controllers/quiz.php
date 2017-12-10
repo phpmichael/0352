@@ -296,7 +296,7 @@ class Quiz extends Front
 		
 		//get quiz info
 		$data['quiz'] = $this->quiz_model->getOneById($quiz_id);
-		$data['quiz_questions'] = $this->quiz_model->getFinishedQuizQuestions($quiz_id);
+		$data['quiz_questions'] = $this->quiz_model->getFinishedQuizQuestions($quiz_id,$customer_id);
 		$result = $this->quiz_model->checkIfCorrectAnswers($quiz_id,$customer_id);
 		//dump($result);exit;
 		$scores = $result['scores'];

@@ -558,7 +558,6 @@ class Quiz_model extends Base_model
 	 */
 	public function checkIfCorrectAnswers($quiz_id,$customer_id)
 	{
-		//TODO: add check for multi-radio
 		$result['scores'] = 0;
 		$result['correctArr'] = array();
 		$result['answers'] = array();
@@ -601,17 +600,19 @@ class Quiz_model extends Base_model
 					$connected_answers = $this->getConnectedAnswers($question_id);
 					$count_connected = count($connected_answers);
 
+					$scores = 0;
 					foreach ($connected_answers as $connected_answer)
 					{
 						$correct_question_answers[$connected_answer['id']] = $connected_answer['connect_answer'];
 
 						if($cqa[$connected_answer['id']] == $connected_answer['connect_answer'])
 						{
-							$result['scores'] += 1/$count_connected;
+                            $scores += 1/$count_connected;
 						}
 					}
 
-					$result['correctArr'][$question_id] = ($result['scores'] > 0.9) ? TRUE : FALSE;
+					$result['correctArr'][$question_id] = ($scores > 0.9) ? TRUE : FALSE;
+                    $result['scores'] += $scores;
 					
 					ksort($cqa);
 					ksort($correct_question_answers);
@@ -793,14 +794,15 @@ class Quiz_model extends Base_model
 	 * Returns array of quiz answered questions. 
 	 * 
 	 * @param integer $quiz_id
+	 * @param integer $customer_id
 	 * @return array
 	 */
-	public function getFinishedQuizQuestions($quiz_id)
+	public function getFinishedQuizQuestions($quiz_id,$customer_id)
 	{
 	    $this->db->select('quiz_questions.*,quiz_progress.start_time,quiz_progress.end_time');
 	    $this->db->join('quiz_progress',"quiz_progress.question_id=quiz_questions.id");
 	    $this->db->order_by('quiz_progress.start_time');
-	    return $this->db->get_where('quiz_questions',array('quiz_questions.quiz_id'=>$quiz_id))->result_array();
+	    return $this->db->get_where('quiz_questions',array('quiz_questions.quiz_id'=>$quiz_id,'quiz_progress.customer_id'=>$customer_id))->result_array();
 	}
 	
 	/**
