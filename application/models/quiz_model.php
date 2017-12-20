@@ -287,6 +287,7 @@ class Quiz_model extends Base_model
 			foreach ($delArr as $id=>$selected)
 			{
 				$this->db->delete('quiz_answers', array('question_id' => $id));
+				//TODO: delete answers' images
 				
 				$this->db->delete('quiz_questions', array('id' => $id));
 			}
