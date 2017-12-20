@@ -17,6 +17,8 @@
 	</div>
 <?endif?>
 
+<?load_theme_view($BC->_getController().'/inc/answers-images', array('answers'=>$quiz['answers']));?>
+
 <br />
 
 <form id="quiz-form" class="form-inline form-horizontal" action="<?=site_url($BC->_getBaseURL().'quiz/submit/'.$quiz['quiz']['id'].'/'.$quiz['question']['id']);?>" method="post">

@@ -14,7 +14,7 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
 
 <div class="red"><?=validation_errors()?></div>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
 
 <table class="list">
 <tr>
@@ -34,6 +34,12 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
     <td>
         <?=form_dropdown("connect_answer",$answers_for_connect,set_value('connect_answer',@$connect_answer));?>
     </td>
+</tr>
+<?endif?>
+<?if(@$BC->settings_model['quiz_answer_field_image']):?>
+<tr>
+    <td><?=language('image')?>:</td>
+    <td><?=form_upload('image');?></td>
 </tr>
 <?endif?>
 </table>

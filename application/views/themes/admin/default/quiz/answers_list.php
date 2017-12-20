@@ -67,6 +67,16 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
         $cols[] = $col;
     }
     //set connected answer: end
+
+    if(@$BC->settings_model['quiz_answer_field_image'])
+    {
+        $col = array(
+            'field' => 'image',
+            'width' => 100,
+            'title'=>language('image')
+        );
+        $cols[] = $col;
+    }
     
     $rows = $answers;
     
@@ -86,6 +96,7 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
         //set connected answer: end
 
         $row['correct__output'] = (($row['correct'])?language('yes'):language('no'));
+        if($row['image']) $row['image__output'] = "<a href='".base_url().'images/data/b/quiz/'.$row['image']."' rel='facebox'>".img(array('src'=>'images/data/b/quiz/'.$row['image']."?no_cache=".time(),'width'=>100))."</a>";
         $row['answer_edit__output'] = anchor_admin('answers_edit',$row['id']);
     }
     
@@ -95,3 +106,5 @@ $question_id = $this->uri->segment($BC->_getSegmentsOffset()+4);
     </form>
 
 <?endif;?>
+
+<?=load_inline_js('inc/js-facebox'); ?>

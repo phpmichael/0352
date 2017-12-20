@@ -27,6 +27,8 @@
 				<?=highlight_code($q['code'])?>
 			</div>
 		<?endif?>
+
+        <?load_theme_view($BC->_getController().'/inc/answers-images', array('answers'=>$answers[$q['id']]));?>
 		
 		<div>
 

@@ -20,6 +20,11 @@ class Quiz_model extends Base_model
 {
 	//name of main table
 	protected $c_table = 'quiz_list';
+
+    //dir for upload images
+    protected $upload_path = './images/data/b/quiz/';
+    //allowed file types
+    protected $allowed_types = 'jpg|png';
 	
 	/**
 	 * Returns quizes array by $params.
@@ -201,9 +206,42 @@ class Quiz_model extends Base_model
 	public function insertOrUpdateAnswer($post)
 	{
 		$this->c_table = 'quiz_answers';
+
+		if($image = $this->uploadImage('image'))
+        {
+            $post['image'] = $image;
+        }
 		
 		parent::insertOrUpdate($post);
 	}
+
+    /**
+     * Upload image and return generated name.
+     * @param string $image_field
+     * @return bool|string
+     */
+    private function uploadImage($image_field)
+    {
+        if (@empty($_FILES[$image_field]['name'])) return FALSE;
+
+        $config = array();
+        $config['upload_path'] = $this->upload_path;
+        $config['allowed_types'] = $this->allowed_types;
+        $config['encrypt_name'] = TRUE;
+        $config['max_size'] = ((@$this->CI->settings_model['upload_max_filesize']) ? $this->CI->settings_model['upload_max_filesize'] : 2048);
+
+        //  === LOAD UPLOAD CLASS === //
+        $this->CI->load->library('upload', $config);
+
+        if (!$this->CI->upload->do_upload($image_field)) {
+            die($this->CI->upload->display_errors());
+        }
+
+        // === DATA === //
+        $data['upload_data'] = $this->CI->upload->data();
+
+        return $data['upload_data']['file_name'];
+    }
 	
 	
 	/**
@@ -300,6 +338,7 @@ class Quiz_model extends Base_model
     		$answered_questions = $this->getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id);
     		//get random not answered question from quiz
     		//$this->db->order_by('RAND()');
+    		//$this->db->order_by('id','desc');
     		if( !empty($answered_questions) ) $this->db->where_not_in('id',$answered_questions);
     		$record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id))->row_array();
     		
@@ -323,6 +362,7 @@ class Quiz_model extends Base_model
 
         //TODO: if not multi-radio - randomize order of answers
 		//dump($record);exit;
+        //shuffle($record['answers']);
 		return $record;
 	}
 	
