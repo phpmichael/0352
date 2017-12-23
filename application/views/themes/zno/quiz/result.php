@@ -1,3 +1,5 @@
+<?$BC->load->helper('quiz');?>
+
 <h1><?=$BC->_getPageTitle()?></h1>
 
 <?if( $scores >= $quiz['correct_count'] ):?>
@@ -45,13 +47,13 @@
                             <?if($q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']]):?>
                                 <?if($customer_answers[$q['id']][$connected_answer['id']] == $correct_answers[$q['id']][$connected_answer['id']]):?>
                                     <div class="quiz-answer quiz-answer-correct"></div>
-                                    <?=htmlspecialchars($q_answer['answer'])?>
+                                    <?=quiz_answer($q_answer)?>
                                 <?else:?>
                                     <div class="quiz-answer"></div>
-                                    <span class="red"><?=htmlspecialchars($q_answer['answer'])?></span>
+                                    <span class="red"><?=quiz_answer($q_answer)?></span>
                                 <?endif?>
                             <?elseif($q_answer['id'] == $correct_answers[$q['id']][$connected_answer['id']]):?>
-                                <span class="success">(<?=htmlspecialchars($q_answer['answer'])?>)</span>
+                                <span class="success">(<?=quiz_answer($q_answer)?>)</span>
                             <?endif?>
                         <?endforeach?>
                     </div>
@@ -62,13 +64,17 @@
                 <!-- Connected Answers List -->
                 <ul class="multi-radio-connected-answers-list">
                     <?foreach ($connected_answers[$q['id']] as $caIndex=>$connected_answer):?>
-                        <li><?=$caIndex+1?>: <?=htmlspecialchars($connected_answer['answer'])?></li>
+                        <?if(quiz_answer($connected_answer)):?>
+                            <li><?=$caIndex+1?>: <?=quiz_answer($connected_answer)?></li>
+                        <?endif?>
                     <?endforeach;?>
                 </ul>
                 <!-- Answers List -->
                 <ul class="multi-radio-answers-list">
                     <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>
-                        <li><?=lang_chr($aIndex)?>: <?=htmlspecialchars($q_answer['answer'])?></li>
+                        <?if(quiz_answer($q_answer)):?>
+                            <li><?=lang_chr($aIndex)?>: <?=quiz_answer($q_answer)?></li>
+                        <?endif?>
                     <?endforeach;?>
                 </ul>
 
@@ -108,7 +114,7 @@
                 <!-- Multi-radio: end -->
             <?else:?>
 
-                <?foreach ($answers[$q['id']] as $q_answer):?>
+                <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>
 
                     <div class="clearfix">
                         <?if(is_array($customer_answers[$q['id']])):?>
@@ -117,13 +123,13 @@
 
                             <div class="quiz-answer <?if( (is_array($correct_answers[$q['id']]) && in_array($q_answer['id'],$correct_answers[$q['id']])) ):?> quiz-answer-correct<?endif?>"></div>
 
-                            <div class="pull-left"><?=htmlspecialchars($q_answer['answer'])?></div>
+                            <div class="pull-left"><?=quiz_answer($q_answer, $aIndex)?></div>
 
                         <?else:?>
 
                             <div class="pull-left">
                                 <?=language('your_answer')?>: <strong><?=htmlspecialchars($customer_answers[$q['id']])?></strong>.
-                                <?=language('correct_answer')?>: <?=htmlspecialchars($q_answer['answer'])?>
+                                <?=language('correct_answer')?>: <?=quiz_answer($q_answer)?>
                             </div>
 
                         <?endif?>

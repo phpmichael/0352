@@ -1,3 +1,5 @@
+<?$BC->load->helper('quiz');?>
+
 <div id="quiz-timer"></div>
 
 <h1><?=$BC->_getPageTitle()?></h1>
@@ -27,13 +29,17 @@
     <!-- Connected Answers List -->
     <ul class="multi-radio-connected-answers-list">
         <?foreach ($quiz['connected_answers'] as $caIndex=>$connected_answer):?>
-            <li><?=$caIndex+1?>: <?=htmlspecialchars($connected_answer['answer'])?></li>
+            <?if(quiz_answer($connected_answer)):?>
+                <li><?=$caIndex+1?>: <?=quiz_answer($connected_answer)?></li>
+            <?endif?>
         <?endforeach;?>
     </ul>
     <!-- Answers List -->
     <ul class="multi-radio-answers-list">
         <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
-            <li><?=lang_chr($aIndex)?>: <?=htmlspecialchars($answer['answer'])?></li>
+            <?if(quiz_answer($answer)):?>
+                <li><?=lang_chr($aIndex)?>: <?=quiz_answer($answer)?></li>
+            <?endif?>
         <?endforeach;?>
     </ul>
 
@@ -50,19 +56,19 @@
             <?=$aIndex+1?>
             <?foreach ($quiz['answers'] as $answer):?>
                 <?=form_radio('answers['.$connected_answer['id'].']',$answer['id'],FALSE,"id='answer_{$connected_answer['id']}_{$answer['id']}'")?>
-                <!-- <label for="answer_<?=$connected_answer['id']?>_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label> -->
+                <!-- <label for="answer_<?=$connected_answer['id']?>_<?=$answer['id']?>"><?=quiz_answer($answer)?></label> -->
             <?endforeach;?>
         </div>
     <?endforeach;?>
 <?else:?>
-    <?foreach ($quiz['answers'] as $answer):?>
+    <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
         <div>
             <?if($quiz['type']=='input'):?>
                 <?=form_input('custom_answer','')?>
             <?elseif($quiz['type']=='checkbox'):?>
-                <?=form_checkbox('answers['.$answer['id'].']',1,FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
+                <?=form_checkbox('answers['.$answer['id'].']',1,FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=quiz_answer($answer, $aIndex)?></label>
             <?else:?>
-                <?=form_radio('answer',$answer['id'],FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=htmlspecialchars($answer['answer'])?></label>
+                <?=form_radio('answer',$answer['id'],FALSE,"id='answer_{$answer['id']}'")?> <label for="answer_<?=$answer['id']?>"><?=quiz_answer($answer, $aIndex)?></label>
             <?endif?>
         </div>
     <?endforeach;?>
