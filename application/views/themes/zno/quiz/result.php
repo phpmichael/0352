@@ -112,6 +112,20 @@
                     <?endforeach;?>
                 </div>
                 <!-- Multi-radio: end -->
+            <?elseif(count($answers[$q['id']])==7 && count($correct_answers[$q['id']])==3):?>
+                <div>
+                    <? $digits3YourAnswers = array() ?>
+                    <? $digits3CorrectAnswers = array() ?>
+                    <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>
+                        <div>
+                            <?=$aIndex+1?> <?=quiz_answer($q_answer, FALSE)?>
+                            <?if(in_array($q_answer['id'],$customer_answers[$q['id']])) $digits3YourAnswers[] = $aIndex+1?>
+                            <?if(in_array($q_answer['id'],$correct_answers[$q['id']])) $digits3CorrectAnswers[] = $aIndex+1?>
+                        </div>
+                    <?endforeach;?>
+                    <?=language('your_answer')?>: <strong><?=join(' ', $digits3YourAnswers)?></strong>
+                    <?=language('correct_answer')?>: <strong><?=join(' ', $digits3CorrectAnswers)?></strong>
+                </div>
             <?else:?>
 
                 <?foreach ($answers[$q['id']] as $aIndex=>$q_answer):?>

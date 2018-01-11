@@ -60,6 +60,18 @@
             <?endforeach;?>
         </div>
     <?endforeach;?>
+<?elseif($quiz['type']=='digits3'):?>
+    <div>
+        <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
+            <div id="digits3-<?=$aIndex+1?>">
+                <?=$aIndex+1?> <?=quiz_answer($answer, FALSE)?>
+                <?=form_checkbox('answers['.$answer['id'].']',1,FALSE,"id='answer_{$answer['id']}' style='visibility:hidden'")?>
+            </div>
+        <?endforeach;?>
+        <?=form_input('digits3[]','',"style='width:25px' maxlength='1'")?>
+        <?=form_input('digits3[]','',"style='width:25px' maxlength='1'")?>
+        <?=form_input('digits3[]','',"style='width:25px' maxlength='1'")?>
+    </div>
 <?else:?>
     <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
         <div>

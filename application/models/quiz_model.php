@@ -353,7 +353,11 @@ class Quiz_model extends Base_model
 		$record['correct_answers'] = $this->getCorrectAnswers($record['question']['id']);
 		//if one answer - show input, few correct answers - then checkboxes, if just one correct - radiobox
 		if(count($record['answers'])==1) $record['type'] = 'input';
-		elseif(count($record['correct_answers'])>1) $record['type'] = 'checkbox';
+		elseif(count($record['correct_answers'])>1)
+        {
+            if(count($record['correct_answers'])==3 && count($record['answers'])==7) $record['type'] = 'digits3';
+            else $record['type'] = 'checkbox';
+        }
 		elseif(count($record['correct_answers'])==1) $record['type'] = 'radio';
         elseif(count($record['correct_answers'])==0)
         {
