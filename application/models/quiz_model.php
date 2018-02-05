@@ -352,16 +352,10 @@ class Quiz_model extends Base_model
 		//get correct answers for question
 		$record['correct_answers'] = $this->getCorrectAnswers($record['question']['id']);
 		//if one answer - show input, few correct answers - then checkboxes, if just one correct - radiobox
-		if(count($record['answers'])==1) $record['type'] = 'input';
-		elseif(count($record['correct_answers'])>1)
+        $record['type'] = $this->getQuestionType($record);
+
+        if($record['type'] == 'multi-radio')
         {
-            if(count($record['correct_answers'])==3 && count($record['answers'])==7) $record['type'] = 'digits3';
-            else $record['type'] = 'checkbox';
-        }
-		elseif(count($record['correct_answers'])==1) $record['type'] = 'radio';
-        elseif(count($record['correct_answers'])==0)
-        {
-            $record['type'] = 'multi-radio';
             $record['connected_answers'] = $this->getConnectedAnswers($record['question']['id']);
         }
 
@@ -370,6 +364,38 @@ class Quiz_model extends Base_model
         //shuffle($record['answers']);
 		return $record;
 	}
+
+    /**
+     * Return question's type by count answers and correct answers
+     * @param array $record
+     * @return string
+     */
+	private function getQuestionType(array $record)
+    {
+        if(count($record['answers'])==1)
+        {
+            return 'input';
+        }
+        elseif(count($record['correct_answers'])>1)
+        {
+            if(count($record['correct_answers'])==3 && count($record['answers'])==7)
+            {
+                return 'digits3';
+            }
+            else
+            {
+                return 'checkbox';
+            }
+        }
+        elseif(count($record['correct_answers'])==1)
+        {
+            return 'radio';
+        }
+        elseif(count($record['correct_answers'])==0)
+        {
+            return 'multi-radio';
+        }
+    }
 	
 	/**
 	 * Returns array of already answered questions.
