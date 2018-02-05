@@ -3,6 +3,11 @@ $j(document).ready(function()
     var quizForm = $j("#quiz-form");
     //run timer
     setTimeout("quizTimer()",1000);
+
+    //trigger submit on "skip" click
+    quizForm.find("button[name=skip]").click(function(){
+        quizForm.find("input[type=submit]").click();
+    });
     
     //check if user set answer before submit
     quizForm.find("input[type=submit]").click(function()

@@ -86,7 +86,11 @@
     <?endforeach;?>
 <?endif;?>
 
-<div><?=form_submit("submit",language('next'));?></div>
+<div>
+    <?=form_submit("submit",language('reply'));?> &nbsp;
+    <?=form_button("skip",language('skip'));?> &nbsp;
+    <?=form_button("finish",language('finish_quiz'), "onclick='location.href=\"".site_url($BC->_getBaseURL().'quiz/finish/'.$quiz['quiz']['id'])."\"'");?>
+</div>
 
 </form>
 
