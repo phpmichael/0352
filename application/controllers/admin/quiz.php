@@ -47,6 +47,7 @@ class Quiz extends Admin
 		$this->fields_titles['correct_count'] = language('correct_answered_count');
 		$this->fields_titles['time'] = language('minutes');
 		$this->fields_titles['connected_answer'] = 'Connected Answer';
+		$this->fields_titles['question_type'] = language('type');
 
 		// === Page Titles === //
 		$this->page_titles['index'] = language('quiz_list');

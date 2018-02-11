@@ -39,6 +39,10 @@
             'just_text'=>TRUE
         ),
         array(
+            'field'=>'question_type',
+            'width'=>70
+        ),
+        array(
             'field'=>'question_edit',
             'title'=>' ',
             'width'=>50
@@ -51,6 +55,9 @@
     foreach ($rows as &$row)
     {
         $row['question__output'] = anchor($BC->_getBaseURI().'/answers_list/'.$quiz_id.'/'.$row['id'],htmlspecialchars($row['question']));
+
+        $row['question_type'] = $BC->quiz_model->getQuestionType($row['id']);
+
         $row['question_edit__output'] = anchor_admin('questions_edit',$row['id']);
     }
     
