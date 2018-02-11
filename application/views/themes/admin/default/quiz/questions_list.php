@@ -40,6 +40,7 @@
         ),
         array(
             'field'=>'question_type',
+            'just_text'=>TRUE,
             'width'=>70
         ),
         array(
