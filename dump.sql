@@ -1,14 +1,15 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
 
 -- Dumping database structure for ci-0352
 CREATE DATABASE IF NOT EXISTS `ci-0352` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `ci-0352`;
 
-
--- Dumping structure for таблиця ci-0352.agenda
+-- Dumping structure for table ci-0352.agenda
 CREATE TABLE IF NOT EXISTS `agenda` (
   `data_key` char(16) NOT NULL,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -36,8 +37,7 @@ INSERT INTO `agenda` (`data_key`, `customer_id`, `title`, `start_date`, `start_t
 	('D0E0983D69902BF2', 7, 'test', '2015-03-20', '13:20:00', '0000-00-00', '00:00:00', 0);
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.articles
+-- Dumping structure for table ci-0352.articles
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `head_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `body_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `pub_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `author_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `source` varchar(255) NOT NULL,
+  `source` varchar(255) NOT NULL DEFAULT '',
   `comments_opened` enum('default','no','yes') NOT NULL DEFAULT 'default',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -61,8 +61,7 @@ INSERT INTO `articles` (`id`, `head_lang_id`, `slug_lang_id`, `meta_keywords_lan
 	(10, 978, 983, 979, 980, 981, '2012-08-22 23:44:11', 982, '', 'default');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.articles_categories_list
+-- Dumping structure for table ci-0352.articles_categories_list
 CREATE TABLE IF NOT EXISTS `articles_categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -89,13 +88,11 @@ INSERT INTO `articles_categories_list` (`id`, `category_lang_id`, `parent_id`, `
 	(29, 448, 27, 0);
 /*!40000 ALTER TABLE `articles_categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.assortment
+-- Dumping structure for table ci-0352.assortment
 CREATE TABLE IF NOT EXISTS `assortment` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(150) NOT NULL,
-  `logo` varchar(40) NOT NULL,
   `img` varchar(40) NOT NULL,
   `country` varchar(100) NOT NULL,
   `warranty` tinyint(2) unsigned NOT NULL DEFAULT '0',
@@ -114,15 +111,14 @@ CREATE TABLE IF NOT EXISTS `assortment` (
 
 -- Dumping data for table ci-0352.assortment: 4 rows
 /*!40000 ALTER TABLE `assortment` DISABLE KEYS */;
-INSERT INTO `assortment` (`data_key`, `pub_date`, `name`, `logo`, `img`, `country`, `warranty`, `type1`, `price1`, `type2`, `price2`, `type3`, `price3`, `description`, `characteristics`, `assortment`, `accessories`) VALUES
-	('E84BBCBEF6F1AB25', '2012-05-31 12:26:26', 'Композитная черепица', '', '067659da993bceb9ab4a6053ad641144.jpg', 'Бельгия', 30, 'MetroBond', 198, 'MetroRoman', 204, 'MetroShake', 198, '', '', '', ''),
-	('20CF8BF0BAD1EFBE', '2012-05-31 12:30:02', 'Металлочерепица RUUKKI', '', '19bd8efb691008809345dcc68640d3a3.jpg', 'Финляндия', 20, 'Decorrey PE', 63, 'Monterrey PUMA', 102, 'Finnera PUREX', 80, '', '', '', ''),
-	('106955215EFFBBA0', '2012-05-31 12:31:13', 'Битумная черепица KATEPAL', '', 'bf11dae9f4377d5dd549d28921590e83.jpg', 'Финляндия', 25, 'KL', 70, 'Super Katrilli', 87, 'Super Rocky', 83, '', '', '', ''),
-	('8B3520604DA85CD2', '2012-05-31 12:33:01', 'Цементно песчаная черепица', '', 'bf584baa42cef1151c770ff3e738606d.jpg', 'Украина', 30, 'Двойная Римская	', 78, 'Венециано', 88, '', 0, '', '', '', '');
+INSERT INTO `assortment` (`data_key`, `pub_date`, `name`, `img`, `country`, `warranty`, `type1`, `price1`, `type2`, `price2`, `type3`, `price3`, `description`, `characteristics`, `assortment`, `accessories`) VALUES
+	('E84BBCBEF6F1AB25', '2012-05-31 12:26:26', 'Композитная черепица', '067659da993bceb9ab4a6053ad641144.jpg', 'Бельгия', 30, 'MetroBond', 198, 'MetroRoman', 204, 'MetroShake', 198, '', '', '', ''),
+	('20CF8BF0BAD1EFBE', '2012-05-31 12:30:02', 'Металлочерепица RUUKKI', '19bd8efb691008809345dcc68640d3a3.jpg', 'Финляндия', 20, 'Decorrey PE', 63, 'Monterrey PUMA', 102, 'Finnera PUREX', 80, '', '', '', ''),
+	('106955215EFFBBA0', '2012-05-31 12:31:13', 'Битумная черепица KATEPAL', 'bf11dae9f4377d5dd549d28921590e83.jpg', 'Финляндия', 25, 'KL', 70, 'Super Katrilli', 87, 'Super Rocky', 83, '', '', '', ''),
+	('8B3520604DA85CD2', '2012-05-31 12:33:01', 'Цементно песчаная черепица', 'bf584baa42cef1151c770ff3e738606d.jpg', 'Украина', 30, 'Двойная Римская	', 78, 'Венециано', 88, '', 0, '', '', '', '');
 /*!40000 ALTER TABLE `assortment` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.auto_responders
+-- Dumping structure for table ci-0352.auto_responders
 CREATE TABLE IF NOT EXISTS `auto_responders` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `subject_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -141,8 +137,7 @@ INSERT INTO `auto_responders` (`id`, `subject_lang_id`, `message_lang_id`, `enab
 	(5, 319, 320, 1);
 /*!40000 ALTER TABLE `auto_responders` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.books
+-- Dumping structure for table ci-0352.books
 CREATE TABLE IF NOT EXISTS `books` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -156,13 +151,13 @@ CREATE TABLE IF NOT EXISTS `books` (
   `year` int(4) unsigned NOT NULL DEFAULT '0',
   `manufacturer_id` int(5) unsigned NOT NULL DEFAULT '0',
   `number_of_pages` int(4) unsigned NOT NULL DEFAULT '0',
-  `cover` varchar(6) NOT NULL,
-  `photo1` varchar(40) NOT NULL,
+  `cover` varchar(6) NOT NULL DEFAULT '',
+  `photo1` varchar(40) NOT NULL DEFAULT '',
   `more_images` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `photo2` varchar(40) NOT NULL,
-  `photo3` varchar(40) NOT NULL,
-  `photo4` varchar(40) NOT NULL,
-  `photo5` varchar(40) NOT NULL,
+  `photo2` varchar(40) NOT NULL DEFAULT '',
+  `photo3` varchar(40) NOT NULL DEFAULT '',
+  `photo4` varchar(40) NOT NULL DEFAULT '',
+  `photo5` varchar(40) NOT NULL DEFAULT '',
   `description_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `featured` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `in_stock` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -188,8 +183,7 @@ INSERT INTO `books` (`data_key`, `pub_date`, `ISBN`, `name_lang_id`, `slug_lang_
 	('968E936A97AC4D56', '2012-12-11 12:23:05', '978-966-2720-03-7', 1150, 1153, 61.69, 0.00, 1151, 'a_175', 2012, 0, 240, 'a_177', '9604ce00867bf14702f00cf3d2c5f38d.jpg', 0, '', '', '', '', 1152, 0, 1, 1);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.captcha
+-- Dumping structure for table ci-0352.captcha
 CREATE TABLE IF NOT EXISTS `captcha` (
   `captcha_id` bigint(13) unsigned NOT NULL AUTO_INCREMENT,
   `captcha_time` int(10) unsigned NOT NULL,
@@ -197,14 +191,13 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=MyISAM AUTO_INCREMENT=1347 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1348 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.captcha: 0 rows
 /*!40000 ALTER TABLE `captcha` DISABLE KEYS */;
 /*!40000 ALTER TABLE `captcha` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.carriers
+-- Dumping structure for table ci-0352.carriers
 CREATE TABLE IF NOT EXISTS `carriers` (
   `data_key` char(16) NOT NULL,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -233,8 +226,7 @@ INSERT INTO `carriers` (`data_key`, `customer_id`, `pub_date`, `ownership_of_car
 	('544B7074FAD3793A', 7, '2012-10-30 18:00:17', 'Some Company', 'Mercedes', 10, 'yes', 'no', '4a6fc1a9d2049a6004fefdee20598cb2.jpg', 'Mon 10-20\r\nTue 10-20\r\nWed - 9-19', '', 'Ternopil - Lviv', '', 55.00, 'yes', 'test info');
 /*!40000 ALTER TABLE `carriers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.categories_list
+-- Dumping structure for table ci-0352.categories_list
 CREATE TABLE IF NOT EXISTS `categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -276,18 +268,17 @@ INSERT INTO `categories_list` (`id`, `category_lang_id`, `parent_id`, `sort`) VA
 	(59, 202, 39, 0);
 /*!40000 ALTER TABLE `categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.comments
+-- Dumping structure for table ci-0352.comments
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `post_id` char(16) NOT NULL DEFAULT '0',
   `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `table` varchar(100) NOT NULL,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `comment_author` varchar(150) NOT NULL,
-  `comment_author_email` varchar(150) NOT NULL,
-  `comment_author_url` varchar(255) NOT NULL,
-  `comment_author_ip` varchar(15) NOT NULL,
+  `comment_author` varchar(150) NOT NULL DEFAULT '',
+  `comment_author_email` varchar(150) NOT NULL DEFAULT '',
+  `comment_author_url` varchar(255) NOT NULL DEFAULT '',
+  `comment_author_ip` varchar(15) NOT NULL DEFAULT '',
   `comment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `comment_content` text NOT NULL,
   `comment_approved` tinyint(1) NOT NULL DEFAULT '1',
@@ -300,11 +291,10 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- Dumping data for table ci-0352.comments: 1 rows
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 INSERT INTO `comments` (`id`, `post_id`, `parent_id`, `table`, `customer_id`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_ip`, `comment_date`, `comment_content`, `comment_approved`) VALUES
-	(11, 13, 0, 'news', 21, 'Tester', 'tester@test.com', '', '127.0.0.1', '2011-09-07 22:24:01', 'test', 1);
+	(11, '13', 0, 'news', 21, 'Tester', 'tester@test.com', '', '127.0.0.1', '2011-09-07 22:24:01', 'test', 1);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.companies
+-- Dumping structure for table ci-0352.companies
 CREATE TABLE IF NOT EXISTS `companies` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -341,8 +331,7 @@ INSERT INTO `companies` (`id`, `name`, `email`, `phone`, `phone2`, `fax`, `websi
 	(17, 'Millenium 7', '', '', '', '', '', 'Ternopil', '', '', '', '', '', '', '', '2011-01-15 17:35:50', 1);
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.currency
+-- Dumping structure for table ci-0352.currency
 CREATE TABLE IF NOT EXISTS `currency` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `code` char(3) NOT NULL DEFAULT '',
@@ -363,8 +352,7 @@ INSERT INTO `currency` (`id`, `code`, `title`, `exchange_rate`, `symbol`, `symbo
 	(3, 'UAH', 'Гривня', 8.00, 'грн.', 'after', 1, 1);
 /*!40000 ALTER TABLE `currency` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.customers
+-- Dumping structure for table ci-0352.customers
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` tinyint(1) unsigned NOT NULL DEFAULT '1',
@@ -380,6 +368,9 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `zip_code` varchar(20) DEFAULT NULL,
   `reg_date` datetime NOT NULL,
   `last_logged` datetime NOT NULL,
+  `lat` decimal(10,7) unsigned NOT NULL DEFAULT '0.0000000',
+  `lng` decimal(10,7) unsigned NOT NULL DEFAULT '0.0000000',
+  `unsuccess` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `email_and_password` (`email`,`password`)
@@ -387,19 +378,18 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 -- Dumping data for table ci-0352.customers: 8 rows
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` (`id`, `group_id`, `email`, `password`, `name`, `surname`, `phone`, `phone2`, `website`, `city`, `address`, `zip_code`, `reg_date`, `last_logged`) VALUES
-	(1, 1, 'cooler@test.com', '3069d335a3c67d50a612753090692686', 'Cool', 'Guy', '', '', '', NULL, NULL, NULL, '2008-05-09 02:46:16', '0000-00-00 00:00:00'),
-	(2, 1, 'david@test.com', '91ec1f9324753048c0096d036a694f86', 'David', 'Simpson', '', NULL, NULL, NULL, NULL, NULL, '2008-05-09 02:53:48', '0000-00-00 00:00:00'),
-	(3, 1, 'john@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'John', 'Doe', '', NULL, NULL, NULL, NULL, NULL, '2008-05-09 02:56:31', '0000-00-00 00:00:00'),
-	(4, 1, 'zoomer@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Zoomer', 'Zoo', '', NULL, NULL, NULL, NULL, NULL, '2008-05-11 02:28:14', '0000-00-00 00:00:00'),
-	(5, 1, 'jane@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Jane', 'Summers', '', NULL, NULL, NULL, NULL, NULL, '2008-05-19 01:04:10', '0000-00-00 00:00:00'),
-	(7, 2, 'admin@domain.com', '21232f297a57a5a743894a0e4a801fc3', 'Michael', 'Kovalskiy', 'Admin', '', 'password=admin', 'Ternopil', '', '46000', '2009-05-09 21:35:42', '2016-04-12 00:26:13'),
-	(14, 1, 'killer-bob@test.com', '179ad45c6ce2cb97cf1029e212046e81', 'Bob', 'Killer', '', '', '', NULL, NULL, NULL, '2011-01-15 19:47:41', '0000-00-00 00:00:00'),
-	(21, 3, 'tester@test.com', '179ad45c6ce2cb97cf1029e212046e81', 'Tester', 'Tester', '', '', '', '', '', '', '2011-03-02 16:19:02', '2012-08-03 16:17:12');
+INSERT INTO `customers` (`id`, `group_id`, `email`, `password`, `name`, `surname`, `phone`, `phone2`, `website`, `city`, `address`, `zip_code`, `reg_date`, `last_logged`, `lat`, `lng`, `unsuccess`) VALUES
+	(1, 1, 'cooler@test.com', '3069d335a3c67d50a612753090692686', 'Cool', 'Guy', '', '', '', NULL, NULL, NULL, '2008-05-09 02:46:16', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(2, 1, 'david@test.com', '91ec1f9324753048c0096d036a694f86', 'David', 'Simpson', '', NULL, NULL, NULL, NULL, NULL, '2008-05-09 02:53:48', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(3, 1, 'john@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'John', 'Doe', '', NULL, NULL, NULL, NULL, NULL, '2008-05-09 02:56:31', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(4, 1, 'zoomer@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Zoomer', 'Zoo', '', NULL, NULL, NULL, NULL, NULL, '2008-05-11 02:28:14', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(5, 1, 'jane@test.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Jane', 'Summers', '', NULL, NULL, NULL, NULL, NULL, '2008-05-19 01:04:10', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(7, 2, 'admin@domain.com', '21232f297a57a5a743894a0e4a801fc3', 'Michael', 'Kovalskiy', 'Admin', '', 'password=admin', 'Ternopil', '', '46000', '2009-05-09 21:35:42', '2018-02-17 22:09:03', 0.0000000, 0.0000000, 0),
+	(14, 1, 'killer-bob@test.com', '179ad45c6ce2cb97cf1029e212046e81', 'Bob', 'Killer', '', '', '', NULL, NULL, NULL, '2011-01-15 19:47:41', '0000-00-00 00:00:00', 0.0000000, 0.0000000, 0),
+	(21, 3, 'tester@test.com', '179ad45c6ce2cb97cf1029e212046e81', 'Tester', 'Tester', '', '', '', '', '', '', '2011-03-02 16:19:02', '2012-08-03 16:17:12', 0.0000000, 0.0000000, 0);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.discounts
+-- Dumping structure for table ci-0352.discounts
 CREATE TABLE IF NOT EXISTS `discounts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `products_count` int(4) unsigned NOT NULL DEFAULT '0',
@@ -418,8 +408,7 @@ INSERT INTO `discounts` (`id`, `products_count`, `order_amount`, `discount_perce
 	(5, 10, 1000.00, 15);
 /*!40000 ALTER TABLE `discounts` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.discount_coupons
+-- Dumping structure for table ci-0352.discount_coupons
 CREATE TABLE IF NOT EXISTS `discount_coupons` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `percents` tinyint(2) unsigned NOT NULL DEFAULT '0',
@@ -440,14 +429,13 @@ INSERT INTO `discount_coupons` (`id`, `percents`, `amount`, `code`, `possible_us
 	(4, 10, 0, 'vTbBlghyEr', 1, 0);
 /*!40000 ALTER TABLE `discount_coupons` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.documents
+-- Dumping structure for table ci-0352.documents
 CREATE TABLE IF NOT EXISTS `documents` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(255) NOT NULL DEFAULT '',
   `file_name` varchar(40) NOT NULL DEFAULT '',
-  `category_id` int(5) NOT NULL DEFAULT '1',
+  `category_id` int(5) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`data_key`),
   KEY `file` (`file_name`),
   KEY `category_id` (`category_id`)
@@ -460,8 +448,7 @@ INSERT INTO `documents` (`data_key`, `pub_date`, `name`, `file_name`, `category_
 	('AD63A72AF966D748', '2015-10-03 22:20:54', 'Image 2', '02a01cc66013698ba3dc30f0bcb24927.jpg', 2);
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.documents_categories_list
+-- Dumping structure for table ci-0352.documents_categories_list
 CREATE TABLE IF NOT EXISTS `documents_categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -481,8 +468,7 @@ INSERT INTO `documents_categories_list` (`id`, `category_lang_id`, `parent_id`, 
 	(4, 1197, 0, 3);
 /*!40000 ALTER TABLE `documents_categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.email_tpl
+-- Dumping structure for table ci-0352.email_tpl
 CREATE TABLE IF NOT EXISTS `email_tpl` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '',
@@ -497,8 +483,7 @@ INSERT INTO `email_tpl` (`id`, `name`, `content`) VALUES
 	(2, 'Розсилка для підписчиків', '<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style="font-family: \'Times New Roman\';"><span style="font-size: 12px;"> </span></span></p>\r\n\r\n<hr />\r\n\r\n<p>Ви отримали цей лист тому що підписані на розсилку на&nbsp;{site_url}. Для того щоб відписатись зайдіть на {unsubscribe_link}</p>\r\n\r\n<p>&nbsp;</p>');
 /*!40000 ALTER TABLE `email_tpl` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.faq
+-- Dumping structure for table ci-0352.faq
 CREATE TABLE IF NOT EXISTS `faq` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -513,8 +498,7 @@ INSERT INTO `faq` (`id`, `question_lang_id`, `answer_lang_id`) VALUES
 	(12, 37, 38);
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.filters
+-- Dumping structure for table ci-0352.filters
 CREATE TABLE IF NOT EXISTS `filters` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `filter_group_id` int(11) unsigned DEFAULT '0',
@@ -553,8 +537,7 @@ INSERT INTO `filters` (`id`, `filter_group_id`, `title_lang_id`, `code`, `query`
 	(20, 9, 431, 'comments_for_products', '`table`=\'products\'', 1, 'admin', 2);
 /*!40000 ALTER TABLE `filters` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.filters_groups
+-- Dumping structure for table ci-0352.filters_groups
 CREATE TABLE IF NOT EXISTS `filters_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title_lang_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -580,8 +563,7 @@ INSERT INTO `filters_groups` (`id`, `title_lang_id`, `section`, `active`, `conne
 	(9, 428, 'comments', 1, 'OR', 7);
 /*!40000 ALTER TABLE `filters_groups` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.food
+-- Dumping structure for table ci-0352.food
 CREATE TABLE IF NOT EXISTS `food` (
   `data_key` char(16) NOT NULL,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -606,12 +588,11 @@ INSERT INTO `food` (`data_key`, `customer_id`, `pub_date`, `price`, `place`, `ma
 	('2397DBC53A6F7E40', 7, '2012-10-22 22:26:36', 99.95, 'accessible by ski\r\ncar parking \r\nwalking distance', 'c0ce32f90e8d3cf3704671890307d9d4.jpg', 'd965fadb8646c05705d4ed4882bcc6b1.jpg', 'test\r\ntest\r\ntest\r\n', 1, 'a_118', 'a_121|a_122|a_124', 'test comments');
 /*!40000 ALTER TABLE `food` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.forms
+-- Dumping structure for table ci-0352.forms
 CREATE TABLE IF NOT EXISTS `forms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `html_id` varchar(50) NOT NULL,
-  `store_in_table` varchar(50) NOT NULL,
+  `store_in_table` varchar(50) NOT NULL DEFAULT '',
   `action` text NOT NULL,
   `method` enum('post','get') NOT NULL DEFAULT 'post',
   `multipart` enum('no','yes') NOT NULL DEFAULT 'no',
@@ -649,8 +630,7 @@ INSERT INTO `forms` (`id`, `html_id`, `store_in_table`, `action`, `method`, `mul
 	(41, 'documents', 'documents', '', 'post', 'yes', 1191);
 /*!40000 ALTER TABLE `forms` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_answersets
+-- Dumping structure for table ci-0352.form_answersets
 CREATE TABLE IF NOT EXISTS `form_answersets` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `label_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -692,8 +672,7 @@ INSERT INTO `form_answersets` (`id`, `label_lang_id`, `generic_answers`) VALUES
 	(32, 1196, 'documents_categories');
 /*!40000 ALTER TABLE `form_answersets` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_answersets_values
+-- Dumping structure for table ci-0352.form_answersets_values
 CREATE TABLE IF NOT EXISTS `form_answersets_values` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `answerset_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -876,8 +855,7 @@ INSERT INTO `form_answersets_values` (`id`, `answerset_id`, `sort`, `label_lang_
 	(178, 30, 1, 1114, '');
 /*!40000 ALTER TABLE `form_answersets_values` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_containers
+-- Dumping structure for table ci-0352.form_containers
 CREATE TABLE IF NOT EXISTS `form_containers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `form_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -934,35 +912,34 @@ INSERT INTO `form_containers` (`id`, `form_id`, `container_id`, `sort`, `html_id
 	(65, 40, 0, 2, '', 'regular', 'columns', 2, 1177, 'yes', '', '');
 /*!40000 ALTER TABLE `form_containers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_inputs
+-- Dumping structure for table ci-0352.form_inputs
 CREATE TABLE IF NOT EXISTS `form_inputs` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `form_id` int(11) unsigned NOT NULL DEFAULT '0',
   `container_id` int(11) unsigned NOT NULL DEFAULT '0',
   `answerset_id` int(11) unsigned NOT NULL DEFAULT '0',
   `sort` int(11) unsigned NOT NULL DEFAULT '0',
-  `name` varchar(100) NOT NULL,
-  `html_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `html_id` varchar(100) NOT NULL DEFAULT '',
   `type` char(20) NOT NULL,
   `label_lang_id` int(11) NOT NULL,
   `value` text NOT NULL,
-  `validation` varchar(255) NOT NULL,
+  `validation` varchar(255) NOT NULL DEFAULT '',
   `show_on_list` enum('no','yes') NOT NULL DEFAULT 'yes',
   `align` enum('left','right','center') NOT NULL DEFAULT 'left',
-  `hint` varchar(255) NOT NULL,
+  `hint` varchar(255) NOT NULL DEFAULT '',
   `height` int(4) unsigned NOT NULL DEFAULT '0',
-  `height_units` enum('px','%') NOT NULL,
+  `height_units` enum('px','%') NOT NULL DEFAULT 'px',
   `width` int(4) unsigned NOT NULL DEFAULT '0',
-  `width_units` enum('px','%') NOT NULL,
+  `width_units` enum('px','%') NOT NULL DEFAULT 'px',
   `label_position` enum('left','right','top') NOT NULL DEFAULT 'left',
   `label_align` enum('left','right','center') NOT NULL DEFAULT 'left',
   `hide_label` enum('no','yes') NOT NULL DEFAULT 'no',
   `label_width` int(4) unsigned NOT NULL DEFAULT '0',
-  `label_width_units` enum('px','%') NOT NULL,
-  `html_class` varchar(100) NOT NULL,
-  `skip_rule` varchar(100) NOT NULL,
-  `valid_file_types` varchar(100) NOT NULL,
+  `label_width_units` enum('px','%') NOT NULL DEFAULT 'px',
+  `html_class` varchar(100) NOT NULL DEFAULT '',
+  `skip_rule` varchar(100) NOT NULL DEFAULT '',
+  `valid_file_types` varchar(100) NOT NULL DEFAULT '',
   `image_small_height` int(4) unsigned NOT NULL DEFAULT '0',
   `image_small_width` int(4) unsigned NOT NULL DEFAULT '0',
   `image_small_crop` tinyint(1) unsigned NOT NULL DEFAULT '1',
@@ -1082,13 +1059,13 @@ INSERT INTO `form_inputs` (`id`, `form_id`, `container_id`, `answerset_id`, `sor
 	(129, 28, 38, 0, 0, 'name', '', 'text', 846, '', 'trim|required|max_length[150]|xss_clean', 'yes', 'left', '', 0, 'px', 100, '%', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(131, 28, 38, 0, 1, 'img', '', 'file', 848, '', 'xss_clean', 'yes', 'left', '', 0, 'px', 0, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 100, 130, 1, 160, 210, 1, 1, 1, 0, 0),
 	(132, 28, 38, 0, 2, 'country', '', 'text', 849, '', 'trim|max_length[50]|xss_clean', 'yes', 'left', '', 0, 'px', 0, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
-	(133, 28, 38, 0, 3, 'warranty', '', 'text', 850, '', 'natural', 'no', 'left', 'років', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
+	(133, 28, 38, 0, 3, 'warranty', '', 'text', 850, '0', 'natural', 'no', 'left', 'років', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(134, 28, 39, 0, 0, 'type1', '', 'text', 851, '', 'trim|max_length[100]|xss_cean', 'no', 'left', '', 0, 'px', 100, '%', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(135, 28, 39, 0, 2, 'type2', '', 'text', 852, '', 'trim|max_length[100]|xss_cean', 'no', 'left', '', 0, 'px', 100, '%', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(136, 28, 39, 0, 4, 'type3', '', 'text', 853, '', 'trim|max_length[100]|xss_cean', 'no', 'left', '', 0, 'px', 100, '%', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
-	(137, 28, 39, 0, 1, 'price1', '', 'text', 854, '', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
-	(138, 28, 39, 0, 3, 'price2', '', 'text', 855, '', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
-	(139, 28, 39, 0, 5, 'price3', '', 'text', 856, '', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
+	(137, 28, 39, 0, 1, 'price1', '', 'text', 854, '0', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
+	(138, 28, 39, 0, 3, 'price2', '', 'text', 855, '0', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
+	(139, 28, 39, 0, 5, 'price3', '', 'text', 856, '0', 'trim|natural', 'no', 'left', 'грн/м2', 0, 'px', 50, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(140, 28, 40, 0, 0, 'description', '', 'richtext', 862, '', '', 'no', 'left', '', 0, 'px', 0, 'px', 'top', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(141, 28, 40, 0, 1, 'characteristics', '', 'richtext', 863, '', '', 'no', 'left', '', 0, 'px', 0, 'px', 'top', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
 	(142, 28, 40, 0, 2, 'assortment', '', 'richtext', 864, '', '', 'no', 'left', '', 0, 'px', 0, 'px', 'top', 'left', 'no', 0, 'px', '', '', '', 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),
@@ -1216,8 +1193,7 @@ INSERT INTO `form_inputs` (`id`, `form_id`, `container_id`, `answerset_id`, `sor
 	(317, 41, 0, 0, 3, '', '', 'submit', 1195, '', '', 'no', 'left', '', 0, 'px', 0, 'px', 'left', 'left', 'no', 0, 'px', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 /*!40000 ALTER TABLE `form_inputs` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_store
+-- Dumping structure for table ci-0352.form_store
 CREATE TABLE IF NOT EXISTS `form_store` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -1261,8 +1237,7 @@ INSERT INTO `form_store` (`id`, `customer_id`, `form_id`, `data_key`, `field`, `
 	(129, 0, 14, 'FF5911819E05DD4E', 'q_25', 'a_12');
 /*!40000 ALTER TABLE `form_store` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.form_store_subscribtion
+-- Dumping structure for table ci-0352.form_store_subscribtion
 CREATE TABLE IF NOT EXISTS `form_store_subscribtion` (
   `data_key` char(16) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -1276,8 +1251,7 @@ INSERT INTO `form_store_subscribtion` (`data_key`, `name`, `email`) VALUES
 	('E39F6DAB3A18CC10', 'Tester', 'test@test.com');
 /*!40000 ALTER TABLE `form_store_subscribtion` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.from_store_avatars
+-- Dumping structure for table ci-0352.from_store_avatars
 CREATE TABLE IF NOT EXISTS `from_store_avatars` (
   `data_key` char(16) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -1292,8 +1266,7 @@ INSERT INTO `from_store_avatars` (`data_key`, `name`, `need_avatar`, `avatar`) V
 	('AC2D6887869BD99B', 'Michael Smith', 'yes', 'b2c16a08696f32c6b994847c2d9841fc.png');
 /*!40000 ALTER TABLE `from_store_avatars` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.groups
+-- Dumping structure for table ci-0352.groups
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT '',
@@ -1312,8 +1285,7 @@ INSERT INTO `groups` (`id`, `name`, `admin_access`) VALUES
 	(6, 'Writers', 1);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.groups_rights
+-- Dumping structure for table ci-0352.groups_rights
 CREATE TABLE IF NOT EXISTS `groups_rights` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT '0',
@@ -1322,206 +1294,213 @@ CREATE TABLE IF NOT EXISTS `groups_rights` (
   `panel` enum('admin','front') NOT NULL DEFAULT 'admin',
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11996 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12193 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci-0352.groups_rights: 191 rows
+-- Dumping data for table ci-0352.groups_rights: 199 rows
 /*!40000 ALTER TABLE `groups_rights` DISABLE KEYS */;
 INSERT INTO `groups_rights` (`id`, `group_id`, `section`, `right`, `panel`) VALUES
-	(11986, 2, 'reports', 'delete', 'admin'),
-	(11985, 2, 'reports', 'add', 'admin'),
-	(11984, 2, 'reports', 'edit', 'admin'),
-	(11983, 2, 'reports', 'view', 'admin'),
-	(11982, 2, 'spiderweb', 'delete', 'admin'),
+	(12175, 2, 'reports', 'delete', 'admin'),
+	(12174, 2, 'reports', 'add', 'admin'),
+	(12173, 2, 'reports', 'edit', 'admin'),
+	(12172, 2, 'reports', 'view', 'admin'),
+	(12171, 2, 'spiderweb', 'delete', 'admin'),
 	(6226, 3, 'orders', 'view', 'admin'),
 	(6227, 3, 'orders', 'edit', 'admin'),
-	(11981, 2, 'spiderweb', 'add', 'admin'),
-	(11980, 2, 'spiderweb', 'edit', 'admin'),
-	(11979, 2, 'spiderweb', 'view', 'admin'),
-	(11978, 2, 'assortment', 'delete', 'admin'),
-	(11977, 2, 'assortment', 'add', 'admin'),
-	(11976, 2, 'assortment', 'edit', 'admin'),
-	(11975, 2, 'assortment', 'view', 'admin'),
-	(11974, 2, 'slideshow', 'delete', 'admin'),
-	(11973, 2, 'slideshow', 'add', 'admin'),
-	(11972, 2, 'slideshow', 'edit', 'admin'),
-	(11971, 2, 'slideshow', 'view', 'admin'),
-	(11970, 2, 'shipping', 'delete', 'admin'),
-	(11969, 2, 'shipping', 'add', 'admin'),
-	(11968, 2, 'shipping', 'edit', 'admin'),
-	(11967, 2, 'shipping', 'view', 'admin'),
-	(11966, 2, 'tasks', 'delete', 'admin'),
-	(11965, 2, 'tasks', 'add', 'admin'),
-	(11964, 2, 'tasks', 'edit', 'admin'),
-	(11963, 2, 'tasks', 'view', 'admin'),
-	(11962, 2, 'videos', 'delete', 'admin'),
-	(11961, 2, 'videos', 'add', 'admin'),
-	(11960, 2, 'videos', 'edit', 'admin'),
-	(11959, 2, 'videos', 'view', 'admin'),
-	(11958, 2, 'formbuilder', 'delete', 'admin'),
-	(11957, 2, 'formbuilder', 'add', 'admin'),
-	(11956, 2, 'formbuilder', 'edit', 'admin'),
-	(11955, 2, 'formbuilder', 'view', 'admin'),
-	(11954, 2, 'site_partners', 'config', 'admin'),
-	(11953, 2, 'filters', 'delete', 'admin'),
-	(11952, 2, 'filters', 'add', 'admin'),
-	(11951, 2, 'filters', 'edit', 'admin'),
-	(11950, 2, 'filters', 'view', 'admin'),
-	(11949, 2, 'tags', 'delete', 'admin'),
-	(11948, 2, 'tags', 'edit', 'admin'),
-	(11947, 2, 'tags', 'view', 'admin'),
-	(11946, 2, 'site_phones', 'config', 'admin'),
-	(11945, 2, 'subscribers', 'send', 'admin'),
-	(11944, 2, 'subscribers', 'delete', 'admin'),
-	(11943, 2, 'subscribers', 'add', 'admin'),
-	(11942, 2, 'subscribers', 'edit', 'admin'),
-	(11941, 2, 'subscribers', 'view', 'admin'),
-	(11940, 2, 'ratings', 'config', 'admin'),
-	(11939, 2, 'themes', 'config', 'admin'),
-	(11938, 2, 'testimonials', 'delete', 'admin'),
-	(11937, 2, 'testimonials', 'add', 'admin'),
-	(11936, 2, 'testimonials', 'edit', 'admin'),
-	(11935, 2, 'testimonials', 'view', 'admin'),
-	(11934, 2, 'comments', 'config', 'admin'),
-	(11933, 2, 'comments', 'delete', 'admin'),
-	(11931, 2, 'comments', 'view', 'admin'),
-	(11932, 2, 'comments', 'edit', 'admin'),
-	(11930, 2, 'poll', 'config', 'admin'),
-	(11929, 2, 'poll', 'delete', 'admin'),
-	(11928, 2, 'poll', 'add', 'admin'),
-	(11927, 2, 'poll', 'edit', 'admin'),
-	(11926, 2, 'poll', 'view', 'admin'),
-	(11925, 2, 'lang', 'delete', 'admin'),
-	(11924, 2, 'lang', 'add', 'admin'),
-	(11923, 2, 'lang', 'edit', 'admin'),
-	(11922, 2, 'lang', 'view', 'admin'),
-	(11921, 2, 'quiz_categories', 'delete', 'admin'),
-	(11920, 2, 'quiz_categories', 'add', 'admin'),
-	(11919, 2, 'quiz_categories', 'edit', 'admin'),
-	(11918, 2, 'quiz_categories', 'view', 'admin'),
-	(11917, 2, 'quiz', 'delete', 'admin'),
-	(11916, 2, 'quiz', 'add', 'admin'),
-	(11915, 2, 'quiz', 'edit', 'admin'),
-	(11914, 2, 'quiz', 'view', 'admin'),
-	(11913, 2, 'photos_categories', 'delete', 'admin'),
-	(11912, 2, 'photos_categories', 'add', 'admin'),
-	(11911, 2, 'photos_categories', 'edit', 'admin'),
-	(11910, 2, 'photos_categories', 'view', 'admin'),
-	(11909, 2, 'photos', 'config', 'admin'),
-	(11908, 2, 'photos', 'delete', 'admin'),
-	(11907, 2, 'photos', 'add', 'admin'),
-	(11906, 2, 'photos', 'edit', 'admin'),
-	(11905, 2, 'photos', 'view', 'admin'),
-	(11904, 2, 'faq', 'delete', 'admin'),
-	(11903, 2, 'faq', 'add', 'admin'),
-	(11902, 2, 'faq', 'edit', 'admin'),
-	(11901, 2, 'faq', 'view', 'admin'),
-	(11900, 2, 'news', 'config', 'admin'),
-	(11899, 2, 'news', 'delete', 'admin'),
-	(11898, 2, 'news', 'add', 'admin'),
-	(11897, 2, 'news', 'edit', 'admin'),
-	(11896, 2, 'news', 'view', 'admin'),
-	(11895, 2, 'articles_categories', 'delete', 'admin'),
-	(11894, 2, 'articles_categories', 'add', 'admin'),
-	(11893, 2, 'articles_categories', 'edit', 'admin'),
-	(11892, 2, 'articles_categories', 'view', 'admin'),
-	(11891, 2, 'articles', 'config', 'admin'),
-	(11890, 2, 'articles', 'delete', 'admin'),
-	(11889, 2, 'articles', 'add', 'admin'),
-	(11888, 2, 'articles', 'edit', 'admin'),
-	(11887, 2, 'articles', 'view', 'admin'),
-	(11886, 2, 'links', 'delete', 'admin'),
-	(11885, 2, 'links', 'add', 'admin'),
-	(11884, 2, 'links', 'edit', 'admin'),
-	(11883, 2, 'links', 'view', 'admin'),
-	(11882, 2, 'companies', 'config', 'admin'),
-	(11881, 2, 'companies', 'delete', 'admin'),
-	(11880, 2, 'companies', 'add', 'admin'),
-	(11879, 2, 'companies', 'edit', 'admin'),
-	(11878, 2, 'companies', 'view', 'admin'),
-	(11877, 2, 'categories', 'delete', 'admin'),
-	(11876, 2, 'categories', 'add', 'admin'),
-	(11875, 2, 'categories', 'edit', 'admin'),
-	(11874, 2, 'categories', 'view', 'admin'),
-	(11873, 2, 'pages', 'delete', 'admin'),
-	(11872, 2, 'pages', 'add', 'admin'),
-	(11871, 2, 'pages', 'edit', 'admin'),
-	(11870, 2, 'pages', 'view', 'admin'),
-	(11869, 2, 'auto_responders', 'edit', 'admin'),
-	(11868, 2, 'auto_responders', 'view', 'admin'),
-	(11867, 2, 'email_tpls', 'delete', 'admin'),
-	(11866, 2, 'email_tpls', 'add', 'admin'),
-	(11865, 2, 'email_tpls', 'edit', 'admin'),
-	(11864, 2, 'email_tpls', 'view', 'admin'),
-	(11863, 2, 'newsletters', 'send', 'admin'),
-	(11862, 2, 'newsletters', 'config', 'admin'),
-	(11861, 2, 'newsletters', 'delete', 'admin'),
-	(11860, 2, 'discount_coupons', 'delete', 'admin'),
-	(11859, 2, 'discount_coupons', 'add', 'admin'),
-	(11858, 2, 'discount_coupons', 'edit', 'admin'),
-	(11857, 2, 'discount_coupons', 'view', 'admin'),
-	(11856, 2, 'discounts', 'delete', 'admin'),
-	(11855, 2, 'discounts', 'add', 'admin'),
-	(11854, 2, 'discounts', 'edit', 'admin'),
-	(11853, 2, 'discounts', 'view', 'admin'),
-	(11852, 2, 'currency', 'delete', 'admin'),
-	(11851, 2, 'currency', 'add', 'admin'),
-	(11850, 2, 'currency', 'edit', 'admin'),
-	(11849, 2, 'currency', 'view', 'admin'),
-	(11848, 2, 'orders', 'delete', 'admin'),
-	(11847, 2, 'orders', 'edit', 'admin'),
-	(11846, 2, 'orders', 'view', 'admin'),
-	(11845, 2, 'products_attributes', 'delete', 'admin'),
-	(11844, 2, 'products_attributes', 'add', 'admin'),
-	(11843, 2, 'products_attributes', 'edit', 'admin'),
-	(11842, 2, 'products_attributes', 'view', 'admin'),
-	(11841, 2, 'products_manufacturers', 'delete', 'admin'),
-	(11840, 2, 'products_manufacturers', 'add', 'admin'),
-	(11839, 2, 'products_manufacturers', 'edit', 'admin'),
-	(11838, 2, 'products_manufacturers', 'view', 'admin'),
-	(11837, 2, 'products_categories', 'delete', 'admin'),
-	(11836, 2, 'products_categories', 'add', 'admin'),
-	(11835, 2, 'products_categories', 'edit', 'admin'),
-	(11834, 2, 'products_categories', 'view', 'admin'),
-	(11833, 2, 'products', 'config', 'admin'),
-	(11832, 2, 'products', 'delete', 'admin'),
-	(11830, 2, 'products', 'edit', 'admin'),
-	(11831, 2, 'products', 'add', 'admin'),
-	(11829, 2, 'products', 'view', 'admin'),
-	(11828, 2, 'documents_categories', 'delete', 'admin'),
-	(11827, 2, 'documents_categories', 'add', 'admin'),
-	(11826, 2, 'documents_categories', 'edit', 'admin'),
-	(11825, 2, 'documents_categories', 'view', 'admin'),
-	(11824, 2, 'documents', 'delete', 'admin'),
-	(11823, 2, 'documents', 'add', 'admin'),
-	(11822, 2, 'documents', 'edit', 'admin'),
-	(11821, 2, 'documents', 'view', 'admin'),
-	(11820, 2, 'groups', 'delete', 'admin'),
-	(11819, 2, 'groups', 'add', 'admin'),
-	(11818, 2, 'groups', 'edit', 'admin'),
-	(11817, 2, 'groups', 'view', 'admin'),
-	(11816, 2, 'customers', 'delete', 'admin'),
-	(11815, 2, 'customers', 'add', 'admin'),
-	(11814, 2, 'customers', 'edit', 'admin'),
-	(11813, 2, 'customers', 'view', 'admin'),
-	(11812, 2, 'menu', 'delete', 'admin'),
-	(11811, 2, 'menu', 'add', 'admin'),
-	(11810, 2, 'menu', 'edit', 'admin'),
-	(11809, 2, 'menu', 'view', 'admin'),
-	(11808, 2, 'settings', 'edit', 'admin'),
-	(11807, 2, 'comments', 'edit', 'front'),
-	(11987, 2, 'books', 'view', 'admin'),
-	(11988, 2, 'books', 'edit', 'admin'),
-	(11989, 2, 'books', 'add', 'admin'),
-	(11990, 2, 'books', 'delete', 'admin'),
-	(11991, 2, 'agenda', 'view', 'admin'),
-	(11992, 2, 'agenda', 'edit', 'admin'),
-	(11993, 2, 'agenda', 'add', 'admin'),
-	(11994, 2, 'agenda', 'delete', 'admin'),
-	(11995, 2, 'tools', 'view', 'admin');
+	(12170, 2, 'spiderweb', 'add', 'admin'),
+	(12169, 2, 'spiderweb', 'edit', 'admin'),
+	(12168, 2, 'spiderweb', 'view', 'admin'),
+	(12167, 2, 'assortment', 'delete', 'admin'),
+	(12166, 2, 'assortment', 'add', 'admin'),
+	(12165, 2, 'assortment', 'edit', 'admin'),
+	(12164, 2, 'assortment', 'view', 'admin'),
+	(12163, 2, 'slideshow', 'delete', 'admin'),
+	(12162, 2, 'slideshow', 'add', 'admin'),
+	(12161, 2, 'slideshow', 'edit', 'admin'),
+	(12160, 2, 'slideshow', 'view', 'admin'),
+	(12159, 2, 'shipping', 'delete', 'admin'),
+	(12158, 2, 'shipping', 'add', 'admin'),
+	(12157, 2, 'shipping', 'edit', 'admin'),
+	(12156, 2, 'shipping', 'view', 'admin'),
+	(12155, 2, 'tasks', 'delete', 'admin'),
+	(12154, 2, 'tasks', 'add', 'admin'),
+	(12153, 2, 'tasks', 'edit', 'admin'),
+	(12152, 2, 'tasks', 'view', 'admin'),
+	(12151, 2, 'videos', 'delete', 'admin'),
+	(12150, 2, 'videos', 'add', 'admin'),
+	(12149, 2, 'videos', 'edit', 'admin'),
+	(12148, 2, 'videos', 'view', 'admin'),
+	(12147, 2, 'formbuilder', 'delete', 'admin'),
+	(12146, 2, 'formbuilder', 'add', 'admin'),
+	(12145, 2, 'formbuilder', 'edit', 'admin'),
+	(12144, 2, 'formbuilder', 'view', 'admin'),
+	(12143, 2, 'site_partners', 'config', 'admin'),
+	(12142, 2, 'filters', 'delete', 'admin'),
+	(12141, 2, 'filters', 'add', 'admin'),
+	(12140, 2, 'filters', 'edit', 'admin'),
+	(12139, 2, 'filters', 'view', 'admin'),
+	(12138, 2, 'tags', 'delete', 'admin'),
+	(12137, 2, 'tags', 'edit', 'admin'),
+	(12136, 2, 'tags', 'view', 'admin'),
+	(12135, 2, 'site_phones', 'config', 'admin'),
+	(12134, 2, 'subscribers', 'send', 'admin'),
+	(12133, 2, 'subscribers', 'delete', 'admin'),
+	(12132, 2, 'subscribers', 'add', 'admin'),
+	(12131, 2, 'subscribers', 'edit', 'admin'),
+	(12130, 2, 'subscribers', 'view', 'admin'),
+	(12129, 2, 'ratings', 'config', 'admin'),
+	(12128, 2, 'themes', 'config', 'admin'),
+	(12127, 2, 'testimonials', 'delete', 'admin'),
+	(12126, 2, 'testimonials', 'add', 'admin'),
+	(12125, 2, 'testimonials', 'edit', 'admin'),
+	(12124, 2, 'testimonials', 'view', 'admin'),
+	(12123, 2, 'comments', 'config', 'admin'),
+	(12122, 2, 'comments', 'delete', 'admin'),
+	(12121, 2, 'comments', 'edit', 'admin'),
+	(12120, 2, 'comments', 'view', 'admin'),
+	(12119, 2, 'poll', 'config', 'admin'),
+	(12118, 2, 'poll', 'delete', 'admin'),
+	(12117, 2, 'poll', 'add', 'admin'),
+	(12116, 2, 'poll', 'edit', 'admin'),
+	(12115, 2, 'poll', 'view', 'admin'),
+	(12114, 2, 'lang', 'delete', 'admin'),
+	(12113, 2, 'lang', 'add', 'admin'),
+	(12112, 2, 'lang', 'edit', 'admin'),
+	(12111, 2, 'lang', 'view', 'admin'),
+	(12110, 2, 'quiz_categories', 'delete', 'admin'),
+	(12109, 2, 'quiz_categories', 'add', 'admin'),
+	(12108, 2, 'quiz_categories', 'edit', 'admin'),
+	(12107, 2, 'quiz_categories', 'view', 'admin'),
+	(12106, 2, 'quiz', 'delete', 'admin'),
+	(12105, 2, 'quiz', 'add', 'admin'),
+	(12104, 2, 'quiz', 'edit', 'admin'),
+	(12103, 2, 'quiz', 'view', 'admin'),
+	(12102, 2, 'photos_categories', 'delete', 'admin'),
+	(12101, 2, 'photos_categories', 'add', 'admin'),
+	(12100, 2, 'photos_categories', 'edit', 'admin'),
+	(12099, 2, 'photos_categories', 'view', 'admin'),
+	(12098, 2, 'photos', 'config', 'admin'),
+	(12097, 2, 'photos', 'delete', 'admin'),
+	(12096, 2, 'photos', 'add', 'admin'),
+	(12095, 2, 'photos', 'edit', 'admin'),
+	(12094, 2, 'photos', 'view', 'admin'),
+	(12093, 2, 'faq', 'delete', 'admin'),
+	(12092, 2, 'faq', 'add', 'admin'),
+	(12091, 2, 'faq', 'edit', 'admin'),
+	(12090, 2, 'faq', 'view', 'admin'),
+	(12089, 2, 'news', 'config', 'admin'),
+	(12088, 2, 'news', 'delete', 'admin'),
+	(12087, 2, 'news', 'add', 'admin'),
+	(12086, 2, 'news', 'edit', 'admin'),
+	(12085, 2, 'news', 'view', 'admin'),
+	(12084, 2, 'articles_categories', 'delete', 'admin'),
+	(12083, 2, 'articles_categories', 'add', 'admin'),
+	(12082, 2, 'articles_categories', 'edit', 'admin'),
+	(12081, 2, 'articles_categories', 'view', 'admin'),
+	(12080, 2, 'articles', 'config', 'admin'),
+	(12079, 2, 'articles', 'delete', 'admin'),
+	(12078, 2, 'articles', 'add', 'admin'),
+	(12077, 2, 'articles', 'edit', 'admin'),
+	(12076, 2, 'articles', 'view', 'admin'),
+	(12075, 2, 'links', 'delete', 'admin'),
+	(12074, 2, 'links', 'add', 'admin'),
+	(12073, 2, 'links', 'edit', 'admin'),
+	(12072, 2, 'links', 'view', 'admin'),
+	(12071, 2, 'companies', 'config', 'admin'),
+	(12070, 2, 'companies', 'delete', 'admin'),
+	(12069, 2, 'companies', 'add', 'admin'),
+	(12068, 2, 'companies', 'edit', 'admin'),
+	(12067, 2, 'companies', 'view', 'admin'),
+	(12066, 2, 'categories', 'delete', 'admin'),
+	(12065, 2, 'categories', 'add', 'admin'),
+	(12064, 2, 'categories', 'edit', 'admin'),
+	(12063, 2, 'categories', 'view', 'admin'),
+	(12062, 2, 'pages', 'delete', 'admin'),
+	(12061, 2, 'pages', 'add', 'admin'),
+	(12060, 2, 'pages', 'edit', 'admin'),
+	(12059, 2, 'pages', 'view', 'admin'),
+	(12058, 2, 'auto_responders', 'edit', 'admin'),
+	(12057, 2, 'auto_responders', 'view', 'admin'),
+	(12056, 2, 'email_tpls', 'delete', 'admin'),
+	(12055, 2, 'email_tpls', 'add', 'admin'),
+	(12054, 2, 'email_tpls', 'edit', 'admin'),
+	(12053, 2, 'email_tpls', 'view', 'admin'),
+	(12052, 2, 'newsletters', 'send', 'admin'),
+	(12051, 2, 'newsletters', 'config', 'admin'),
+	(12050, 2, 'newsletters', 'delete', 'admin'),
+	(12049, 2, 'discount_coupons', 'delete', 'admin'),
+	(12048, 2, 'discount_coupons', 'add', 'admin'),
+	(12047, 2, 'discount_coupons', 'edit', 'admin'),
+	(12046, 2, 'discount_coupons', 'view', 'admin'),
+	(12045, 2, 'discounts', 'delete', 'admin'),
+	(12044, 2, 'discounts', 'add', 'admin'),
+	(12043, 2, 'discounts', 'edit', 'admin'),
+	(12042, 2, 'discounts', 'view', 'admin'),
+	(12041, 2, 'currency', 'delete', 'admin'),
+	(12040, 2, 'currency', 'add', 'admin'),
+	(12039, 2, 'currency', 'edit', 'admin'),
+	(12038, 2, 'currency', 'view', 'admin'),
+	(12037, 2, 'orders', 'delete', 'admin'),
+	(12036, 2, 'orders', 'edit', 'admin'),
+	(12035, 2, 'orders', 'view', 'admin'),
+	(12034, 2, 'products_attributes', 'delete', 'admin'),
+	(12033, 2, 'products_attributes', 'add', 'admin'),
+	(12032, 2, 'products_attributes', 'edit', 'admin'),
+	(12031, 2, 'products_attributes', 'view', 'admin'),
+	(12030, 2, 'products_manufacturers', 'delete', 'admin'),
+	(12029, 2, 'products_manufacturers', 'add', 'admin'),
+	(12028, 2, 'products_manufacturers', 'edit', 'admin'),
+	(12027, 2, 'products_manufacturers', 'view', 'admin'),
+	(12026, 2, 'products_categories', 'delete', 'admin'),
+	(12025, 2, 'products_categories', 'add', 'admin'),
+	(12024, 2, 'products_categories', 'edit', 'admin'),
+	(12023, 2, 'products_categories', 'view', 'admin'),
+	(12022, 2, 'products', 'config', 'admin'),
+	(12021, 2, 'products', 'delete', 'admin'),
+	(12020, 2, 'products', 'add', 'admin'),
+	(12019, 2, 'products', 'edit', 'admin'),
+	(12018, 2, 'products', 'view', 'admin'),
+	(12017, 2, 'documents_categories', 'delete', 'admin'),
+	(12016, 2, 'documents_categories', 'add', 'admin'),
+	(12015, 2, 'documents_categories', 'edit', 'admin'),
+	(12014, 2, 'documents_categories', 'view', 'admin'),
+	(12013, 2, 'documents', 'delete', 'admin'),
+	(12012, 2, 'documents', 'add', 'admin'),
+	(12011, 2, 'documents', 'edit', 'admin'),
+	(12010, 2, 'documents', 'view', 'admin'),
+	(12009, 2, 'groups', 'delete', 'admin'),
+	(12008, 2, 'groups', 'add', 'admin'),
+	(12007, 2, 'groups', 'edit', 'admin'),
+	(12006, 2, 'groups', 'view', 'admin'),
+	(12005, 2, 'customers', 'delete', 'admin'),
+	(12004, 2, 'customers', 'add', 'admin'),
+	(12003, 2, 'customers', 'edit', 'admin'),
+	(12002, 2, 'customers', 'view', 'admin'),
+	(12001, 2, 'menu', 'delete', 'admin'),
+	(12000, 2, 'menu', 'add', 'admin'),
+	(11999, 2, 'menu', 'edit', 'admin'),
+	(11998, 2, 'menu', 'view', 'admin'),
+	(11997, 2, 'settings', 'edit', 'admin'),
+	(11996, 2, 'comments', 'edit', 'front'),
+	(12176, 2, 'instructors', 'view', 'admin'),
+	(12177, 2, 'instructors', 'edit', 'admin'),
+	(12178, 2, 'instructors', 'add', 'admin'),
+	(12179, 2, 'instructors', 'delete', 'admin'),
+	(12180, 2, 'food', 'view', 'admin'),
+	(12181, 2, 'food', 'edit', 'admin'),
+	(12182, 2, 'food', 'add', 'admin'),
+	(12183, 2, 'food', 'delete', 'admin'),
+	(12184, 2, 'books', 'view', 'admin'),
+	(12185, 2, 'books', 'edit', 'admin'),
+	(12186, 2, 'books', 'add', 'admin'),
+	(12187, 2, 'books', 'delete', 'admin'),
+	(12188, 2, 'agenda', 'view', 'admin'),
+	(12189, 2, 'agenda', 'edit', 'admin'),
+	(12190, 2, 'agenda', 'add', 'admin'),
+	(12191, 2, 'agenda', 'delete', 'admin'),
+	(12192, 2, 'tools', 'view', 'admin');
 /*!40000 ALTER TABLE `groups_rights` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.im
+-- Dumping structure for table ci-0352.im
 CREATE TABLE IF NOT EXISTS `im` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `from_id` int(11) unsigned NOT NULL,
@@ -1543,8 +1522,7 @@ INSERT INTO `im` (`id`, `from_id`, `to_id`, `message`, `read`, `date`) VALUES
 	(110, 21, 7, 'dfvrfgv rtrgtr', 0, '2011-09-07 22:17:03');
 /*!40000 ALTER TABLE `im` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.instructors
+-- Dumping structure for table ci-0352.instructors
 CREATE TABLE IF NOT EXISTS `instructors` (
   `data_key` char(16) NOT NULL,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -1572,8 +1550,7 @@ INSERT INTO `instructors` (`data_key`, `customer_id`, `pub_date`, `photo1`, `you
 	('136E2E666F61704C', 21, '2012-08-03 16:18:37', '5baeda6956b5003a411426413bb08761.jpg', '', 'a_128', 5, 3, 2, 'testing\r\n', '', 'a_150|a_151', 'a_140|a_141', '');
 /*!40000 ALTER TABLE `instructors` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.jobs
+-- Dumping structure for table ci-0352.jobs
 CREATE TABLE IF NOT EXISTS `jobs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` enum('vacancy','resume') NOT NULL,
@@ -1595,8 +1572,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 /*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.lang
+-- Dumping structure for table ci-0352.lang
 CREATE TABLE IF NOT EXISTS `lang` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sections` char(255) NOT NULL DEFAULT 'label',
@@ -1608,9 +1584,9 @@ CREATE TABLE IF NOT EXISTS `lang` (
   `PL` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=593 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=598 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci-0352.lang: 542 rows
+-- Dumping data for table ci-0352.lang: 548 rows
 /*!40000 ALTER TABLE `lang` DISABLE KEYS */;
 INSERT INTO `lang` (`id`, `sections`, `code`, `EN`, `UA`, `RU`, `NL`, `PL`) VALUES
 	(1, '|label|', 'your_name', 'Your name', 'Ваше ім\'я', 'Ваше имя', 'Uw naam', 'Imię i nazwisko'),
@@ -2154,23 +2130,28 @@ INSERT INTO `lang` (`id`, `sections`, `code`, `EN`, `UA`, `RU`, `NL`, `PL`) VALU
 	(587, '|front|', 'ask_a_question', 'Ask a question', 'Задавати питання', 'Задать вопрос', 'Stel een vraag', 'Zadaj pytanie'),
 	(589, '|front|', 'track_shipment', 'Track shipment', 'Відстежити вантаж', 'Отследить груз', 'Track zending', 'Monitoruj przesyłkę'),
 	(590, '|label|', 'documents', 'Documents', 'Документи', 'Документы', 'Documenten', 'Dokumenty'),
-	(591, '|label|', 'documents_categories', 'Documents categories', 'Категорії документів', 'Категории документов', 'Documenten Categorieën', 'Kategorie dokumentów');
+	(591, '|label|', 'documents_categories', 'Documents categories', 'Категорії документів', 'Категории документов', 'Documenten Categorieën', 'Kategorie dokumentów'),
+	(593, '|cart|', 'order_minimum_sum_x', 'Minimum order is %s To place an order add the product to the desired amount.', 'Мінімальна сума замовлення %s Для оформлення замовлення додайте товару на необхідну суму.', 'Минимальная сумма заказа %s Для оформления заказа добавьте товара на необходимую сумму.', 'Minimale bestelling is %s Om een bestelling plaatst het product toe te voegen om de gewenste hoeveelheid.', 'Minimalne zamówienie to %s Aby złożyć zamówienie należy dodać produkt do żądanej wysokości.'),
+	(592, '|cart|admin|', 'order_minimum_sum', 'Minimum order sum', 'Мінімальна сума замовлення', 'Минимальная сумма заказа', 'Minimale bestelling', 'Minimalne zamówienie'),
+	(594, '|orders|admin|', 'orders_calendar', 'Orders calendar', 'Календар замовлень', 'Календарь заказов', 'Bestel kalender', 'Zamówienia kalendarz'),
+	(597, '|quiz|', 'finish_quiz', 'Finish quiz', 'Завершити тест', 'Завершить тест', 'Toets afronden', 'Test zaliczeniowy'),
+	(596, '|quiz|', 'skip', 'Skip', 'Пропустити', 'Пропустить', 'Springen', 'Pomiń'),
+	(595, '|quiz|', 'reply', 'Reply', 'Відповісти', 'Ответить', 'Reageren', 'Odpowiedź');
 /*!40000 ALTER TABLE `lang` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.lang_gen
+-- Dumping structure for table ci-0352.lang_gen
 CREATE TABLE IF NOT EXISTS `lang_gen` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `is_slug` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `table` varchar(100) NOT NULL,
-  `EN` text NOT NULL,
-  `UA` text NOT NULL,
-  `RU` text NOT NULL,
-  `NL` text NOT NULL,
-  `PL` text NOT NULL,
+  `EN` text,
+  `UA` text,
+  `RU` text,
+  `NL` text,
+  `PL` text,
   PRIMARY KEY (`id`),
   KEY `is_slug` (`is_slug`)
-) ENGINE=MyISAM AUTO_INCREMENT=1199 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1208 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.lang_gen: 835 rows
 /*!40000 ALTER TABLE `lang_gen` DISABLE KEYS */;
@@ -3012,15 +2993,14 @@ INSERT INTO `lang_gen` (`id`, `is_slug`, `table`, `EN`, `UA`, `RU`, `NL`, `PL`) 
 	(1197, 0, 'documents_categories_list', 'Documents Category 4', 'Documents Category 4', 'Documents Category 4', 'Documents Category 4', 'Documents Category 4');
 /*!40000 ALTER TABLE `lang_gen` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.links
+-- Dumping structure for table ci-0352.links
 CREATE TABLE IF NOT EXISTS `links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `description_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `link` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.links: 1 rows
 /*!40000 ALTER TABLE `links` DISABLE KEYS */;
@@ -3028,8 +3008,7 @@ INSERT INTO `links` (`id`, `name_lang_id`, `description_lang_id`, `link`) VALUES
 	(23, 43, 44, 'http://google.com');
 /*!40000 ALTER TABLE `links` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.menu
+-- Dumping structure for table ci-0352.menu
 CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3054,8 +3033,7 @@ INSERT INTO `menu` (`id`, `name_lang_id`, `page_id`, `link`, `sort`, `menu`) VAL
 	(48, 10, 0, 'quiz/rating', 4, 'left');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.news
+-- Dumping structure for table ci-0352.news
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `head_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3067,7 +3045,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `comments_opened` enum('default','no','yes') NOT NULL DEFAULT 'default',
   PRIMARY KEY (`id`),
   KEY `pub_date` (`pub_date`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.news: 1 rows
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
@@ -3075,8 +3053,7 @@ INSERT INTO `news` (`id`, `head_lang_id`, `slug_lang_id`, `meta_keywords_lang_id
 	(13, 45, 283, 334, 335, 46, '2011-07-25 15:40:54', 'default');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.newsletters
+-- Dumping structure for table ci-0352.newsletters
 CREATE TABLE IF NOT EXISTS `newsletters` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL DEFAULT '',
@@ -3091,20 +3068,19 @@ CREATE TABLE IF NOT EXISTS `newsletters` (
 /*!40000 ALTER TABLE `newsletters` DISABLE KEYS */;
 /*!40000 ALTER TABLE `newsletters` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.orders
+-- Dumping structure for table ci-0352.orders
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
   `orders_customer_info_id` char(16) NOT NULL DEFAULT '',
-  `subtotal` decimal(7,2) unsigned NOT NULL,
-  `discount_percent` tinyint(2) unsigned NOT NULL,
-  `discount_amount` decimal(7,2) unsigned NOT NULL,
-  `discount_coupon` char(10) NOT NULL,
-  `shipping_id` char(16) NOT NULL,
-  `shipping_title` varchar(150) NOT NULL,
-  `shipping_amount` decimal(7,2) NOT NULL,
-  `total` decimal(7,2) unsigned NOT NULL,
+  `subtotal` decimal(7,2) unsigned NOT NULL DEFAULT '0.00',
+  `discount_percent` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  `discount_amount` decimal(7,2) unsigned NOT NULL DEFAULT '0.00',
+  `discount_coupon` char(10) NOT NULL DEFAULT '',
+  `shipping_id` char(16) NOT NULL DEFAULT '',
+  `shipping_title` varchar(150) NOT NULL DEFAULT '',
+  `shipping_amount` decimal(7,2) unsigned NOT NULL DEFAULT '0.00',
+  `total` decimal(7,2) unsigned NOT NULL DEFAULT '0.00',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -3122,14 +3098,13 @@ INSERT INTO `orders` (`id`, `customer_id`, `orders_customer_info_id`, `subtotal`
 	(50, 7, '0', 429.90, 3, 12.90, '', '5145C98DABDD171A', 'New Mail', 20.00, 437.00, 2, '2013-03-22 11:49:42');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.orders_cart
+-- Dumping structure for table ci-0352.orders_cart
 CREATE TABLE IF NOT EXISTS `orders_cart` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `product_id` int(11) NOT NULL DEFAULT '0',
-  `qty` tinyint(3) unsigned NOT NULL,
-  `price` decimal(7,2) unsigned DEFAULT NULL,
+  `product_id` char(16) NOT NULL DEFAULT '0',
+  `qty` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `price` decimal(7,2) unsigned DEFAULT '0.00',
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
@@ -3137,22 +3112,21 @@ CREATE TABLE IF NOT EXISTS `orders_cart` (
 -- Dumping data for table ci-0352.orders_cart: 12 rows
 /*!40000 ALTER TABLE `orders_cart` DISABLE KEYS */;
 INSERT INTO `orders_cart` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
-	(45, 25, 16, 2, 30.50),
-	(46, 25, 18, 3, 15.50),
-	(55, 28, 15, 10, 99.95),
-	(58, 30, 19, 3, 30.00),
-	(63, 33, 19, 4, 30.00),
-	(64, 33, 18, 1, 15.50),
-	(75, 39, 16, 2, 30.50),
-	(76, 39, 16, 3, 30.50),
-	(80, 41, 16, 1, 30.50),
-	(81, 41, 18, 1, 15.50),
-	(92, 50, 15, 2, 99.95),
-	(93, 50, 19, 1, 230.00);
+	(45, 25, '16', 2, 30.50),
+	(46, 25, '18', 3, 15.50),
+	(55, 28, '15', 10, 99.95),
+	(58, 30, '19', 3, 30.00),
+	(63, 33, '19', 4, 30.00),
+	(64, 33, '18', 1, 15.50),
+	(75, 39, '16', 2, 30.50),
+	(76, 39, '16', 3, 30.50),
+	(80, 41, '16', 1, 30.50),
+	(81, 41, '18', 1, 15.50),
+	(92, 50, '15', 2, 99.95),
+	(93, 50, '19', 1, 230.00);
 /*!40000 ALTER TABLE `orders_cart` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.orders_cart_attributes
+-- Dumping structure for table ci-0352.orders_cart_attributes
 CREATE TABLE IF NOT EXISTS `orders_cart_attributes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `order_cart_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3173,8 +3147,7 @@ INSERT INTO `orders_cart_attributes` (`id`, `order_cart_id`, `attr_id`, `value_i
 	(12, 76, 2, 4);
 /*!40000 ALTER TABLE `orders_cart_attributes` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.orders_customer_info
+-- Dumping structure for table ci-0352.orders_customer_info
 CREATE TABLE IF NOT EXISTS `orders_customer_info` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -3192,8 +3165,7 @@ CREATE TABLE IF NOT EXISTS `orders_customer_info` (
 /*!40000 ALTER TABLE `orders_customer_info` DISABLE KEYS */;
 /*!40000 ALTER TABLE `orders_customer_info` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.pages
+-- Dumping structure for table ci-0352.pages
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `slug_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3233,8 +3205,7 @@ INSERT INTO `pages` (`id`, `slug_lang_id`, `page_title_lang_id`, `meta_keywords_
 	(51, 994, 990, 991, 992, 993, 'yes', 'top-news');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.photos
+-- Dumping structure for table ci-0352.photos
 CREATE TABLE IF NOT EXISTS `photos` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `file_name` varchar(40) NOT NULL DEFAULT '',
@@ -3244,14 +3215,13 @@ CREATE TABLE IF NOT EXISTS `photos` (
   PRIMARY KEY (`id`),
   KEY `file` (`file_name`),
   KEY `category_id` (`category_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=196 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=197 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.photos: 0 rows
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.photos_categories_list
+-- Dumping structure for table ci-0352.photos_categories_list
 CREATE TABLE IF NOT EXISTS `photos_categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3269,8 +3239,7 @@ CREATE TABLE IF NOT EXISTS `photos_categories_list` (
 /*!40000 ALTER TABLE `photos_categories_list` DISABLE KEYS */;
 /*!40000 ALTER TABLE `photos_categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.poll_answers
+-- Dumping structure for table ci-0352.poll_answers
 CREATE TABLE IF NOT EXISTS `poll_answers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `poll_id` int(10) unsigned NOT NULL,
@@ -3294,8 +3263,7 @@ INSERT INTO `poll_answers` (`id`, `poll_id`, `answer_lang_id`) VALUES
 	(15, 3, 70);
 /*!40000 ALTER TABLE `poll_answers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.poll_list
+-- Dumping structure for table ci-0352.poll_list
 CREATE TABLE IF NOT EXISTS `poll_list` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3312,8 +3280,7 @@ INSERT INTO `poll_list` (`id`, `title_lang_id`, `active`, `date`) VALUES
 	(3, 59, 1, '2011-07-25 18:57:38');
 /*!40000 ALTER TABLE `poll_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.poll_store
+-- Dumping structure for table ci-0352.poll_store
 CREATE TABLE IF NOT EXISTS `poll_store` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `poll_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3433,8 +3400,7 @@ INSERT INTO `poll_store` (`id`, `poll_id`, `answer_id`, `date`, `customer_id`, `
 	(133, 3, 11, '2014-02-03 12:43:51', 7, '127.0.0.1', 'Internet Explorer', 'Unknown Windows OS');
 /*!40000 ALTER TABLE `poll_store` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.posters
+-- Dumping structure for table ci-0352.posters
 CREATE TABLE IF NOT EXISTS `posters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -3453,13 +3419,12 @@ INSERT INTO `posters` (`id`, `title`, `text`, `period`, `image`, `pub_date`, `cu
 	(18, 'test poster', 'test test .....', 180, '0.45840800 1313175018.png', '2011-08-12 21:50:18', 7, 5);
 /*!40000 ALTER TABLE `posters` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.posts_categories
+-- Dumping structure for table ci-0352.posts_categories
 CREATE TABLE IF NOT EXISTS `posts_categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` char(16) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `type` enum('poster','company','job','article','news','product','document') NOT NULL DEFAULT 'poster',
+  `category_id` int(11) unsigned NOT NULL,
+  `type` enum('poster','company','job','article','news','product') NOT NULL DEFAULT 'poster',
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`),
   KEY `category_id` (`category_id`),
@@ -3557,8 +3522,7 @@ INSERT INTO `posts_categories` (`id`, `post_id`, `category_id`, `type`) VALUES
 	(353, '9BE5581C26CFEE74', 91, 'product');
 /*!40000 ALTER TABLE `posts_categories` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.posts_categories_orig
+-- Dumping structure for table ci-0352.posts_categories_orig
 CREATE TABLE IF NOT EXISTS `posts_categories_orig` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_id` int(11) NOT NULL,
@@ -3657,8 +3621,7 @@ INSERT INTO `posts_categories_orig` (`id`, `post_id`, `category_id`, `type`) VAL
 	(330, 24, 98, 'product');
 /*!40000 ALTER TABLE `posts_categories_orig` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.posts_images
+-- Dumping structure for table ci-0352.posts_images
 CREATE TABLE IF NOT EXISTS `posts_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3680,8 +3643,7 @@ INSERT INTO `posts_images` (`id`, `post_id`, `table`, `image`) VALUES
 	(49, 24, 'products', '07e5d9baf0c471d4ca4138df94f52a65.jpg');
 /*!40000 ALTER TABLE `posts_images` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products
+-- Dumping structure for table ci-0352.products
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `SKU` varchar(30) NOT NULL DEFAULT '',
@@ -3716,8 +3678,7 @@ INSERT INTO `products` (`id`, `SKU`, `name_lang_id`, `slug_lang_id`, `page_title
 	(24, 'MAGNA123', 984, 989, 1198, 985, 986, 4999.00, 5500.00, '70a9a160f23b9c6c8b9aacaff39f1dba.jpg', 988, 987, '', '2012-08-22 23:48:30', 4, 1, 0, 0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products_attributes
+-- Dumping structure for table ci-0352.products_attributes
 CREATE TABLE IF NOT EXISTS `products_attributes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `product_id` int(11) unsigned NOT NULL,
@@ -3739,8 +3700,7 @@ INSERT INTO `products_attributes` (`id`, `product_id`, `attr_id`, `value_id`) VA
 	(112, 16, 2, 1);
 /*!40000 ALTER TABLE `products_attributes` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products_available_attributes
+-- Dumping structure for table ci-0352.products_available_attributes
 CREATE TABLE IF NOT EXISTS `products_available_attributes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name_lang_id` int(11) unsigned NOT NULL,
@@ -3754,8 +3714,7 @@ INSERT INTO `products_available_attributes` (`id`, `name_lang_id`) VALUES
 	(2, 351);
 /*!40000 ALTER TABLE `products_available_attributes` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products_available_attributes_values
+-- Dumping structure for table ci-0352.products_available_attributes_values
 CREATE TABLE IF NOT EXISTS `products_available_attributes_values` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `attr_id` int(11) unsigned NOT NULL,
@@ -3780,16 +3739,15 @@ INSERT INTO `products_available_attributes_values` (`id`, `attr_id`, `value_lang
 	(12, 1, 363);
 /*!40000 ALTER TABLE `products_available_attributes_values` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products_categories_list
+-- Dumping structure for table ci-0352.products_categories_list
 CREATE TABLE IF NOT EXISTS `products_categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `description_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
   `sort` int(5) unsigned NOT NULL DEFAULT '0',
-  `file_name` varchar(40) NOT NULL,
-  `orig_name` varchar(100) NOT NULL,
+  `file_name` varchar(40) NOT NULL DEFAULT '',
+  `orig_name` varchar(100) NOT NULL DEFAULT '',
   `alt_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
@@ -3810,8 +3768,7 @@ INSERT INTO `products_categories_list` (`id`, `category_lang_id`, `description_l
 	(102, 866, 867, 0, 3, '5ffc23a1e7869f759c5ecde870048923.jpg', 'x_6f5049b0.jpg', 868);
 /*!40000 ALTER TABLE `products_categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.products_manufacturers
+-- Dumping structure for table ci-0352.products_manufacturers
 CREATE TABLE IF NOT EXISTS `products_manufacturers` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL DEFAULT '',
@@ -3831,346 +3788,346 @@ INSERT INTO `products_manufacturers` (`id`, `name`) VALUES
 	(10, 'HP');
 /*!40000 ALTER TABLE `products_manufacturers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_answers
+-- Dumping structure for table ci-0352.quiz_answers
 CREATE TABLE IF NOT EXISTS `quiz_answers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question_id` int(11) unsigned NOT NULL,
   `answer` varchar(255) DEFAULT NULL,
   `correct` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `connect_answer` int(10) unsigned NOT NULL DEFAULT '0',
+  `image` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `question_id` (`question_id`,`correct`)
 ) ENGINE=MyISAM AUTO_INCREMENT=330 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.quiz_answers: 317 rows
 /*!40000 ALTER TABLE `quiz_answers` DISABLE KEYS */;
-INSERT INTO `quiz_answers` (`id`, `question_id`, `answer`, `correct`) VALUES
-	(1, 1, 'echo', 1),
-	(2, 1, 'print', 0),
-	(3, 1, 'no difference', 0),
-	(13, 7, 'no difference', 0),
-	(14, 7, 'abstract class could has methods realization, but interface not', 1),
-	(15, 7, 'interface  could has methods realization, but abstract class not', 0),
-	(16, 7, 'interface extends abstract class', 0),
-	(17, 7, 'abstract class extends interface', 0),
-	(18, 8, '!=', 1),
-	(19, 8, '==', 1),
-	(20, 8, '<>', 0),
-	(21, 8, '+=', 1),
-	(22, 8, '=+', 0),
-	(23, 8, '*=', 1),
-	(24, 8, '++', 1),
-	(25, 8, '**', 0),
-	(26, 9, 'private', 0),
-	(27, 9, 'public', 1),
-	(28, 9, 'protected', 0),
-	(29, 9, 'static', 0),
-	(30, 10, '1', 0),
-	(31, 10, '2', 1),
-	(32, 10, '3', 0),
-	(33, 10, 'error', 0),
-	(34, 11, '0', 0),
-	(35, 11, '1', 1),
-	(36, 11, 'FALSE', 0),
-	(37, 11, 'TRUE', 0),
-	(38, 11, 'error', 0),
-	(39, 12, '$_GET[\'var\'];', 1),
-	(40, 12, '$var', 0),
-	(41, 12, '$_POST[\'var\'];', 1),
-	(42, 12, '$_var_', 0),
-	(43, 12, '$_HEAD[\'var\'];', 0),
-	(44, 13, 'k', 0),
-	(45, 13, 'i', 1),
-	(46, 13, 'error', 0),
-	(47, 13, '0', 0),
-	(48, 14, 'TRUE', 0),
-	(49, 14, 'array(\'c\', \'b\', \'a\')', 1),
-	(50, 14, 'array(array(\'c\', \'b\', \'a\'))', 0),
-	(51, 14, 'other', 0),
-	(52, 15, 'mysql_fetch_array();', 1),
-	(53, 15, 'mysql_field_table();', 0),
-	(54, 15, 'mysql_fetch_row();', 1),
-	(55, 15, 'mysql_field_flags();', 0),
-	(56, 16, '__LINE__', 1),
-	(57, 16, 'PHP_USER_BROWSER', 0),
-	(58, 16, 'TRUE', 1),
-	(59, 16, 'PHP_OS', 1),
-	(60, 16, '__CATALOG__', 0),
-	(61, 17, '12345', 0),
-	(62, 17, '12245', 1),
-	(63, 17, '22345', 0),
-	(64, 17, '11345', 0),
-	(65, 17, 'error', 0),
-	(66, 18, '0', 0),
-	(67, 18, '1', 0),
-	(68, 18, 'any', 1),
-	(69, 19, 'Xor', 1),
-	(70, 19, '||', 1),
-	(71, 19, '!', 1),
-	(72, 19, 'isset', 0),
-	(73, 19, '+', 0),
-	(74, 20, '-568087200', 1),
-	(75, 20, '-1', 0),
-	(76, 20, '0', 0),
-	(77, 20, 'error', 0),
-	(78, 21, '1', 0),
-	(79, 21, '2', 1),
-	(80, 21, '0', 0),
-	(81, 21, 'error', 0),
-	(82, 22, '$f = fopen("/home/rasmus/file.txt", "at");', 0),
-	(83, 22, '$f = fopen("/home/rasmus/file.txt", "b+a");', 1),
-	(84, 22, '$f = fopen("/home/rasmus/file.txt", "w");', 0),
-	(85, 22, '$f = fopen("/home/rasmus/file.txt", "a+b");', 0),
-	(86, 22, '$f = fopen("/home/rasmus/file.txt", "x+");', 0),
-	(87, 22, '$f = fopen("/home/rasmus/file.txt", "b+t");', 1),
-	(88, 23, 'protected function getName(){}', 0),
-	(89, 23, 'function getName(){}', 0),
-	(90, 23, 'private function getName(){}', 1),
-	(91, 23, 'public function getName(){}', 0),
-	(92, 23, 'public function getName();', 1),
-	(93, 24, '<', 1),
-	(94, 24, '>', 1),
-	(95, 24, '\'', 1),
-	(96, 24, '"', 1),
-	(97, 24, '&', 1),
-	(98, 25, '1', 0),
-	(99, 25, '3', 0),
-	(100, 25, '31', 1),
-	(101, 25, 'error', 0),
-	(102, 26, 'nothing', 0),
-	(103, 26, 'Array ( [1] => b [0] => c )', 1),
-	(104, 26, '$a', 0),
-	(105, 26, 'error', 0),
-	(106, 27, 'nothing', 0),
-	(107, 27, 'one', 1),
-	(108, 27, 'two', 0),
-	(109, 27, 'three', 0),
-	(110, 27, 'onetwo', 0),
-	(111, 27, 'error', 0),
-	(112, 28, '__condtruct', 1),
-	(113, 28, '__get', 1),
-	(114, 28, '__clone', 1),
-	(115, 28, '__call', 1),
-	(116, 28, '__sleep', 1),
-	(117, 28, '__wakeup', 1),
-	(118, 28, '__close', 0),
-	(119, 29, 'md5()', 0),
-	(120, 29, 'sha1()', 1),
-	(121, 29, 'crc32()', 0),
-	(122, 29, 'other', 0),
-	(123, 30, 'nothing', 1),
-	(124, 30, '0', 0),
-	(125, 30, '5', 0),
-	(126, 30, 'error', 0),
-	(127, 31, '33', 0),
-	(128, 31, '42', 1),
-	(129, 31, '0', 0),
-	(130, 31, 'error', 0),
-	(131, 32, 'Definition of an abstract method can contain method realization', 1),
-	(132, 32, 'An abstract class may contain not abstract methods', 0),
-	(133, 32, 'Class with at least one abstract method must be declared as abstract', 0),
-	(134, 32, 'Abstract classes are introduced in php5', 0),
-	(135, 33, 'decimal', 1),
-	(136, 33, 'real', 0),
-	(137, 33, 'boolean', 0),
-	(138, 33, 'double', 0),
-	(139, 34, '*', 1),
-	(140, 35, 'list-type-style:circle;', 0),
-	(141, 35, 'list-style-type:circle;', 1),
-	(142, 35, 'list-attachment-type:circle;', 0),
-	(143, 35, 'style-list:circle;', 0),
-	(144, 35, 'list-type:circle;', 0),
-	(145, 36, 'background-color:white;', 1),
-	(146, 36, 'background:#fff;', 1),
-	(147, 36, 'bgcolor:#FFFFFF;', 0),
-	(148, 36, 'backgroundColor:white;', 0),
-	(149, 36, 'background-color:rgb(255,255,255);', 1),
-	(150, 36, 'bg-color:#fff;', 0),
-	(151, 37, 'border-bottom', 0),
-	(152, 37, 'border-bottom-color', 0),
-	(153, 37, 'border-all', 1),
-	(154, 37, 'border-width', 0),
-	(155, 37, 'border-bottom-style', 0),
-	(156, 37, 'border-max', 1),
-	(157, 37, 'border-position', 1),
-	(158, 38, 'text-font-size', 0),
-	(159, 38, 'font-size', 1),
-	(160, 38, 'text-size', 0),
-	(161, 38, 'text-font', 0),
-	(162, 38, 'size', 0),
-	(163, 39, 'padding:5px;', 1),
-	(164, 39, 'margin:5px;', 0),
-	(165, 39, 'spacing:5px;', 0),
-	(166, 39, 'inner-spacing:5px;', 0),
-	(167, 39, 'insets:5px;', 0),
-	(168, 40, 'Continious Style Sheets', 0),
-	(169, 40, 'Conceptual Style Sheets', 0),
-	(170, 40, 'Cascading Style Sheets', 1),
-	(171, 40, 'Controlable Style Sheets', 0),
-	(172, 40, 'Contraversal Styling Sheets', 0),
-	(173, 41, 'text-size', 0),
-	(174, 41, 'text-height', 0),
-	(175, 41, 'font-height', 0),
-	(176, 41, 'line-height', 1),
-	(177, 41, 'text-list-height', 0),
-	(178, 42, 'align:center;', 0),
-	(179, 42, 'text-align:center;', 1),
-	(180, 42, 'halign:center;', 0),
-	(181, 42, 'content-align:center;', 0),
-	(182, 42, 'horizontal-align:center;', 0),
-	(183, 43, 'body { color: black }', 1),
-	(184, 43, 'body:color=black', 0),
-	(185, 43, '{body:color=black}', 0),
-	(186, 43, '{body;color:black}', 0),
-	(187, 43, 'body ( color: black )', 0),
-	(188, 44, 'p { font-size: bold; }', 0),
-	(189, 44, 'p { font-weight: bold; }', 1),
-	(190, 44, 'p { font-style: bold; }', 0),
-	(191, 44, 'p { text-weight: bold }', 0),
-	(192, 44, 'p { text-style: bold; }', 0),
-	(193, 45, 'class.white{ background-color:white; }', 0),
-	(194, 45, '.white { background-color:white; }', 1),
-	(195, 45, 'class=white { background-color:white; }', 0),
-	(196, 45, 'p.white { background-color:white; }', 0),
-	(197, 45, 'class:white { background-color:white; }', 0),
-	(198, 46, '<a href="..." border="0"><img src="..." /></a>', 0),
-	(199, 46, '<a href="..." style="border:none;"><img src="..." /></a>', 0),
-	(200, 46, '<a href="..."><img src="..." style="border:none;" /></a>', 1),
-	(201, 46, '<a href="..."><img src="..." border="0" /></a>', 1),
-	(202, 47, '<!DOCTYPE html>', 1),
-	(203, 47, '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5 Transitional//EN" "http://www.w3.org/TR/HTML5/DTD/HTML5-transitional.dtd">', 0),
-	(204, 47, '<!DOCTYPE html5>', 0),
-	(205, 47, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 45//EN" "http://www.w3.org/TR/html5/strict.dtd">', 0),
-	(206, 48, '<meta charset="UTF-8" />', 1),
-	(207, 48, '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />', 0),
-	(208, 48, '<meta http-equiv="Content-Type" content="text/html5; charset=utf-8" />', 0),
-	(209, 48, '<meta http-equiv="Content-Type" content="HTML5; charset=utf-8" />', 0),
-	(210, 49, 'header', 1),
-	(211, 49, 'footer', 1),
-	(212, 49, 'article', 1),
-	(213, 49, 'aside', 1),
-	(214, 49, 'hgroup', 1),
-	(215, 49, 'php', 0),
-	(216, 49, 'video', 1),
-	(217, 50, 'PUT', 1),
-	(218, 50, 'DELETE', 1),
-	(219, 50, 'UPLOAD', 0),
-	(220, 50, 'REMOVE', 0),
-	(221, 51, 'section', 1),
-	(222, 51, 'aside', 1),
-	(223, 51, 'hgroup', 1),
-	(224, 51, 'figure', 0),
-	(225, 51, 'audio', 0),
-	(226, 52, 'meter', 1),
-	(227, 52, 'progress', 1),
-	(228, 52, 'footer', 0),
-	(229, 52, 'aside', 0),
-	(230, 52, 'hgroup', 0),
-	(231, 52, 'menu', 1),
-	(232, 53, 'basefont', 1),
-	(233, 53, 'center', 1),
-	(234, 53, 'frame', 1),
-	(235, 53, 'frameset', 1),
-	(236, 53, 'iframe', 0),
-	(237, 54, 'menu', 0),
-	(238, 54, 'nav', 1),
-	(239, 54, 'header', 0),
-	(240, 55, 'url', 1),
-	(241, 55, 'email', 1),
-	(242, 55, 'datetime', 1),
-	(243, 55, 'tel', 1),
-	(244, 56, 'range', 1),
-	(245, 56, 'search', 0),
-	(246, 56, 'date', 0),
-	(247, 56, 'digit', 0),
-	(248, 57, '<input type="text" value="" placeholder="Trila text" />', 1),
-	(249, 57, 'This is possible just with javascript.', 0),
-	(250, 57, '<input type="placeholder" value="" default="Trila text" />', 0),
-	(251, 57, '<input type="text" value="" default="Trila text" />', 0),
-	(252, 58, 'required', 1),
-	(253, 59, 'moz', 1),
-	(254, 60, 'div > h1 {color:red}', 1),
-	(255, 60, 'div h1 {color:red}', 0),
-	(256, 60, 'div h1 {color:red}', 0),
-	(257, 60, 'div h1:first-child {color:red}', 0),
-	(258, 61, 'h1 + p {padding:5px;}', 1),
-	(259, 61, 'h1 > p {padding:5px;}', 0),
-	(260, 61, 'div > p {padding:5px;}', 0),
-	(261, 61, 'p[content^=content] {padding:5px;}', 0),
-	(262, 62, 'yes, from 7 version', 0),
-	(263, 62, 'yes, from 8 version', 0),
-	(264, 62, 'yes, from 9 version', 1),
-	(265, 62, 'no', 0),
-	(266, 63, 'ondragenter', 1),
-	(267, 63, 'ondragover', 1),
-	(268, 63, 'ondrop', 1),
-	(269, 63, 'ondragout', 0),
-	(270, 64, 'yes, from 7 version', 1),
-	(271, 64, 'yes, from 8 version', 0),
-	(272, 64, 'yes, from 9 version', 0),
-	(273, 64, 'no', 0),
-	(274, 65, 'no', 0),
-	(275, 65, '.news{column-count:2;}', 1),
-	(276, 65, '.news{columns:2;}', 0),
-	(277, 65, '.news{display:table;column:2;}', 0),
-	(278, 66, 'a[href^="http://"] {text-decoration:underline;}', 1),
-	(279, 66, 'a[href$="http://"] {text-decoration:underline;}', 0),
-	(280, 66, 'a[href="http://"] {text-decoration:underline;}', 0),
-	(281, 67, 'yes', 0),
-	(282, 67, 'yes, from IE 7 version', 1),
-	(283, 67, 'yes, from IE 8 version', 0),
-	(284, 67, 'yes, from IE 9 version', 0),
-	(285, 67, 'no', 0),
-	(286, 68, 'input:disabled + label {color:#ccc;}', 1),
-	(287, 68, 'label {color:#ccc;}', 0),
-	(288, 68, 'input:disabled > label {color:#ccc;}', 0),
-	(289, 68, 'label[for="email"] {color:#ccc;}', 0),
-	(290, 69, 'div:not(.main):not(.content) {padding:5px;}', 1),
-	(291, 69, 'div:not(.main:not(.content)) {padding:5px;}', 0),
-	(292, 69, 'div[class=empty] {padding:5px;}', 0),
-	(293, 69, 'div[class=""] {padding:5px;}', 1),
-	(294, 70, ':root', 1),
-	(295, 70, ':empty', 1),
-	(296, 70, ':first-of-type', 1),
-	(297, 70, ':first-child', 1),
-	(298, 70, ':last-child', 1),
-	(299, 70, ':only-of-type', 1),
-	(300, 71, 'border-radius', 1),
-	(301, 71, '-webkit-border-radius', 1),
-	(302, 71, '-moz-border-radius', 1),
-	(303, 71, '-o-border-radius', 0),
-	(304, 72, '1', 0),
-	(305, 72, '2', 0),
-	(306, 72, '3', 0),
-	(307, 72, '4', 1),
-	(308, 73, 'FireFox', 1),
-	(309, 73, 'Safari', 1),
-	(310, 73, 'Internet Explorer', 0),
-	(311, 73, 'Opera', 0),
-	(312, 73, 'Chrome', 1),
-	(313, 74, 'flexible', 0),
-	(314, 74, 'box', 1),
-	(315, 74, 'inline-box', 1),
-	(316, 74, 'flexible-box', 0),
-	(317, 75, 'width', 1),
-	(318, 75, 'device-width', 1),
-	(319, 75, 'orientation', 1),
-	(320, 75, 'apect-ratio', 1),
-	(321, 75, 'resolution', 1),
-	(322, 76, 'no, errors', 0),
-	(323, 76, '1', 0),
-	(324, 76, '2', 0),
-	(325, 76, '3', 0),
-	(326, 76, '4', 1);
+INSERT INTO `quiz_answers` (`id`, `question_id`, `answer`, `correct`, `connect_answer`, `image`) VALUES
+	(1, 1, 'echo', 1, 0, NULL),
+	(2, 1, 'print', 0, 0, NULL),
+	(3, 1, 'no difference', 0, 0, NULL),
+	(13, 7, 'no difference', 0, 0, NULL),
+	(14, 7, 'abstract class could has methods realization, but interface not', 1, 0, NULL),
+	(15, 7, 'interface  could has methods realization, but abstract class not', 0, 0, NULL),
+	(16, 7, 'interface extends abstract class', 0, 0, NULL),
+	(17, 7, 'abstract class extends interface', 0, 0, NULL),
+	(18, 8, '!=', 1, 0, NULL),
+	(19, 8, '==', 1, 0, NULL),
+	(20, 8, '<>', 0, 0, NULL),
+	(21, 8, '+=', 1, 0, NULL),
+	(22, 8, '=+', 0, 0, NULL),
+	(23, 8, '*=', 1, 0, NULL),
+	(24, 8, '++', 1, 0, NULL),
+	(25, 8, '**', 0, 0, NULL),
+	(26, 9, 'private', 0, 0, NULL),
+	(27, 9, 'public', 1, 0, NULL),
+	(28, 9, 'protected', 0, 0, NULL),
+	(29, 9, 'static', 0, 0, NULL),
+	(30, 10, '1', 0, 0, NULL),
+	(31, 10, '2', 1, 0, NULL),
+	(32, 10, '3', 0, 0, NULL),
+	(33, 10, 'error', 0, 0, NULL),
+	(34, 11, '0', 0, 0, NULL),
+	(35, 11, '1', 1, 0, NULL),
+	(36, 11, 'FALSE', 0, 0, NULL),
+	(37, 11, 'TRUE', 0, 0, NULL),
+	(38, 11, 'error', 0, 0, NULL),
+	(39, 12, '$_GET[\'var\'];', 1, 0, NULL),
+	(40, 12, '$var', 0, 0, NULL),
+	(41, 12, '$_POST[\'var\'];', 1, 0, NULL),
+	(42, 12, '$_var_', 0, 0, NULL),
+	(43, 12, '$_HEAD[\'var\'];', 0, 0, NULL),
+	(44, 13, 'k', 0, 0, NULL),
+	(45, 13, 'i', 1, 0, NULL),
+	(46, 13, 'error', 0, 0, NULL),
+	(47, 13, '0', 0, 0, NULL),
+	(48, 14, 'TRUE', 0, 0, NULL),
+	(49, 14, 'array(\'c\', \'b\', \'a\')', 1, 0, NULL),
+	(50, 14, 'array(array(\'c\', \'b\', \'a\'))', 0, 0, NULL),
+	(51, 14, 'other', 0, 0, NULL),
+	(52, 15, 'mysql_fetch_array();', 1, 0, NULL),
+	(53, 15, 'mysql_field_table();', 0, 0, NULL),
+	(54, 15, 'mysql_fetch_row();', 1, 0, NULL),
+	(55, 15, 'mysql_field_flags();', 0, 0, NULL),
+	(56, 16, '__LINE__', 1, 0, NULL),
+	(57, 16, 'PHP_USER_BROWSER', 0, 0, NULL),
+	(58, 16, 'TRUE', 1, 0, NULL),
+	(59, 16, 'PHP_OS', 1, 0, NULL),
+	(60, 16, '__CATALOG__', 0, 0, NULL),
+	(61, 17, '12345', 0, 0, NULL),
+	(62, 17, '12245', 1, 0, NULL),
+	(63, 17, '22345', 0, 0, NULL),
+	(64, 17, '11345', 0, 0, NULL),
+	(65, 17, 'error', 0, 0, NULL),
+	(66, 18, '0', 0, 0, NULL),
+	(67, 18, '1', 0, 0, NULL),
+	(68, 18, 'any', 1, 0, NULL),
+	(69, 19, 'Xor', 1, 0, NULL),
+	(70, 19, '||', 1, 0, NULL),
+	(71, 19, '!', 1, 0, NULL),
+	(72, 19, 'isset', 0, 0, NULL),
+	(73, 19, '+', 0, 0, NULL),
+	(74, 20, '-568087200', 1, 0, NULL),
+	(75, 20, '-1', 0, 0, NULL),
+	(76, 20, '0', 0, 0, NULL),
+	(77, 20, 'error', 0, 0, NULL),
+	(78, 21, '1', 0, 0, NULL),
+	(79, 21, '2', 1, 0, NULL),
+	(80, 21, '0', 0, 0, NULL),
+	(81, 21, 'error', 0, 0, NULL),
+	(82, 22, '$f = fopen("/home/rasmus/file.txt", "at");', 0, 0, NULL),
+	(83, 22, '$f = fopen("/home/rasmus/file.txt", "b+a");', 1, 0, NULL),
+	(84, 22, '$f = fopen("/home/rasmus/file.txt", "w");', 0, 0, NULL),
+	(85, 22, '$f = fopen("/home/rasmus/file.txt", "a+b");', 0, 0, NULL),
+	(86, 22, '$f = fopen("/home/rasmus/file.txt", "x+");', 0, 0, NULL),
+	(87, 22, '$f = fopen("/home/rasmus/file.txt", "b+t");', 1, 0, NULL),
+	(88, 23, 'protected function getName(){}', 0, 0, NULL),
+	(89, 23, 'function getName(){}', 0, 0, NULL),
+	(90, 23, 'private function getName(){}', 1, 0, NULL),
+	(91, 23, 'public function getName(){}', 0, 0, NULL),
+	(92, 23, 'public function getName();', 1, 0, NULL),
+	(93, 24, '<', 1, 0, NULL),
+	(94, 24, '>', 1, 0, NULL),
+	(95, 24, '\'', 1, 0, NULL),
+	(96, 24, '"', 1, 0, NULL),
+	(97, 24, '&', 1, 0, NULL),
+	(98, 25, '1', 0, 0, NULL),
+	(99, 25, '3', 0, 0, NULL),
+	(100, 25, '31', 1, 0, NULL),
+	(101, 25, 'error', 0, 0, NULL),
+	(102, 26, 'nothing', 0, 0, NULL),
+	(103, 26, 'Array ( [1] => b [0] => c )', 1, 0, NULL),
+	(104, 26, '$a', 0, 0, NULL),
+	(105, 26, 'error', 0, 0, NULL),
+	(106, 27, 'nothing', 0, 0, NULL),
+	(107, 27, 'one', 1, 0, NULL),
+	(108, 27, 'two', 0, 0, NULL),
+	(109, 27, 'three', 0, 0, NULL),
+	(110, 27, 'onetwo', 0, 0, NULL),
+	(111, 27, 'error', 0, 0, NULL),
+	(112, 28, '__condtruct', 1, 0, NULL),
+	(113, 28, '__get', 1, 0, NULL),
+	(114, 28, '__clone', 1, 0, NULL),
+	(115, 28, '__call', 1, 0, NULL),
+	(116, 28, '__sleep', 1, 0, NULL),
+	(117, 28, '__wakeup', 1, 0, NULL),
+	(118, 28, '__close', 0, 0, NULL),
+	(119, 29, 'md5()', 0, 0, NULL),
+	(120, 29, 'sha1()', 1, 0, NULL),
+	(121, 29, 'crc32()', 0, 0, NULL),
+	(122, 29, 'other', 0, 0, NULL),
+	(123, 30, 'nothing', 1, 0, NULL),
+	(124, 30, '0', 0, 0, NULL),
+	(125, 30, '5', 0, 0, NULL),
+	(126, 30, 'error', 0, 0, NULL),
+	(127, 31, '33', 0, 0, NULL),
+	(128, 31, '42', 1, 0, NULL),
+	(129, 31, '0', 0, 0, NULL),
+	(130, 31, 'error', 0, 0, NULL),
+	(131, 32, 'Definition of an abstract method can contain method realization', 1, 0, NULL),
+	(132, 32, 'An abstract class may contain not abstract methods', 0, 0, NULL),
+	(133, 32, 'Class with at least one abstract method must be declared as abstract', 0, 0, NULL),
+	(134, 32, 'Abstract classes are introduced in php5', 0, 0, NULL),
+	(135, 33, 'decimal', 1, 0, NULL),
+	(136, 33, 'real', 0, 0, NULL),
+	(137, 33, 'boolean', 0, 0, NULL),
+	(138, 33, 'double', 0, 0, NULL),
+	(139, 34, '*', 1, 0, NULL),
+	(140, 35, 'list-type-style:circle;', 0, 0, NULL),
+	(141, 35, 'list-style-type:circle;', 1, 0, NULL),
+	(142, 35, 'list-attachment-type:circle;', 0, 0, NULL),
+	(143, 35, 'style-list:circle;', 0, 0, NULL),
+	(144, 35, 'list-type:circle;', 0, 0, NULL),
+	(145, 36, 'background-color:white;', 1, 0, NULL),
+	(146, 36, 'background:#fff;', 1, 0, NULL),
+	(147, 36, 'bgcolor:#FFFFFF;', 0, 0, NULL),
+	(148, 36, 'backgroundColor:white;', 0, 0, NULL),
+	(149, 36, 'background-color:rgb(255,255,255);', 1, 0, NULL),
+	(150, 36, 'bg-color:#fff;', 0, 0, NULL),
+	(151, 37, 'border-bottom', 0, 0, NULL),
+	(152, 37, 'border-bottom-color', 0, 0, NULL),
+	(153, 37, 'border-all', 1, 0, NULL),
+	(154, 37, 'border-width', 0, 0, NULL),
+	(155, 37, 'border-bottom-style', 0, 0, NULL),
+	(156, 37, 'border-max', 1, 0, NULL),
+	(157, 37, 'border-position', 1, 0, NULL),
+	(158, 38, 'text-font-size', 0, 0, NULL),
+	(159, 38, 'font-size', 1, 0, NULL),
+	(160, 38, 'text-size', 0, 0, NULL),
+	(161, 38, 'text-font', 0, 0, NULL),
+	(162, 38, 'size', 0, 0, NULL),
+	(163, 39, 'padding:5px;', 1, 0, NULL),
+	(164, 39, 'margin:5px;', 0, 0, NULL),
+	(165, 39, 'spacing:5px;', 0, 0, NULL),
+	(166, 39, 'inner-spacing:5px;', 0, 0, NULL),
+	(167, 39, 'insets:5px;', 0, 0, NULL),
+	(168, 40, 'Continious Style Sheets', 0, 0, NULL),
+	(169, 40, 'Conceptual Style Sheets', 0, 0, NULL),
+	(170, 40, 'Cascading Style Sheets', 1, 0, NULL),
+	(171, 40, 'Controlable Style Sheets', 0, 0, NULL),
+	(172, 40, 'Contraversal Styling Sheets', 0, 0, NULL),
+	(173, 41, 'text-size', 0, 0, NULL),
+	(174, 41, 'text-height', 0, 0, NULL),
+	(175, 41, 'font-height', 0, 0, NULL),
+	(176, 41, 'line-height', 1, 0, NULL),
+	(177, 41, 'text-list-height', 0, 0, NULL),
+	(178, 42, 'align:center;', 0, 0, NULL),
+	(179, 42, 'text-align:center;', 1, 0, NULL),
+	(180, 42, 'halign:center;', 0, 0, NULL),
+	(181, 42, 'content-align:center;', 0, 0, NULL),
+	(182, 42, 'horizontal-align:center;', 0, 0, NULL),
+	(183, 43, 'body { color: black }', 1, 0, NULL),
+	(184, 43, 'body:color=black', 0, 0, NULL),
+	(185, 43, '{body:color=black}', 0, 0, NULL),
+	(186, 43, '{body;color:black}', 0, 0, NULL),
+	(187, 43, 'body ( color: black )', 0, 0, NULL),
+	(188, 44, 'p { font-size: bold; }', 0, 0, NULL),
+	(189, 44, 'p { font-weight: bold; }', 1, 0, NULL),
+	(190, 44, 'p { font-style: bold; }', 0, 0, NULL),
+	(191, 44, 'p { text-weight: bold }', 0, 0, NULL),
+	(192, 44, 'p { text-style: bold; }', 0, 0, NULL),
+	(193, 45, 'class.white{ background-color:white; }', 0, 0, NULL),
+	(194, 45, '.white { background-color:white; }', 1, 0, NULL),
+	(195, 45, 'class=white { background-color:white; }', 0, 0, NULL),
+	(196, 45, 'p.white { background-color:white; }', 0, 0, NULL),
+	(197, 45, 'class:white { background-color:white; }', 0, 0, NULL),
+	(198, 46, '<a href="..." border="0"><img src="..." /></a>', 0, 0, NULL),
+	(199, 46, '<a href="..." style="border:none;"><img src="..." /></a>', 0, 0, NULL),
+	(200, 46, '<a href="..."><img src="..." style="border:none;" /></a>', 1, 0, NULL),
+	(201, 46, '<a href="..."><img src="..." border="0" /></a>', 1, 0, NULL),
+	(202, 47, '<!DOCTYPE html>', 1, 0, NULL),
+	(203, 47, '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5 Transitional//EN" "http://www.w3.org/TR/HTML5/DTD/HTML5-transitional.dtd">', 0, 0, NULL),
+	(204, 47, '<!DOCTYPE html5>', 0, 0, NULL),
+	(205, 47, '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 45//EN" "http://www.w3.org/TR/html5/strict.dtd">', 0, 0, NULL),
+	(206, 48, '<meta charset="UTF-8" />', 1, 0, NULL),
+	(207, 48, '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />', 0, 0, NULL),
+	(208, 48, '<meta http-equiv="Content-Type" content="text/html5; charset=utf-8" />', 0, 0, NULL),
+	(209, 48, '<meta http-equiv="Content-Type" content="HTML5; charset=utf-8" />', 0, 0, NULL),
+	(210, 49, 'header', 1, 0, NULL),
+	(211, 49, 'footer', 1, 0, NULL),
+	(212, 49, 'article', 1, 0, NULL),
+	(213, 49, 'aside', 1, 0, NULL),
+	(214, 49, 'hgroup', 1, 0, NULL),
+	(215, 49, 'php', 0, 0, NULL),
+	(216, 49, 'video', 1, 0, NULL),
+	(217, 50, 'PUT', 1, 0, NULL),
+	(218, 50, 'DELETE', 1, 0, NULL),
+	(219, 50, 'UPLOAD', 0, 0, NULL),
+	(220, 50, 'REMOVE', 0, 0, NULL),
+	(221, 51, 'section', 1, 0, NULL),
+	(222, 51, 'aside', 1, 0, NULL),
+	(223, 51, 'hgroup', 1, 0, NULL),
+	(224, 51, 'figure', 0, 0, NULL),
+	(225, 51, 'audio', 0, 0, NULL),
+	(226, 52, 'meter', 1, 0, NULL),
+	(227, 52, 'progress', 1, 0, NULL),
+	(228, 52, 'footer', 0, 0, NULL),
+	(229, 52, 'aside', 0, 0, NULL),
+	(230, 52, 'hgroup', 0, 0, NULL),
+	(231, 52, 'menu', 1, 0, NULL),
+	(232, 53, 'basefont', 1, 0, NULL),
+	(233, 53, 'center', 1, 0, NULL),
+	(234, 53, 'frame', 1, 0, NULL),
+	(235, 53, 'frameset', 1, 0, NULL),
+	(236, 53, 'iframe', 0, 0, NULL),
+	(237, 54, 'menu', 0, 0, NULL),
+	(238, 54, 'nav', 1, 0, NULL),
+	(239, 54, 'header', 0, 0, NULL),
+	(240, 55, 'url', 1, 0, NULL),
+	(241, 55, 'email', 1, 0, NULL),
+	(242, 55, 'datetime', 1, 0, NULL),
+	(243, 55, 'tel', 1, 0, NULL),
+	(244, 56, 'range', 1, 0, NULL),
+	(245, 56, 'search', 0, 0, NULL),
+	(246, 56, 'date', 0, 0, NULL),
+	(247, 56, 'digit', 0, 0, NULL),
+	(248, 57, '<input type="text" value="" placeholder="Trila text" />', 1, 0, NULL),
+	(249, 57, 'This is possible just with javascript.', 0, 0, NULL),
+	(250, 57, '<input type="placeholder" value="" default="Trila text" />', 0, 0, NULL),
+	(251, 57, '<input type="text" value="" default="Trila text" />', 0, 0, NULL),
+	(252, 58, 'required', 1, 0, NULL),
+	(253, 59, 'moz', 1, 0, NULL),
+	(254, 60, 'div > h1 {color:red}', 1, 0, NULL),
+	(255, 60, 'div h1 {color:red}', 0, 0, NULL),
+	(256, 60, 'div h1 {color:red}', 0, 0, NULL),
+	(257, 60, 'div h1:first-child {color:red}', 0, 0, NULL),
+	(258, 61, 'h1 + p {padding:5px;}', 1, 0, NULL),
+	(259, 61, 'h1 > p {padding:5px;}', 0, 0, NULL),
+	(260, 61, 'div > p {padding:5px;}', 0, 0, NULL),
+	(261, 61, 'p[content^=content] {padding:5px;}', 0, 0, NULL),
+	(262, 62, 'yes, from 7 version', 0, 0, NULL),
+	(263, 62, 'yes, from 8 version', 0, 0, NULL),
+	(264, 62, 'yes, from 9 version', 1, 0, NULL),
+	(265, 62, 'no', 0, 0, NULL),
+	(266, 63, 'ondragenter', 1, 0, NULL),
+	(267, 63, 'ondragover', 1, 0, NULL),
+	(268, 63, 'ondrop', 1, 0, NULL),
+	(269, 63, 'ondragout', 0, 0, NULL),
+	(270, 64, 'yes, from 7 version', 1, 0, NULL),
+	(271, 64, 'yes, from 8 version', 0, 0, NULL),
+	(272, 64, 'yes, from 9 version', 0, 0, NULL),
+	(273, 64, 'no', 0, 0, NULL),
+	(274, 65, 'no', 0, 0, NULL),
+	(275, 65, '.news{column-count:2;}', 1, 0, NULL),
+	(276, 65, '.news{columns:2;}', 0, 0, NULL),
+	(277, 65, '.news{display:table;column:2;}', 0, 0, NULL),
+	(278, 66, 'a[href^="http://"] {text-decoration:underline;}', 1, 0, NULL),
+	(279, 66, 'a[href$="http://"] {text-decoration:underline;}', 0, 0, NULL),
+	(280, 66, 'a[href="http://"] {text-decoration:underline;}', 0, 0, NULL),
+	(281, 67, 'yes', 0, 0, NULL),
+	(282, 67, 'yes, from IE 7 version', 1, 0, NULL),
+	(283, 67, 'yes, from IE 8 version', 0, 0, NULL),
+	(284, 67, 'yes, from IE 9 version', 0, 0, NULL),
+	(285, 67, 'no', 0, 0, NULL),
+	(286, 68, 'input:disabled + label {color:#ccc;}', 1, 0, NULL),
+	(287, 68, 'label {color:#ccc;}', 0, 0, NULL),
+	(288, 68, 'input:disabled > label {color:#ccc;}', 0, 0, NULL),
+	(289, 68, 'label[for="email"] {color:#ccc;}', 0, 0, NULL),
+	(290, 69, 'div:not(.main):not(.content) {padding:5px;}', 1, 0, NULL),
+	(291, 69, 'div:not(.main:not(.content)) {padding:5px;}', 0, 0, NULL),
+	(292, 69, 'div[class=empty] {padding:5px;}', 0, 0, NULL),
+	(293, 69, 'div[class=""] {padding:5px;}', 1, 0, NULL),
+	(294, 70, ':root', 1, 0, NULL),
+	(295, 70, ':empty', 1, 0, NULL),
+	(296, 70, ':first-of-type', 1, 0, NULL),
+	(297, 70, ':first-child', 1, 0, NULL),
+	(298, 70, ':last-child', 1, 0, NULL),
+	(299, 70, ':only-of-type', 1, 0, NULL),
+	(300, 71, 'border-radius', 1, 0, NULL),
+	(301, 71, '-webkit-border-radius', 1, 0, NULL),
+	(302, 71, '-moz-border-radius', 1, 0, NULL),
+	(303, 71, '-o-border-radius', 0, 0, NULL),
+	(304, 72, '1', 0, 0, NULL),
+	(305, 72, '2', 0, 0, NULL),
+	(306, 72, '3', 0, 0, NULL),
+	(307, 72, '4', 1, 0, NULL),
+	(308, 73, 'FireFox', 1, 0, NULL),
+	(309, 73, 'Safari', 1, 0, NULL),
+	(310, 73, 'Internet Explorer', 0, 0, NULL),
+	(311, 73, 'Opera', 0, 0, NULL),
+	(312, 73, 'Chrome', 1, 0, NULL),
+	(313, 74, 'flexible', 0, 0, NULL),
+	(314, 74, 'box', 1, 0, NULL),
+	(315, 74, 'inline-box', 1, 0, NULL),
+	(316, 74, 'flexible-box', 0, 0, NULL),
+	(317, 75, 'width', 1, 0, NULL),
+	(318, 75, 'device-width', 1, 0, NULL),
+	(319, 75, 'orientation', 1, 0, NULL),
+	(320, 75, 'apect-ratio', 1, 0, NULL),
+	(321, 75, 'resolution', 1, 0, NULL),
+	(322, 76, 'no, errors', 0, 0, NULL),
+	(323, 76, '1', 0, 0, NULL),
+	(324, 76, '2', 0, 0, NULL),
+	(325, 76, '3', 0, 0, NULL),
+	(326, 76, '4', 1, 0, NULL);
 /*!40000 ALTER TABLE `quiz_answers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_archive
+-- Dumping structure for table ci-0352.quiz_archive
 CREATE TABLE IF NOT EXISTS `quiz_archive` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL,
   `quiz_id` int(11) unsigned NOT NULL,
-  `scores` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `scores` decimal(5,2) unsigned NOT NULL DEFAULT '0.00',
   `questions_count` tinyint(3) unsigned DEFAULT '0',
   `correct_count` tinyint(3) unsigned DEFAULT '0',
   `started` int(11) unsigned NOT NULL DEFAULT '0',
@@ -4182,23 +4139,22 @@ CREATE TABLE IF NOT EXISTS `quiz_archive` (
 -- Dumping data for table ci-0352.quiz_archive: 5 rows
 /*!40000 ALTER TABLE `quiz_archive` DISABLE KEYS */;
 INSERT INTO `quiz_archive` (`id`, `customer_id`, `quiz_id`, `scores`, `questions_count`, `correct_count`, `started`, `finished`, `data`) VALUES
-	(52, 7, 2, 10, 10, 8, 1306534804, 1306534892, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"2";s:4:"name";s:17:"CSS (Basic Level)";s:11:"description";s:49:"<p>Check your <strong>CSS </strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-02 16:29:39";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"35";s:7:"quiz_id";s:1:"2";s:8:"question";s:40:"How to identify a round bullet for list?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534804";s:8:"end_time";s:10:"1306534815";}i:1;a:7:{s:2:"id";s:2:"39";s:7:"quiz_id";s:1:"2";s:8:"question";s:50:"How to set in CSS indent width 5px inside element?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534815";s:8:"end_time";s:10:"1306534838";}i:2;a:7:{s:2:"id";s:2:"34";s:7:"quiz_id";s:1:"2";s:8:"question";s:32:"Please enter universal selector.";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534838";s:8:"end_time";s:10:"1306534843";}i:3;a:7:{s:2:"id";s:2:"37";s:7:"quiz_id";s:1:"2";s:8:"question";s:47:"What of these properties does not exist in CSS?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306534844";s:8:"end_time";s:10:"1306534854";}i:4;a:7:{s:2:"id";s:2:"38";s:7:"quiz_id";s:1:"2";s:8:"question";s:46:"What CSS properties you can set the font size?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534854";s:8:"end_time";s:10:"1306534866";}i:5;a:7:{s:2:"id";s:2:"40";s:7:"quiz_id";s:1:"2";s:8:"question";s:26:"What does the acronym CSS?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534866";s:8:"end_time";s:10:"1306534870";}i:6;a:7:{s:2:"id";s:2:"43";s:7:"quiz_id";s:1:"2";s:8:"question";s:60:"Select a piece of CSS, which does not contain syntax errors.";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534870";s:8:"end_time";s:10:"1306534877";}i:7;a:7:{s:2:"id";s:2:"45";s:7:"quiz_id";s:1:"2";s:8:"question";s:83:"What a piece of css specifies a white background for all elements with class white?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534878";s:8:"end_time";s:10:"1306534881";}i:8;a:7:{s:2:"id";s:2:"42";s:7:"quiz_id";s:1:"2";s:8:"question";s:78:"How using CSS can align inline content block element (eg, <div>) horizontally?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534881";s:8:"end_time";s:10:"1306534888";}i:9;a:7:{s:2:"id";s:2:"41";s:7:"quiz_id";s:1:"2";s:8:"question";s:61:"What CSS properties can specify the height of a line of text?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534888";s:8:"end_time";s:10:"1306534892";}}s:10:"correctArr";a:10:{i:41;b:1;i:42;b:1;i:45;b:1;i:43;b:1;i:40;b:1;i:38;b:1;i:37;b:1;i:34;b:1;i:39;b:1;i:35;b:1;}s:7:"answers";a:10:{i:41;a:5:{i:0;a:4:{s:2:"id";s:3:"173";s:11:"question_id";s:2:"41";s:6:"answer";s:9:"text-size";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"174";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"text-height";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"175";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"font-height";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"177";s:11:"question_id";s:2:"41";s:6:"answer";s:16:"text-list-height";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"176";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"line-height";s:7:"correct";s:1:"1";}}i:42;a:5:{i:0;a:4:{s:2:"id";s:3:"178";s:11:"question_id";s:2:"42";s:6:"answer";s:13:"align:center;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"180";s:11:"question_id";s:2:"42";s:6:"answer";s:14:"halign:center;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"181";s:11:"question_id";s:2:"42";s:6:"answer";s:21:"content-align:center;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"182";s:11:"question_id";s:2:"42";s:6:"answer";s:24:"horizontal-align:center;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"179";s:11:"question_id";s:2:"42";s:6:"answer";s:18:"text-align:center;";s:7:"correct";s:1:"1";}}i:45;a:5:{i:0;a:4:{s:2:"id";s:3:"193";s:11:"question_id";s:2:"45";s:6:"answer";s:38:"class.white{ background-color:white; }";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"195";s:11:"question_id";s:2:"45";s:6:"answer";s:39:"class=white { background-color:white; }";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"196";s:11:"question_id";s:2:"45";s:6:"answer";s:35:"p.white { background-color:white; }";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"197";s:11:"question_id";s:2:"45";s:6:"answer";s:39:"class:white { background-color:white; }";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"194";s:11:"question_id";s:2:"45";s:6:"answer";s:34:".white { background-color:white; }";s:7:"correct";s:1:"1";}}i:43;a:5:{i:0;a:4:{s:2:"id";s:3:"184";s:11:"question_id";s:2:"43";s:6:"answer";s:16:"body:color=black";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"185";s:11:"question_id";s:2:"43";s:6:"answer";s:18:"{body:color=black}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"186";s:11:"question_id";s:2:"43";s:6:"answer";s:18:"{body;color:black}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"187";s:11:"question_id";s:2:"43";s:6:"answer";s:21:"body ( color: black )";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"183";s:11:"question_id";s:2:"43";s:6:"answer";s:21:"body { color: black }";s:7:"correct";s:1:"1";}}i:40;a:5:{i:0;a:4:{s:2:"id";s:3:"168";s:11:"question_id";s:2:"40";s:6:"answer";s:23:"Continious Style Sheets";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"169";s:11:"question_id";s:2:"40";s:6:"answer";s:23:"Conceptual Style Sheets";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"171";s:11:"question_id";s:2:"40";s:6:"answer";s:24:"Controlable Style Sheets";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"172";s:11:"question_id";s:2:"40";s:6:"answer";s:27:"Contraversal Styling Sheets";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"170";s:11:"question_id";s:2:"40";s:6:"answer";s:22:"Cascading Style Sheets";s:7:"correct";s:1:"1";}}i:38;a:5:{i:0;a:4:{s:2:"id";s:3:"158";s:11:"question_id";s:2:"38";s:6:"answer";s:14:"text-font-size";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"160";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"text-size";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"161";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"text-font";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"162";s:11:"question_id";s:2:"38";s:6:"answer";s:4:"size";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"159";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"font-size";s:7:"correct";s:1:"1";}}i:37;a:7:{i:0;a:4:{s:2:"id";s:3:"151";s:11:"question_id";s:2:"37";s:6:"answer";s:13:"border-bottom";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"152";s:11:"question_id";s:2:"37";s:6:"answer";s:19:"border-bottom-color";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"154";s:11:"question_id";s:2:"37";s:6:"answer";s:12:"border-width";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"155";s:11:"question_id";s:2:"37";s:6:"answer";s:19:"border-bottom-style";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"153";s:11:"question_id";s:2:"37";s:6:"answer";s:10:"border-all";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"156";s:11:"question_id";s:2:"37";s:6:"answer";s:10:"border-max";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"157";s:11:"question_id";s:2:"37";s:6:"answer";s:15:"border-position";s:7:"correct";s:1:"1";}}i:34;a:1:{i:0;a:4:{s:2:"id";s:3:"139";s:11:"question_id";s:2:"34";s:6:"answer";s:1:"*";s:7:"correct";s:1:"1";}}i:39;a:5:{i:0;a:4:{s:2:"id";s:3:"164";s:11:"question_id";s:2:"39";s:6:"answer";s:11:"margin:5px;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"165";s:11:"question_id";s:2:"39";s:6:"answer";s:12:"spacing:5px;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"166";s:11:"question_id";s:2:"39";s:6:"answer";s:18:"inner-spacing:5px;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"167";s:11:"question_id";s:2:"39";s:6:"answer";s:11:"insets:5px;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"163";s:11:"question_id";s:2:"39";s:6:"answer";s:12:"padding:5px;";s:7:"correct";s:1:"1";}}i:35;a:5:{i:0;a:4:{s:2:"id";s:3:"140";s:11:"question_id";s:2:"35";s:6:"answer";s:23:"list-type-style:circle;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"142";s:11:"question_id";s:2:"35";s:6:"answer";s:28:"list-attachment-type:circle;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"143";s:11:"question_id";s:2:"35";s:6:"answer";s:18:"style-list:circle;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"144";s:11:"question_id";s:2:"35";s:6:"answer";s:17:"list-type:circle;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"141";s:11:"question_id";s:2:"35";s:6:"answer";s:23:"list-style-type:circle;";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:41;a:1:{i:0;s:3:"176";}i:42;a:1:{i:0;s:3:"179";}i:45;a:1:{i:0;s:3:"194";}i:43;a:1:{i:0;s:3:"183";}i:40;a:1:{i:0;s:3:"170";}i:38;a:1:{i:0;s:3:"159";}i:37;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:34;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:39;a:1:{i:0;s:3:"163";}i:35;a:1:{i:0;s:3:"141";}}s:16:"customer_answers";a:10:{i:41;a:1:{i:0;s:3:"176";}i:42;a:1:{i:0;s:3:"179";}i:45;a:1:{i:0;s:3:"194";}i:43;a:1:{i:0;s:3:"183";}i:40;a:1:{i:0;s:3:"170";}i:38;a:1:{i:0;s:3:"159";}i:37;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:34;s:1:"*";i:39;a:1:{i:0;s:3:"163";}i:35;a:1:{i:0;s:3:"141";}}}'),
-	(53, 7, 1, 9, 10, 8, 1306572241, 1306572359, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"1";s:4:"name";s:20:"PHP 4 (Middle Level)";s:11:"description";s:55:"<p>Check your <strong>PHP4&nbsp;</strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-02 15:42:01";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"21";s:7:"quiz_id";s:1:"1";s:8:"question";s:43:"How many times will include file mfile.php?";s:4:"code";s:47:"include_once "mfile.php";\r\ninclude "mfile.php";";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572241";s:8:"end_time";s:10:"1306572257";}i:1;a:7:{s:2:"id";s:2:"14";s:7:"quiz_id";s:1:"1";s:8:"question";s:33:"What is value of $b in this code?";s:4:"code";s:44:"$a = array(\'c\', \'b\', \'a\');\r\n$b = (array) $a;";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572257";s:8:"end_time";s:10:"1306572279";}i:2;a:7:{s:2:"id";s:1:"1";s:7:"quiz_id";s:1:"1";s:8:"question";s:43:"What function is faster "echo" or "print" ?";s:4:"code";s:0:"";s:4:"time";s:2:"30";s:10:"start_time";s:10:"1306572279";s:8:"end_time";s:10:"1306572284";}i:3;a:7:{s:2:"id";s:2:"20";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:46:"<?php\r\necho strtotime ("January 1, 1952");\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572285";s:8:"end_time";s:10:"1306572291";}i:4;a:7:{s:2:"id";s:1:"8";s:7:"quiz_id";s:1:"1";s:8:"question";s:44:"What are correct PHP operators? (Select all)";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572292";s:8:"end_time";s:10:"1306572308";}i:5;a:7:{s:2:"id";s:2:"11";s:7:"quiz_id";s:1:"1";s:8:"question";s:58:"What returns this code if "the_file.php" exists and empty?";s:4:"code";s:40:"<?php \r\necho include "the_file.php";\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572309";s:8:"end_time";s:10:"1306572314";}i:6;a:7:{s:2:"id";s:2:"17";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:52:"<?php\r\n$a = "12345";\r\n$a[$a[1]] = "2";\r\necho $a;\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572314";s:8:"end_time";s:10:"1306572340";}i:7;a:7:{s:2:"id";s:2:"10";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:136:"01: <?php\r\n02:     function func(&$r) {\r\n03:        $r++;\r\n04:     }\r\n05:     $r = 1;\r\n06:     func(func($r));\r\n07:     echo $r;\r\n08: ?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572340";s:8:"end_time";s:10:"1306572347";}i:8;a:7:{s:2:"id";s:2:"15";s:7:"quiz_id";s:1:"1";s:8:"question";s:61:"Which of these functions can display the result of SQL query?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572347";s:8:"end_time";s:10:"1306572354";}i:9;a:7:{s:2:"id";s:2:"13";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:61:"<?php\r\n  $a = 1;\r\n  ${1} = \'wikipedia\';\r\n  echo ${$a}{3};\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572354";s:8:"end_time";s:10:"1306572359";}}s:10:"correctArr";a:10:{i:13;b:1;i:15;b:1;i:10;b:1;i:17;b:1;i:11;b:1;i:8;b:0;i:20;b:1;i:1;b:1;i:14;b:1;i:21;b:1;}s:7:"answers";a:10:{i:13;a:4:{i:0;a:4:{s:2:"id";s:2:"44";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"k";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"46";s:11:"question_id";s:2:"13";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"47";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"45";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"i";s:7:"correct";s:1:"1";}}i:15;a:4:{i:0;a:4:{s:2:"id";s:2:"53";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_field_table();";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"55";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_field_flags();";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"52";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_fetch_array();";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:2:"54";s:11:"question_id";s:2:"15";s:6:"answer";s:18:"mysql_fetch_row();";s:7:"correct";s:1:"1";}}i:10;a:4:{i:0;a:4:{s:2:"id";s:2:"30";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"32";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"33";s:11:"question_id";s:2:"10";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"31";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"2";s:7:"correct";s:1:"1";}}i:17;a:5:{i:0;a:4:{s:2:"id";s:2:"61";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"12345";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"63";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"22345";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"64";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"11345";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"65";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"62";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"12245";s:7:"correct";s:1:"1";}}i:11;a:5:{i:0;a:4:{s:2:"id";s:2:"34";s:11:"question_id";s:2:"11";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"36";s:11:"question_id";s:2:"11";s:6:"answer";s:5:"FALSE";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"37";s:11:"question_id";s:2:"11";s:6:"answer";s:4:"TRUE";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"38";s:11:"question_id";s:2:"11";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"35";s:11:"question_id";s:2:"11";s:6:"answer";s:1:"1";s:7:"correct";s:1:"1";}}i:8;a:8:{i:0;a:4:{s:2:"id";s:2:"20";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"<>";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"22";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"=+";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"25";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"**";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"18";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"!=";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:2:"19";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"==";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:2:"21";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"+=";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:2:"23";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"*=";s:7:"correct";s:1:"1";}i:7;a:4:{s:2:"id";s:2:"24";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"++";s:7:"correct";s:1:"1";}}i:20;a:4:{i:0;a:4:{s:2:"id";s:2:"75";s:11:"question_id";s:2:"20";s:6:"answer";s:2:"-1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"76";s:11:"question_id";s:2:"20";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"77";s:11:"question_id";s:2:"20";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"74";s:11:"question_id";s:2:"20";s:6:"answer";s:10:"-568087200";s:7:"correct";s:1:"1";}}i:1;a:3:{i:0;a:4:{s:2:"id";s:1:"2";s:11:"question_id";s:1:"1";s:6:"answer";s:5:"print";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:1:"3";s:11:"question_id";s:1:"1";s:6:"answer";s:13:"no difference";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:1:"1";s:11:"question_id";s:1:"1";s:6:"answer";s:4:"echo";s:7:"correct";s:1:"1";}}i:14;a:4:{i:0;a:4:{s:2:"id";s:2:"48";s:11:"question_id";s:2:"14";s:6:"answer";s:4:"TRUE";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"50";s:11:"question_id";s:2:"14";s:6:"answer";s:27:"array(array(\'c\', \'b\', \'a\'))";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"51";s:11:"question_id";s:2:"14";s:6:"answer";s:5:"other";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"49";s:11:"question_id";s:2:"14";s:6:"answer";s:20:"array(\'c\', \'b\', \'a\')";s:7:"correct";s:1:"1";}}i:21;a:4:{i:0;a:4:{s:2:"id";s:2:"78";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"80";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"81";s:11:"question_id";s:2:"21";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"79";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"2";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:13;a:1:{i:0;s:2:"45";}i:15;a:2:{i:0;s:2:"52";i:1;s:2:"54";}i:10;a:1:{i:0;s:2:"31";}i:17;a:1:{i:0;s:2:"62";}i:11;a:1:{i:0;s:2:"35";}i:8;a:5:{i:0;s:2:"18";i:1;s:2:"19";i:2;s:2:"21";i:3;s:2:"23";i:4;s:2:"24";}i:20;a:1:{i:0;s:2:"74";}i:1;a:1:{i:0;s:1:"1";}i:14;a:1:{i:0;s:2:"49";}i:21;a:1:{i:0;s:2:"79";}}s:16:"customer_answers";a:10:{i:13;a:1:{i:0;s:2:"45";}i:15;a:2:{i:0;s:2:"52";i:1;s:2:"54";}i:10;a:1:{i:0;s:2:"31";}i:17;a:1:{i:0;s:2:"62";}i:11;a:1:{i:0;s:2:"35";}i:8;a:5:{i:0;s:2:"18";i:1;s:2:"19";i:2;s:2:"20";i:3;s:2:"21";i:4;s:2:"24";}i:20;a:1:{i:0;s:2:"74";}i:1;a:1:{i:0;s:1:"1";}i:14;a:1:{i:0;s:2:"49";}i:21;a:1:{i:0;s:2:"79";}}}'),
-	(45, 7, 6, 14, 15, 12, 1299514122, 1299514242, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"6";s:4:"name";s:5:"HTML5";s:11:"description";s:26:"<p>New HTML5 features.</p>";s:15:"questions_count";s:2:"15";s:13:"correct_count";s:2:"12";s:4:"date";s:19:"2011-03-03 21:15:05";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:15:{i:0;a:7:{s:2:"id";s:2:"54";s:7:"quiz_id";s:1:"6";s:8:"question";s:37:"What of this tag used for navigation?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514122";s:8:"end_time";s:10:"1299514128";}i:1;a:7:{s:2:"id";s:2:"47";s:7:"quiz_id";s:1:"6";s:8:"question";s:35:"How set doctype for HTML5 document?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514128";s:8:"end_time";s:10:"1299514133";}i:2;a:7:{s:2:"id";s:2:"51";s:7:"quiz_id";s:1:"6";s:8:"question";s:43:"Please select HTML5 structural (only) tags.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514133";s:8:"end_time";s:10:"1299514140";}i:3;a:7:{s:2:"id";s:2:"50";s:7:"quiz_id";s:1:"6";s:8:"question";s:44:"What of this new methods supported in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514140";s:8:"end_time";s:10:"1299514151";}i:4;a:7:{s:2:"id";s:2:"53";s:7:"quiz_id";s:1:"6";s:8:"question";s:44:"Please select depracated  in HTML5 elements.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514151";s:8:"end_time";s:10:"1299514158";}i:5;a:7:{s:2:"id";s:2:"56";s:7:"quiz_id";s:1:"6";s:8:"question";s:76:"What of this input types has functionlity similar on input with type=number?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514159";s:8:"end_time";s:10:"1299514163";}i:6;a:7:{s:2:"id";s:2:"49";s:7:"quiz_id";s:1:"6";s:8:"question";s:35:"What of this tags present in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514163";s:8:"end_time";s:10:"1299514171";}i:7;a:7:{s:2:"id";s:2:"57";s:7:"quiz_id";s:1:"6";s:8:"question";s:110:"How to make in HTML5 prefilled text in input that hide when input get focus and visible again when focus lost?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514171";s:8:"end_time";s:10:"1299514180";}i:8;a:7:{s:2:"id";s:2:"48";s:7:"quiz_id";s:1:"6";s:8:"question";s:53:"What is correct charset definition in HTML5 document?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514180";s:8:"end_time";s:10:"1299514184";}i:9;a:7:{s:2:"id";s:2:"64";s:7:"quiz_id";s:1:"6";s:8:"question";s:62:"Does drag and drop API supported in Internet Explorer browser?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1299514185";s:8:"end_time";s:10:"1299514192";}i:10;a:7:{s:2:"id";s:2:"63";s:7:"quiz_id";s:1:"6";s:8:"question";s:56:"What of this events can be used for drop target element?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514192";s:8:"end_time";s:10:"1299514203";}i:11;a:7:{s:2:"id";s:2:"55";s:7:"quiz_id";s:1:"6";s:8:"question";s:40:"What of this input types exist in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514203";s:8:"end_time";s:10:"1299514214";}i:12;a:7:{s:2:"id";s:2:"62";s:7:"quiz_id";s:1:"6";s:8:"question";s:53:"Does Internet Expolorer browser support "canvas" tag?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1299514214";s:8:"end_time";s:10:"1299514220";}i:13;a:7:{s:2:"id";s:2:"52";s:7:"quiz_id";s:1:"6";s:8:"question";s:46:"Please select application-focused (only) tags.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514220";s:8:"end_time";s:10:"1299514233";}i:14;a:7:{s:2:"id";s:2:"58";s:7:"quiz_id";s:1:"6";s:8:"question";s:47:"What attribute of input tag makes it mandatory?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514233";s:8:"end_time";s:10:"1299514241";}}s:10:"correctArr";a:15:{i:64;b:1;i:48;b:1;i:57;b:1;i:49;b:1;i:56;b:1;i:53;b:1;i:50;b:1;i:51;b:1;i:47;b:1;i:54;b:1;i:63;b:1;i:55;b:1;i:62;b:1;i:52;b:0;i:58;b:1;}s:7:"answers";a:15:{i:64;a:4:{i:0;a:4:{s:2:"id";s:3:"271";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 8 version";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"272";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 9 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"273";s:11:"question_id";s:2:"64";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"270";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 7 version";s:7:"correct";s:1:"1";}}i:48;a:4:{i:0;a:4:{s:2:"id";s:3:"207";s:11:"question_id";s:2:"48";s:6:"answer";s:69:"<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"208";s:11:"question_id";s:2:"48";s:6:"answer";s:70:"<meta http-equiv="Content-Type" content="text/html5; charset=utf-8" />";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"209";s:11:"question_id";s:2:"48";s:6:"answer";s:65:"<meta http-equiv="Content-Type" content="HTML5; charset=utf-8" />";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"206";s:11:"question_id";s:2:"48";s:6:"answer";s:24:"<meta charset="UTF-8" />";s:7:"correct";s:1:"1";}}i:57;a:4:{i:0;a:4:{s:2:"id";s:3:"249";s:11:"question_id";s:2:"57";s:6:"answer";s:38:"This is possible just with javascript.";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"250";s:11:"question_id";s:2:"57";s:6:"answer";s:58:"<input type="placeholder" value="" default="Trila text" />";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"251";s:11:"question_id";s:2:"57";s:6:"answer";s:51:"<input type="text" value="" default="Trila text" />";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"248";s:11:"question_id";s:2:"57";s:6:"answer";s:55:"<input type="text" value="" placeholder="Trila text" />";s:7:"correct";s:1:"1";}}i:49;a:7:{i:0;a:4:{s:2:"id";s:3:"215";s:11:"question_id";s:2:"49";s:6:"answer";s:3:"php";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"210";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"header";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"211";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"footer";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"212";s:11:"question_id";s:2:"49";s:6:"answer";s:7:"article";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"213";s:11:"question_id";s:2:"49";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"214";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"216";s:11:"question_id";s:2:"49";s:6:"answer";s:5:"video";s:7:"correct";s:1:"1";}}i:56;a:4:{i:0;a:4:{s:2:"id";s:3:"245";s:11:"question_id";s:2:"56";s:6:"answer";s:6:"search";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"246";s:11:"question_id";s:2:"56";s:6:"answer";s:4:"date";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"247";s:11:"question_id";s:2:"56";s:6:"answer";s:5:"digit";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"244";s:11:"question_id";s:2:"56";s:6:"answer";s:5:"range";s:7:"correct";s:1:"1";}}i:53;a:5:{i:0;a:4:{s:2:"id";s:3:"236";s:11:"question_id";s:2:"53";s:6:"answer";s:6:"iframe";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"232";s:11:"question_id";s:2:"53";s:6:"answer";s:8:"basefont";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"233";s:11:"question_id";s:2:"53";s:6:"answer";s:6:"center";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"234";s:11:"question_id";s:2:"53";s:6:"answer";s:5:"frame";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"235";s:11:"question_id";s:2:"53";s:6:"answer";s:8:"frameset";s:7:"correct";s:1:"1";}}i:50;a:4:{i:0;a:4:{s:2:"id";s:3:"219";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"UPLOAD";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"220";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"REMOVE";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"217";s:11:"question_id";s:2:"50";s:6:"answer";s:3:"PUT";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"218";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"DELETE";s:7:"correct";s:1:"1";}}i:51;a:5:{i:0;a:4:{s:2:"id";s:3:"224";s:11:"question_id";s:2:"51";s:6:"answer";s:6:"figure";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"225";s:11:"question_id";s:2:"51";s:6:"answer";s:5:"audio";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"221";s:11:"question_id";s:2:"51";s:6:"answer";s:7:"section";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"222";s:11:"question_id";s:2:"51";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"223";s:11:"question_id";s:2:"51";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"1";}}i:47;a:4:{i:0;a:4:{s:2:"id";s:3:"203";s:11:"question_id";s:2:"47";s:6:"answer";s:116:"<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5 Transitional//EN" "http://www.w3.org/TR/HTML5/DTD/HTML5-transitional.dtd">";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"204";s:11:"question_id";s:2:"47";s:6:"answer";s:16:"<!DOCTYPE html5>";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"205";s:11:"question_id";s:2:"47";s:6:"answer";s:88:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 45//EN" "http://www.w3.org/TR/html5/strict.dtd">";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"202";s:11:"question_id";s:2:"47";s:6:"answer";s:15:"<!DOCTYPE html>";s:7:"correct";s:1:"1";}}i:54;a:3:{i:0;a:4:{s:2:"id";s:3:"237";s:11:"question_id";s:2:"54";s:6:"answer";s:4:"menu";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"239";s:11:"question_id";s:2:"54";s:6:"answer";s:6:"header";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"238";s:11:"question_id";s:2:"54";s:6:"answer";s:3:"nav";s:7:"correct";s:1:"1";}}i:63;a:4:{i:0;a:4:{s:2:"id";s:3:"269";s:11:"question_id";s:2:"63";s:6:"answer";s:9:"ondragout";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"266";s:11:"question_id";s:2:"63";s:6:"answer";s:11:"ondragenter";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"267";s:11:"question_id";s:2:"63";s:6:"answer";s:10:"ondragover";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"268";s:11:"question_id";s:2:"63";s:6:"answer";s:6:"ondrop";s:7:"correct";s:1:"1";}}i:55;a:4:{i:0;a:4:{s:2:"id";s:3:"240";s:11:"question_id";s:2:"55";s:6:"answer";s:3:"url";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:3:"241";s:11:"question_id";s:2:"55";s:6:"answer";s:5:"email";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"242";s:11:"question_id";s:2:"55";s:6:"answer";s:8:"datetime";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"243";s:11:"question_id";s:2:"55";s:6:"answer";s:3:"tel";s:7:"correct";s:1:"1";}}i:62;a:4:{i:0;a:4:{s:2:"id";s:3:"262";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 7 version";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"263";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 8 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"265";s:11:"question_id";s:2:"62";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"264";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 9 version";s:7:"correct";s:1:"1";}}i:52;a:6:{i:0;a:4:{s:2:"id";s:3:"228";s:11:"question_id";s:2:"52";s:6:"answer";s:6:"footer";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"229";s:11:"question_id";s:2:"52";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"230";s:11:"question_id";s:2:"52";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"226";s:11:"question_id";s:2:"52";s:6:"answer";s:5:"meter";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"227";s:11:"question_id";s:2:"52";s:6:"answer";s:8:"progress";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"231";s:11:"question_id";s:2:"52";s:6:"answer";s:4:"menu";s:7:"correct";s:1:"1";}}i:58;a:1:{i:0;a:4:{s:2:"id";s:3:"252";s:11:"question_id";s:2:"58";s:6:"answer";s:8:"required";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:15:{i:64;a:1:{i:0;s:3:"270";}i:48;a:1:{i:0;s:3:"206";}i:57;a:1:{i:0;s:3:"248";}i:49;a:6:{i:0;s:3:"210";i:1;s:3:"211";i:2;s:3:"212";i:3;s:3:"213";i:4;s:3:"214";i:5;s:3:"216";}i:56;a:1:{i:0;s:3:"244";}i:53;a:4:{i:0;s:3:"232";i:1;s:3:"233";i:2;s:3:"234";i:3;s:3:"235";}i:50;a:2:{i:0;s:3:"217";i:1;s:3:"218";}i:51;a:3:{i:0;s:3:"221";i:1;s:3:"222";i:2;s:3:"223";}i:47;a:1:{i:0;s:3:"202";}i:54;a:1:{i:0;s:3:"238";}i:63;a:3:{i:0;s:3:"266";i:1;s:3:"267";i:2;s:3:"268";}i:55;a:4:{i:0;s:3:"240";i:1;s:3:"241";i:2;s:3:"242";i:3;s:3:"243";}i:62;a:1:{i:0;s:3:"264";}i:52;a:3:{i:0;s:3:"226";i:1;s:3:"227";i:2;s:3:"231";}i:58;a:3:{i:0;s:3:"226";i:1;s:3:"227";i:2;s:3:"231";}}s:16:"customer_answers";a:15:{i:64;a:1:{i:0;s:3:"270";}i:48;a:1:{i:0;s:3:"206";}i:57;a:1:{i:0;s:3:"248";}i:49;a:6:{i:0;s:3:"210";i:1;s:3:"211";i:2;s:3:"212";i:3;s:3:"213";i:4;s:3:"214";i:5;s:3:"216";}i:56;a:1:{i:0;s:3:"244";}i:53;a:4:{i:0;s:3:"232";i:1;s:3:"233";i:2;s:3:"234";i:3;s:3:"235";}i:50;a:2:{i:0;s:3:"217";i:1;s:3:"218";}i:51;a:3:{i:0;s:3:"221";i:1;s:3:"222";i:2;s:3:"223";}i:47;a:1:{i:0;s:3:"202";}i:54;a:1:{i:0;s:3:"238";}i:63;a:3:{i:0;s:3:"266";i:1;s:3:"267";i:2;s:3:"268";}i:55;a:4:{i:0;s:3:"240";i:1;s:3:"241";i:2;s:3:"242";i:3;s:3:"243";}i:62;a:1:{i:0;s:3:"264";}i:52;a:2:{i:0;s:3:"226";i:1;s:3:"227";}i:58;s:8:"required";}}'),
-	(58, 7, 4, 9, 10, 8, 1311972330, 1311972432, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"4";s:4:"name";s:20:"PHP 5 (Middle Level)";s:11:"description";s:84:"<p>OOP and new PHP5 features.</p>\r\n<p>Check you <strong>PHP5 </strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-03 17:26:00";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"31";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:279:"<?php\r\nclass foo {\r\n    private $value = 42;\r\n\r\n    public function &getValue() {\r\n        return $this->value;\r\n    }\r\n    public function echoValue(){\r\n        echo $this->value;\r\n    }\r\n}\r\n\r\n$obj = new foo;\r\n$myValue = $obj->getValue();\r\n$myValue = 33;\r\n$obj->echoValue();\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972330";s:8:"end_time";s:10:"1311972348";}i:1;a:7:{s:2:"id";s:1:"7";s:7:"quiz_id";s:1:"4";s:8:"question";s:54:"What difference between abstract class and interface ?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972348";s:8:"end_time";s:10:"1311972353";}i:2;a:7:{s:2:"id";s:2:"29";s:7:"quiz_id";s:1:"4";s:8:"question";s:64:"Which of the following functions returns the longest hash value?";s:4:"code";s:0:"";s:4:"time";s:2:"30";s:10:"start_time";s:10:"1311972353";s:8:"end_time";s:10:"1311972358";}i:3;a:7:{s:2:"id";s:2:"30";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:139:"<?\r\nclass MyClass {\r\n public $myVar;\r\n function __constructor() {\r\n  $this -> myVar = 5;\r\n }\r\n}\r\n\r\n$a = new MyClass;\r\necho $a -> myVar;\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972359";s:8:"end_time";s:10:"1311972369";}i:4;a:7:{s:2:"id";s:2:"25";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:210:"class cl {\r\n    var $a;\r\n    var $b;\r\n    function cl($b) {\r\n        $this->a=$b;\r\n    }\r\n    function b($b=1) {\r\n        $this->a.=$b;\r\n        return $this->a-$this->b;\r\n    }\r\n}\r\n$a=new cl(3);\r\necho $a->b();";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972369";s:8:"end_time";s:10:"1311972378";}i:5;a:7:{s:2:"id";s:2:"28";s:7:"quiz_id";s:1:"4";s:8:"question";s:33:"Please select PHP5 Magic Methods?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972379";s:8:"end_time";s:10:"1311972395";}i:6;a:7:{s:2:"id";s:2:"32";s:7:"quiz_id";s:1:"4";s:8:"question";s:70:"Choose all that is not true statements about abstract classes in php5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972396";s:8:"end_time";s:10:"1311972410";}i:7;a:7:{s:2:"id";s:2:"24";s:7:"quiz_id";s:1:"4";s:8:"question";s:76:"Which of these characters can be processed by the function htmlspecialchars?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972410";s:8:"end_time";s:10:"1311972419";}i:8;a:7:{s:2:"id";s:1:"9";s:7:"quiz_id";s:1:"4";s:8:"question";s:101:"If in class before "function" there is no "private", \'protected" or "public" what is used by default?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972419";s:8:"end_time";s:10:"1311972425";}i:9;a:7:{s:2:"id";s:2:"27";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:198:"class newClass\r\n{\r\n    public $one = \'one\';\r\n    private $two = \'two\';\r\n    function two()\r\n    {\r\n        return \'three\';\r\n    }\r\n}\r\n$obj = new newClass();\r\nforeach ($obj as $v)\r\n{\r\n    echo $v;\r\n}";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972426";s:8:"end_time";s:10:"1311972432";}}s:10:"correctArr";a:10:{i:31;b:1;i:7;b:1;i:29;b:1;i:30;b:1;i:25;b:1;i:28;b:1;i:32;b:0;i:24;b:1;i:9;b:1;i:27;b:1;}s:7:"answers";a:10:{i:31;a:4:{i:0;a:4:{s:2:"id";s:3:"127";s:11:"question_id";s:2:"31";s:6:"answer";s:2:"33";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"129";s:11:"question_id";s:2:"31";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"130";s:11:"question_id";s:2:"31";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"128";s:11:"question_id";s:2:"31";s:6:"answer";s:2:"42";s:7:"correct";s:1:"1";}}i:7;a:5:{i:0;a:4:{s:2:"id";s:2:"13";s:11:"question_id";s:1:"7";s:6:"answer";s:13:"no difference";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"15";s:11:"question_id";s:1:"7";s:6:"answer";s:64:"interface  could has methods realization, but abstract class not";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"16";s:11:"question_id";s:1:"7";s:6:"answer";s:32:"interface extends abstract class";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"17";s:11:"question_id";s:1:"7";s:6:"answer";s:32:"abstract class extends interface";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"14";s:11:"question_id";s:1:"7";s:6:"answer";s:63:"abstract class could has methods realization, but interface not";s:7:"correct";s:1:"1";}}i:29;a:4:{i:0;a:4:{s:2:"id";s:3:"119";s:11:"question_id";s:2:"29";s:6:"answer";s:5:"md5()";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"121";s:11:"question_id";s:2:"29";s:6:"answer";s:7:"crc32()";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"122";s:11:"question_id";s:2:"29";s:6:"answer";s:5:"other";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"120";s:11:"question_id";s:2:"29";s:6:"answer";s:6:"sha1()";s:7:"correct";s:1:"1";}}i:30;a:4:{i:0;a:4:{s:2:"id";s:3:"124";s:11:"question_id";s:2:"30";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"125";s:11:"question_id";s:2:"30";s:6:"answer";s:1:"5";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"126";s:11:"question_id";s:2:"30";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"123";s:11:"question_id";s:2:"30";s:6:"answer";s:7:"nothing";s:7:"correct";s:1:"1";}}i:25;a:4:{i:0;a:4:{s:2:"id";s:2:"98";s:11:"question_id";s:2:"25";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"99";s:11:"question_id";s:2:"25";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"101";s:11:"question_id";s:2:"25";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"100";s:11:"question_id";s:2:"25";s:6:"answer";s:2:"31";s:7:"correct";s:1:"1";}}i:28;a:7:{i:0;a:4:{s:2:"id";s:3:"118";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__close";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"112";s:11:"question_id";s:2:"28";s:6:"answer";s:11:"__condtruct";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"113";s:11:"question_id";s:2:"28";s:6:"answer";s:5:"__get";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"114";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__clone";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"115";s:11:"question_id";s:2:"28";s:6:"answer";s:6:"__call";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"116";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__sleep";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"117";s:11:"question_id";s:2:"28";s:6:"answer";s:8:"__wakeup";s:7:"correct";s:1:"1";}}i:32;a:4:{i:0;a:4:{s:2:"id";s:3:"132";s:11:"question_id";s:2:"32";s:6:"answer";s:50:"An abstract class may contain not abstract methods";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"133";s:11:"question_id";s:2:"32";s:6:"answer";s:68:"Class with at least one abstract method must be declared as abstract";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"134";s:11:"question_id";s:2:"32";s:6:"answer";s:39:"Abstract classes are introduced in php5";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"131";s:11:"question_id";s:2:"32";s:6:"answer";s:63:"Definition of an abstract method can contain method realization";s:7:"correct";s:1:"1";}}i:24;a:5:{i:0;a:4:{s:2:"id";s:2:"93";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"<";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:2:"94";s:11:"question_id";s:2:"24";s:6:"answer";s:1:">";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:2:"95";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"\'";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:2:"96";s:11:"question_id";s:2:"24";s:6:"answer";s:1:""";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:2:"97";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"&";s:7:"correct";s:1:"1";}}i:9;a:4:{i:0;a:4:{s:2:"id";s:2:"26";s:11:"question_id";s:1:"9";s:6:"answer";s:7:"private";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"28";s:11:"question_id";s:1:"9";s:6:"answer";s:9:"protected";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"29";s:11:"question_id";s:1:"9";s:6:"answer";s:6:"static";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"27";s:11:"question_id";s:1:"9";s:6:"answer";s:6:"public";s:7:"correct";s:1:"1";}}i:27;a:6:{i:0;a:4:{s:2:"id";s:3:"106";s:11:"question_id";s:2:"27";s:6:"answer";s:7:"nothing";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"108";s:11:"question_id";s:2:"27";s:6:"answer";s:3:"two";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"109";s:11:"question_id";s:2:"27";s:6:"answer";s:5:"three";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"110";s:11:"question_id";s:2:"27";s:6:"answer";s:6:"onetwo";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"111";s:11:"question_id";s:2:"27";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:5;a:4:{s:2:"id";s:3:"107";s:11:"question_id";s:2:"27";s:6:"answer";s:3:"one";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:31;a:1:{i:0;s:3:"128";}i:7;a:1:{i:0;s:2:"14";}i:29;a:1:{i:0;s:3:"120";}i:30;a:1:{i:0;s:3:"123";}i:25;a:1:{i:0;s:3:"100";}i:28;a:6:{i:0;s:3:"112";i:1;s:3:"113";i:2;s:3:"114";i:3;s:3:"115";i:4;s:3:"116";i:5;s:3:"117";}i:32;a:1:{i:0;s:3:"131";}i:24;a:5:{i:0;s:2:"93";i:1;s:2:"94";i:2;s:2:"95";i:3;s:2:"96";i:4;s:2:"97";}i:9;a:1:{i:0;s:2:"27";}i:27;a:1:{i:0;s:3:"107";}}s:16:"customer_answers";a:10:{i:31;a:1:{i:0;s:3:"128";}i:7;a:1:{i:0;s:2:"14";}i:29;a:1:{i:0;s:3:"120";}i:30;a:1:{i:0;s:3:"123";}i:25;a:1:{i:0;s:3:"100";}i:28;a:6:{i:0;s:3:"112";i:1;s:3:"113";i:2;s:3:"114";i:3;s:3:"115";i:4;s:3:"116";i:5;s:3:"117";}i:32;a:1:{i:0;s:3:"133";}i:24;a:5:{i:0;s:2:"93";i:1;s:2:"94";i:2;s:2:"95";i:3;s:2:"96";i:4;s:2:"97";}i:9;a:1:{i:0;s:2:"27";}i:27;a:1:{i:0;s:3:"107";}}}'),
-	(66, 7, 7, 6, 10, 8, 1391417069, 1391417530, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"7";s:4:"name";s:5:"CSS 3";s:11:"description";s:25:"<p>New CSS3 features.</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-03-04 18:31:42";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"68";s:7:"quiz_id";s:1:"7";s:8:"question";s:84:"How to make label with grey color if input is disabled (but not when it is enabled)?";s:4:"code";s:88:"<input type="text" name="email" id="email" />\r\n<label for="email">Email Address:</label>";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417069";s:8:"end_time";s:10:"1391417118";}i:1;a:7:{s:2:"id";s:2:"76";s:7:"quiz_id";s:1:"7";s:8:"question";s:36:"In what line of code there is error?";s:4:"code";s:121:"1: @font-face {\r\n2:    font-family: Delicious; \r\n3:    font-weight: bold; \r\n4:    path: url(\'Delicious-Bold.otf\'); \r\n5: }";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417118";s:8:"end_time";s:10:"1391417180";}i:2;a:7:{s:2:"id";s:2:"65";s:7:"quiz_id";s:1:"7";s:8:"question";s:69:"Does it possible to divide text on 2 columns without additional tags?";s:4:"code";s:131:"<div class="news">\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\n</div>";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417180";s:8:"end_time";s:10:"1391417213";}i:3;a:7:{s:2:"id";s:2:"67";s:7:"quiz_id";s:1:"7";s:8:"question";s:64:"Does attribute selectors supported in Internet Explorer browser?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417213";s:8:"end_time";s:10:"1391417229";}i:4;a:7:{s:2:"id";s:2:"60";s:7:"quiz_id";s:1:"7";s:8:"question";s:98:"How set red color for H1 tag with text "header 2" and "header 3", but not for H1 with "header 1" ?";s:4:"code";s:184:"<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div class="test">\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417229";s:8:"end_time";s:10:"1391417351";}i:5;a:7:{s:2:"id";s:2:"74";s:7:"quiz_id";s:1:"7";s:8:"question";s:54:"What of this display properties create flexible boxes?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417351";s:8:"end_time";s:10:"1391417406";}i:6;a:7:{s:2:"id";s:2:"59";s:7:"quiz_id";s:1:"7";s:8:"question";s:62:"What is vendor prefix for Firefox browser? (enter without "-")";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417406";s:8:"end_time";s:10:"1391417418";}i:7;a:7:{s:2:"id";s:2:"70";s:7:"quiz_id";s:1:"7";s:8:"question";s:48:"What of this structural selectors exist in CSS3?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417418";s:8:"end_time";s:10:"1391417479";}i:8;a:7:{s:2:"id";s:2:"61";s:7:"quiz_id";s:1:"7";s:8:"question";s:95:"How set paddingr for "p" tag with text "content 1" and "content 2", but not for other "p" tags?";s:4:"code";s:250:"<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n    <p>content 1</p>\r\n  </header>\r\n  <p>content</p>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content 2</p>\r\n    <div class="test">\r\n      <h2>header 3</h2>\r\n      <p>content 3</p>\r\n    </div>\r\n  </div>\r\n</div>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417479";s:8:"end_time";s:10:"1391417513";}i:9;a:7:{s:2:"id";s:2:"66";s:7:"quiz_id";s:1:"7";s:8:"question";s:49:"How to set underline for links with absolute URL?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417513";s:8:"end_time";s:10:"1391417530";}}s:10:"correctArr";a:10:{i:66;b:1;i:61;b:0;i:70;b:1;i:59;b:1;i:74;b:0;i:60;b:1;i:67;b:1;i:65;b:0;i:76;b:0;i:68;b:1;}s:7:"answers";a:10:{i:66;a:3:{i:0;a:4:{s:2:"id";s:3:"279";s:11:"question_id";s:2:"66";s:6:"answer";s:47:"a[href$="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"280";s:11:"question_id";s:2:"66";s:6:"answer";s:46:"a[href="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"278";s:11:"question_id";s:2:"66";s:6:"answer";s:47:"a[href^="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"1";}}i:61;a:4:{i:0;a:4:{s:2:"id";s:3:"259";s:11:"question_id";s:2:"61";s:6:"answer";s:21:"h1 > p {padding:5px;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"260";s:11:"question_id";s:2:"61";s:6:"answer";s:22:"div > p {padding:5px;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"261";s:11:"question_id";s:2:"61";s:6:"answer";s:34:"p[content^=content] {padding:5px;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"258";s:11:"question_id";s:2:"61";s:6:"answer";s:21:"h1 + p {padding:5px;}";s:7:"correct";s:1:"1";}}i:70;a:6:{i:0;a:4:{s:2:"id";s:3:"294";s:11:"question_id";s:2:"70";s:6:"answer";s:5:":root";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:3:"295";s:11:"question_id";s:2:"70";s:6:"answer";s:6:":empty";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"296";s:11:"question_id";s:2:"70";s:6:"answer";s:14:":first-of-type";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"297";s:11:"question_id";s:2:"70";s:6:"answer";s:12:":first-child";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"298";s:11:"question_id";s:2:"70";s:6:"answer";s:11:":last-child";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"299";s:11:"question_id";s:2:"70";s:6:"answer";s:13:":only-of-type";s:7:"correct";s:1:"1";}}i:59;a:1:{i:0;a:4:{s:2:"id";s:3:"253";s:11:"question_id";s:2:"59";s:6:"answer";s:3:"moz";s:7:"correct";s:1:"1";}}i:74;a:4:{i:0;a:4:{s:2:"id";s:3:"313";s:11:"question_id";s:2:"74";s:6:"answer";s:8:"flexible";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"316";s:11:"question_id";s:2:"74";s:6:"answer";s:12:"flexible-box";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"314";s:11:"question_id";s:2:"74";s:6:"answer";s:3:"box";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"315";s:11:"question_id";s:2:"74";s:6:"answer";s:10:"inline-box";s:7:"correct";s:1:"1";}}i:60;a:4:{i:0;a:4:{s:2:"id";s:3:"255";s:11:"question_id";s:2:"60";s:6:"answer";s:18:"div h1 {color:red}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"256";s:11:"question_id";s:2:"60";s:6:"answer";s:18:"div h1 {color:red}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"257";s:11:"question_id";s:2:"60";s:6:"answer";s:30:"div h1:first-child {color:red}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"254";s:11:"question_id";s:2:"60";s:6:"answer";s:20:"div > h1 {color:red}";s:7:"correct";s:1:"1";}}i:67;a:5:{i:0;a:4:{s:2:"id";s:3:"281";s:11:"question_id";s:2:"67";s:6:"answer";s:3:"yes";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"283";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 8 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"284";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 9 version";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"285";s:11:"question_id";s:2:"67";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"282";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 7 version";s:7:"correct";s:1:"1";}}i:65;a:4:{i:0;a:4:{s:2:"id";s:3:"274";s:11:"question_id";s:2:"65";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"276";s:11:"question_id";s:2:"65";s:6:"answer";s:17:".news{columns:2;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"277";s:11:"question_id";s:2:"65";s:6:"answer";s:30:".news{display:table;column:2;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"275";s:11:"question_id";s:2:"65";s:6:"answer";s:22:".news{column-count:2;}";s:7:"correct";s:1:"1";}}i:76;a:5:{i:0;a:4:{s:2:"id";s:3:"322";s:11:"question_id";s:2:"76";s:6:"answer";s:10:"no, errors";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"323";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"324";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"2";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"325";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"326";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"4";s:7:"correct";s:1:"1";}}i:68;a:4:{i:0;a:4:{s:2:"id";s:3:"287";s:11:"question_id";s:2:"68";s:6:"answer";s:19:"label {color:#ccc;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"288";s:11:"question_id";s:2:"68";s:6:"answer";s:36:"input:disabled > label {color:#ccc;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"289";s:11:"question_id";s:2:"68";s:6:"answer";s:32:"label[for="email"] {color:#ccc;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"286";s:11:"question_id";s:2:"68";s:6:"answer";s:36:"input:disabled + label {color:#ccc;}";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:66;a:1:{i:0;s:3:"278";}i:61;a:1:{i:0;s:3:"258";}i:70;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:59;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:74;a:2:{i:0;s:3:"314";i:1;s:3:"315";}i:60;a:1:{i:0;s:3:"254";}i:67;a:1:{i:0;s:3:"282";}i:65;a:1:{i:0;s:3:"275";}i:76;a:1:{i:0;s:3:"326";}i:68;a:1:{i:0;s:3:"286";}}s:16:"customer_answers";a:10:{i:66;a:1:{i:0;s:3:"278";}i:61;a:1:{i:0;s:3:"260";}i:70;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:59;s:3:"moz";i:74;a:1:{i:0;s:3:"313";}i:60;a:1:{i:0;s:3:"254";}i:67;a:1:{i:0;s:3:"282";}i:65;a:1:{i:0;s:3:"277";}i:76;a:1:{i:0;s:3:"322";}i:68;a:1:{i:0;s:3:"286";}}}');
+	(52, 7, 2, 10.00, 10, 8, 1306534804, 1306534892, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"2";s:4:"name";s:17:"CSS (Basic Level)";s:11:"description";s:49:"<p>Check your <strong>CSS </strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-02 16:29:39";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"35";s:7:"quiz_id";s:1:"2";s:8:"question";s:40:"How to identify a round bullet for list?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534804";s:8:"end_time";s:10:"1306534815";}i:1;a:7:{s:2:"id";s:2:"39";s:7:"quiz_id";s:1:"2";s:8:"question";s:50:"How to set in CSS indent width 5px inside element?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534815";s:8:"end_time";s:10:"1306534838";}i:2;a:7:{s:2:"id";s:2:"34";s:7:"quiz_id";s:1:"2";s:8:"question";s:32:"Please enter universal selector.";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534838";s:8:"end_time";s:10:"1306534843";}i:3;a:7:{s:2:"id";s:2:"37";s:7:"quiz_id";s:1:"2";s:8:"question";s:47:"What of these properties does not exist in CSS?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306534844";s:8:"end_time";s:10:"1306534854";}i:4;a:7:{s:2:"id";s:2:"38";s:7:"quiz_id";s:1:"2";s:8:"question";s:46:"What CSS properties you can set the font size?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534854";s:8:"end_time";s:10:"1306534866";}i:5;a:7:{s:2:"id";s:2:"40";s:7:"quiz_id";s:1:"2";s:8:"question";s:26:"What does the acronym CSS?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534866";s:8:"end_time";s:10:"1306534870";}i:6;a:7:{s:2:"id";s:2:"43";s:7:"quiz_id";s:1:"2";s:8:"question";s:60:"Select a piece of CSS, which does not contain syntax errors.";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534870";s:8:"end_time";s:10:"1306534877";}i:7;a:7:{s:2:"id";s:2:"45";s:7:"quiz_id";s:1:"2";s:8:"question";s:83:"What a piece of css specifies a white background for all elements with class white?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534878";s:8:"end_time";s:10:"1306534881";}i:8;a:7:{s:2:"id";s:2:"42";s:7:"quiz_id";s:1:"2";s:8:"question";s:78:"How using CSS can align inline content block element (eg, <div>) horizontally?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534881";s:8:"end_time";s:10:"1306534888";}i:9;a:7:{s:2:"id";s:2:"41";s:7:"quiz_id";s:1:"2";s:8:"question";s:61:"What CSS properties can specify the height of a line of text?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306534888";s:8:"end_time";s:10:"1306534892";}}s:10:"correctArr";a:10:{i:41;b:1;i:42;b:1;i:45;b:1;i:43;b:1;i:40;b:1;i:38;b:1;i:37;b:1;i:34;b:1;i:39;b:1;i:35;b:1;}s:7:"answers";a:10:{i:41;a:5:{i:0;a:4:{s:2:"id";s:3:"173";s:11:"question_id";s:2:"41";s:6:"answer";s:9:"text-size";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"174";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"text-height";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"175";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"font-height";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"177";s:11:"question_id";s:2:"41";s:6:"answer";s:16:"text-list-height";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"176";s:11:"question_id";s:2:"41";s:6:"answer";s:11:"line-height";s:7:"correct";s:1:"1";}}i:42;a:5:{i:0;a:4:{s:2:"id";s:3:"178";s:11:"question_id";s:2:"42";s:6:"answer";s:13:"align:center;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"180";s:11:"question_id";s:2:"42";s:6:"answer";s:14:"halign:center;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"181";s:11:"question_id";s:2:"42";s:6:"answer";s:21:"content-align:center;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"182";s:11:"question_id";s:2:"42";s:6:"answer";s:24:"horizontal-align:center;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"179";s:11:"question_id";s:2:"42";s:6:"answer";s:18:"text-align:center;";s:7:"correct";s:1:"1";}}i:45;a:5:{i:0;a:4:{s:2:"id";s:3:"193";s:11:"question_id";s:2:"45";s:6:"answer";s:38:"class.white{ background-color:white; }";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"195";s:11:"question_id";s:2:"45";s:6:"answer";s:39:"class=white { background-color:white; }";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"196";s:11:"question_id";s:2:"45";s:6:"answer";s:35:"p.white { background-color:white; }";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"197";s:11:"question_id";s:2:"45";s:6:"answer";s:39:"class:white { background-color:white; }";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"194";s:11:"question_id";s:2:"45";s:6:"answer";s:34:".white { background-color:white; }";s:7:"correct";s:1:"1";}}i:43;a:5:{i:0;a:4:{s:2:"id";s:3:"184";s:11:"question_id";s:2:"43";s:6:"answer";s:16:"body:color=black";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"185";s:11:"question_id";s:2:"43";s:6:"answer";s:18:"{body:color=black}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"186";s:11:"question_id";s:2:"43";s:6:"answer";s:18:"{body;color:black}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"187";s:11:"question_id";s:2:"43";s:6:"answer";s:21:"body ( color: black )";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"183";s:11:"question_id";s:2:"43";s:6:"answer";s:21:"body { color: black }";s:7:"correct";s:1:"1";}}i:40;a:5:{i:0;a:4:{s:2:"id";s:3:"168";s:11:"question_id";s:2:"40";s:6:"answer";s:23:"Continious Style Sheets";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"169";s:11:"question_id";s:2:"40";s:6:"answer";s:23:"Conceptual Style Sheets";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"171";s:11:"question_id";s:2:"40";s:6:"answer";s:24:"Controlable Style Sheets";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"172";s:11:"question_id";s:2:"40";s:6:"answer";s:27:"Contraversal Styling Sheets";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"170";s:11:"question_id";s:2:"40";s:6:"answer";s:22:"Cascading Style Sheets";s:7:"correct";s:1:"1";}}i:38;a:5:{i:0;a:4:{s:2:"id";s:3:"158";s:11:"question_id";s:2:"38";s:6:"answer";s:14:"text-font-size";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"160";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"text-size";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"161";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"text-font";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"162";s:11:"question_id";s:2:"38";s:6:"answer";s:4:"size";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"159";s:11:"question_id";s:2:"38";s:6:"answer";s:9:"font-size";s:7:"correct";s:1:"1";}}i:37;a:7:{i:0;a:4:{s:2:"id";s:3:"151";s:11:"question_id";s:2:"37";s:6:"answer";s:13:"border-bottom";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"152";s:11:"question_id";s:2:"37";s:6:"answer";s:19:"border-bottom-color";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"154";s:11:"question_id";s:2:"37";s:6:"answer";s:12:"border-width";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"155";s:11:"question_id";s:2:"37";s:6:"answer";s:19:"border-bottom-style";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"153";s:11:"question_id";s:2:"37";s:6:"answer";s:10:"border-all";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"156";s:11:"question_id";s:2:"37";s:6:"answer";s:10:"border-max";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"157";s:11:"question_id";s:2:"37";s:6:"answer";s:15:"border-position";s:7:"correct";s:1:"1";}}i:34;a:1:{i:0;a:4:{s:2:"id";s:3:"139";s:11:"question_id";s:2:"34";s:6:"answer";s:1:"*";s:7:"correct";s:1:"1";}}i:39;a:5:{i:0;a:4:{s:2:"id";s:3:"164";s:11:"question_id";s:2:"39";s:6:"answer";s:11:"margin:5px;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"165";s:11:"question_id";s:2:"39";s:6:"answer";s:12:"spacing:5px;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"166";s:11:"question_id";s:2:"39";s:6:"answer";s:18:"inner-spacing:5px;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"167";s:11:"question_id";s:2:"39";s:6:"answer";s:11:"insets:5px;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"163";s:11:"question_id";s:2:"39";s:6:"answer";s:12:"padding:5px;";s:7:"correct";s:1:"1";}}i:35;a:5:{i:0;a:4:{s:2:"id";s:3:"140";s:11:"question_id";s:2:"35";s:6:"answer";s:23:"list-type-style:circle;";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"142";s:11:"question_id";s:2:"35";s:6:"answer";s:28:"list-attachment-type:circle;";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"143";s:11:"question_id";s:2:"35";s:6:"answer";s:18:"style-list:circle;";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"144";s:11:"question_id";s:2:"35";s:6:"answer";s:17:"list-type:circle;";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"141";s:11:"question_id";s:2:"35";s:6:"answer";s:23:"list-style-type:circle;";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:41;a:1:{i:0;s:3:"176";}i:42;a:1:{i:0;s:3:"179";}i:45;a:1:{i:0;s:3:"194";}i:43;a:1:{i:0;s:3:"183";}i:40;a:1:{i:0;s:3:"170";}i:38;a:1:{i:0;s:3:"159";}i:37;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:34;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:39;a:1:{i:0;s:3:"163";}i:35;a:1:{i:0;s:3:"141";}}s:16:"customer_answers";a:10:{i:41;a:1:{i:0;s:3:"176";}i:42;a:1:{i:0;s:3:"179";}i:45;a:1:{i:0;s:3:"194";}i:43;a:1:{i:0;s:3:"183";}i:40;a:1:{i:0;s:3:"170";}i:38;a:1:{i:0;s:3:"159";}i:37;a:3:{i:0;s:3:"153";i:1;s:3:"156";i:2;s:3:"157";}i:34;s:1:"*";i:39;a:1:{i:0;s:3:"163";}i:35;a:1:{i:0;s:3:"141";}}}'),
+	(53, 7, 1, 9.00, 10, 8, 1306572241, 1306572359, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"1";s:4:"name";s:20:"PHP 4 (Middle Level)";s:11:"description";s:55:"<p>Check your <strong>PHP4&nbsp;</strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-02 15:42:01";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"21";s:7:"quiz_id";s:1:"1";s:8:"question";s:43:"How many times will include file mfile.php?";s:4:"code";s:47:"include_once "mfile.php";\r\ninclude "mfile.php";";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572241";s:8:"end_time";s:10:"1306572257";}i:1;a:7:{s:2:"id";s:2:"14";s:7:"quiz_id";s:1:"1";s:8:"question";s:33:"What is value of $b in this code?";s:4:"code";s:44:"$a = array(\'c\', \'b\', \'a\');\r\n$b = (array) $a;";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572257";s:8:"end_time";s:10:"1306572279";}i:2;a:7:{s:2:"id";s:1:"1";s:7:"quiz_id";s:1:"1";s:8:"question";s:43:"What function is faster "echo" or "print" ?";s:4:"code";s:0:"";s:4:"time";s:2:"30";s:10:"start_time";s:10:"1306572279";s:8:"end_time";s:10:"1306572284";}i:3;a:7:{s:2:"id";s:2:"20";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:46:"<?php\r\necho strtotime ("January 1, 1952");\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572285";s:8:"end_time";s:10:"1306572291";}i:4;a:7:{s:2:"id";s:1:"8";s:7:"quiz_id";s:1:"1";s:8:"question";s:44:"What are correct PHP operators? (Select all)";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572292";s:8:"end_time";s:10:"1306572308";}i:5;a:7:{s:2:"id";s:2:"11";s:7:"quiz_id";s:1:"1";s:8:"question";s:58:"What returns this code if "the_file.php" exists and empty?";s:4:"code";s:40:"<?php \r\necho include "the_file.php";\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572309";s:8:"end_time";s:10:"1306572314";}i:6;a:7:{s:2:"id";s:2:"17";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:52:"<?php\r\n$a = "12345";\r\n$a[$a[1]] = "2";\r\necho $a;\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572314";s:8:"end_time";s:10:"1306572340";}i:7;a:7:{s:2:"id";s:2:"10";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:136:"01: <?php\r\n02:     function func(&$r) {\r\n03:        $r++;\r\n04:     }\r\n05:     $r = 1;\r\n06:     func(func($r));\r\n07:     echo $r;\r\n08: ?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572340";s:8:"end_time";s:10:"1306572347";}i:8;a:7:{s:2:"id";s:2:"15";s:7:"quiz_id";s:1:"1";s:8:"question";s:61:"Which of these functions can display the result of SQL query?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1306572347";s:8:"end_time";s:10:"1306572354";}i:9;a:7:{s:2:"id";s:2:"13";s:7:"quiz_id";s:1:"1";s:8:"question";s:23:"What returns this code?";s:4:"code";s:61:"<?php\r\n  $a = 1;\r\n  ${1} = \'wikipedia\';\r\n  echo ${$a}{3};\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1306572354";s:8:"end_time";s:10:"1306572359";}}s:10:"correctArr";a:10:{i:13;b:1;i:15;b:1;i:10;b:1;i:17;b:1;i:11;b:1;i:8;b:0;i:20;b:1;i:1;b:1;i:14;b:1;i:21;b:1;}s:7:"answers";a:10:{i:13;a:4:{i:0;a:4:{s:2:"id";s:2:"44";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"k";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"46";s:11:"question_id";s:2:"13";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"47";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"45";s:11:"question_id";s:2:"13";s:6:"answer";s:1:"i";s:7:"correct";s:1:"1";}}i:15;a:4:{i:0;a:4:{s:2:"id";s:2:"53";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_field_table();";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"55";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_field_flags();";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"52";s:11:"question_id";s:2:"15";s:6:"answer";s:20:"mysql_fetch_array();";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:2:"54";s:11:"question_id";s:2:"15";s:6:"answer";s:18:"mysql_fetch_row();";s:7:"correct";s:1:"1";}}i:10;a:4:{i:0;a:4:{s:2:"id";s:2:"30";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"32";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"33";s:11:"question_id";s:2:"10";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"31";s:11:"question_id";s:2:"10";s:6:"answer";s:1:"2";s:7:"correct";s:1:"1";}}i:17;a:5:{i:0;a:4:{s:2:"id";s:2:"61";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"12345";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"63";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"22345";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"64";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"11345";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"65";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"62";s:11:"question_id";s:2:"17";s:6:"answer";s:5:"12245";s:7:"correct";s:1:"1";}}i:11;a:5:{i:0;a:4:{s:2:"id";s:2:"34";s:11:"question_id";s:2:"11";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"36";s:11:"question_id";s:2:"11";s:6:"answer";s:5:"FALSE";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"37";s:11:"question_id";s:2:"11";s:6:"answer";s:4:"TRUE";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"38";s:11:"question_id";s:2:"11";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"35";s:11:"question_id";s:2:"11";s:6:"answer";s:1:"1";s:7:"correct";s:1:"1";}}i:8;a:8:{i:0;a:4:{s:2:"id";s:2:"20";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"<>";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"22";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"=+";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"25";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"**";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"18";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"!=";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:2:"19";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"==";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:2:"21";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"+=";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:2:"23";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"*=";s:7:"correct";s:1:"1";}i:7;a:4:{s:2:"id";s:2:"24";s:11:"question_id";s:1:"8";s:6:"answer";s:2:"++";s:7:"correct";s:1:"1";}}i:20;a:4:{i:0;a:4:{s:2:"id";s:2:"75";s:11:"question_id";s:2:"20";s:6:"answer";s:2:"-1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"76";s:11:"question_id";s:2:"20";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"77";s:11:"question_id";s:2:"20";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"74";s:11:"question_id";s:2:"20";s:6:"answer";s:10:"-568087200";s:7:"correct";s:1:"1";}}i:1;a:3:{i:0;a:4:{s:2:"id";s:1:"2";s:11:"question_id";s:1:"1";s:6:"answer";s:5:"print";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:1:"3";s:11:"question_id";s:1:"1";s:6:"answer";s:13:"no difference";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:1:"1";s:11:"question_id";s:1:"1";s:6:"answer";s:4:"echo";s:7:"correct";s:1:"1";}}i:14;a:4:{i:0;a:4:{s:2:"id";s:2:"48";s:11:"question_id";s:2:"14";s:6:"answer";s:4:"TRUE";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"50";s:11:"question_id";s:2:"14";s:6:"answer";s:27:"array(array(\'c\', \'b\', \'a\'))";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"51";s:11:"question_id";s:2:"14";s:6:"answer";s:5:"other";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"49";s:11:"question_id";s:2:"14";s:6:"answer";s:20:"array(\'c\', \'b\', \'a\')";s:7:"correct";s:1:"1";}}i:21;a:4:{i:0;a:4:{s:2:"id";s:2:"78";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"80";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"81";s:11:"question_id";s:2:"21";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"79";s:11:"question_id";s:2:"21";s:6:"answer";s:1:"2";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:13;a:1:{i:0;s:2:"45";}i:15;a:2:{i:0;s:2:"52";i:1;s:2:"54";}i:10;a:1:{i:0;s:2:"31";}i:17;a:1:{i:0;s:2:"62";}i:11;a:1:{i:0;s:2:"35";}i:8;a:5:{i:0;s:2:"18";i:1;s:2:"19";i:2;s:2:"21";i:3;s:2:"23";i:4;s:2:"24";}i:20;a:1:{i:0;s:2:"74";}i:1;a:1:{i:0;s:1:"1";}i:14;a:1:{i:0;s:2:"49";}i:21;a:1:{i:0;s:2:"79";}}s:16:"customer_answers";a:10:{i:13;a:1:{i:0;s:2:"45";}i:15;a:2:{i:0;s:2:"52";i:1;s:2:"54";}i:10;a:1:{i:0;s:2:"31";}i:17;a:1:{i:0;s:2:"62";}i:11;a:1:{i:0;s:2:"35";}i:8;a:5:{i:0;s:2:"18";i:1;s:2:"19";i:2;s:2:"20";i:3;s:2:"21";i:4;s:2:"24";}i:20;a:1:{i:0;s:2:"74";}i:1;a:1:{i:0;s:1:"1";}i:14;a:1:{i:0;s:2:"49";}i:21;a:1:{i:0;s:2:"79";}}}'),
+	(45, 7, 6, 14.00, 15, 12, 1299514122, 1299514242, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"6";s:4:"name";s:5:"HTML5";s:11:"description";s:26:"<p>New HTML5 features.</p>";s:15:"questions_count";s:2:"15";s:13:"correct_count";s:2:"12";s:4:"date";s:19:"2011-03-03 21:15:05";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:15:{i:0;a:7:{s:2:"id";s:2:"54";s:7:"quiz_id";s:1:"6";s:8:"question";s:37:"What of this tag used for navigation?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514122";s:8:"end_time";s:10:"1299514128";}i:1;a:7:{s:2:"id";s:2:"47";s:7:"quiz_id";s:1:"6";s:8:"question";s:35:"How set doctype for HTML5 document?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514128";s:8:"end_time";s:10:"1299514133";}i:2;a:7:{s:2:"id";s:2:"51";s:7:"quiz_id";s:1:"6";s:8:"question";s:43:"Please select HTML5 structural (only) tags.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514133";s:8:"end_time";s:10:"1299514140";}i:3;a:7:{s:2:"id";s:2:"50";s:7:"quiz_id";s:1:"6";s:8:"question";s:44:"What of this new methods supported in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514140";s:8:"end_time";s:10:"1299514151";}i:4;a:7:{s:2:"id";s:2:"53";s:7:"quiz_id";s:1:"6";s:8:"question";s:44:"Please select depracated  in HTML5 elements.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514151";s:8:"end_time";s:10:"1299514158";}i:5;a:7:{s:2:"id";s:2:"56";s:7:"quiz_id";s:1:"6";s:8:"question";s:76:"What of this input types has functionlity similar on input with type=number?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514159";s:8:"end_time";s:10:"1299514163";}i:6;a:7:{s:2:"id";s:2:"49";s:7:"quiz_id";s:1:"6";s:8:"question";s:35:"What of this tags present in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514163";s:8:"end_time";s:10:"1299514171";}i:7;a:7:{s:2:"id";s:2:"57";s:7:"quiz_id";s:1:"6";s:8:"question";s:110:"How to make in HTML5 prefilled text in input that hide when input get focus and visible again when focus lost?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514171";s:8:"end_time";s:10:"1299514180";}i:8;a:7:{s:2:"id";s:2:"48";s:7:"quiz_id";s:1:"6";s:8:"question";s:53:"What is correct charset definition in HTML5 document?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514180";s:8:"end_time";s:10:"1299514184";}i:9;a:7:{s:2:"id";s:2:"64";s:7:"quiz_id";s:1:"6";s:8:"question";s:62:"Does drag and drop API supported in Internet Explorer browser?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1299514185";s:8:"end_time";s:10:"1299514192";}i:10;a:7:{s:2:"id";s:2:"63";s:7:"quiz_id";s:1:"6";s:8:"question";s:56:"What of this events can be used for drop target element?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514192";s:8:"end_time";s:10:"1299514203";}i:11;a:7:{s:2:"id";s:2:"55";s:7:"quiz_id";s:1:"6";s:8:"question";s:40:"What of this input types exist in HTML5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514203";s:8:"end_time";s:10:"1299514214";}i:12;a:7:{s:2:"id";s:2:"62";s:7:"quiz_id";s:1:"6";s:8:"question";s:53:"Does Internet Expolorer browser support "canvas" tag?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1299514214";s:8:"end_time";s:10:"1299514220";}i:13;a:7:{s:2:"id";s:2:"52";s:7:"quiz_id";s:1:"6";s:8:"question";s:46:"Please select application-focused (only) tags.";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514220";s:8:"end_time";s:10:"1299514233";}i:14;a:7:{s:2:"id";s:2:"58";s:7:"quiz_id";s:1:"6";s:8:"question";s:47:"What attribute of input tag makes it mandatory?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1299514233";s:8:"end_time";s:10:"1299514241";}}s:10:"correctArr";a:15:{i:64;b:1;i:48;b:1;i:57;b:1;i:49;b:1;i:56;b:1;i:53;b:1;i:50;b:1;i:51;b:1;i:47;b:1;i:54;b:1;i:63;b:1;i:55;b:1;i:62;b:1;i:52;b:0;i:58;b:1;}s:7:"answers";a:15:{i:64;a:4:{i:0;a:4:{s:2:"id";s:3:"271";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 8 version";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"272";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 9 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"273";s:11:"question_id";s:2:"64";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"270";s:11:"question_id";s:2:"64";s:6:"answer";s:19:"yes, from 7 version";s:7:"correct";s:1:"1";}}i:48;a:4:{i:0;a:4:{s:2:"id";s:3:"207";s:11:"question_id";s:2:"48";s:6:"answer";s:69:"<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"208";s:11:"question_id";s:2:"48";s:6:"answer";s:70:"<meta http-equiv="Content-Type" content="text/html5; charset=utf-8" />";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"209";s:11:"question_id";s:2:"48";s:6:"answer";s:65:"<meta http-equiv="Content-Type" content="HTML5; charset=utf-8" />";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"206";s:11:"question_id";s:2:"48";s:6:"answer";s:24:"<meta charset="UTF-8" />";s:7:"correct";s:1:"1";}}i:57;a:4:{i:0;a:4:{s:2:"id";s:3:"249";s:11:"question_id";s:2:"57";s:6:"answer";s:38:"This is possible just with javascript.";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"250";s:11:"question_id";s:2:"57";s:6:"answer";s:58:"<input type="placeholder" value="" default="Trila text" />";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"251";s:11:"question_id";s:2:"57";s:6:"answer";s:51:"<input type="text" value="" default="Trila text" />";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"248";s:11:"question_id";s:2:"57";s:6:"answer";s:55:"<input type="text" value="" placeholder="Trila text" />";s:7:"correct";s:1:"1";}}i:49;a:7:{i:0;a:4:{s:2:"id";s:3:"215";s:11:"question_id";s:2:"49";s:6:"answer";s:3:"php";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"210";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"header";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"211";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"footer";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"212";s:11:"question_id";s:2:"49";s:6:"answer";s:7:"article";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"213";s:11:"question_id";s:2:"49";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"214";s:11:"question_id";s:2:"49";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"216";s:11:"question_id";s:2:"49";s:6:"answer";s:5:"video";s:7:"correct";s:1:"1";}}i:56;a:4:{i:0;a:4:{s:2:"id";s:3:"245";s:11:"question_id";s:2:"56";s:6:"answer";s:6:"search";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"246";s:11:"question_id";s:2:"56";s:6:"answer";s:4:"date";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"247";s:11:"question_id";s:2:"56";s:6:"answer";s:5:"digit";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"244";s:11:"question_id";s:2:"56";s:6:"answer";s:5:"range";s:7:"correct";s:1:"1";}}i:53;a:5:{i:0;a:4:{s:2:"id";s:3:"236";s:11:"question_id";s:2:"53";s:6:"answer";s:6:"iframe";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"232";s:11:"question_id";s:2:"53";s:6:"answer";s:8:"basefont";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"233";s:11:"question_id";s:2:"53";s:6:"answer";s:6:"center";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"234";s:11:"question_id";s:2:"53";s:6:"answer";s:5:"frame";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"235";s:11:"question_id";s:2:"53";s:6:"answer";s:8:"frameset";s:7:"correct";s:1:"1";}}i:50;a:4:{i:0;a:4:{s:2:"id";s:3:"219";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"UPLOAD";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"220";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"REMOVE";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"217";s:11:"question_id";s:2:"50";s:6:"answer";s:3:"PUT";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"218";s:11:"question_id";s:2:"50";s:6:"answer";s:6:"DELETE";s:7:"correct";s:1:"1";}}i:51;a:5:{i:0;a:4:{s:2:"id";s:3:"224";s:11:"question_id";s:2:"51";s:6:"answer";s:6:"figure";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"225";s:11:"question_id";s:2:"51";s:6:"answer";s:5:"audio";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"221";s:11:"question_id";s:2:"51";s:6:"answer";s:7:"section";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"222";s:11:"question_id";s:2:"51";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"223";s:11:"question_id";s:2:"51";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"1";}}i:47;a:4:{i:0;a:4:{s:2:"id";s:3:"203";s:11:"question_id";s:2:"47";s:6:"answer";s:116:"<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5 Transitional//EN" "http://www.w3.org/TR/HTML5/DTD/HTML5-transitional.dtd">";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"204";s:11:"question_id";s:2:"47";s:6:"answer";s:16:"<!DOCTYPE html5>";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"205";s:11:"question_id";s:2:"47";s:6:"answer";s:88:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 45//EN" "http://www.w3.org/TR/html5/strict.dtd">";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"202";s:11:"question_id";s:2:"47";s:6:"answer";s:15:"<!DOCTYPE html>";s:7:"correct";s:1:"1";}}i:54;a:3:{i:0;a:4:{s:2:"id";s:3:"237";s:11:"question_id";s:2:"54";s:6:"answer";s:4:"menu";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"239";s:11:"question_id";s:2:"54";s:6:"answer";s:6:"header";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"238";s:11:"question_id";s:2:"54";s:6:"answer";s:3:"nav";s:7:"correct";s:1:"1";}}i:63;a:4:{i:0;a:4:{s:2:"id";s:3:"269";s:11:"question_id";s:2:"63";s:6:"answer";s:9:"ondragout";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"266";s:11:"question_id";s:2:"63";s:6:"answer";s:11:"ondragenter";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"267";s:11:"question_id";s:2:"63";s:6:"answer";s:10:"ondragover";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"268";s:11:"question_id";s:2:"63";s:6:"answer";s:6:"ondrop";s:7:"correct";s:1:"1";}}i:55;a:4:{i:0;a:4:{s:2:"id";s:3:"240";s:11:"question_id";s:2:"55";s:6:"answer";s:3:"url";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:3:"241";s:11:"question_id";s:2:"55";s:6:"answer";s:5:"email";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"242";s:11:"question_id";s:2:"55";s:6:"answer";s:8:"datetime";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"243";s:11:"question_id";s:2:"55";s:6:"answer";s:3:"tel";s:7:"correct";s:1:"1";}}i:62;a:4:{i:0;a:4:{s:2:"id";s:3:"262";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 7 version";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"263";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 8 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"265";s:11:"question_id";s:2:"62";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"264";s:11:"question_id";s:2:"62";s:6:"answer";s:19:"yes, from 9 version";s:7:"correct";s:1:"1";}}i:52;a:6:{i:0;a:4:{s:2:"id";s:3:"228";s:11:"question_id";s:2:"52";s:6:"answer";s:6:"footer";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"229";s:11:"question_id";s:2:"52";s:6:"answer";s:5:"aside";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"230";s:11:"question_id";s:2:"52";s:6:"answer";s:6:"hgroup";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"226";s:11:"question_id";s:2:"52";s:6:"answer";s:5:"meter";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"227";s:11:"question_id";s:2:"52";s:6:"answer";s:8:"progress";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"231";s:11:"question_id";s:2:"52";s:6:"answer";s:4:"menu";s:7:"correct";s:1:"1";}}i:58;a:1:{i:0;a:4:{s:2:"id";s:3:"252";s:11:"question_id";s:2:"58";s:6:"answer";s:8:"required";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:15:{i:64;a:1:{i:0;s:3:"270";}i:48;a:1:{i:0;s:3:"206";}i:57;a:1:{i:0;s:3:"248";}i:49;a:6:{i:0;s:3:"210";i:1;s:3:"211";i:2;s:3:"212";i:3;s:3:"213";i:4;s:3:"214";i:5;s:3:"216";}i:56;a:1:{i:0;s:3:"244";}i:53;a:4:{i:0;s:3:"232";i:1;s:3:"233";i:2;s:3:"234";i:3;s:3:"235";}i:50;a:2:{i:0;s:3:"217";i:1;s:3:"218";}i:51;a:3:{i:0;s:3:"221";i:1;s:3:"222";i:2;s:3:"223";}i:47;a:1:{i:0;s:3:"202";}i:54;a:1:{i:0;s:3:"238";}i:63;a:3:{i:0;s:3:"266";i:1;s:3:"267";i:2;s:3:"268";}i:55;a:4:{i:0;s:3:"240";i:1;s:3:"241";i:2;s:3:"242";i:3;s:3:"243";}i:62;a:1:{i:0;s:3:"264";}i:52;a:3:{i:0;s:3:"226";i:1;s:3:"227";i:2;s:3:"231";}i:58;a:3:{i:0;s:3:"226";i:1;s:3:"227";i:2;s:3:"231";}}s:16:"customer_answers";a:15:{i:64;a:1:{i:0;s:3:"270";}i:48;a:1:{i:0;s:3:"206";}i:57;a:1:{i:0;s:3:"248";}i:49;a:6:{i:0;s:3:"210";i:1;s:3:"211";i:2;s:3:"212";i:3;s:3:"213";i:4;s:3:"214";i:5;s:3:"216";}i:56;a:1:{i:0;s:3:"244";}i:53;a:4:{i:0;s:3:"232";i:1;s:3:"233";i:2;s:3:"234";i:3;s:3:"235";}i:50;a:2:{i:0;s:3:"217";i:1;s:3:"218";}i:51;a:3:{i:0;s:3:"221";i:1;s:3:"222";i:2;s:3:"223";}i:47;a:1:{i:0;s:3:"202";}i:54;a:1:{i:0;s:3:"238";}i:63;a:3:{i:0;s:3:"266";i:1;s:3:"267";i:2;s:3:"268";}i:55;a:4:{i:0;s:3:"240";i:1;s:3:"241";i:2;s:3:"242";i:3;s:3:"243";}i:62;a:1:{i:0;s:3:"264";}i:52;a:2:{i:0;s:3:"226";i:1;s:3:"227";}i:58;s:8:"required";}}'),
+	(58, 7, 4, 9.00, 10, 8, 1311972330, 1311972432, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"4";s:4:"name";s:20:"PHP 5 (Middle Level)";s:11:"description";s:84:"<p>OOP and new PHP5 features.</p>\r\n<p>Check you <strong>PHP5 </strong>knowledge!</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-02-03 17:26:00";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"31";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:279:"<?php\r\nclass foo {\r\n    private $value = 42;\r\n\r\n    public function &getValue() {\r\n        return $this->value;\r\n    }\r\n    public function echoValue(){\r\n        echo $this->value;\r\n    }\r\n}\r\n\r\n$obj = new foo;\r\n$myValue = $obj->getValue();\r\n$myValue = 33;\r\n$obj->echoValue();\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972330";s:8:"end_time";s:10:"1311972348";}i:1;a:7:{s:2:"id";s:1:"7";s:7:"quiz_id";s:1:"4";s:8:"question";s:54:"What difference between abstract class and interface ?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972348";s:8:"end_time";s:10:"1311972353";}i:2;a:7:{s:2:"id";s:2:"29";s:7:"quiz_id";s:1:"4";s:8:"question";s:64:"Which of the following functions returns the longest hash value?";s:4:"code";s:0:"";s:4:"time";s:2:"30";s:10:"start_time";s:10:"1311972353";s:8:"end_time";s:10:"1311972358";}i:3;a:7:{s:2:"id";s:2:"30";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:139:"<?\r\nclass MyClass {\r\n public $myVar;\r\n function __constructor() {\r\n  $this -> myVar = 5;\r\n }\r\n}\r\n\r\n$a = new MyClass;\r\necho $a -> myVar;\r\n?>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972359";s:8:"end_time";s:10:"1311972369";}i:4;a:7:{s:2:"id";s:2:"25";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:210:"class cl {\r\n    var $a;\r\n    var $b;\r\n    function cl($b) {\r\n        $this->a=$b;\r\n    }\r\n    function b($b=1) {\r\n        $this->a.=$b;\r\n        return $this->a-$this->b;\r\n    }\r\n}\r\n$a=new cl(3);\r\necho $a->b();";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972369";s:8:"end_time";s:10:"1311972378";}i:5;a:7:{s:2:"id";s:2:"28";s:7:"quiz_id";s:1:"4";s:8:"question";s:33:"Please select PHP5 Magic Methods?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972379";s:8:"end_time";s:10:"1311972395";}i:6;a:7:{s:2:"id";s:2:"32";s:7:"quiz_id";s:1:"4";s:8:"question";s:70:"Choose all that is not true statements about abstract classes in php5?";s:4:"code";s:0:"";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972396";s:8:"end_time";s:10:"1311972410";}i:7;a:7:{s:2:"id";s:2:"24";s:7:"quiz_id";s:1:"4";s:8:"question";s:76:"Which of these characters can be processed by the function htmlspecialchars?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972410";s:8:"end_time";s:10:"1311972419";}i:8;a:7:{s:2:"id";s:1:"9";s:7:"quiz_id";s:1:"4";s:8:"question";s:101:"If in class before "function" there is no "private", \'protected" or "public" what is used by default?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1311972419";s:8:"end_time";s:10:"1311972425";}i:9;a:7:{s:2:"id";s:2:"27";s:7:"quiz_id";s:1:"4";s:8:"question";s:23:"What returns this code?";s:4:"code";s:198:"class newClass\r\n{\r\n    public $one = \'one\';\r\n    private $two = \'two\';\r\n    function two()\r\n    {\r\n        return \'three\';\r\n    }\r\n}\r\n$obj = new newClass();\r\nforeach ($obj as $v)\r\n{\r\n    echo $v;\r\n}";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1311972426";s:8:"end_time";s:10:"1311972432";}}s:10:"correctArr";a:10:{i:31;b:1;i:7;b:1;i:29;b:1;i:30;b:1;i:25;b:1;i:28;b:1;i:32;b:0;i:24;b:1;i:9;b:1;i:27;b:1;}s:7:"answers";a:10:{i:31;a:4:{i:0;a:4:{s:2:"id";s:3:"127";s:11:"question_id";s:2:"31";s:6:"answer";s:2:"33";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"129";s:11:"question_id";s:2:"31";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"130";s:11:"question_id";s:2:"31";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"128";s:11:"question_id";s:2:"31";s:6:"answer";s:2:"42";s:7:"correct";s:1:"1";}}i:7;a:5:{i:0;a:4:{s:2:"id";s:2:"13";s:11:"question_id";s:1:"7";s:6:"answer";s:13:"no difference";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"15";s:11:"question_id";s:1:"7";s:6:"answer";s:64:"interface  could has methods realization, but abstract class not";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"16";s:11:"question_id";s:1:"7";s:6:"answer";s:32:"interface extends abstract class";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"17";s:11:"question_id";s:1:"7";s:6:"answer";s:32:"abstract class extends interface";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:2:"14";s:11:"question_id";s:1:"7";s:6:"answer";s:63:"abstract class could has methods realization, but interface not";s:7:"correct";s:1:"1";}}i:29;a:4:{i:0;a:4:{s:2:"id";s:3:"119";s:11:"question_id";s:2:"29";s:6:"answer";s:5:"md5()";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"121";s:11:"question_id";s:2:"29";s:6:"answer";s:7:"crc32()";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"122";s:11:"question_id";s:2:"29";s:6:"answer";s:5:"other";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"120";s:11:"question_id";s:2:"29";s:6:"answer";s:6:"sha1()";s:7:"correct";s:1:"1";}}i:30;a:4:{i:0;a:4:{s:2:"id";s:3:"124";s:11:"question_id";s:2:"30";s:6:"answer";s:1:"0";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"125";s:11:"question_id";s:2:"30";s:6:"answer";s:1:"5";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"126";s:11:"question_id";s:2:"30";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"123";s:11:"question_id";s:2:"30";s:6:"answer";s:7:"nothing";s:7:"correct";s:1:"1";}}i:25;a:4:{i:0;a:4:{s:2:"id";s:2:"98";s:11:"question_id";s:2:"25";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"99";s:11:"question_id";s:2:"25";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"101";s:11:"question_id";s:2:"25";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"100";s:11:"question_id";s:2:"25";s:6:"answer";s:2:"31";s:7:"correct";s:1:"1";}}i:28;a:7:{i:0;a:4:{s:2:"id";s:3:"118";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__close";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"112";s:11:"question_id";s:2:"28";s:6:"answer";s:11:"__condtruct";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"113";s:11:"question_id";s:2:"28";s:6:"answer";s:5:"__get";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"114";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__clone";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"115";s:11:"question_id";s:2:"28";s:6:"answer";s:6:"__call";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"116";s:11:"question_id";s:2:"28";s:6:"answer";s:7:"__sleep";s:7:"correct";s:1:"1";}i:6;a:4:{s:2:"id";s:3:"117";s:11:"question_id";s:2:"28";s:6:"answer";s:8:"__wakeup";s:7:"correct";s:1:"1";}}i:32;a:4:{i:0;a:4:{s:2:"id";s:3:"132";s:11:"question_id";s:2:"32";s:6:"answer";s:50:"An abstract class may contain not abstract methods";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"133";s:11:"question_id";s:2:"32";s:6:"answer";s:68:"Class with at least one abstract method must be declared as abstract";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"134";s:11:"question_id";s:2:"32";s:6:"answer";s:39:"Abstract classes are introduced in php5";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"131";s:11:"question_id";s:2:"32";s:6:"answer";s:63:"Definition of an abstract method can contain method realization";s:7:"correct";s:1:"1";}}i:24;a:5:{i:0;a:4:{s:2:"id";s:2:"93";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"<";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:2:"94";s:11:"question_id";s:2:"24";s:6:"answer";s:1:">";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:2:"95";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"\'";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:2:"96";s:11:"question_id";s:2:"24";s:6:"answer";s:1:""";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:2:"97";s:11:"question_id";s:2:"24";s:6:"answer";s:1:"&";s:7:"correct";s:1:"1";}}i:9;a:4:{i:0;a:4:{s:2:"id";s:2:"26";s:11:"question_id";s:1:"9";s:6:"answer";s:7:"private";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:2:"28";s:11:"question_id";s:1:"9";s:6:"answer";s:9:"protected";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:2:"29";s:11:"question_id";s:1:"9";s:6:"answer";s:6:"static";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:2:"27";s:11:"question_id";s:1:"9";s:6:"answer";s:6:"public";s:7:"correct";s:1:"1";}}i:27;a:6:{i:0;a:4:{s:2:"id";s:3:"106";s:11:"question_id";s:2:"27";s:6:"answer";s:7:"nothing";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"108";s:11:"question_id";s:2:"27";s:6:"answer";s:3:"two";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"109";s:11:"question_id";s:2:"27";s:6:"answer";s:5:"three";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"110";s:11:"question_id";s:2:"27";s:6:"answer";s:6:"onetwo";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"111";s:11:"question_id";s:2:"27";s:6:"answer";s:5:"error";s:7:"correct";s:1:"0";}i:5;a:4:{s:2:"id";s:3:"107";s:11:"question_id";s:2:"27";s:6:"answer";s:3:"one";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:31;a:1:{i:0;s:3:"128";}i:7;a:1:{i:0;s:2:"14";}i:29;a:1:{i:0;s:3:"120";}i:30;a:1:{i:0;s:3:"123";}i:25;a:1:{i:0;s:3:"100";}i:28;a:6:{i:0;s:3:"112";i:1;s:3:"113";i:2;s:3:"114";i:3;s:3:"115";i:4;s:3:"116";i:5;s:3:"117";}i:32;a:1:{i:0;s:3:"131";}i:24;a:5:{i:0;s:2:"93";i:1;s:2:"94";i:2;s:2:"95";i:3;s:2:"96";i:4;s:2:"97";}i:9;a:1:{i:0;s:2:"27";}i:27;a:1:{i:0;s:3:"107";}}s:16:"customer_answers";a:10:{i:31;a:1:{i:0;s:3:"128";}i:7;a:1:{i:0;s:2:"14";}i:29;a:1:{i:0;s:3:"120";}i:30;a:1:{i:0;s:3:"123";}i:25;a:1:{i:0;s:3:"100";}i:28;a:6:{i:0;s:3:"112";i:1;s:3:"113";i:2;s:3:"114";i:3;s:3:"115";i:4;s:3:"116";i:5;s:3:"117";}i:32;a:1:{i:0;s:3:"133";}i:24;a:5:{i:0;s:2:"93";i:1;s:2:"94";i:2;s:2:"95";i:3;s:2:"96";i:4;s:2:"97";}i:9;a:1:{i:0;s:2:"27";}i:27;a:1:{i:0;s:3:"107";}}}'),
+	(66, 7, 7, 6.00, 10, 8, 1391417069, 1391417530, 'a:6:{s:4:"quiz";a:7:{s:2:"id";s:1:"7";s:4:"name";s:5:"CSS 3";s:11:"description";s:25:"<p>New CSS3 features.</p>";s:15:"questions_count";s:2:"10";s:13:"correct_count";s:1:"8";s:4:"date";s:19:"2011-03-04 18:31:42";s:6:"active";s:1:"1";}s:14:"quiz_questions";a:10:{i:0;a:7:{s:2:"id";s:2:"68";s:7:"quiz_id";s:1:"7";s:8:"question";s:84:"How to make label with grey color if input is disabled (but not when it is enabled)?";s:4:"code";s:88:"<input type="text" name="email" id="email" />\r\n<label for="email">Email Address:</label>";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417069";s:8:"end_time";s:10:"1391417118";}i:1;a:7:{s:2:"id";s:2:"76";s:7:"quiz_id";s:1:"7";s:8:"question";s:36:"In what line of code there is error?";s:4:"code";s:121:"1: @font-face {\r\n2:    font-family: Delicious; \r\n3:    font-weight: bold; \r\n4:    path: url(\'Delicious-Bold.otf\'); \r\n5: }";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417118";s:8:"end_time";s:10:"1391417180";}i:2;a:7:{s:2:"id";s:2:"65";s:7:"quiz_id";s:1:"7";s:8:"question";s:69:"Does it possible to divide text on 2 columns without additional tags?";s:4:"code";s:131:"<div class="news">\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\n</div>";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417180";s:8:"end_time";s:10:"1391417213";}i:3;a:7:{s:2:"id";s:2:"67";s:7:"quiz_id";s:1:"7";s:8:"question";s:64:"Does attribute selectors supported in Internet Explorer browser?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417213";s:8:"end_time";s:10:"1391417229";}i:4;a:7:{s:2:"id";s:2:"60";s:7:"quiz_id";s:1:"7";s:8:"question";s:98:"How set red color for H1 tag with text "header 2" and "header 3", but not for H1 with "header 1" ?";s:4:"code";s:184:"<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div class="test">\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417229";s:8:"end_time";s:10:"1391417351";}i:5;a:7:{s:2:"id";s:2:"74";s:7:"quiz_id";s:1:"7";s:8:"question";s:54:"What of this display properties create flexible boxes?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417351";s:8:"end_time";s:10:"1391417406";}i:6;a:7:{s:2:"id";s:2:"59";s:7:"quiz_id";s:1:"7";s:8:"question";s:62:"What is vendor prefix for Firefox browser? (enter without "-")";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417406";s:8:"end_time";s:10:"1391417418";}i:7;a:7:{s:2:"id";s:2:"70";s:7:"quiz_id";s:1:"7";s:8:"question";s:48:"What of this structural selectors exist in CSS3?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417418";s:8:"end_time";s:10:"1391417479";}i:8;a:7:{s:2:"id";s:2:"61";s:7:"quiz_id";s:1:"7";s:8:"question";s:95:"How set paddingr for "p" tag with text "content 1" and "content 2", but not for other "p" tags?";s:4:"code";s:250:"<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n    <p>content 1</p>\r\n  </header>\r\n  <p>content</p>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content 2</p>\r\n    <div class="test">\r\n      <h2>header 3</h2>\r\n      <p>content 3</p>\r\n    </div>\r\n  </div>\r\n</div>";s:4:"time";s:3:"120";s:10:"start_time";s:10:"1391417479";s:8:"end_time";s:10:"1391417513";}i:9;a:7:{s:2:"id";s:2:"66";s:7:"quiz_id";s:1:"7";s:8:"question";s:49:"How to set underline for links with absolute URL?";s:4:"code";s:0:"";s:4:"time";s:2:"60";s:10:"start_time";s:10:"1391417513";s:8:"end_time";s:10:"1391417530";}}s:10:"correctArr";a:10:{i:66;b:1;i:61;b:0;i:70;b:1;i:59;b:1;i:74;b:0;i:60;b:1;i:67;b:1;i:65;b:0;i:76;b:0;i:68;b:1;}s:7:"answers";a:10:{i:66;a:3:{i:0;a:4:{s:2:"id";s:3:"279";s:11:"question_id";s:2:"66";s:6:"answer";s:47:"a[href$="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"280";s:11:"question_id";s:2:"66";s:6:"answer";s:46:"a[href="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"278";s:11:"question_id";s:2:"66";s:6:"answer";s:47:"a[href^="http://"] {text-decoration:underline;}";s:7:"correct";s:1:"1";}}i:61;a:4:{i:0;a:4:{s:2:"id";s:3:"259";s:11:"question_id";s:2:"61";s:6:"answer";s:21:"h1 > p {padding:5px;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"260";s:11:"question_id";s:2:"61";s:6:"answer";s:22:"div > p {padding:5px;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"261";s:11:"question_id";s:2:"61";s:6:"answer";s:34:"p[content^=content] {padding:5px;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"258";s:11:"question_id";s:2:"61";s:6:"answer";s:21:"h1 + p {padding:5px;}";s:7:"correct";s:1:"1";}}i:70;a:6:{i:0;a:4:{s:2:"id";s:3:"294";s:11:"question_id";s:2:"70";s:6:"answer";s:5:":root";s:7:"correct";s:1:"1";}i:1;a:4:{s:2:"id";s:3:"295";s:11:"question_id";s:2:"70";s:6:"answer";s:6:":empty";s:7:"correct";s:1:"1";}i:2;a:4:{s:2:"id";s:3:"296";s:11:"question_id";s:2:"70";s:6:"answer";s:14:":first-of-type";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"297";s:11:"question_id";s:2:"70";s:6:"answer";s:12:":first-child";s:7:"correct";s:1:"1";}i:4;a:4:{s:2:"id";s:3:"298";s:11:"question_id";s:2:"70";s:6:"answer";s:11:":last-child";s:7:"correct";s:1:"1";}i:5;a:4:{s:2:"id";s:3:"299";s:11:"question_id";s:2:"70";s:6:"answer";s:13:":only-of-type";s:7:"correct";s:1:"1";}}i:59;a:1:{i:0;a:4:{s:2:"id";s:3:"253";s:11:"question_id";s:2:"59";s:6:"answer";s:3:"moz";s:7:"correct";s:1:"1";}}i:74;a:4:{i:0;a:4:{s:2:"id";s:3:"313";s:11:"question_id";s:2:"74";s:6:"answer";s:8:"flexible";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"316";s:11:"question_id";s:2:"74";s:6:"answer";s:12:"flexible-box";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"314";s:11:"question_id";s:2:"74";s:6:"answer";s:3:"box";s:7:"correct";s:1:"1";}i:3;a:4:{s:2:"id";s:3:"315";s:11:"question_id";s:2:"74";s:6:"answer";s:10:"inline-box";s:7:"correct";s:1:"1";}}i:60;a:4:{i:0;a:4:{s:2:"id";s:3:"255";s:11:"question_id";s:2:"60";s:6:"answer";s:18:"div h1 {color:red}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"256";s:11:"question_id";s:2:"60";s:6:"answer";s:18:"div h1 {color:red}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"257";s:11:"question_id";s:2:"60";s:6:"answer";s:30:"div h1:first-child {color:red}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"254";s:11:"question_id";s:2:"60";s:6:"answer";s:20:"div > h1 {color:red}";s:7:"correct";s:1:"1";}}i:67;a:5:{i:0;a:4:{s:2:"id";s:3:"281";s:11:"question_id";s:2:"67";s:6:"answer";s:3:"yes";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"283";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 8 version";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"284";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 9 version";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"285";s:11:"question_id";s:2:"67";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"282";s:11:"question_id";s:2:"67";s:6:"answer";s:22:"yes, from IE 7 version";s:7:"correct";s:1:"1";}}i:65;a:4:{i:0;a:4:{s:2:"id";s:3:"274";s:11:"question_id";s:2:"65";s:6:"answer";s:2:"no";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"276";s:11:"question_id";s:2:"65";s:6:"answer";s:17:".news{columns:2;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"277";s:11:"question_id";s:2:"65";s:6:"answer";s:30:".news{display:table;column:2;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"275";s:11:"question_id";s:2:"65";s:6:"answer";s:22:".news{column-count:2;}";s:7:"correct";s:1:"1";}}i:76;a:5:{i:0;a:4:{s:2:"id";s:3:"322";s:11:"question_id";s:2:"76";s:6:"answer";s:10:"no, errors";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"323";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"1";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"324";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"2";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"325";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"3";s:7:"correct";s:1:"0";}i:4;a:4:{s:2:"id";s:3:"326";s:11:"question_id";s:2:"76";s:6:"answer";s:1:"4";s:7:"correct";s:1:"1";}}i:68;a:4:{i:0;a:4:{s:2:"id";s:3:"287";s:11:"question_id";s:2:"68";s:6:"answer";s:19:"label {color:#ccc;}";s:7:"correct";s:1:"0";}i:1;a:4:{s:2:"id";s:3:"288";s:11:"question_id";s:2:"68";s:6:"answer";s:36:"input:disabled > label {color:#ccc;}";s:7:"correct";s:1:"0";}i:2;a:4:{s:2:"id";s:3:"289";s:11:"question_id";s:2:"68";s:6:"answer";s:32:"label[for="email"] {color:#ccc;}";s:7:"correct";s:1:"0";}i:3;a:4:{s:2:"id";s:3:"286";s:11:"question_id";s:2:"68";s:6:"answer";s:36:"input:disabled + label {color:#ccc;}";s:7:"correct";s:1:"1";}}}s:15:"correct_answers";a:10:{i:66;a:1:{i:0;s:3:"278";}i:61;a:1:{i:0;s:3:"258";}i:70;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:59;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:74;a:2:{i:0;s:3:"314";i:1;s:3:"315";}i:60;a:1:{i:0;s:3:"254";}i:67;a:1:{i:0;s:3:"282";}i:65;a:1:{i:0;s:3:"275";}i:76;a:1:{i:0;s:3:"326";}i:68;a:1:{i:0;s:3:"286";}}s:16:"customer_answers";a:10:{i:66;a:1:{i:0;s:3:"278";}i:61;a:1:{i:0;s:3:"260";}i:70;a:6:{i:0;s:3:"294";i:1;s:3:"295";i:2;s:3:"296";i:3;s:3:"297";i:4;s:3:"298";i:5;s:3:"299";}i:59;s:3:"moz";i:74;a:1:{i:0;s:3:"313";}i:60;a:1:{i:0;s:3:"254";}i:67;a:1:{i:0;s:3:"282";}i:65;a:1:{i:0;s:3:"277";}i:76;a:1:{i:0;s:3:"322";}i:68;a:1:{i:0;s:3:"286";}}}');
 /*!40000 ALTER TABLE `quiz_archive` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_categories_list
+-- Dumping structure for table ci-0352.quiz_categories_list
 CREATE TABLE IF NOT EXISTS `quiz_categories_list` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `category_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `description_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
   `sort` int(5) unsigned NOT NULL DEFAULT '0',
-  `file_name` varchar(40) NOT NULL,
-  `orig_name` varchar(100) NOT NULL,
+  `file_name` varchar(40) NOT NULL DEFAULT '',
+  `orig_name` varchar(100) NOT NULL DEFAULT '',
   `alt_lang_id` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
@@ -4212,8 +4168,7 @@ INSERT INTO `quiz_categories_list` (`id`, `category_lang_id`, `description_lang_
 	(2, 1185, 1186, 0, 1, 'c7d2e6289377cde9f7bf3eec16a278de.jpg', 'insects-front.jpg', 1187);
 /*!40000 ALTER TABLE `quiz_categories_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_list
+-- Dumping structure for table ci-0352.quiz_list
 CREATE TABLE IF NOT EXISTS `quiz_list` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -4242,28 +4197,28 @@ INSERT INTO `quiz_list` (`id`, `name`, `description`, `questions_count`, `correc
 	(11, 'MySQL', '', 10, 8, '2011-03-06 22:34:44', 0);
 /*!40000 ALTER TABLE `quiz_list` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_progress
+-- Dumping structure for table ci-0352.quiz_progress
 CREATE TABLE IF NOT EXISTS `quiz_progress` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL,
   `quiz_id` int(11) unsigned NOT NULL,
   `question_id` int(11) unsigned NOT NULL,
   `start_time` int(11) unsigned NOT NULL,
-  `end_time` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  `end_time` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `customer_id` (`customer_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=471 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ci-0352.quiz_progress: 0 rows
 /*!40000 ALTER TABLE `quiz_progress` DISABLE KEYS */;
 /*!40000 ALTER TABLE `quiz_progress` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_questions
+-- Dumping structure for table ci-0352.quiz_questions
 CREATE TABLE IF NOT EXISTS `quiz_questions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `quiz_id` int(11) unsigned NOT NULL,
   `question` text NOT NULL,
+  `description` text NOT NULL,
   `code` text NOT NULL,
   `time` int(5) unsigned NOT NULL DEFAULT '120',
   PRIMARY KEY (`id`),
@@ -4272,89 +4227,89 @@ CREATE TABLE IF NOT EXISTS `quiz_questions` (
 
 -- Dumping data for table ci-0352.quiz_questions: 71 rows
 /*!40000 ALTER TABLE `quiz_questions` DISABLE KEYS */;
-INSERT INTO `quiz_questions` (`id`, `quiz_id`, `question`, `code`, `time`) VALUES
-	(1, 1, 'What function is faster "echo" or "print" ?', '', 30),
-	(7, 4, 'What difference between abstract class and interface ?', '', 120),
-	(8, 1, 'What are correct PHP operators? (Select all)', '', 60),
-	(9, 4, 'If in class before "function" there is no "private", \'protected" or "public" what is used by default?', '', 60),
-	(10, 1, 'What returns this code?', '01: <?php\r\n02:     function func(&$r) {\r\n03:        $r++;\r\n04:     }\r\n05:     $r = 1;\r\n06:     func(func($r));\r\n07:     echo $r;\r\n08: ?>', 120),
-	(11, 1, 'What returns this code if "the_file.php" exists and empty?', '<?php \r\necho include "the_file.php";\r\n?>', 120),
-	(12, 1, 'Select the correct options to declare variables when sending form in the data handler (register_globals set to off).', '', 60),
-	(13, 1, 'What returns this code?', '<?php\r\n  $a = 1;\r\n  ${1} = \'wikipedia\';\r\n  echo ${$a}{3};\r\n?>', 120),
-	(14, 1, 'What is value of $b in this code?', '$a = array(\'c\', \'b\', \'a\');\r\n$b = (array) $a;', 120),
-	(15, 1, 'Which of these functions can display the result of SQL query?', '', 60),
-	(16, 1, 'Which of the following constants are predefined?', '', 60),
-	(17, 1, 'What returns this code?', '<?php\r\n$a = "12345";\r\n$a[$a[1]] = "2";\r\necho $a;\r\n?>', 120),
-	(18, 1, 'How many parameters can be passed to this function?', '<?\r\nfunction f() {\r\n    ...\r\n}\r\n?>', 60),
-	(19, 1, 'Which of the following operators are logical?', '', 60),
-	(34, 2, 'Please enter universal selector.', '', 60),
-	(35, 2, 'How to identify a round bullet for list?', '', 60),
-	(20, 1, 'What returns this code?', '<?php\r\necho strtotime ("January 1, 1952");\r\n?>', 120),
-	(21, 1, 'How many times will include file mfile.php?', 'include_once "mfile.php";\r\ninclude "mfile.php";', 60),
-	(22, 4, 'Include all pieces of code that contain invalid modes for fopen() function and will not work?', '', 120),
-	(23, 4, 'What realizations of method "getName" are incorrect?', 'abstract class BaseCls{\r\n    protected abstract function getName();\r\n}\r\nclass ChildCls extends BaseCls{\r\n}', 60),
-	(36, 2, 'Please choose correct declarations of white background color.', '', 60),
-	(37, 2, 'What of these properties does not exist in CSS?', '', 120),
-	(38, 2, 'What CSS properties you can set the font size?', '', 60),
-	(39, 2, 'How to set in CSS indent width 5px inside element?', '', 60),
-	(40, 2, 'What does the acronym CSS?', '', 60),
-	(41, 2, 'What CSS properties can specify the height of a line of text?', '', 60),
-	(42, 2, 'How using CSS can align inline content block element (eg, <div>) horizontally?', '', 60),
-	(43, 2, 'Select a piece of CSS, which does not contain syntax errors.', '', 60),
-	(44, 2, 'Select CSS-code, which sets the bold font for all elements.', '', 60),
-	(45, 2, 'What a piece of css specifies a white background for all elements with class white?', '', 60),
-	(46, 2, 'What is the code snippet allows you to remove the frame around the graphic link (Choose all that apply)?', '', 60),
-	(24, 4, 'Which of these characters can be processed by the function htmlspecialchars?', '', 60),
-	(25, 4, 'What returns this code?', 'class cl {\r\n    var $a;\r\n    var $b;\r\n    function cl($b) {\r\n        $this->a=$b;\r\n    }\r\n    function b($b=1) {\r\n        $this->a.=$b;\r\n        return $this->a-$this->b;\r\n    }\r\n}\r\n$a=new cl(3);\r\necho $a->b();', 120),
-	(26, 4, 'What returns this code?', '$a = array(1.99 => \'b\', .1 => \'c\');\r\n\r\nprint_r($a);', 120),
-	(27, 4, 'What returns this code?', 'class newClass\r\n{\r\n    public $one = \'one\';\r\n    private $two = \'two\';\r\n    function two()\r\n    {\r\n        return \'three\';\r\n    }\r\n}\r\n$obj = new newClass();\r\nforeach ($obj as $v)\r\n{\r\n    echo $v;\r\n}', 120),
-	(28, 4, 'Please select PHP5 Magic Methods?', '', 60),
-	(29, 4, 'Which of the following functions returns the longest hash value?', '', 30),
-	(30, 4, 'What returns this code?', '<?\r\nclass MyClass {\r\n public $myVar;\r\n function __constructor() {\r\n  $this -> myVar = 5;\r\n }\r\n}\r\n\r\n$a = new MyClass;\r\necho $a -> myVar;\r\n?>', 120),
-	(31, 4, 'What returns this code?', '<?php\r\nclass foo {\r\n    private $value = 42;\r\n\r\n    public function &getValue() {\r\n        return $this->value;\r\n    }\r\n    public function echoValue(){\r\n        echo $this->value;\r\n    }\r\n}\r\n\r\n$obj = new foo;\r\n$myValue = $obj->getValue();\r\n$myValue = 33;\r\n$obj->echoValue();\r\n?>', 120),
-	(32, 4, 'Choose all that is not true statements about abstract classes in php5?', '', 120),
-	(33, 4, 'What type is incorrect?', '', 120),
-	(47, 6, 'How set doctype for HTML5 document?', '', 60),
-	(48, 6, 'What is correct charset definition in HTML5 document?', '', 60),
-	(49, 6, 'What of this tags present in HTML5?', '', 120),
-	(50, 6, 'What of this new methods supported in HTML5?', '', 60),
-	(51, 6, 'Please select HTML5 structural (only) tags.', '', 120),
-	(52, 6, 'Please select application-focused (only) tags.', '', 120),
-	(53, 6, 'Please select depracated  in HTML5 elements.', '', 120),
-	(54, 6, 'What of this tag used for navigation?', '', 30),
-	(55, 6, 'What of this input types exist in HTML5?', '', 120),
-	(56, 6, 'What of this input types has functionlity similar on input with type=number?', '', 60),
-	(57, 6, 'How to make in HTML5 prefilled text in input that hide when input get focus and visible again when focus lost?', '', 60),
-	(58, 6, 'What attribute of input tag makes it mandatory?', '', 60),
-	(59, 7, 'What is vendor prefix for Firefox browser? (enter without "-")', '', 60),
-	(60, 7, 'How set red color for H1 tag with text "header 2" and "header 3", but not for H1 with "header 1" ?', '<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div class="test">\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>', 120),
-	(61, 7, 'How set paddingr for "p" tag with text "content 1" and "content 2", but not for other "p" tags?', '<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n    <p>content 1</p>\r\n  </header>\r\n  <p>content</p>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content 2</p>\r\n    <div class="test">\r\n      <h2>header 3</h2>\r\n      <p>content 3</p>\r\n    </div>\r\n  </div>\r\n</div>', 120),
-	(62, 6, 'Does Internet Expolorer browser support "canvas" tag?', '', 60),
-	(63, 6, 'What of this events can be used for drop target element?', '', 120),
-	(64, 6, 'Does drag and drop API supported in Internet Explorer browser?', '', 60),
-	(65, 7, 'Does it possible to divide text on 2 columns without additional tags?', '<div class="news">\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\n</div>', 60),
-	(66, 7, 'How to set underline for links with absolute URL?', '', 60),
-	(67, 7, 'Does attribute selectors supported in Internet Explorer browser?', '', 60),
-	(68, 7, 'How to make label with grey color if input is disabled (but not when it is enabled)?', '<input type="text" name="email" id="email" />\r\n<label for="email">Email Address:</label>', 60),
-	(69, 7, 'How to make padding 5px for "div" tag without class attribute?', '<div class="main">\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div class="content">\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div>\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>', 60),
-	(70, 7, 'What of this structural selectors exist in CSS3?', '', 60),
-	(71, 7, 'What of this need to set to make rounded corners work in Safari, Chrome, Firefox and Opera browsers?', '', 60),
-	(72, 7, 'How many images you can use for border-image property?', '', 30),
-	(73, 7, 'What of this browsers support flexible box model?', '', 60),
-	(74, 7, 'What of this display properties create flexible boxes?', '', 60),
-	(75, 7, 'Please select all new features for styles media.', '', 60),
-	(76, 7, 'In what line of code there is error?', '1: @font-face {\r\n2:    font-family: Delicious; \r\n3:    font-weight: bold; \r\n4:    path: url(\'Delicious-Bold.otf\'); \r\n5: }', 120);
+INSERT INTO `quiz_questions` (`id`, `quiz_id`, `question`, `description`, `code`, `time`) VALUES
+	(1, 1, 'What function is faster "echo" or "print" ?', '', '', 30),
+	(7, 4, 'What difference between abstract class and interface ?', '', '', 120),
+	(8, 1, 'What are correct PHP operators? (Select all)', '', '', 60),
+	(9, 4, 'If in class before "function" there is no "private", \'protected" or "public" what is used by default?', '', '', 60),
+	(10, 1, 'What returns this code?', '', '01: <?php\r\n02:     function func(&$r) {\r\n03:        $r++;\r\n04:     }\r\n05:     $r = 1;\r\n06:     func(func($r));\r\n07:     echo $r;\r\n08: ?>', 120),
+	(11, 1, 'What returns this code if "the_file.php" exists and empty?', '', '<?php \r\necho include "the_file.php";\r\n?>', 120),
+	(12, 1, 'Select the correct options to declare variables when sending form in the data handler (register_globals set to off).', '', '', 60),
+	(13, 1, 'What returns this code?', '', '<?php\r\n  $a = 1;\r\n  ${1} = \'wikipedia\';\r\n  echo ${$a}{3};\r\n?>', 120),
+	(14, 1, 'What is value of $b in this code?', '', '$a = array(\'c\', \'b\', \'a\');\r\n$b = (array) $a;', 120),
+	(15, 1, 'Which of these functions can display the result of SQL query?', '', '', 60),
+	(16, 1, 'Which of the following constants are predefined?', '', '', 60),
+	(17, 1, 'What returns this code?', '', '<?php\r\n$a = "12345";\r\n$a[$a[1]] = "2";\r\necho $a;\r\n?>', 120),
+	(18, 1, 'How many parameters can be passed to this function?', '', '<?\r\nfunction f() {\r\n    ...\r\n}\r\n?>', 60),
+	(19, 1, 'Which of the following operators are logical?', '', '', 60),
+	(34, 2, 'Please enter universal selector.', '', '', 60),
+	(35, 2, 'How to identify a round bullet for list?', '', '', 60),
+	(20, 1, 'What returns this code?', '', '<?php\r\necho strtotime ("January 1, 1952");\r\n?>', 120),
+	(21, 1, 'How many times will include file mfile.php?', '', 'include_once "mfile.php";\r\ninclude "mfile.php";', 60),
+	(22, 4, 'Include all pieces of code that contain invalid modes for fopen() function and will not work?', '', '', 120),
+	(23, 4, 'What realizations of method "getName" are incorrect?', '', 'abstract class BaseCls{\r\n    protected abstract function getName();\r\n}\r\nclass ChildCls extends BaseCls{\r\n}', 60),
+	(36, 2, 'Please choose correct declarations of white background color.', '', '', 60),
+	(37, 2, 'What of these properties does not exist in CSS?', '', '', 120),
+	(38, 2, 'What CSS properties you can set the font size?', '', '', 60),
+	(39, 2, 'How to set in CSS indent width 5px inside element?', '', '', 60),
+	(40, 2, 'What does the acronym CSS?', '', '', 60),
+	(41, 2, 'What CSS properties can specify the height of a line of text?', '', '', 60),
+	(42, 2, 'How using CSS can align inline content block element (eg, <div>) horizontally?', '', '', 60),
+	(43, 2, 'Select a piece of CSS, which does not contain syntax errors.', '', '', 60),
+	(44, 2, 'Select CSS-code, which sets the bold font for all elements.', '', '', 60),
+	(45, 2, 'What a piece of css specifies a white background for all elements with class white?', '', '', 60),
+	(46, 2, 'What is the code snippet allows you to remove the frame around the graphic link (Choose all that apply)?', '', '', 60),
+	(24, 4, 'Which of these characters can be processed by the function htmlspecialchars?', '', '', 60),
+	(25, 4, 'What returns this code?', '', 'class cl {\r\n    var $a;\r\n    var $b;\r\n    function cl($b) {\r\n        $this->a=$b;\r\n    }\r\n    function b($b=1) {\r\n        $this->a.=$b;\r\n        return $this->a-$this->b;\r\n    }\r\n}\r\n$a=new cl(3);\r\necho $a->b();', 120),
+	(26, 4, 'What returns this code?', '', '$a = array(1.99 => \'b\', .1 => \'c\');\r\n\r\nprint_r($a);', 120),
+	(27, 4, 'What returns this code?', '', 'class newClass\r\n{\r\n    public $one = \'one\';\r\n    private $two = \'two\';\r\n    function two()\r\n    {\r\n        return \'three\';\r\n    }\r\n}\r\n$obj = new newClass();\r\nforeach ($obj as $v)\r\n{\r\n    echo $v;\r\n}', 120),
+	(28, 4, 'Please select PHP5 Magic Methods?', '', '', 60),
+	(29, 4, 'Which of the following functions returns the longest hash value?', '', '', 30),
+	(30, 4, 'What returns this code?', '', '<?\r\nclass MyClass {\r\n public $myVar;\r\n function __constructor() {\r\n  $this -> myVar = 5;\r\n }\r\n}\r\n\r\n$a = new MyClass;\r\necho $a -> myVar;\r\n?>', 120),
+	(31, 4, 'What returns this code?', '', '<?php\r\nclass foo {\r\n    private $value = 42;\r\n\r\n    public function &getValue() {\r\n        return $this->value;\r\n    }\r\n    public function echoValue(){\r\n        echo $this->value;\r\n    }\r\n}\r\n\r\n$obj = new foo;\r\n$myValue = $obj->getValue();\r\n$myValue = 33;\r\n$obj->echoValue();\r\n?>', 120),
+	(32, 4, 'Choose all that is not true statements about abstract classes in php5?', '', '', 120),
+	(33, 4, 'What type is incorrect?', '', '', 120),
+	(47, 6, 'How set doctype for HTML5 document?', '', '', 60),
+	(48, 6, 'What is correct charset definition in HTML5 document?', '', '', 60),
+	(49, 6, 'What of this tags present in HTML5?', '', '', 120),
+	(50, 6, 'What of this new methods supported in HTML5?', '', '', 60),
+	(51, 6, 'Please select HTML5 structural (only) tags.', '', '', 120),
+	(52, 6, 'Please select application-focused (only) tags.', '', '', 120),
+	(53, 6, 'Please select depracated  in HTML5 elements.', '', '', 120),
+	(54, 6, 'What of this tag used for navigation?', '', '', 30),
+	(55, 6, 'What of this input types exist in HTML5?', '', '', 120),
+	(56, 6, 'What of this input types has functionlity similar on input with type=number?', '', '', 60),
+	(57, 6, 'How to make in HTML5 prefilled text in input that hide when input get focus and visible again when focus lost?', '', '', 60),
+	(58, 6, 'What attribute of input tag makes it mandatory?', '', '', 60),
+	(59, 7, 'What is vendor prefix for Firefox browser? (enter without "-")', '', '', 60),
+	(60, 7, 'How set red color for H1 tag with text "header 2" and "header 3", but not for H1 with "header 1" ?', '', '<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div class="test">\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>', 120),
+	(61, 7, 'How set paddingr for "p" tag with text "content 1" and "content 2", but not for other "p" tags?', '', '<div>\r\n  <header>\r\n    <h1>header 1</h1>\r\n    <p>content 1</p>\r\n  </header>\r\n  <p>content</p>\r\n  <div>\r\n    <h1>header 2</h1>\r\n    <p>content 2</p>\r\n    <div class="test">\r\n      <h2>header 3</h2>\r\n      <p>content 3</p>\r\n    </div>\r\n  </div>\r\n</div>', 120),
+	(62, 6, 'Does Internet Expolorer browser support "canvas" tag?', '', '', 60),
+	(63, 6, 'What of this events can be used for drop target element?', '', '', 120),
+	(64, 6, 'Does drag and drop API supported in Internet Explorer browser?', '', '', 60),
+	(65, 7, 'Does it possible to divide text on 2 columns without additional tags?', '', '<div class="news">\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\ntext text text text\r\n</div>', 60),
+	(66, 7, 'How to set underline for links with absolute URL?', '', '', 60),
+	(67, 7, 'Does attribute selectors supported in Internet Explorer browser?', '', '', 60),
+	(68, 7, 'How to make label with grey color if input is disabled (but not when it is enabled)?', '', '<input type="text" name="email" id="email" />\r\n<label for="email">Email Address:</label>', 60),
+	(69, 7, 'How to make padding 5px for "div" tag without class attribute?', '', '<div class="main">\r\n  <header>\r\n    <h1>header 1</h1>\r\n  </header>\r\n  <div class="content">\r\n    <h1>header 2</h1>\r\n    <p>content</p>\r\n    <div>\r\n      <h1>header 3</h1>\r\n    </div>\r\n  </div>\r\n</div>', 60),
+	(70, 7, 'What of this structural selectors exist in CSS3?', '', '', 60),
+	(71, 7, 'What of this need to set to make rounded corners work in Safari, Chrome, Firefox and Opera browsers?', '', '', 60),
+	(72, 7, 'How many images you can use for border-image property?', '', '', 30),
+	(73, 7, 'What of this browsers support flexible box model?', '', '', 60),
+	(74, 7, 'What of this display properties create flexible boxes?', '', '', 60),
+	(75, 7, 'Please select all new features for styles media.', '', '', 60),
+	(76, 7, 'In what line of code there is error?', '', '1: @font-face {\r\n2:    font-family: Delicious; \r\n3:    font-weight: bold; \r\n4:    path: url(\'Delicious-Bold.otf\'); \r\n5: }', 120);
 /*!40000 ALTER TABLE `quiz_questions` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.quiz_store
+-- Dumping structure for table ci-0352.quiz_store
 CREATE TABLE IF NOT EXISTS `quiz_store` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL,
   `quiz_id` int(11) unsigned NOT NULL,
   `question_id` int(11) unsigned NOT NULL,
-  `answer_id` int(11) unsigned NOT NULL,
-  `custom_answer` varchar(50) NOT NULL,
+  `answer_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `custom_answer` varchar(50) NOT NULL DEFAULT '',
+  `connect_answer` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=923 DEFAULT CHARSET=utf8;
 
@@ -4362,11 +4317,10 @@ CREATE TABLE IF NOT EXISTS `quiz_store` (
 /*!40000 ALTER TABLE `quiz_store` DISABLE KEYS */;
 /*!40000 ALTER TABLE `quiz_store` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.ratings
+-- Dumping structure for table ci-0352.ratings
 CREATE TABLE IF NOT EXISTS `ratings` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `post_id` char(16) NOT NULL DEFAULT '0',
   `table` varchar(50) NOT NULL DEFAULT '',
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
   `ip` char(15) NOT NULL,
@@ -4379,115 +4333,114 @@ CREATE TABLE IF NOT EXISTS `ratings` (
 -- Dumping data for table ci-0352.ratings: 105 rows
 /*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
 INSERT INTO `ratings` (`id`, `post_id`, `table`, `customer_id`, `ip`, `date`, `rating`) VALUES
-	(1, 71, 'comments', 0, '193.169.80.41', '2011-06-10 22:07:51', 1),
-	(2, 72, 'comments', 0, '193.169.80.41', '2011-06-10 22:07:53', -1),
-	(3, 78, 'comments', 0, '193.169.80.41', '2011-06-10 22:07:55', 1),
-	(4, 79, 'comments', 0, '193.169.80.41', '2011-06-10 22:07:57', -1),
-	(5, 71, 'comments', 7, '193.169.80.41', '2011-06-10 22:08:13', 1),
-	(6, 72, 'comments', 7, '193.169.80.41', '2011-06-10 22:08:16', 1),
-	(7, 78, 'comments', 7, '193.169.80.41', '2011-06-10 22:08:17', -1),
-	(8, 79, 'comments', 7, '193.169.80.41', '2011-06-10 22:08:21', -1),
-	(9, 71, 'comments', 7, '193.169.80.41', '2011-06-10 22:13:23', 1),
-	(10, 72, 'comments', 7, '193.169.80.41', '2011-06-10 22:13:28', -1),
-	(11, 78, 'comments', 7, '193.169.80.41', '2011-06-10 22:13:30', -1),
-	(12, 79, 'comments', 7, '193.169.80.41', '2011-06-10 22:13:32', 1),
-	(13, 80, 'comments', 7, '193.169.80.41', '2011-06-10 22:13:35', 1),
-	(14, 72, 'comments', 7, '193.169.80.41', '2011-06-10 22:19:03', 1),
-	(15, 71, 'comments', 7, '193.169.80.41', '2011-06-10 22:19:05', 1),
-	(16, 78, 'comments', 7, '193.169.80.41', '2011-06-10 22:19:07', -1),
-	(17, 79, 'comments', 7, '193.169.80.41', '2011-06-10 22:19:09', -1),
-	(18, 80, 'comments', 7, '193.169.80.41', '2011-06-10 22:19:11', 1),
-	(19, 71, 'comments', 7, '193.169.80.41', '2011-06-10 22:31:13', 1),
-	(20, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:19:23', 1),
-	(21, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:20:29', 1),
-	(22, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:20:41', -1),
-	(23, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:22:07', -1),
-	(24, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:22:23', 1),
-	(25, 72, 'comments', 0, '193.169.80.41', '2011-06-11 08:22:27', 1),
-	(26, 78, 'comments', 0, '193.169.80.41', '2011-06-11 08:22:44', -1),
-	(27, 78, 'comments', 0, '193.169.80.41', '2011-06-11 08:22:53', 1),
-	(28, 78, 'comments', 0, '193.169.80.41', '2011-06-11 08:23:11', -1),
-	(29, 74, 'comments', 0, '193.169.80.41', '2011-06-11 08:24:22', 1),
-	(30, 74, 'comments', 0, '193.169.80.41', '2011-06-11 08:24:43', 1),
-	(31, 79, 'comments', 0, '193.169.80.41', '2011-06-11 08:24:52', -1),
-	(32, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:29:55', 1),
-	(33, 72, 'comments', 0, '193.169.80.41', '2011-06-11 08:30:04', 1),
-	(34, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:55:05', 1),
-	(35, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:55:10', -1),
-	(36, 71, 'comments', 0, '193.169.80.41', '2011-06-11 08:55:52', 1),
-	(37, 76, 'comments', 0, '193.169.80.41', '2011-06-11 09:04:13', 1),
-	(38, 74, 'comments', 0, '193.169.80.41', '2011-06-11 09:04:24', -1),
-	(39, 80, 'comments', 0, '193.169.80.41', '2011-06-11 09:04:31', 1),
-	(40, 75, 'comments', 0, '193.169.80.41', '2011-06-11 09:07:49', 1),
-	(41, 78, 'comments', 0, '193.169.80.41', '2011-06-11 09:07:53', 1),
-	(42, 84, 'comments', 0, '193.169.80.41', '2011-06-11 20:37:00', 1),
-	(43, 79, 'comments', 0, '193.169.80.41', '2011-06-11 22:04:29', 1),
-	(44, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:17:41', 1),
-	(45, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:18:29', 1),
-	(46, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:19:37', -1),
-	(47, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:19:58', 1),
-	(48, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:26:55', 1),
-	(49, 85, 'comments', 0, '193.169.80.41', '2011-06-11 22:27:31', -1),
-	(50, 1, 'articles', 0, '193.169.80.41', '2011-06-11 22:33:21', 1),
-	(51, 1, 'articles', 0, '193.169.80.41', '2011-06-11 22:33:21', 1),
-	(52, 86, 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
-	(53, 86, 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
-	(54, 86, 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
-	(55, 2, 'articles', 0, '193.169.80.41', '2011-06-11 22:44:49', 1),
-	(56, 85, 'comments', 0, '193.169.80.41', '2011-06-11 22:44:54', -1),
-	(57, 85, 'comments', 0, '193.169.80.41', '2011-06-11 22:44:58', 1),
-	(58, 87, 'comments', 0, '193.169.80.41', '2011-06-11 22:45:03', 1),
-	(59, 77, 'comments', 0, '193.169.80.41', '2011-06-11 22:55:00', 1),
-	(60, 10, 'news', 0, '193.169.80.41', '2011-06-11 22:55:10', 1),
-	(61, 2, 'news', 0, '193.169.80.41', '2011-06-11 22:56:14', 1),
-	(62, 88, 'comments', 7, '193.169.80.41', '2011-06-11 22:57:10', -1),
-	(63, 71, 'comments', 0, '127.0.0.1', '2011-06-12 13:15:31', 1),
-	(64, 72, 'comments', 0, '127.0.0.1', '2011-06-12 13:15:33', -1),
-	(65, 78, 'comments', 0, '127.0.0.1', '2011-06-12 13:15:44', -1),
-	(66, 79, 'comments', 0, '127.0.0.1', '2011-06-12 13:16:01', 1),
-	(67, 81, 'comments', 0, '127.0.0.1', '2011-06-12 13:16:12', 1),
-	(68, 74, 'comments', 0, '127.0.0.1', '2011-06-12 13:16:15', 1),
-	(69, 77, 'comments', 0, '127.0.0.1', '2011-06-12 13:16:20', 1),
-	(70, 10, 'news', 0, '127.0.0.1', '2011-06-12 13:16:29', 1),
-	(71, 80, 'comments', 0, '127.0.0.1', '2011-06-12 13:16:44', 1),
-	(72, 2, 'articles', 0, '127.0.0.1', '2011-06-12 13:21:01', 1),
-	(73, 87, 'comments', 7, '127.0.0.1', '2011-06-12 18:07:03', 1),
-	(74, 76, 'comments', 7, '127.0.0.1', '2011-06-12 18:07:07', -1),
-	(75, 82, 'comments', 7, '127.0.0.1', '2011-06-12 18:53:33', 1),
-	(76, 1, 'articles', 7, '127.0.0.1', '2011-06-12 18:53:37', 1),
-	(77, 89, 'comments', 0, '127.0.0.1', '2011-07-17 00:42:12', 1),
-	(78, 90, 'comments', 0, '127.0.0.1', '2011-07-17 00:42:13', -1),
-	(79, 91, 'comments', 0, '127.0.0.1', '2011-07-17 01:29:21', 1),
-	(80, 7, 'news', 0, '127.0.0.1', '2011-07-17 01:29:24', 1),
-	(81, 13, 'news', 7, '127.0.0.1', '2011-07-25 15:43:28', 1),
-	(82, 5, 'articles', 0, '127.0.0.1', '2011-07-29 23:50:42', 1),
-	(83, 94, 'comments', 0, '127.0.0.1', '2011-07-29 23:51:01', -1),
-	(84, 1, 'comments', 7, '127.0.0.1', '2011-07-31 12:56:06', 1),
-	(85, 15, 'news', 7, '127.0.0.1', '2011-07-31 12:56:07', 1),
-	(86, 2, 'comments', 7, '127.0.0.1', '2011-07-31 13:23:17', 1),
-	(92, 3, 'articles', 7, '127.0.0.1', '2011-08-05 21:54:48', 1),
-	(93, 6, 'comments', 7, '127.0.0.1', '2011-08-05 22:09:18', -1),
-	(94, 13, 'news', 7, '127.0.0.1', '2011-08-06 15:52:00', 1),
-	(95, 7, 'comments', 7, '127.0.0.1', '2011-08-07 13:16:23', 1),
-	(96, 8, 'comments', 0, '127.0.0.1', '2011-08-14 01:02:39', 1),
-	(97, 5, 'articles', 0, '127.0.0.1', '2011-08-31 22:51:48', 1),
-	(98, 9, 'comments', 0, '127.0.0.1', '2011-09-03 11:58:10', 1),
-	(99, 8, 'comments', 7, '127.0.0.1', '2011-09-04 01:46:48', 1),
-	(100, 11, 'comments', 21, '127.0.0.1', '2011-09-07 22:24:09', 1),
-	(101, 7, 'comments', 7, '127.0.0.1', '2011-11-19 12:47:22', 1),
-	(102, 28, 'comments', 7, '127.0.0.1', '2011-12-06 12:51:53', -1),
-	(103, 9, 'comments', 7, '127.0.0.1', '2011-12-06 12:51:58', 1),
-	(104, 28, 'comments', 7, '127.0.0.1', '2012-01-22 00:38:38', -1),
-	(105, 13, 'comments', 7, '127.0.0.1', '2012-05-20 12:43:54', 1),
-	(106, 5, 'articles', 7, '127.0.0.1', '2012-05-20 12:44:17', 1),
-	(107, 32, 'comments', 7, '127.0.0.1', '2012-06-03 13:08:48', 1),
-	(108, 13, 'comments', 0, '127.0.0.1', '2012-09-18 09:56:21', 1),
-	(109, 10, 'articles', 0, '127.0.0.1', '2012-09-18 09:57:07', 1),
-	(110, 32, 'comments', 0, '127.0.0.1', '2012-12-08 00:10:03', 1);
+	(1, '71', 'comments', 0, '193.169.80.41', '2011-06-10 22:07:51', 1),
+	(2, '72', 'comments', 0, '193.169.80.41', '2011-06-10 22:07:53', -1),
+	(3, '78', 'comments', 0, '193.169.80.41', '2011-06-10 22:07:55', 1),
+	(4, '79', 'comments', 0, '193.169.80.41', '2011-06-10 22:07:57', -1),
+	(5, '71', 'comments', 7, '193.169.80.41', '2011-06-10 22:08:13', 1),
+	(6, '72', 'comments', 7, '193.169.80.41', '2011-06-10 22:08:16', 1),
+	(7, '78', 'comments', 7, '193.169.80.41', '2011-06-10 22:08:17', -1),
+	(8, '79', 'comments', 7, '193.169.80.41', '2011-06-10 22:08:21', -1),
+	(9, '71', 'comments', 7, '193.169.80.41', '2011-06-10 22:13:23', 1),
+	(10, '72', 'comments', 7, '193.169.80.41', '2011-06-10 22:13:28', -1),
+	(11, '78', 'comments', 7, '193.169.80.41', '2011-06-10 22:13:30', -1),
+	(12, '79', 'comments', 7, '193.169.80.41', '2011-06-10 22:13:32', 1),
+	(13, '80', 'comments', 7, '193.169.80.41', '2011-06-10 22:13:35', 1),
+	(14, '72', 'comments', 7, '193.169.80.41', '2011-06-10 22:19:03', 1),
+	(15, '71', 'comments', 7, '193.169.80.41', '2011-06-10 22:19:05', 1),
+	(16, '78', 'comments', 7, '193.169.80.41', '2011-06-10 22:19:07', -1),
+	(17, '79', 'comments', 7, '193.169.80.41', '2011-06-10 22:19:09', -1),
+	(18, '80', 'comments', 7, '193.169.80.41', '2011-06-10 22:19:11', 1),
+	(19, '71', 'comments', 7, '193.169.80.41', '2011-06-10 22:31:13', 1),
+	(20, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:19:23', 1),
+	(21, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:20:29', 1),
+	(22, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:20:41', -1),
+	(23, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:22:07', -1),
+	(24, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:22:23', 1),
+	(25, '72', 'comments', 0, '193.169.80.41', '2011-06-11 08:22:27', 1),
+	(26, '78', 'comments', 0, '193.169.80.41', '2011-06-11 08:22:44', -1),
+	(27, '78', 'comments', 0, '193.169.80.41', '2011-06-11 08:22:53', 1),
+	(28, '78', 'comments', 0, '193.169.80.41', '2011-06-11 08:23:11', -1),
+	(29, '74', 'comments', 0, '193.169.80.41', '2011-06-11 08:24:22', 1),
+	(30, '74', 'comments', 0, '193.169.80.41', '2011-06-11 08:24:43', 1),
+	(31, '79', 'comments', 0, '193.169.80.41', '2011-06-11 08:24:52', -1),
+	(32, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:29:55', 1),
+	(33, '72', 'comments', 0, '193.169.80.41', '2011-06-11 08:30:04', 1),
+	(34, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:55:05', 1),
+	(35, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:55:10', -1),
+	(36, '71', 'comments', 0, '193.169.80.41', '2011-06-11 08:55:52', 1),
+	(37, '76', 'comments', 0, '193.169.80.41', '2011-06-11 09:04:13', 1),
+	(38, '74', 'comments', 0, '193.169.80.41', '2011-06-11 09:04:24', -1),
+	(39, '80', 'comments', 0, '193.169.80.41', '2011-06-11 09:04:31', 1),
+	(40, '75', 'comments', 0, '193.169.80.41', '2011-06-11 09:07:49', 1),
+	(41, '78', 'comments', 0, '193.169.80.41', '2011-06-11 09:07:53', 1),
+	(42, '84', 'comments', 0, '193.169.80.41', '2011-06-11 20:37:00', 1),
+	(43, '79', 'comments', 0, '193.169.80.41', '2011-06-11 22:04:29', 1),
+	(44, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:17:41', 1),
+	(45, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:18:29', 1),
+	(46, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:19:37', -1),
+	(47, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:19:58', 1),
+	(48, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:26:55', 1),
+	(49, '85', 'comments', 0, '193.169.80.41', '2011-06-11 22:27:31', -1),
+	(50, '1', 'articles', 0, '193.169.80.41', '2011-06-11 22:33:21', 1),
+	(51, '1', 'articles', 0, '193.169.80.41', '2011-06-11 22:33:21', 1),
+	(52, '86', 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
+	(53, '86', 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
+	(54, '86', 'comments', 0, '193.169.80.41', '2011-06-11 22:33:44', 1),
+	(55, '2', 'articles', 0, '193.169.80.41', '2011-06-11 22:44:49', 1),
+	(56, '85', 'comments', 0, '193.169.80.41', '2011-06-11 22:44:54', -1),
+	(57, '85', 'comments', 0, '193.169.80.41', '2011-06-11 22:44:58', 1),
+	(58, '87', 'comments', 0, '193.169.80.41', '2011-06-11 22:45:03', 1),
+	(59, '77', 'comments', 0, '193.169.80.41', '2011-06-11 22:55:00', 1),
+	(60, '10', 'news', 0, '193.169.80.41', '2011-06-11 22:55:10', 1),
+	(61, '2', 'news', 0, '193.169.80.41', '2011-06-11 22:56:14', 1),
+	(62, '88', 'comments', 7, '193.169.80.41', '2011-06-11 22:57:10', -1),
+	(63, '71', 'comments', 0, '127.0.0.1', '2011-06-12 13:15:31', 1),
+	(64, '72', 'comments', 0, '127.0.0.1', '2011-06-12 13:15:33', -1),
+	(65, '78', 'comments', 0, '127.0.0.1', '2011-06-12 13:15:44', -1),
+	(66, '79', 'comments', 0, '127.0.0.1', '2011-06-12 13:16:01', 1),
+	(67, '81', 'comments', 0, '127.0.0.1', '2011-06-12 13:16:12', 1),
+	(68, '74', 'comments', 0, '127.0.0.1', '2011-06-12 13:16:15', 1),
+	(69, '77', 'comments', 0, '127.0.0.1', '2011-06-12 13:16:20', 1),
+	(70, '10', 'news', 0, '127.0.0.1', '2011-06-12 13:16:29', 1),
+	(71, '80', 'comments', 0, '127.0.0.1', '2011-06-12 13:16:44', 1),
+	(72, '2', 'articles', 0, '127.0.0.1', '2011-06-12 13:21:01', 1),
+	(73, '87', 'comments', 7, '127.0.0.1', '2011-06-12 18:07:03', 1),
+	(74, '76', 'comments', 7, '127.0.0.1', '2011-06-12 18:07:07', -1),
+	(75, '82', 'comments', 7, '127.0.0.1', '2011-06-12 18:53:33', 1),
+	(76, '1', 'articles', 7, '127.0.0.1', '2011-06-12 18:53:37', 1),
+	(77, '89', 'comments', 0, '127.0.0.1', '2011-07-17 00:42:12', 1),
+	(78, '90', 'comments', 0, '127.0.0.1', '2011-07-17 00:42:13', -1),
+	(79, '91', 'comments', 0, '127.0.0.1', '2011-07-17 01:29:21', 1),
+	(80, '7', 'news', 0, '127.0.0.1', '2011-07-17 01:29:24', 1),
+	(81, '13', 'news', 7, '127.0.0.1', '2011-07-25 15:43:28', 1),
+	(82, '5', 'articles', 0, '127.0.0.1', '2011-07-29 23:50:42', 1),
+	(83, '94', 'comments', 0, '127.0.0.1', '2011-07-29 23:51:01', -1),
+	(84, '1', 'comments', 7, '127.0.0.1', '2011-07-31 12:56:06', 1),
+	(85, '15', 'news', 7, '127.0.0.1', '2011-07-31 12:56:07', 1),
+	(86, '2', 'comments', 7, '127.0.0.1', '2011-07-31 13:23:17', 1),
+	(92, '3', 'articles', 7, '127.0.0.1', '2011-08-05 21:54:48', 1),
+	(93, '6', 'comments', 7, '127.0.0.1', '2011-08-05 22:09:18', -1),
+	(94, '13', 'news', 7, '127.0.0.1', '2011-08-06 15:52:00', 1),
+	(95, '7', 'comments', 7, '127.0.0.1', '2011-08-07 13:16:23', 1),
+	(96, '8', 'comments', 0, '127.0.0.1', '2011-08-14 01:02:39', 1),
+	(97, '5', 'articles', 0, '127.0.0.1', '2011-08-31 22:51:48', 1),
+	(98, '9', 'comments', 0, '127.0.0.1', '2011-09-03 11:58:10', 1),
+	(99, '8', 'comments', 7, '127.0.0.1', '2011-09-04 01:46:48', 1),
+	(100, '11', 'comments', 21, '127.0.0.1', '2011-09-07 22:24:09', 1),
+	(101, '7', 'comments', 7, '127.0.0.1', '2011-11-19 12:47:22', 1),
+	(102, '28', 'comments', 7, '127.0.0.1', '2011-12-06 12:51:53', -1),
+	(103, '9', 'comments', 7, '127.0.0.1', '2011-12-06 12:51:58', 1),
+	(104, '28', 'comments', 7, '127.0.0.1', '2012-01-22 00:38:38', -1),
+	(105, '13', 'comments', 7, '127.0.0.1', '2012-05-20 12:43:54', 1),
+	(106, '5', 'articles', 7, '127.0.0.1', '2012-05-20 12:44:17', 1),
+	(107, '32', 'comments', 7, '127.0.0.1', '2012-06-03 13:08:48', 1),
+	(108, '13', 'comments', 0, '127.0.0.1', '2012-09-18 09:56:21', 1),
+	(109, '10', 'articles', 0, '127.0.0.1', '2012-09-18 09:57:07', 1),
+	(110, '32', 'comments', 0, '127.0.0.1', '2012-12-08 00:10:03', 1);
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.reports
+-- Dumping structure for table ci-0352.reports
 CREATE TABLE IF NOT EXISTS `reports` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -4527,11 +4480,10 @@ INSERT INTO `reports` (`data_key`, `pub_date`, `title`, `subtitle`, `period`, `g
 	('B86FBFED9014F7CB', '2012-07-06 13:21:23', 'Orders by statuses', 'amount of orders each status', 'all', 'none', 'date', 3, 'Pending', 'select count(*) as amount from orders where status=0', 'Approved', 'select count(*) as amount from orders where status=1', 'Payed', 'select count(*) as amount from orders where status=2', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 /*!40000 ALTER TABLE `reports` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.sessions
+-- Dumping structure for table ci-0352.sessions
 CREATE TABLE IF NOT EXISTS `sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `ip_address` varchar(16) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) DEFAULT NULL,
   `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
   `user_data` text NOT NULL,
@@ -4541,12 +4493,9 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 
 -- Dumping data for table ci-0352.sessions: 1 rows
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-	('de79163cc99cf60b8c37597e18328d68', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36', 1460406360, 'a:7:{s:9:"user_data";s:0:"";s:13:"customer_name";s:7:"Michael";s:11:"customer_id";s:1:"7";s:18:"customer_logged_in";b:1;s:17:"customer_group_id";s:1:"2";s:17:"customer_is_admin";b:1;s:15:"customer_rights";a:2:{s:5:"admin";a:51:{s:7:"reports";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"spiderweb";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:10:"assortment";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"slideshow";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"shipping";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:5:"tasks";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:6:"videos";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:11:"formbuilder";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:13:"site_partners";a:1:{i:0;s:6:"config";}s:7:"filters";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:4:"tags";a:3:{i:0;s:6:"delete";i:1;s:4:"edit";i:2;s:4:"view";}s:11:"site_phones";a:1:{i:0;s:6:"config";}s:11:"subscribers";a:5:{i:0;s:4:"send";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:7:"ratings";a:1:{i:0;s:6:"config";}s:6:"themes";a:1:{i:0;s:6:"config";}s:12:"testimonials";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"comments";a:4:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:4:"view";i:3;s:4:"edit";}s:4:"poll";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:4:"lang";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:15:"quiz_categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:4:"quiz";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:17:"photos_categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:6:"photos";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:3:"faq";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:4:"news";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:19:"articles_categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"articles";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:5:"links";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"companies";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:3:"add";i:3;s:4:"edit";i:4;s:4:"view";}s:10:"categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:5:"pages";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:15:"auto_responders";a:2:{i:0;s:4:"edit";i:1;s:4:"view";}s:10:"email_tpls";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:11:"newsletters";a:3:{i:0;s:4:"send";i:1;s:6:"config";i:2;s:6:"delete";}s:16:"discount_coupons";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"discounts";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"currency";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:6:"orders";a:3:{i:0;s:6:"delete";i:1;s:4:"edit";i:2;s:4:"view";}s:19:"products_attributes";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:22:"products_manufacturers";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:19:"products_categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"products";a:5:{i:0;s:6:"config";i:1;s:6:"delete";i:2;s:4:"edit";i:3;s:3:"add";i:4;s:4:"view";}s:20:"documents_categories";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"documents";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:6:"groups";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:9:"customers";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:4:"menu";a:4:{i:0;s:6:"delete";i:1;s:3:"add";i:2;s:4:"edit";i:3;s:4:"view";}s:8:"settings";a:1:{i:0;s:4:"edit";}s:5:"books";a:4:{i:0;s:4:"view";i:1;s:4:"edit";i:2;s:3:"add";i:3;s:6:"delete";}s:6:"agenda";a:4:{i:0;s:4:"view";i:1;s:4:"edit";i:2;s:3:"add";i:3;s:6:"delete";}s:5:"tools";a:1:{i:0;s:4:"view";}}s:5:"front";a:1:{s:8:"comments";a:1:{i:0;s:4:"edit";}}}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.settings
+-- Dumping structure for table ci-0352.settings
 CREATE TABLE IF NOT EXISTS `settings` (
   `param` varchar(100) NOT NULL,
   `value` text,
@@ -4555,7 +4504,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   UNIQUE KEY `param` (`param`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping data for table ci-0352.settings: 78 rows
+-- Dumping data for table ci-0352.settings: 80 rows
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`param`, `value`, `date`) VALUES
 	('site_title_EN', 'Title EN', '0000-00-00 00:00:00'),
@@ -4614,7 +4563,7 @@ INSERT INTO `settings` (`param`, `value`, `date`) VALUES
 	('comments_for_news_allowed', '1', '2011-09-19 22:57:04'),
 	('comments_for_products_allowed', '1', '2011-09-19 22:57:04'),
 	('available_front_sections', 'articles,cart,categories,companies,contact_us,currency,customers,faq,im,jobs,links,news,orders,photos,poll,posters,products,quiz,ratings,request_call,subscribe,tell_friend,comments,testimonials,videos,wishlist,assortment,instructors,food,carriers,books,documents', '2011-10-01 16:28:10'),
-	('comments_censor_list', 'bunny\r\nrabbit\r\ndog\r\n', '2011-10-12 22:28:09'),
+	('comments_censor_list', 'bunny\nrabbit\ndog\n', '2011-10-12 22:28:09'),
 	('automatic_approve_comments', '1', '2011-10-12 22:46:11'),
 	('ip_blacklist', '1.1.1.1', '2011-10-15 23:18:18'),
 	('use_product_sku', '1', '2011-12-06 15:52:14'),
@@ -4635,11 +4584,12 @@ INSERT INTO `settings` (`param`, `value`, `date`) VALUES
 	('interface_enabled_langs', 'EN,UA,RU,NL,PL', '2012-06-03 14:24:39'),
 	('translate_driver', 'bing', '2012-06-06 18:19:02'),
 	('photos_big_crop', '0', '2012-07-31 16:54:37'),
-	('order_not_require_login', '0', '2012-08-26 14:25:22');
+	('order_not_require_login', '0', '2012-08-26 14:25:22'),
+	('google_map_api_key', NULL, '2018-02-16 20:12:21'),
+	('order_minimum_sum', '', '2018-02-17 12:38:18');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.shipping
+-- Dumping structure for table ci-0352.shipping
 CREATE TABLE IF NOT EXISTS `shipping` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -4655,8 +4605,7 @@ INSERT INTO `shipping` (`data_key`, `pub_date`, `title_lang_id`, `cost`) VALUES
 	('AFFECF56BB20F451', '2012-04-13 16:26:51', 764, 30.00);
 /*!40000 ALTER TABLE `shipping` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.slideshow
+-- Dumping structure for table ci-0352.slideshow
 CREATE TABLE IF NOT EXISTS `slideshow` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -4675,8 +4624,7 @@ INSERT INTO `slideshow` (`data_key`, `pub_date`, `image`, `title_lang_id`, `link
 	('E896E902537A19EA', '2012-05-29 12:30:43', '595e5d0165a85bddd77384c1c966c8da.jpg', 881, '', 882);
 /*!40000 ALTER TABLE `slideshow` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.subscribers
+-- Dumping structure for table ci-0352.subscribers
 CREATE TABLE IF NOT EXISTS `subscribers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL DEFAULT '',
@@ -4692,11 +4640,10 @@ INSERT INTO `subscribers` (`id`, `email`) VALUES
 	(35, 'test@test.com');
 /*!40000 ALTER TABLE `subscribers` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.tags
+-- Dumping structure for table ci-0352.tags
 CREATE TABLE IF NOT EXISTS `tags` (
   `tag_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) unsigned NOT NULL,
+  `post_id` char(16) NOT NULL,
   `tag` varchar(100) NOT NULL,
   `table` varchar(100) NOT NULL,
   PRIMARY KEY (`tag_id`),
@@ -4707,36 +4654,35 @@ CREATE TABLE IF NOT EXISTS `tags` (
 -- Dumping data for table ci-0352.tags: 20 rows
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
 INSERT INTO `tags` (`tag_id`, `post_id`, `tag`, `table`) VALUES
-	(194, 10, 'new', 'news'),
-	(193, 10, 'news', 'news'),
-	(195, 1, 'test1', 'articles'),
-	(196, 1, 'test2', 'articles'),
-	(197, 2, 'test', 'articles'),
-	(200, 10, 'test', 'news'),
-	(202, 2, 'test1', 'articles'),
-	(205, 13, 'test', 'news'),
-	(239, 13, 'news', 'news'),
-	(207, 3, 'test2', 'articles'),
-	(208, 3, 'new', 'articles'),
-	(231, 15, 'test1', 'products'),
-	(220, 16, 'test1', 'products'),
-	(221, 16, 'test2', 'products'),
-	(222, 18, 'test', 'products'),
-	(228, 19, 'test', 'products'),
-	(230, 3, 'test1', 'articles'),
-	(238, 5, 'test', 'articles'),
-	(243, 18, 'test1', 'products'),
-	(241, 24, 'guitar', 'products');
+	(194, '10', 'new', 'news'),
+	(193, '10', 'news', 'news'),
+	(195, '1', 'test1', 'articles'),
+	(196, '1', 'test2', 'articles'),
+	(197, '2', 'test', 'articles'),
+	(200, '10', 'test', 'news'),
+	(202, '2', 'test1', 'articles'),
+	(205, '13', 'test', 'news'),
+	(239, '13', 'news', 'news'),
+	(207, '3', 'test2', 'articles'),
+	(208, '3', 'new', 'articles'),
+	(231, '15', 'test1', 'products'),
+	(220, '16', 'test1', 'products'),
+	(221, '16', 'test2', 'products'),
+	(222, '18', 'test', 'products'),
+	(228, '19', 'test', 'products'),
+	(230, '3', 'test1', 'articles'),
+	(238, '5', 'test', 'articles'),
+	(243, '18', 'test1', 'products'),
+	(241, '24', 'guitar', 'products');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.tasks
+-- Dumping structure for table ci-0352.tasks
 CREATE TABLE IF NOT EXISTS `tasks` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `attachment` varchar(40) NOT NULL,
+  `attachment` varchar(40) NOT NULL DEFAULT '',
   `priority` varchar(255) NOT NULL,
   `time_estimate` time NOT NULL,
   `deadline` date NOT NULL,
@@ -4751,8 +4697,7 @@ INSERT INTO `tasks` (`data_key`, `pub_date`, `title`, `description`, `attachment
 	('D2D3E771A0406DDB', '2012-04-03 12:23:11', 'some test post', 'dgbfng ', '809842c3ae5e5ddf60c13664920a059a.png', '2', '00:00:00', '2012-04-03', '55');
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.testimonials
+-- Dumping structure for table ci-0352.testimonials
 CREATE TABLE IF NOT EXISTS `testimonials` (
   `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -4767,8 +4712,7 @@ INSERT INTO `testimonials` (`id`, `name`, `link`, `content`) VALUES
 	(1, 'Michael', 'http://test.com', 'this is very nice website!');
 /*!40000 ALTER TABLE `testimonials` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.videos
+-- Dumping structure for table ci-0352.videos
 CREATE TABLE IF NOT EXISTS `videos` (
   `data_key` char(16) NOT NULL,
   `pub_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -4787,12 +4731,11 @@ INSERT INTO `videos` (`data_key`, `pub_date`, `title_lang_id`, `description_lang
 	('30C237BECB684B47', '2012-04-06 11:43:41', 648, 649, 'embed_code', '', '<object type="application/x-shockwave-flash" style="width:530px;height:380px;" bgcolor="#d5f19a" data="http://www.youtube.com/v/HRFUB0bNn0I&amp;hl=en&amp;fs=1" title="JoomlaWorks AllVideos Player">\r\n				<param name="movie" value="http://www.youtube.com/v/HRFUB0bNn0I&amp;hl=en&amp;fs=1">\r\n				<param name="quality" value="high">\r\n				<param name="wmode" value="transparent">\r\n				<param name="bgcolor" value="#d5f19a">\r\n				<param name="allowfullscreen" value="true">\r\n				<param name="allowscriptaccess" value="always">\r\n			</object>');
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 
-
--- Dumping structure for таблиця ci-0352.wishlist
+-- Dumping structure for table ci-0352.wishlist
 CREATE TABLE IF NOT EXISTS `wishlist` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `product_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `product_id` char(16) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `customer_product` (`customer_id`,`product_id`),
   KEY `customer_id` (`customer_id`)
@@ -4801,12 +4744,13 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
 -- Dumping data for table ci-0352.wishlist: 5 rows
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
 INSERT INTO `wishlist` (`id`, `customer_id`, `product_id`) VALUES
-	(20, 7, 15),
-	(24, 7, 16),
-	(22, 21, 18),
-	(23, 21, 16),
-	(25, 7, 18);
+	(20, 7, '15'),
+	(24, 7, '16'),
+	(22, 21, '18'),
+	(23, 21, '16'),
+	(25, 7, '18');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
