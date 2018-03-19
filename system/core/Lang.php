@@ -46,6 +46,7 @@ class CI_Lang {
 	 */
 	function __construct()
 	{
+        $this->config =& load_class('Config', 'core');
 		log_message('debug', "Language Class Initialized");
 	}
 
@@ -78,12 +79,9 @@ class CI_Lang {
 			return;
 		}
 
-		$config = get_config();
-
 		if ($idiom == '')
 		{
-			$deft_lang = ( ! isset($config['language'])) ? 'english' : $config['language'];
-			$idiom = ($deft_lang == '') ? 'english' : $deft_lang;
+			$idiom = $this->config->item('language');
 		}
 
 		// Determine where the language file is and load it
