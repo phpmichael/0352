@@ -152,8 +152,12 @@ abstract class Front extends Base
 		{ 
 		   $page_title = language('manufacturer').' "'.trim(urldecode($filter_data['manufacturer'])).'"';
 		}
+        elseif( isset($filter_data['author']) && trim(urldecode($filter_data['author'])) )// if author selected
+        {
+            $page_title = language('author').' "'.trim(urldecode($filter_data['author'])).'"';
+        }
 		else $page_title = '';
-		
+
 		$this->_appendToPageTitle($page_title);
 	}
 
