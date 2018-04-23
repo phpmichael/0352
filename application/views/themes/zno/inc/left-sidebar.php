@@ -1,5 +1,10 @@
 <?load_theme_view('inc/box-products-categories')?>
-<?load_theme_view('inc/box-products-manufacturers')?>
+
+<?//publishers and authors: home page and books controller?>
+<?if ($BC->is_home_page() || in_array($BC->_getController(),array('books'))):?>
+    <?load_theme_view('inc/box-products-manufacturers')?>
+    <?load_theme_view('inc/box-books-authors')?>
+<?endif?>
 
 <?//recent articles: just for home page?>
 <?if (($BC->is_home_page())):?>
