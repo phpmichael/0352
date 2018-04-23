@@ -4,7 +4,7 @@ $manufacturers = $BC->zen->products_manufacturers_model->getManufacturersList();
 ?>
 
 <?if(!empty($manufacturers)):?>
-<h3><?=language('manufacturers')?></h3>
+<h2><?=language('manufacturers')?></h2>
 
 <div class="well">
     

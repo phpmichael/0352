@@ -1,4 +1,5 @@
 <?load_theme_view('inc/box-products-categories')?>
+<?load_theme_view('inc/box-products-manufacturers')?>
 
 <?//recent articles: just for home page?>
 <?if (($BC->is_home_page())):?>
