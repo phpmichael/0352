@@ -9,6 +9,9 @@
         elseif( trim(urldecode(@$manufacturer)) ){
             $search_url .= 'manufacturer/'.$manufacturer;
         }
+        elseif( trim(urldecode(@$author)) ){
+            $search_url .= 'author/'.$author;
+        }
         else{
             $search_url .= 'category'.url_category_addition();
         }
