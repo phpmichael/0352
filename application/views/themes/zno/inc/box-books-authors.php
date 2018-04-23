@@ -10,8 +10,9 @@ $authors = $BC->zen->books_authors_model->getAuthorsList(10);
     
 	<ul class="unstyled">
 	<?foreach ($authors as $author_name):?>
+        <?$full_name = explode(' ', $author_name);//use in link just surname?>
 		<li>
-			<?=anchor_base('books/search/author/'.urlencode($author_name), $author_name)?>
+			<?=anchor_base('books/search/author/'.urlencode($full_name[0]), $author_name)?>
 		</li>
 	<?endforeach?>
 	</ul>
