@@ -4,7 +4,7 @@ $authors = $BC->zen->books_authors_model->getAuthorsList(200);
 ?>
 
 <?if(!empty($authors)):?>
-<h2>Автори</h2>
+<h2><?=language('authors')?></h2>
 
 <div class="well">
     

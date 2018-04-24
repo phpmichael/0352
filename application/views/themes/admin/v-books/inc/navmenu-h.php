@@ -144,6 +144,10 @@
                 <?if(userAccess('products_attributes','view')):?>
                 <li><?=$BC->buildLeftMenuItem('products_attributes','products_attributes')?></li>
                 <?endif?>
+
+                <?if(userAccess('books_authors','view')):?>
+                    <li><?=$BC->buildLeftMenuItem('books_authors','authors')?></li>
+                <?endif?>
             
             </ul>
         
