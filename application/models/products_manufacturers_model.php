@@ -49,6 +49,18 @@ class Products_manufacturers_model extends Base_model
 	    
 	    return $record['name'];
 	}
+
+    /**
+     * Return manufacturer's description by name
+     * @param string $name
+     * @return string
+     */
+    public function getDescriptionByName($name)
+    {
+        $record = $this->db->get_where($this->c_table, array('name' => $name))->row_array();
+        if($record) return $record['description'];
+        return '';
+    }
 	
 	/**
 	 * Delete record by ID.

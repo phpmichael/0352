@@ -10,6 +10,10 @@
 	<td><?=$BC->_getFieldTitle("name")?>: <span class="red">*</span></td>
 	<td><?=form_input("name",set_value('name',@$name),"class='largeinput'");?></td>
 </tr>
+<tr>
+    <td><?=$BC->_getFieldTitle("description")?>: </td>
+    <td><?=form_textarea("description",set_value('description',@$description),"class='textarea'");?></td>
+</tr>
 </table>
 
 <p><?=form_submit("submit",language('save'));?></p>

@@ -36,7 +36,8 @@ class Books_authors extends Admin
 		
 		// === Labels === //
 		$this->fields_titles['name'] = language('thing_name');
-		
+		$this->fields_titles['description'] = language('description');
+
 		// === Page Titles === //
 		$this->page_titles['index'] = language('authors');
 		$this->page_titles['add'] = language('add');

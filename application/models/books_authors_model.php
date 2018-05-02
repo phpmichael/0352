@@ -29,4 +29,16 @@ class Books_authors_model extends Base_model
 
 		return $list;
 	}
+
+    /**
+     * Return author's description by his name
+     * @param string $name
+     * @return string
+     */
+    public function getDescriptionByName($name)
+    {
+        $record = $this->db->like('name', $name)->get($this->c_table)->row_array();
+        if($record) return $record['description'];
+        return '';
+    }
 }

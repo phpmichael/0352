@@ -58,6 +58,17 @@
     <h2><?=language('search_did_not_give_any_results')?></h2>
 <?endif?>
 
+<?
+if(!$search_category_description) {
+    if($author) {
+        $search_category_description = $BC->books_authors_model->getDescriptionByName($author);
+    }
+    elseif($manufacturer) {
+        $search_category_description = $BC->products_manufacturers_model->getDescriptionByName($manufacturer);
+    }
+}
+?>
+
 <p style="clear:both"><?=nl2br(@$search_category_description)?></p>
 
 <script>var search_url = '<?=site_url('books/search/' . $search_url)?>';</script>
