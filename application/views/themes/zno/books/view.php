@@ -111,29 +111,14 @@
         <tr>
             <td colspan="2">
                 <div class="additional-images">
-                    <?if(@$photo2):?>
-                    <a href="<?=base_url().'images/data/b/books/'.$photo2?>" class="product-image" data-lightbox="product-image">
-                        <?=img(array('src'=>'images/data/s/books/'.$photo2))?>
-                    </a>
-                    <?endif?>
-
-                    <?if(@$photo3):?>
-                    <a href="<?=base_url().'images/data/b/books/'.$photo3?>" class="product-image" data-lightbox="product-image">
-                        <?=img(array('src'=>'images/data/s/books/'.$photo3))?>
-                    </a>
-                    <?endif?>
-
-                    <?if(@$photo4):?>
-                    <a href="<?=base_url().'images/data/b/books/'.$photo4?>" class="product-image" data-lightbox="product-image">
-                        <?=img(array('src'=>'images/data/s/books/'.$photo4))?>
-                    </a>
-                    <?endif?>
-
-                    <?if(@$photo5):?>
-                    <a href="<?=base_url().'images/data/b/books/'.$photo5?>" class="product-image" data-lightbox="product-image">
-                        <?=img(array('src'=>'images/data/s/books/'.$photo5))?>
-                    </a>
-                    <?endif?>
+                    <?for($i=2; $i<=15; $i++):?>
+                        <?$photo = 'photo'.$i?>
+                        <?if($$photo):?>
+                            <a href="<?=base_url().'images/data/b/books/'.$$photo?>" class="product-image" data-lightbox="product-image">
+                                <?=img(array('src'=>'images/data/s/books/'.$$photo))?>
+                            </a>
+                        <?endif?>
+                    <?endfor?>
                 </div>
             </td>
         </tr>
