@@ -8,7 +8,7 @@ $authors = $BC->zen->books_authors_model->getAuthorsList(200);
 
 <div class="well">
     
-	<ul class="unstyled" style="height: 250px;overflow: auto">
+	<ul class="unstyled" style="height: 350px;overflow: auto">
 	<?foreach ($authors as $author_name):?>
         <?$full_name = explode(' ', $author_name);//use in link just surname?>
 		<li>
