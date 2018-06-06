@@ -84,6 +84,7 @@ class Shipping extends Admin_fb
         if(!$orderId) die('orderId is required');
 
         $this->load->model('orders_model');
+        $this->load->model('products_model');
         $order = $this->orders_model->getOneById($orderId);
         if(!$order) die('Order not found');
 
@@ -170,7 +171,8 @@ class Shipping extends Admin_fb
             $this->formbuilder_model->setFormData(array(
                 'orderId' => $orderId,
                 'DateTime' => date('d.m.Y'),
-                'RedeliveryString' => $order['total']
+                'RedeliveryString' => $order['total'],
+                'Weight' => $this->orders_model->getWeight($orderId)
             ));
 
             $data['tpl_page'] = 'shipping/novaposhta-send';

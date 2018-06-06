@@ -71,6 +71,19 @@ class Products_model extends Posts_model
     	if(empty($product)) return FALSE;
     	return $product['old_price'];
     }
+
+    /**
+     * Return weight of product
+     *
+     * @param integer $product_id
+     * @return float
+     */
+    public function getWeight($product_id)
+    {
+        $product = $this->db->get_where($this->c_table, array( $this->id_column => $product_id ))->row_array();
+        if(empty($product)) return FALSE;
+        return isset($product['weight']) ? $product['weight'] : 0;
+    }
     
     /**
 	 * Insert or update data. Depends if ID field presents in array.

@@ -174,6 +174,24 @@ class Orders_model extends Base_model
 	    return $this->db->query("SELECT * FROM {$this->tables['orders_cart']} WHERE order_id = ?",array($order_id))->result_array();
 	}
 
+    /**
+     * Return ordered products weight
+     *
+     * @param integer $order_id
+     * @return float
+     */
+	public function getWeight($order_id)
+    {
+        $weight = 0;
+        $orders_cart = $this->getOrderCart($order_id);
+
+        foreach ($orders_cart as $record)
+        {
+            $weight += $record['qty']*$this->CI->products_model->getWeight($record['product_id']);
+        }
+        return $weight;
+    }
+
 	/**
 	 * Return order's shipping title
 	 * @param integer $order_id
