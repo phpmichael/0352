@@ -20,12 +20,16 @@
 </tr>
 <tr>
 	<td width="150">
-        <?=form_submit("edit_order_cart",language('edit'));?>
+        <?if(!$status):?>
+            <?=form_submit("edit_order_cart",language('edit'));?>
+        <?endif?>
         <?=$BC->_getFieldTitle("order")?>:
         <br><br>
-        <?=form_submit("cart2order",'Cart to order');?>
+        <?if(!$status):?>
+            <?=form_submit("cart2order",'Cart to order');?>
+        <?endif?>
     </td>
-	<td><?=$BC->orders_model->show($id, TRUE)?></td>
+	<td><?=$BC->orders_model->show($id, $status?FALSE:TRUE)?></td>
 </tr>
 <tr>
 	<td><?=$BC->_getFieldTitle("status")?>: <span class="red">*</span></td>
