@@ -51,7 +51,13 @@
 		    	<?=((userAccess('books','view'))?anchor_base("books/view/pub_date/asc/0/".$item['product_id'],$product_name):$product_name)?>
 		    	<?=load_theme_view('inc/tpl-products-attributes-display',array('item'=>$item))?>
 		    </td>
-		    <td style='text-align:right'><?=$item['qty']?></td>
+		    <td style='text-align:right'>
+                <?if($edit):?>
+                    <?=form_input(array('type'=>'number', 'name'=>'qty['.$item['product_id'].']'), $item['qty'],' style="width:30px;" ')?>
+                <?else:?>
+                    <?=$item['qty']?>
+                <?endif?>
+            </td>
 		    <td style='text-align:right'><?=exchange($item['price'])?></td>
 		    <td style='text-align:right'><?=exchange($item['qty']*$item['price'])?></td>
 		</tr>

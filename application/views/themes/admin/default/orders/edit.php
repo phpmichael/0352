@@ -19,15 +19,21 @@
 	<td><?=substr($date,0,16)?></td>
 </tr>
 <tr>
-	<td width="150"><?=$BC->_getFieldTitle("order")?>:</td>
-	<td><?=$BC->orders_model->show($id)?></td>
+	<td width="150">
+        <?=form_submit("edit_order_cart",language('edit'));?>
+        <?=$BC->_getFieldTitle("order")?>:
+        <br><br>
+        <?=form_submit("cart2order",'Cart to order');?>
+    </td>
+	<td><?=$BC->orders_model->show($id, TRUE)?></td>
 </tr>
 <tr>
 	<td><?=$BC->_getFieldTitle("status")?>: <span class="red">*</span></td>
-	<td><?=form_dropdown("status",$BC->orders_model->getStatuses(),$status,"class='select'")?></td>
+	<td>
+        <?=form_dropdown("status",$BC->orders_model->getStatuses(),$status,"class='select'")?>
+        <?=form_submit("submit",language('save'));?>
+    </td>
 </tr>
 </table>
-
-<p><?=form_submit("submit",language('save'));?></p>
 
 </form>

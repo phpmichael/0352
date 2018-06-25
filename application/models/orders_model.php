@@ -192,6 +192,73 @@ class Orders_model extends Base_model
         return $weight;
     }
 
+    // --- Edit order from admin section: Start --- //
+
+    /**
+     * Edit order cart (products qty)
+     * @param int $order_id
+     * @param string $product_id
+     * @param int $qty
+     */
+    public function editOrderCart($order_id, $product_id, $qty)
+    {
+        if(intval($qty) === 0) {
+            $this->db->delete($this->tables['orders_cart'], array('order_id' => $order_id, 'product_id'=>$product_id));
+        }
+        else {
+            $this->db->update($this->tables['orders_cart'], array('qty' => $qty ), array('order_id' => $order_id, 'product_id'=>$product_id) );
+        }
+    }
+
+    /**
+     * Add shopping cart to order
+     * @param int $order_id
+     */
+    public function cart2order($order_id)
+    {
+        foreach ($this->CI->cart->contents() as $item)
+        {
+            if($res = $this->db->get_where($this->tables['orders_cart'], array('order_id' => $order_id, 'product_id' => $item['id']))->row_array())
+            {
+                continue;//skip products already exists in order
+            }
+
+            $this->db->insert(
+                $this->tables['orders_cart'],
+                array(
+                'order_id' => $order_id,
+                'product_id' => $item['id'],
+                'qty' => $item['qty'],
+                'price' => $item['price']
+                )
+            );
+        }
+        $this->CI->cart->destroy();
+    }
+
+    /**
+     * Re-calculate order subtotal/total values
+     * @param int $order_id
+     */
+    public function reCalcTotals($order_id)
+    {
+        $order = $this->getOneById($order_id);
+        $orders_cart = $this->getOrderCart($order_id);
+
+        $subtotal = 0;
+        foreach ($orders_cart as $key=>$record)
+        {
+            $subtotal += $record['qty']*$record['price'];
+        }
+        $total = $order['total']-$order['subtotal']+$subtotal;
+        //TODO: fix total calculation
+        //it works fine for fixed discount and shipping, but discount allowed in %. Currently discount calc based on shopping cart
+
+        parent::insertOrUpdate(array('subtotal'=>$subtotal,'total'=>$total,'id'=>$order_id));
+    }
+
+    // --- Edit order from admin section: End --- //
+
 	/**
 	 * Return order's shipping title
 	 * @param integer $order_id
@@ -209,7 +276,7 @@ class Orders_model extends Base_model
 	 * @param integer $order_id
 	 * @return string
 	 */
-	public function show($order_id)
+	public function show($order_id, $edit=FALSE)
 	{
 	    $order = $this->getOneById($order_id);
 	    $orders_cart = $this->getOrderCart($order_id);
@@ -231,7 +298,7 @@ class Orders_model extends Base_model
 	    	}
 	    }
 	    //dump($orders_cart);exit;
-	    return load_theme_view('orders/details',array('orders_cart'=>$orders_cart,'order'=>$order),TRUE);
+	    return load_theme_view('orders/details',array('orders_cart'=>$orders_cart,'order'=>$order,'edit'=>$edit),TRUE);
 	    
 	   /* $str = "
 	    <style type='text/css'>

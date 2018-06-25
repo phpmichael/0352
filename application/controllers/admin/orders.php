@@ -96,9 +96,30 @@ class Orders extends Admin
 		}
 		else
 		{
-			$this->orders_model->setStatus($record['id'],$this->input->post('status'));
-			
-			redirect($this->_getBaseURI());
+		    if($this->input->post('cart2order'))
+            {//add shopping cart (site) to current order
+                $this->load->library('cart');
+                $this->orders_model->cart2order($record['id']);
+                $this->orders_model->reCalcTotals($record['id']);
+
+                redirect($this->_getBaseURI()."/edit/$this->segment_orderby/".$this->segment_orderseq."/".$this->segment_offset."/".$record['id']);
+            }
+		    elseif($this->input->post('edit_order_cart'))
+            {
+                foreach ($this->input->post('qty') as $product_id=>$qty)
+                {
+                    $this->orders_model->editOrderCart($record['id'], $product_id, $qty);
+                }
+                $this->orders_model->reCalcTotals($record['id']);
+
+                redirect($this->_getBaseURI()."/edit/$this->segment_orderby/".$this->segment_orderseq."/".$this->segment_offset."/".$record['id']);
+            }
+            else
+            {
+                $this->orders_model->setStatus($record['id'],$this->input->post('status'));
+
+                redirect($this->_getBaseURI());
+            }
 		}
 	}
 
