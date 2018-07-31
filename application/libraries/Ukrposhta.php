@@ -108,22 +108,21 @@ class Ukrposhta
      * Add shipment.
      * 3rd step of shipment add process
      * @param string $recipientId
-     * @param float $declaredPrice
-     * @param int $weight
-     * @param int $length
+     * @param array $params
      * @return array
      */
-    public function addShipment($recipientId, $declaredPrice, $weight=1, $length=1)
+    public function addShipment($recipientId, array $params)
     {
         $shipment['type'] = 'STANDARD';
         $shipment['sender']['uuid'] = $this->sender_uuid;
         $shipment['recipient']['uuid'] = $recipientId;
         $shipment['deliveryType'] = 'W2W';
-        $shipment['paidByRecipient'] = true;
+        $shipment['paidByRecipient'] = ($params['PayerType'] == 'Recipient') ? true : false;
+        $shipment['description'] = $params['description'];
 
-        $shipment['parcels'][0]['declaredPrice'] = $declaredPrice;
-        $shipment['parcels'][0]['weight'] = $weight;//total
-        $shipment['parcels'][0]['length'] = $length;//max
+        $shipment['parcels'][0]['declaredPrice'] = $params['declaredPrice'];
+        $shipment['parcels'][0]['weight'] = $params['weight'];//total weight in grams
+        $shipment['parcels'][0]['length'] = $params['length'];//max of length/width/height
 
         return $this->request('shipments?token='.$this->api_token, $shipment);
     }
