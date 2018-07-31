@@ -12,6 +12,13 @@ class Ukrposhta
     private $api_token;
     private $sender_uuid;//manually created customer
 
+    private $errorMessages = array();
+
+    public function getLastErrorMessage()
+    {
+        return array_pop($this->errorMessages);
+    }
+
     /**
      * Setup API settings
      * @param $settings
@@ -27,11 +34,12 @@ class Ukrposhta
      * Add customer's address info.
      * 1st step of shipment add process
      * @param array $customer
-     * @return array
+     * @return array|bool
      */
     public function addAddress(array $customer)
     {
-        //TODO: validate postcode and check if other values exist
+        //TODO: validate postcode
+
         $address['country'] = 'UA';
         $address['postcode'] = $customer['zip_code'];
         $address['region'] = $customer['region'];
@@ -41,6 +49,15 @@ class Ukrposhta
         $address['houseNumber'] = $customer['house_number'];
         $address['apartmentNumber'] = $customer['apartment_number'];
 
+        //validate fields
+        foreach (array('postcode','region','city','street','houseNumber') as $field => $value)
+        {
+            if(trim($address[$field])) {
+                $this->errorMessages[] = "Field {$field} could not be empty.";
+                return false;
+            }
+        }
+
         return $this->request('addresses', $address);
     }
 
@@ -49,11 +66,10 @@ class Ukrposhta
      * 2nd step of shipment add process
      * @param array $customer
      * @param int $addressId
-     * @return array
+     * @return array|bool
      */
     public function addClient(array $customer, $addressId)
     {
-        //TODO: if values exist
         $client['firstName'] = $customer['name'];
         $client['lastName'] = $customer['surname'];
         $client['uniqueRegistrationNumber'] = $customer['data_key'];
@@ -61,6 +77,15 @@ class Ukrposhta
         $client['phoneNumber'] = $customer['phone'];
         $client['email'] = $customer['email'];
         $client['individual'] = true;
+
+        //validate fields
+        foreach (array('firstName','lastName','phoneNumber','email') as $field => $value)
+        {
+            if(trim($client[$field])) {
+                $this->errorMessages[] = "Field {$field} could not be empty.";
+                return false;
+            }
+        }
 
         return $this->request('clients?token='.$this->api_token, $client);
     }
