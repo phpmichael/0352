@@ -145,13 +145,23 @@ class Ukrposhta
     }
 
     /**
+     * Return sticker as pdf file
+     * @param string $shipmentUuid
+     * @return string
+     */
+    public function getSticker($shipmentUuid)
+    {
+        return $this->request('shipments/'.$shipmentUuid.'/sticker?token='.$this->api_token.'&size=SIZE_A4', array(), 'GET', true);
+    }
+
+    /**
      * Creates cURL request to API
      * @param string $path
      * @param array $data
      * @param string $method
-     * @return array
+     * @return array|string
      */
-    private function request($path, $data = array(), $method='POST')
+    private function request($path, $data = array(), $method='POST', $raw=false)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->api_url.$path);
@@ -173,6 +183,7 @@ class Ukrposhta
         $response = curl_exec($ch);
         //dump($response);exit;
         curl_close($ch);
+        if($raw) return $response;
         return json_decode($response);
     }
 }
