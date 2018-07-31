@@ -14,6 +14,10 @@ class Ukrposhta
 
     private $errorMessages = array();
 
+    /**
+     * Return last error message
+     * @return string
+     */
     public function getLastErrorMessage()
     {
         return array_pop($this->errorMessages);
@@ -116,10 +120,10 @@ class Ukrposhta
         $shipment['recipient']['uuid'] = $recipientId;
         $shipment['deliveryType'] = 'W2W';
         $shipment['paidByRecipient'] = true;
-        //TODO: items SUM - one!
+
         $shipment['parcels'][0]['declaredPrice'] = $declaredPrice;
-        $shipment['parcels'][0]['weight'] = $weight;
-        $shipment['parcels'][0]['length'] = $length;
+        $shipment['parcels'][0]['weight'] = $weight;//total
+        $shipment['parcels'][0]['length'] = $length;//max
 
         return $this->request('shipments?token='.$this->api_token, $shipment);
     }
