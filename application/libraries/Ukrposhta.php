@@ -54,11 +54,11 @@ class Ukrposhta
         $address['apartmentNumber'] = $customer['apartment_number'];
 
         //validate fields
-        foreach (array('postcode','region','city','street','houseNumber') as $field => $value)
+        foreach (array('postcode','region','city','street','houseNumber') as $field)
         {
-            if(trim($address[$field])) {
-                $this->errorMessages[] = "Field {$field} could not be empty.";
-                return false;
+            if(!trim($address[$field])) {
+                $this->errorMessages[] = $errorMessage = "Field {$field} could not be empty.";
+                return array('message' => $errorMessage, 'code' => 'Local error');
             }
         }
 
@@ -83,11 +83,11 @@ class Ukrposhta
         $client['individual'] = true;
 
         //validate fields
-        foreach (array('firstName','lastName','phoneNumber','email') as $field => $value)
+        foreach (array('firstName','lastName','phoneNumber','email') as $field)
         {
-            if(trim($client[$field])) {
-                $this->errorMessages[] = "Field {$field} could not be empty.";
-                return false;
+            if(!trim($client[$field])) {
+                $this->errorMessages[] = $errorMessage = "Field {$field} could not be empty.";
+                return array('message' => $errorMessage, 'code' => 'Local error');
             }
         }
 
