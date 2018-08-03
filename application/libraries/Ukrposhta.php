@@ -140,6 +140,16 @@ class Ukrposhta
     }
 
     /**
+     * Return shipment by barcode
+     * @param string $barcode
+     * @return array
+     */
+    public function getShipmentByBarcode($barcode)
+    {
+        return $this->request('shipments/barcode/'.$barcode.'?token='.$this->api_token, array(), 'GET');
+    }
+
+    /**
      * Delete shipment by ID
      * @param string $shipmentUuid
      * @return array
