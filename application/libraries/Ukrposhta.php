@@ -113,6 +113,8 @@ class Ukrposhta
      */
     public function addShipment($recipientId, array $params)
     {
+        //TODO: validate params
+
         $shipment['type'] = 'STANDARD';
         $shipment['sender']['uuid'] = $this->sender_uuid;
         $shipment['recipient']['uuid'] = $recipientId;
@@ -212,6 +214,6 @@ class Ukrposhta
         //dump($response);exit;
         curl_close($ch);
         if($raw) return $response;
-        return json_decode($response);
+        return json_decode($response, true);
     }
 }
