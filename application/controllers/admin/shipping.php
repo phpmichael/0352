@@ -207,4 +207,93 @@ class Shipping extends Admin_fb
 
         redirect($this->_getBaseURL().'orders/edit/id/desc/0/'.$order['id']);
     }
+
+    /**
+     * Send shipment to Ukrposhta
+     * @param int $orderId
+     */
+    public function ukrposhtaSend($orderId)
+    {
+        if(!$orderId) die('orderId is required');
+
+        $this->load->model('orders_model');
+        $this->load->model('products_model');
+        $order = $this->orders_model->getOneById($orderId);
+        if(!$order) die('Order not found');
+
+        if($this->input->post())
+        {
+            $post = $this->input->post();
+
+            $settings = $this->settings_model;
+
+            $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
+            if (!$customer) die('Customer info not found');
+
+            $this->load->library('ukrposhta');
+            $this->ukrposhta->setup($settings);
+
+            try {
+                $address = $this->ukrposhta->addAddress($customer);
+                if (!isset($address['id'])) {
+                    throw new Exception('Add address error: ' . $address['message']);
+                }
+
+                $client = $this->ukrposhta->addClient($customer, $address['id']);
+                if (!isset($client['uuid'])) {
+                    throw new Exception( 'Add client error: ' . $client['message']);
+                }
+
+                $shipment = $this->ukrposhta->addShipment($client['uuid'], $post);
+                if (!isset($shipment['uuid'])) {
+                    throw new Exception( 'Add shipment error: ' . $shipment['message']);
+                }
+            }
+            catch (Exception $exception) {
+                echo $exception->getMessage();
+                exit;
+            }
+
+            $docNumber = $shipment['barcode'];
+            $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number'=>$docNumber));
+
+            redirect($this->_getBaseURL()."orders/edit/id/desc/0/".$orderId);
+        }
+        else
+        {
+            $this->formbuilder_model->setFormMode('edit');
+            $this->formbuilder_model->setFormData(array(
+                'orderId' => $orderId,
+                'weight' => $this->orders_model->getWeight($orderId)*1000,
+                'declaredPrice' => $order['total']
+            ));
+
+            $data['tpl_page'] = 'shipping/ukrposhta-send';
+            $data['order_id'] = $orderId;
+
+            parent::_OnOutput($data);
+        }
+    }
+
+    /**
+     * Show Sticker for Ukrposhta as PDF
+     * @param string $barcode
+     */
+    public function ukrposhtaSticker($barcode)
+    {
+        if(!$barcode) die('barcode is required');
+
+        $settings = $this->settings_model;
+        $this->load->library('ukrposhta');
+        $this->ukrposhta->setup($settings);
+
+        $shipment = $this->ukrposhta->getShipmentByBarcode($barcode);
+        if(!isset($shipment['uuid']))
+        {
+            die('Error: '.$shipment['message']);
+        }
+
+        header('Content-type: application/pdf');
+        echo $this->ukrposhta->getSticker($shipment['uuid']);
+    }
 }
