@@ -265,7 +265,9 @@ class Shipping extends Admin_fb
             $this->formbuilder_model->setFormData(array(
                 'orderId' => $orderId,
                 'weight' => $this->orders_model->getWeight($orderId)*1000,
-                'declaredPrice' => $order['total']
+                'declaredPrice' => $order['total'],
+                'postPay' => $order['total'],
+                'description' => 'ZNO-BOOKS_'.$orderId
             ));
 
             $data['tpl_page'] = 'shipping/ukrposhta-send';
