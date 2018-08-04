@@ -54,7 +54,7 @@ class Ukrposhta
         $address['apartmentNumber'] = $customer['apartment_number'];
 
         //validate fields
-        foreach (array('postcode','region','city','street','houseNumber') as $field)
+        foreach (array('postcode','region','city','street') as $field)
         {
             if(!trim($address[$field])) {
                 $this->errorMessages[] = $errorMessage = "Field {$field} could not be empty.";
