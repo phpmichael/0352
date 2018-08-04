@@ -4,6 +4,7 @@
     <?if($orders_customer_info['doc_number']):?>
         | <?=anchor_base("shipping/ukrposhtaSticker/".$orders_customer_info['doc_number'], 'Стікер Укрпошти', 'target="_blank"')?>
         <?if(!$orders_customer_info['doc_number_sent']):?>
+            | <?=anchor_base("shipping/ukrposhtaDeleteShipment/".$id, 'Видалити з Укрпошти')?>
             | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id)?>'">Надіслати ЕН</a>
         <?endif?>
     <?else:?>

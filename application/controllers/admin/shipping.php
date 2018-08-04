@@ -281,6 +281,44 @@ class Shipping extends Admin_fb
      */
     public function ukrposhtaSticker($barcode)
     {
+        $uuid = $this->ukrposhtaUuidByBarcode($barcode);
+
+        header('Content-type: application/pdf');
+        echo $this->ukrposhta->getSticker($uuid);
+    }
+
+    /**
+     * Delete shipment by API and remove its barcode from db
+     * @param int $orderId
+     */
+    public function ukrposhtaDeleteShipment($orderId)
+    {
+        if(!$orderId) die('orderId is required');
+
+        $this->load->model('orders_model');
+        $order = $this->orders_model->getOneById($orderId);
+        if(!$order) die('Order not found');
+
+        $customer = $this->orders_model->getOrderCustomerInfo($order['orders_customer_info_id']);
+        if (!$customer) die('Customer info not found');
+
+        //delete shipment by API
+        $uuid = $this->ukrposhtaUuidByBarcode($customer['doc_number']);
+        $this->ukrposhta->deleteShipment($uuid);
+
+        //remove shipment barcode (EN) from database
+        $this->orders_model->updateOrderCustomerInfo($order['orders_customer_info_id'], array('doc_number'=>''));
+
+        redirect($this->_getBaseURL()."orders/edit/id/desc/0/".$orderId);
+    }
+
+    /**
+     * Return uuid by barcode
+     * @param string $barcode
+     * @return string
+     */
+    private function ukrposhtaUuidByBarcode($barcode)
+    {
         if(!$barcode) die('barcode is required');
 
         $settings = $this->settings_model;
@@ -293,7 +331,6 @@ class Shipping extends Admin_fb
             die('Error: '.$shipment['message']);
         }
 
-        header('Content-type: application/pdf');
-        echo $this->ukrposhta->getSticker($shipment['uuid']);
+        return $shipment['uuid'];
     }
 }
