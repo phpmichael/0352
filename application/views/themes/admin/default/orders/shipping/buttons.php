@@ -1,6 +1,6 @@
 <?$orders_customer_info = $BC->orders_model->getOrderCustomerInfo($orders_customer_info_id);?>
 <?if($orders_customer_info['shipping_type']=='ukrposhta'):?>
-    <?=anchor_base("shipping/printUrkPost/".$orders_customer_info_id, 'Друк квитанції для Укрпошти', 'target="_blank"' )?>
+    <?=anchor_base("shipping/ukrposhtaPrint/".$orders_customer_info_id, 'Друк квитанції для Укрпошти', 'target="_blank"' )?>
     <?if($orders_customer_info['doc_number']):?>
         | <?=anchor_base("shipping/ukrposhtaSticker/".$orders_customer_info['doc_number'], 'Стікер Укрпошти', 'target="_blank"')?>
         <?if(!$orders_customer_info['doc_number_sent']):?>

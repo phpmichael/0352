@@ -23,7 +23,7 @@ class Shipping extends Admin_fb
      * Generate "UkrPost" postal order from blank
      * @param int $customer_id
      */
-    public function printUrkPost($orders_customer_info_id)
+    public function ukrposhtaPrint($orders_customer_info_id)
     {
         $blankPath = './store/blank/UkrPost.jpg';
         $fontPath = './fonts/arial.ttf';
