@@ -122,9 +122,9 @@ class Ukrposhta
         $shipment['onFailReceiveType'] = 'RETURN_AFTER_FREE_STORAGE';
         $shipment['paidByRecipient'] = ($params['PayerType'] == 'Recipient') ? true : false;
         $shipment['description'] = $params['description'];
+        $shipment['postPay'] = $params['postPay'];
 
         $shipment['parcels'][0]['declaredPrice'] = $params['declaredPrice'];
-        $shipment['parcels'][0]['postPay'] = $params['postPay'];
         $shipment['parcels'][0]['weight'] = $params['weight'];//total weight in grams
         $shipment['parcels'][0]['length'] = $params['length'];//max of length/width/height
 
