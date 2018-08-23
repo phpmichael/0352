@@ -28,9 +28,11 @@ class Books_model extends Products_model
 	 */
     public function Insert($post)
     {
-    	if(isset($post['category'])) return parent::Insert($post,explode("|",$post['category']));
-    	else return parent::Insert($post);
-    	
+    	$id = parent::Insert($post);
+
+        $this->setCategories($id, $post);
+
+        return $id;
     }
     
     /**
@@ -42,8 +44,11 @@ class Books_model extends Products_model
 	 */
     public function Update($post)
     {
-    	if(isset($post['category'])) return parent::Update($post,explode("|",$post['category']));
-    	else return parent::Update($post);
+    	$id = parent::Update($post);
+
+        $this->setCategories($id, $post);
+
+        return $id;
     }
     
     /**
@@ -129,4 +134,26 @@ class Books_model extends Products_model
 		
 		return $filter_data;
     }
+
+    /**
+     * Set categories
+     * @param string $id
+     * @param array $post
+     */
+    private function setCategories($id, array $post)
+    {
+        if(isset($post['category'])) {
+            if(is_array($post['category'])){
+                $categories = $post['category'];
+            }
+            else{
+                $categories = explode("|", $post['category']);
+            }
+
+            if(!empty($categories)) {
+                $this->UpdatePostCategories($id, $categories);
+            }
+        }
+    }
+
 }
