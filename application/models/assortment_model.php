@@ -25,33 +25,6 @@ class Assortment_model extends Posts_model
 	//name of categories table
 	protected $categories_list_table = 'products_categories_list';
 	
-	/**
-	 * Insert data.
-	 * Overrides parent method.
-	 * 
-	 * @param array $post
-	 * @return string(16)
-	 */
-    public function Insert($post)
-    {
-    	if(isset($post['category'])) return parent::Insert($post,explode("|",$post['category']));
-    	else return parent::Insert($post);
-    	
-    }
-    
-    /**
-	 * Update data.
-	 * Overrides parent method.
-	 * 
-	 * @param array $post
-	 * @return string(16)
-	 */
-    public function Update($post)
-    {
-    	if(isset($post['category'])) return parent::Update($post,explode("|",$post['category']));
-    	else return parent::Update($post);
-    }
-	
 	
 	/**
 	 * Make array of search/sort criterias.

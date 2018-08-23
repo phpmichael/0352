@@ -144,10 +144,7 @@ class Articles extends Admin
 			
 			if(!isset($post['date'])) $post['date'] = date("Y-m-d H:i:s");
 			
-			$id = $this->articles_model->insertOrUpdate($post);
-
-            $categories = $this->input->post('category');
-            if(is_array($categories)) $this->articles_model->UpdatePostCategories($id, $categories);
+			$this->articles_model->insertOrUpdate($post);
 			
 			redirect($this->_getBaseURI());
 		}

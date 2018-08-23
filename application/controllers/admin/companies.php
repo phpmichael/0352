@@ -157,10 +157,7 @@ class Companies extends Admin
 		{
 			$post = array_merge($record,$_POST);
 			
-			$id = $this->companies_model->insertOrUpdate($post);
-
-            $categories = $this->input->post('category');
-            if(is_array($categories)) $this->companies_model->UpdatePostCategories($id, $categories);
+			$this->companies_model->insertOrUpdate($post);
 			
 			redirect($this->_getBaseURI());
 		}

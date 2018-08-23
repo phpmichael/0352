@@ -150,18 +150,12 @@ class Jobs extends Front
 				// === Add to DB === //			
 				$this->jobs_model->Update($post);
 
-                $categories = $this->input->post('category');
-                if(is_array($categories)) $this->jobs_model->UpdatePostCategories($id, $categories);
-
 			}
 			//ADD
 			else 
 			{
 				// === Add to DB === //			
-				$id = $this->jobs_model->Insert($post);
-
-                $categories = $this->input->post('category');
-                if(is_array($categories)) $this->jobs_model->AddPostCategories($id, $categories);
+				$this->jobs_model->Insert($post);
 			}
 			
 			redirect($this->_getBaseURI().'/my');

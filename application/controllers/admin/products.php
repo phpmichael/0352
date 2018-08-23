@@ -169,10 +169,7 @@ class Products extends Admin
 		{
 			$post = array_merge($record,$_POST);
 			
-			$id = $this->products_model->insertOrUpdate($post);
-
-            $categories = $this->input->post('category');
-            if(is_array($categories)) $this->products_model->UpdatePostCategories($id, $categories);
+			$this->products_model->insertOrUpdate($post);
 			
 			redirect($this->_getBaseURI());
 		}

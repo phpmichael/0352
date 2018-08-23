@@ -315,6 +315,8 @@ abstract class Posts_model extends Base_model
 		
 		//add image
 		$this->uploadImages($post_id);
+
+        $this->setCategories($post_id, $post);
     	
 		return $post_id;
     }
@@ -360,6 +362,8 @@ abstract class Posts_model extends Base_model
 		
 		//add image
 		$this->uploadImages($post_id);
+
+        $this->setCategories($post_id, $post);
 		
 		return $post_id;
     }
@@ -630,7 +634,7 @@ abstract class Posts_model extends Base_model
      * @param int $post_id
      * @param array $categories
      */
-    public function UpdatePostCategories($post_id, array $categories)
+    private function UpdatePostCategories($post_id, array $categories)
     {
         //remove old categories
         $this->RemovePostCategories($post_id);
@@ -879,5 +883,26 @@ abstract class Posts_model extends Base_model
         $this->CI->pagination->initialize($pagination_config);
 
         return $this->CI->pagination->create_links();
+    }
+
+    /**
+     * Set categories
+     * @param string $id
+     * @param array $post
+     */
+    private function setCategories($id, array $post)
+    {
+        if(isset($post['category'])) {
+            if(is_array($post['category'])){
+                $categories = $post['category'];
+            }
+            else{
+                $categories = explode("|", $post['category']);
+            }
+
+            if(!empty($categories)) {
+                $this->UpdatePostCategories($id, $categories);
+            }
+        }
     }
 }

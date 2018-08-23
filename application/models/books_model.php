@@ -18,38 +18,6 @@ class Books_model extends Products_model
 	
 	//pagination
 	protected $per_page = 9;
-	
-	/**
-	 * Insert data.
-	 * Overrides parent method.
-	 * 
-	 * @param array $post
-	 * @return string(16)
-	 */
-    public function Insert($post)
-    {
-    	$id = parent::Insert($post);
-
-        $this->setCategories($id, $post);
-
-        return $id;
-    }
-    
-    /**
-	 * Update data.
-	 * Overrides parent method.
-	 * 
-	 * @param array $post
-	 * @return string(16)
-	 */
-    public function Update($post)
-    {
-    	$id = parent::Update($post);
-
-        $this->setCategories($id, $post);
-
-        return $id;
-    }
     
     /**
 	 * Make sql criterias based on $filter_data.
@@ -133,27 +101,6 @@ class Books_model extends Products_model
 		$filter_data = $this->paginationFilter($filter_data);
 		
 		return $filter_data;
-    }
-
-    /**
-     * Set categories
-     * @param string $id
-     * @param array $post
-     */
-    private function setCategories($id, array $post)
-    {
-        if(isset($post['category'])) {
-            if(is_array($post['category'])){
-                $categories = $post['category'];
-            }
-            else{
-                $categories = explode("|", $post['category']);
-            }
-
-            if(!empty($categories)) {
-                $this->UpdatePostCategories($id, $categories);
-            }
-        }
     }
 
 }

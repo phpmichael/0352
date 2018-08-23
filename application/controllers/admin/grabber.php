@@ -130,8 +130,6 @@ class Grabber extends Admin
 	    
 	    //add article
 	    $article_id = $this->articles_model->insertOrUpdate($post);
-
-        if(is_array($category)) $this->articles_model->UpdatePostCategories($article_id, $category);
 	    
 	    //add tags
 	    $this->tags_model->addPostTags("articles",$article_id,$post['meta_keywords']['EN']);
