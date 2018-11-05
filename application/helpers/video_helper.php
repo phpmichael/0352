@@ -21,7 +21,7 @@ function youtube_box($url)
 	$videodata['url'] = str_replace('&','&amp;',$videodata['url']);
 	            	
 	//$video_url = str_replace("http://www.youtube.com/watch?v=","http://www.youtube.com/v/",$url);
-	$video_url = preg_replace("#https?:\/\/(?:[a-zA_Z]{2,3}.)?(?:youtube\.com\/watch\?)((?:[\w\d\-\_\=]+&amp;(?:amp;)?)*v(?:&lt;[A-Z]+&gt;)?=([0-9a-zA-Z\-\_]+))#i","http://www.youtube.com/v/$2",$videodata['url']);
+	$video_url = preg_replace("#https?:\/\/(?:[a-zA_Z]{2,3}.)?(?:youtube\.com\/watch\?)((?:[\w\d\-\_\=]+&amp;(?:amp;)?)*v(?:&lt;[A-Z]+&gt;)?=([0-9a-zA-Z\-\_]+))#i","https://www.youtube.com/v/$2",$videodata['url']);
 	
 	//return '<object width="'.$videodata['width'].'" height="'.$videodata['height'].'"><param name="movie" value="' . $video_url . '"></param><param name="wmode" value="transparent"></param><embed src="' . $video_url . '" type="application/x-shockwave-flash" wmode="transparent" width="'.$videodata['width'].'" height="'.$videodata['height'].'"></embed></object>';
 	return '<object type="application/x-shockwave-flash" style="width:'.$videodata['width'].'px; height:'.$videodata['height'].'px;" data="'.$video_url.'"><param name="movie" value="'.$video_url.'" /></object>';
