@@ -11,8 +11,8 @@
                     <?=form_hidden('id',$row->data_key)?>
                     <?=form_hidden('qty',1)?>
 
-                    <div itemscope itemtype="http://schema.org/Book" itemid="#book-<?=$row->data_key?>">
-                        <link itemprop="additionalType" href="http://schema.org/Product"/>
+                    <div itemscope itemtype="https://schema.org/Book" itemid="#book-<?=$row->data_key?>">
+                        <link itemprop="additionalType" href="https://schema.org/Product"/>
 
 	                    <div class="product_image_container">
 	                        <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
@@ -22,7 +22,7 @@
 
 	                    <div>
 
-                            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                                 <div class="product-price" itemprop="price" content="<?=exchange($row->price,FALSE)?>">
                                     <?=exchange($row->price)?>
                                 </div>
@@ -42,7 +42,7 @@
 	             </form>
             </td>
             <td style="text-align:left;">
-                <div itemscope itemtype="http://schema.org/Book" itemid="#book-<?=$row->data_key?>">
+                <div itemscope itemtype="https://schema.org/Book" itemid="#book-<?=$row->data_key?>">
                 
                     <h4 itemprop="name">
                         <?=anchor_base('book/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>

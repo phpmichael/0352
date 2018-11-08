@@ -12,8 +12,8 @@
                         <?=form_hidden('id',$row->data_key)?>
                         <?=form_hidden('qty',1)?>
 
-                        <div itemscope itemtype="http://schema.org/Book">
-                            <link itemprop="additionalType" href="http://schema.org/Product"/>
+                        <div itemscope itemtype="https://schema.org/Book">
+                            <link itemprop="additionalType" href="https://schema.org/Product"/>
 
                             <div class="product_image_container">
                                 <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
@@ -29,7 +29,7 @@
 
                                 <?if($row->in_stock):?>
 
-                                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                                         <div class="product-price pull-left" itemprop="price" content="<?=exchange($row->price,FALSE)?>">
                                             <?=exchange($row->price)?>
                                         </div>

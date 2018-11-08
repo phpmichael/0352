@@ -1,5 +1,5 @@
-<div itemscope itemtype="http://schema.org/Book">
-    <link itemprop="additionalType" href="http://schema.org/Product"/>
+<div itemscope itemtype="https://schema.org/Book">
+    <link itemprop="additionalType" href="https://schema.org/Product"/>
 
     <h1 itemprop="name"><?=$BC->_getPageTitle()?></h1>
 
@@ -7,7 +7,7 @@
         <table>
         <tr>
             <td style="width:50%; vertical-align: top;">
-                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     <?=language('price')?>:
                     <span class="product-price" itemprop="price" content="<?=exchange($price,FALSE)?>">
                         <?=exchange($price)?>
