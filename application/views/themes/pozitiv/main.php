@@ -14,7 +14,7 @@
     
     <?=include_css($BC->_getTheme().'css/style.css')?>
     
-    <!--[if LT IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if LT IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
     
     <?=load_inline_js('inc/js-jquery')?>
     
