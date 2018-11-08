@@ -55,7 +55,7 @@
 <?=include_js($BC->_getFolder('js').'custom/contact_us/send_form.js')?>
 
 <!-- Yandex Map -->
-<script src="http://api-maps.yandex.ru/1.1/index.xml?key=AOGNyE8BAAAAr-i4MAMAf1KwwwqGQGOJQAzkUDOj3qL02bQAAAAAAAAAAAAIjSCwZnNdKjTiVm-wOZ0qmPyGzQ=="></script>
+<script src="https://api-maps.yandex.ru/1.1/index.xml?key=AOGNyE8BAAAAr-i4MAMAf1KwwwqGQGOJQAzkUDOj3qL02bQAAAAAAAAAAAAIjSCwZnNdKjTiVm-wOZ0qmPyGzQ=="></script>
 
 <script>
 	YMaps.jQuery(function () {
