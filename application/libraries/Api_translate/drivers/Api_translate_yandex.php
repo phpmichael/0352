@@ -61,7 +61,7 @@ class Api_translate_yandex extends CI_Driver {
     	
     	$text = urlencode($text);
     	
-    	$url = "http://translate.yandex.net/api/v1/tr.json/translate?lang={$lp}&text={$text}&format={$format}";
+    	$url = "https://translate.yandex.net/api/v1/tr.json/translate?lang={$lp}&text={$text}&format={$format}";
     	
         $ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);

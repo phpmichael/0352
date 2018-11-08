@@ -49,7 +49,7 @@ class Api_translate_google extends CI_Driver {
     	
     	$text = urlencode($text);
     	
-    	$url = "http://translate.google.com/translate_a/t?client=x&sl={$from_lang}&tl={$to_lang}&ie=UTF-8&oe=UTF-8";
+    	$url = "https://translate.google.com/translate_a/t?client=x&sl={$from_lang}&tl={$to_lang}&ie=UTF-8&oe=UTF-8";
     	
         $ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);

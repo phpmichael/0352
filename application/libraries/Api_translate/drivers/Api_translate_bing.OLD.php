@@ -52,7 +52,7 @@ class Api_translate_bing extends CI_Driver {
     	
     	$text = urlencode($text);
     	
-    	$url = "http://api.microsofttranslator.com/V2/Ajax.svc/Translate?appId=".$this->key."&from={$from_lang}&to={$to_lang}&text={$text}&contentType=".urlencode("text/html");
+    	$url = "https://api.microsofttranslator.com/V2/Ajax.svc/Translate?appId=".$this->key."&from={$from_lang}&to={$to_lang}&text={$text}&contentType=".urlencode("text/html");
     	
         $ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);

@@ -57,7 +57,7 @@ class Api_translate_bing extends CI_Driver {
 	    //OAuth Url.
 	    $authUrl      = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/";
 	    //Application Scope Url
-	    $scopeUrl     = "http://api.microsofttranslator.com";
+	    $scopeUrl     = "https://api.microsofttranslator.com";
 	    //Application grant type
 	    $grantType    = "client_credentials";
 	    
@@ -73,7 +73,7 @@ class Api_translate_bing extends CI_Driver {
 	    //Create the Translator Object.
 	    $translatorObj = new AzureHTTPTranslator();
 	    
-	    $url = "http://api.microsofttranslator.com/V2/Ajax.svc/Translate?from={$from_lang}&to={$to_lang}&text={$text}&contentType=".urlencode("text/html");
+	    $url = "https://api.microsofttranslator.com/V2/Ajax.svc/Translate?from={$from_lang}&to={$to_lang}&text={$text}&contentType=".urlencode("text/html");
 	    
 	    //Call the curlRequest.
 	    $strResponse = $translatorObj->curlRequest($url, $authHeader);
@@ -204,7 +204,7 @@ Class AzureHTTPTranslator {
      */
     function createReqXML($languageCode) {
         //Create the Request XML.
-        $requestXml = '<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">';
+        $requestXml = '<ArrayOfstring xmlns="https://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">';
         if($languageCode) {
             $requestXml .= "<string>$languageCode</string>";
         } else {

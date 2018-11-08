@@ -45,7 +45,7 @@ class Api_translate_mymemory extends CI_Driver {
     	
     	$text = urlencode($text);
     	
-    	$url = "http://mymemory.translated.net/api/get?q={$text}&langpair={$lp}";
+    	$url = "https://mymemory.translated.net/api/get?q={$text}&langpair={$lp}";
     	
         $ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
