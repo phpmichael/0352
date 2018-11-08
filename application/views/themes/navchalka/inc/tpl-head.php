@@ -16,14 +16,14 @@
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
 
 <script src="<?=static_url().$BC->_getFolder('js').'loaders/yepnope.min.js'?>"></script>
 
 <script>
     yepnope({
-        load: "http://code.jquery.com/jquery-1.11.0.min.js",
+        load: "https://code.jquery.com/jquery-1.11.0.min.js",
         complete: function () {
             $j = jQuery.noConflict();
             FaceBoxPath = "<?=base_url().$BC->_getFolder('js')?>jquery/facebox/";

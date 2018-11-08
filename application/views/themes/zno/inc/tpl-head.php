@@ -45,7 +45,7 @@
 
 <script>
     yepnope({
-        load: "http://code.jquery.com/jquery-1.11.0.min.js",
+        load: "https://code.jquery.com/jquery-1.11.0.min.js",
         complete: function () {
             $j = jQuery.noConflict();
             FaceBoxPath = "<?=base_url().$BC->_getFolder('js')?>jquery/facebox/";
