@@ -1,7 +1,7 @@
 <div class="social-btn">
 	<!-- vkontakte: start -->
 	<!-- Put this script tag to the <head> of your page -->
-	<script src="http://userapi.com/js/api/openapi.js?52"></script>
+	<script src="https://userapi.com/js/api/openapi.js?52"></script>
 	
 	<script>
 	  VK.init({apiId: 3088351, onlyWidgets: true});

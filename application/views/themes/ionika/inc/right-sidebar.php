@@ -52,7 +52,7 @@
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>
                 
-                <div class="fb-like-box" data-href="http://facebook.com/ionikator" data-width="220" data-height="300" data-show-faces="true" data-stream="true" data-header="true"></div>
+                <div class="fb-like-box" data-href="https://facebook.com/ionikator" data-width="220" data-height="300" data-show-faces="true" data-stream="true" data-header="true"></div>
             <?endif?>
             
         </div>

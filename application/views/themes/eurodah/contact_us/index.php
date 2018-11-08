@@ -67,7 +67,7 @@
 <?=include_js($BC->_getFolder('js').'custom/contact_us/send_form.js')?>
 
 <!-- Yandex Map -->
-<script src="http://api-maps.yandex.ru/2.0/?load=package.standard&mode=debug&lang=uk-UA&key=AE4RLlABAAAAne1pTwMA3aoI49eJs3OdgLIgp9BWeAn1Q7UAAAAAAAAAAAD6CaXLeEhsEveBkwUoieNPG33gSA=="></script>
+<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&mode=debug&lang=uk-UA&key=AE4RLlABAAAAne1pTwMA3aoI49eJs3OdgLIgp9BWeAn1Q7UAAAAAAAAAAAD6CaXLeEhsEveBkwUoieNPG33gSA=="></script>
 <script type="text/javascript">
     ymaps.ready(function () {
         var mapPlgPM1 = new ymaps.Map("YMapsLocation1", {
