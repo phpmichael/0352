@@ -183,6 +183,23 @@ class Shipping extends Admin_fb
     }
 
     /**
+     * Show NovaPoshtaSenderId
+     */
+    public function novaposhtaSenderId()
+    {
+        $settings = $this->settings_model;
+
+        if(empty($settings['novaposhta_apiKey'])) die('Fill API key at first');
+
+        require_once(APPPATH.'libraries/NovaPoshta/NovaPoshtaApi2.php');
+        $np = new LisDev\Delivery\NovaPoshtaApi2($settings['novaposhta_apiKey'],'ua',TRUE,'curl');
+
+        $senders = $np->getCounterparties('Sender');
+
+        dump($senders['data']);
+    }
+
+    /**
      * Send E-Invoice Number (novaposhta, ukrposhta)
      * @param int $orderId
      */
