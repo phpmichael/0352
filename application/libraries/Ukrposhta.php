@@ -80,7 +80,7 @@ class Ukrposhta
         $client['addressId'] = $addressId;//result of "addAddress"
         $client['phoneNumber'] = $customer['phone'];
         $client['email'] = $customer['email'];
-        $client['individual'] = true;
+        $client['type'] = 'INDIVIDUAL';
 
         //validate fields
         foreach (array('firstName','lastName','phoneNumber','email') as $field)
