@@ -1,7 +1,8 @@
 <div>
     <ul id="products-categories">
     <?
-        $categoriesMenu = $BC->products_categories_model->getChildren(0,true);
+        load_model('products_categories_model');
+        $categoriesMenu = $BC->zen->products_categories_model->getChildren(0,true);
         foreach ($categoriesMenu as $categoryMenuItem)
         {
             $active = (@$search_category_id === $categoryMenuItem['id']) ? " class='active'" : "";
