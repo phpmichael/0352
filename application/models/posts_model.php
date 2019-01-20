@@ -97,8 +97,23 @@ abstract class Posts_model extends Base_model
 		}
 
         if( isset($filter_data['sort_order']) && !in_array(strtolower($filter_data['sort_order']), array('asc','desc')) ) $filter_data['sort_order'] = 'asc';
+
+    	if( !preg_match('/^\d+$/', $filter_data['category']) && $this->db->field_exists('slug', $this->categories_list_table) )
+        {
+            $filter_data['category'] = $this->getCategoryIdBySlug($filter_data['category']);
+        }
 		
 		return $filter_data;
+    }
+
+
+    protected function getCategoryIdBySlug($slug)
+    {
+        $category = $this->db->get_where($this->categories_list_table, array( "slug" => $slug ))->row_array();
+
+        if (!$category) return 0;
+
+        return $category['id'];
     }
     
     /**

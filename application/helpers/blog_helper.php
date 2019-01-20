@@ -190,7 +190,9 @@ function url_category_addition($add_slash=TRUE)
 {
     $CI =& get_instance();
     $slash = ($add_slash) ? '/' : '';
-    return ( $CI->uri->segment($CI->_getSegmentsOffset()+3)=='category' ) ? $slash.$CI->uri->segment($CI->_getSegmentsOffset()+4) : '';
+    $param_name = $CI->uri->segment($CI->_getSegmentsOffset()+3);
+    $param_value = $CI->uri->segment($CI->_getSegmentsOffset()+4);
+    return ( $param_name ==='category' && preg_match('/^\d+$/',$param_value) ) ? $slash.$param_value : '';
 }
 
 /**
