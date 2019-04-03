@@ -1,4 +1,4 @@
-<?load_theme_view('inc/box-products-categories-one-level')?>
+<?load_theme_view('inc/box-products-categories')?>
 
 <?//publishers and authors: home page and books controller?>
 <?if ($BC->is_home_page() || in_array($BC->_getController(),array('books'))):?>
