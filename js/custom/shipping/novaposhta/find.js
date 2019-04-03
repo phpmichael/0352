@@ -11,6 +11,7 @@ $j(document).ready(function(){
         },
         fillCity: function(){
             $j(novaposhta.inputs.city).autocomplete({
+                minLength: 2,
                 source: function (request, response) {
                     $j.ajax({
                         url: "https://api.novaposhta.ua/v2.0/json/",
