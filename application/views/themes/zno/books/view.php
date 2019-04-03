@@ -115,7 +115,7 @@
                         <?$photo = 'photo'.$i?>
                         <?if($$photo):?>
                             <a href="<?=base_url().'images/data/b/books/'.$$photo?>" class="product-image" data-lightbox="product-image">
-                                <?=img(array('src'=>'images/data/s/books/'.$$photo))?>
+                                <?=img(array('src'=>'images/data/m/books/'.$$photo))?>
                             </a>
                         <?endif?>
                     <?endfor?>
