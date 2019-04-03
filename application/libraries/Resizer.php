@@ -99,7 +99,8 @@ class Resizer
 	{
 		$CI =& get_instance();
 
-		if(!isset($config['image_library'])) $config['image_library'] = 'GD2';
+        if(!isset($config['library_path'])) $config['library_path'] = '/usr/bin/convert';
+		if(!isset($config['image_library'])) $config['image_library'] = 'imagemagick';
 		if(!isset($config['new_image'])) $config['new_image'] = $this->path;
 		if(!isset($config['source_image'])) $config['source_image'] = $this->path;
 		if(!isset($config['quality'])) $config['quality'] = $this->quality;
