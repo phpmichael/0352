@@ -44,6 +44,21 @@
             'width'=>70
         ),
         array(
+            'field'=>'answers',
+            'width'=>70,
+            'title'=>'Answers'
+        ),
+        array(
+            'field'=>'connected_answers',
+            'width'=>70,
+            'title'=>'Connected'
+        ),
+        /*array(
+            'field'=>'correct_answers',
+            'width'=>70,
+            'title'=>'Correct'
+        ),*/
+        array(
             'field'=>'question_edit',
             'title'=>' ',
             'width'=>50
@@ -58,6 +73,14 @@
         $row['question__output'] = anchor($BC->_getBaseURI().'/answers_list/'.$quiz_id.'/'.$row['id'],htmlspecialchars($row['question']));
 
         $row['question_type'] = $BC->quiz_model->getQuestionType($row['id']);
+
+        $row['answers'] = count($BC->quiz_model->getAnswers($row['id']));
+        if($row['question_type'] === 'multi-radio') {
+            $row['connected_answers'] = count($BC->quiz_model->getConnectedAnswers($row['id']));
+        }
+        /*if($row['question_type'] !== 'multi-radio') {
+            $row['correct_answers'] = count($BC->quiz_model->getCorrectAnswers($row['id']));
+        }*/
 
         $row['question_edit__output'] = anchor_admin('questions_edit',$row['id']);
     }
