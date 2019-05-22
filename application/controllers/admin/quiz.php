@@ -43,6 +43,7 @@ class Quiz extends Admin
 		$this->fields_titles['answer'] = language('answer');
 		$this->fields_titles['correct'] = language('correct');
 		$this->fields_titles['active'] = language('active');
+		$this->fields_titles['type_id'] = language('type');
 		$this->fields_titles['questions_count'] = language('questions_count');
 		$this->fields_titles['correct_count'] = language('correct_answered_count');
 		$this->fields_titles['time'] = language('minutes');

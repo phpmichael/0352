@@ -22,6 +22,12 @@
 	<td><?=$BC->_getFieldTitle("active")?>:</td>
 	<td><?=form_dropdown("active",array(0=>language('no'),1=>language('yes')),set_value('active',@$active));?></td>
 </tr>
+<?if(@$BC->settings_model['quiz_field_type_id']):?>
+<tr>
+    <td><?=$BC->_getFieldTitle("type_id")?>:</td>
+    <td><?=form_dropdown("type_id",array(1=>1,2=>2,3=>3),set_value('type_id',@$type_id));?></td>
+</tr>
+<?endif?>
 <tr>
 	<td><?=$BC->_getFieldTitle("description")?>: <span class="red">*</span></td>
 	<td><?=form_textarea("description",set_value('description',@$description),"class='richtext'");?></td>

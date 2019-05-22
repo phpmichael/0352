@@ -48,6 +48,15 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
             'title'=>language('added_questions')
         )
     );
+
+    if(@$BC->settings_model['quiz_field_type_id'])
+    {
+        $col = array(
+            'field' => 'type_id',
+            'width' => 100
+        );
+        $cols[] = $col;
+    }
     
     $rows = $query->result_array();
     
