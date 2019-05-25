@@ -44,20 +44,20 @@
             'width'=>70
         ),
         array(
-            'field'=>'answers',
-            'width'=>70,
+            'field'=>'answers_count',
+            'width'=>50,
             'title'=>'Answers'
         ),
         array(
-            'field'=>'connected_answers',
-            'width'=>70,
-            'title'=>'Connected'
+            'field'=>'connected_answers_count',
+            'width'=>50,
+            'title'=>'Connect'
         ),
-        /*array(
-            'field'=>'correct_answers',
-            'width'=>70,
+        array(
+            'field'=>'correct_answers_count',
+            'width'=>50,
             'title'=>'Correct'
-        ),*/
+        ),
         array(
             'field'=>'question_edit',
             'title'=>' ',
@@ -72,15 +72,18 @@
     {
         $row['question__output'] = anchor($BC->_getBaseURI().'/answers_list/'.$quiz_id.'/'.$row['id'],htmlspecialchars($row['question']));
 
-        $row['question_type'] = $BC->quiz_model->getQuestionType($row['id']);
+        $answers = $BC->quiz_model->getAnswers($row['id']);
+        $correct_answers = $BC->quiz_model->getCorrectAnswers($row['id']);
+        $connected_answers = $BC->quiz_model->getConnectedAnswers($row['id']);
+        $row['question_type'] = $BC->quiz_model->getQuestionType($row['id'], $answers, $correct_answers);
 
-        $row['answers'] = count($BC->quiz_model->getAnswers($row['id']));
+        $row['answers_count'] = count($answers);
         if($row['question_type'] === 'multi-radio') {
-            $row['connected_answers'] = count($BC->quiz_model->getConnectedAnswers($row['id']));
+            $row['connected_answers_count'] = count($connected_answers);
         }
-        /*if($row['question_type'] !== 'multi-radio') {
-            $row['correct_answers'] = count($BC->quiz_model->getCorrectAnswers($row['id']));
-        }*/
+        if($row['question_type'] !== 'multi-radio') {
+            $row['correct_answers_count'] = count($correct_answers);
+        }
 
         $row['question_edit__output'] = anchor_admin('questions_edit',$row['id']);
     }
