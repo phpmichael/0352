@@ -194,7 +194,7 @@ class Quiz_model extends Base_model
 		
 		$post['code'] = preg_replace("/((\r)?\n)+/","\n",$post['code']);
 		
-		parent::insertOrUpdate($post);
+		return parent::insertOrUpdate($post);
 	}
 	
 	/**
@@ -911,6 +911,28 @@ class Quiz_model extends Base_model
 	    
 	    return $this->db->query($sql,array($quiz_id))->result_array();
 	}
+
+    /**
+     * Copy question to another quiz
+     * @param integer $question_id
+     * @param integer $quiz_id
+     */
+	public function copyQuestion($question_id,$quiz_id)
+    {
+        $question = $this->getQuestionById($question_id);
+        $answers = $this->getAnswers($question_id);
+
+        unset($question['id']);
+        $question['quiz_id'] = $quiz_id;
+        $question_id = $this->insertOrUpdateQuestion($question);
+
+        foreach ($answers as $answer)
+        {
+            unset($answer['id']);
+            $answer['question_id'] = $question_id;
+            $this->insertOrUpdateAnswer($answer);
+        }
+    }
 	
 	// === Dashboard: Start === //
     /**
