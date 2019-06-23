@@ -1,5 +1,10 @@
 <!--Load JS-->
 <?=load_inline_js('inc/js-select_all'); ?>
+
+<script>
+    window.quizListUrl = '<?=site_url($BC->_getBaseURI())?>';
+</script>
+<?=include_js($BC->_getFolder('js').'custom/quiz/admin/copy-questions.js')?>
 <!--Load JS-->
 
 <?=br(2)?>
@@ -22,7 +27,10 @@
 <?if(!empty($questions)):?>
 
     <?//link for delete selected records?>
-    <p><?=anchor__Delete_Selected()?></p>
+    <p>
+        <?=anchor__Delete_Selected()?>
+        | <a href="#" id="copy-questions"><?=language('copy')?> <?=language('question')?></a>
+    </p>
     
     <?//lopen form for delete records?>
     <?=form_open($BC->_getBaseURI()."/delete_selected_questions/".$quiz_id,array('name'=>'form'))?>

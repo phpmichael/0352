@@ -416,4 +416,20 @@ class Quiz extends Admin
 		redirect($this->_getBaseURI()."/answers_list/$quiz_id/$question_id");
 	}
 
+    /**
+     * Copy questions to another quiz
+     */
+	public function copyQuestions()
+    {
+        if(!isset($_POST['questionsIds']) || !isset($_POST['quizId']) ||
+            empty($_POST['questionsIds']) || empty($_POST['quizId'])
+        ){
+            json_encode(array('error'=>1,'message'=>language('error').' : require "questionsIds" and "quizId"'));
+        }
+        foreach ($_POST['questionsIds'] as $questionsId) {
+            $this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId']);
+        }
+        echo json_encode(array('success'=>1,'message'=>'Copied'));
+    }
+
 }

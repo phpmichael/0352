@@ -1,5 +1,10 @@
 <!--Load JS-->
 <?=load_inline_js('inc/js-select_all'); ?>
+
+<script>
+    window.quizCopyQuestionsUrl = '<?=site_url($BC->_getBaseURI().'/copyQuestions')?>';
+</script>
+<?=include_js($BC->_getFolder('js').'custom/quiz/admin/paste-questions.js')?>
 <!--Load JS-->
 
 <div class="fl" style="width:50%;">
