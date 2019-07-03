@@ -958,6 +958,21 @@ class Quiz_model extends Base_model
         $this->db->delete('quiz_questions_copies', array('orig_id' => $question_id));
     }
 
+    /**
+     * Return original question's quiz
+     * @param int $question_id
+     * @return array
+     */
+    public function getQuestionCopyOrigQuiz($question_id)
+    {
+        $sql = 'select l.id, l.name from quiz_questions_copies c 
+                join quiz_questions q on q.id=c.orig_id
+                join quiz_list l on l.id=q.quiz_id
+                where copy_id=?';
+
+        return $this->db->query($sql,array($question_id))->row_array();
+    }
+
 	
 	// === Dashboard: Start === //
     /**

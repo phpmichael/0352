@@ -67,6 +67,11 @@
             'title'=>'Correct'
         ),
         array(
+            'field'=>'orig_quiz',
+            'width'=>50,
+            'title'=>'Origin'
+        ),
+        array(
             'field'=>'question_edit',
             'title'=>' ',
             'width'=>50
@@ -92,6 +97,9 @@
         if($row['question_type'] !== 'multi-radio') {
             $row['correct_answers_count'] = count($correct_answers);
         }
+
+        $origQuiz = $BC->quiz_model->getQuestionCopyOrigQuiz($row['id']);
+        $row['orig_quiz'] = $origQuiz ? anchor($BC->_getBaseURI().'/edit/id/asc/0/'.$origQuiz['id'], language('quiz'), array('title'=>htmlspecialchars($origQuiz['name']))) : '';
 
         $row['question_edit__output'] = anchor_admin('questions_edit',$row['id']);
     }
