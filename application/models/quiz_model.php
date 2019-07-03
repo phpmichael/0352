@@ -10,7 +10,8 @@ require_once(APPPATH.'models/base_model.php');
  * quiz_store - store for customer's answers
  * quiz_archive - store for customer's finished quizes (just for review)
  * quiz_progress - store last question of customer's active quiz
- * 
+ * quiz_questions_copies - reference for origin question
+ *
  * @package quiz  
  * @author Michael Kovalskiy
  * @version 2011
@@ -30,11 +31,12 @@ class Quiz_model extends Base_model
 	 * Returns quizes array by $params.
 	 * 
 	 * @param array $params
+	 * @param array $order
 	 * @return array
 	 */
-	private function getQuizRecords(array $params=array())
+	public function getQuizRecords(array $params=array(), $order=array('orderby'=>'name','direction'=>'asc'))
 	{
-		$this->db->order_by('name');
+		$this->db->order_by($order['orderby'], $order['direction']);
 	    return $this->db->get_where('quiz_list',$params)->result_array();
 	}
 	
@@ -971,6 +973,19 @@ class Quiz_model extends Base_model
                 where copy_id=?';
 
         return $this->db->query($sql,array($question_id))->row_array();
+    }
+
+    /**
+     * Return count of used types for quiz
+     * @return int
+     */
+    public function getQuizTypesCount()
+    {
+        $sql = 'select count(distinct type_id) as amount from quiz_list';
+
+        $row = $this->db->query($sql)->row_array();
+
+        return $row['amount'];
     }
 
 	

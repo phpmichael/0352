@@ -41,6 +41,7 @@ class Quiz extends Front
 		$this->fields_titles['correct'] = language('correct');
 		
 		// === Page Titles === //
+		$this->page_titles['types'] = language('quiz_types');
 		$this->page_titles['index'] = language('quiz_list');
 		$this->page_titles['my'] = language('my_quiz_results');
 		$this->page_titles['go'] = language('quiz');
@@ -105,6 +106,17 @@ class Quiz extends Front
         parent::_OnOutput($data);
     }
 
+    public function Types()
+    {
+        // === Current Location === //
+        $data['current_location_arr'] =
+            array(
+                $this->_getBaseURI()."/types" => lowercase($this->_getPageTitle('types'))
+            );
+
+        parent::_OnOutput($data);
+    }
+
     /**
 	 * Show list with all active quizes.
 	 * 
@@ -112,7 +124,20 @@ class Quiz extends Front
 	 */
 	public function Index()
 	{
-        $data['quiz_records'] = $this->quiz_model->get("active = 1",'date','DESC');
+        $params['active'] = 1;
+        $order['orderby'] = 'date';
+        $order['direction'] = 'desc';
+
+        $filter_data = $this->uri->uri_to_assoc($this->_getSegmentsOffset()+3);
+        if(isset($filter_data['type'])){
+            $params['type_id'] = (int)$filter_data['type'];
+        }
+
+        if($this->quiz_model->getQuizTypesCount() > 1 && !isset($params['type_id'])){
+            redirect($this->_getBaseURI().'/types');
+        }
+
+        $data['quiz_records'] = $this->quiz_model->getQuizRecords($params);
 
 		parent::_OnOutput($data);
 	}
