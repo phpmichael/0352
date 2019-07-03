@@ -290,6 +290,8 @@ class Quiz_model extends Base_model
 				//TODO: delete answers' images
 				
 				$this->db->delete('quiz_questions', array('id' => $id));
+
+				$this->deleteQuestionCopyReference($id);
 			}
 		}
 	}
@@ -924,15 +926,38 @@ class Quiz_model extends Base_model
 
         unset($question['id']);
         $question['quiz_id'] = $quiz_id;
-        $question_id = $this->insertOrUpdateQuestion($question);
+        $question_copy_id = $this->insertOrUpdateQuestion($question);
 
         foreach ($answers as $answer)
         {
             unset($answer['id']);
-            $answer['question_id'] = $question_id;
+            $answer['question_id'] = $question_copy_id;
             $this->insertOrUpdateAnswer($answer);
         }
+
+        $this->saveQuestionCopyReference($question_id, $question_copy_id);
     }
+
+    /**
+     * Save original question ID on copy
+     * @param int $orig_id
+     * @param int $copy_id
+     */
+    private function saveQuestionCopyReference($orig_id, $copy_id)
+    {
+        $this->db->insert('quiz_questions_copies', array('orig_id'=>$orig_id,'copy_id'=>$copy_id));
+    }
+
+    /**
+     * Delete copy reference when question deleted
+     * @param int $question_id
+     */
+    private function deleteQuestionCopyReference($question_id)
+    {
+        $this->db->delete('quiz_questions_copies', array('copy_id' => $question_id));
+        $this->db->delete('quiz_questions_copies', array('orig_id' => $question_id));
+    }
+
 	
 	// === Dashboard: Start === //
     /**
