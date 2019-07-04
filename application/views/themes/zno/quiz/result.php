@@ -8,7 +8,7 @@
 	<h3 class="quiz-question-wrong"><?=language('quiz_failed')?></h3>
 <?endif?>
 
-<h4><?=language('your_result')?>: <?=$scores?>/<?=$quiz['questions_count']?></h4>
+<h4><?=language('your_result')?>: <?=(int)$scores?></h4>
 
 <h4><?=language('details')?></h4>
 
