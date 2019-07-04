@@ -28,7 +28,8 @@ class Quiz_model extends Base_model
     protected $allowed_types = 'jpg|png';
 
     private $connected_scores_type = '+1'; //"+1" or "+1/count"
-	
+    private $digits3_scores_type = '+1'; //"+1" or "1 or 0"
+
 	/**
 	 * Returns quizes array by $params.
 	 * 
@@ -672,6 +673,8 @@ class Quiz_model extends Base_model
 
 		foreach ($customer_question_answers as $question_id=>$cqa)
 		{
+		    $answers = $this->getAnswers($question_id);
+
 			$connected_answers = array();
 			if(is_array($cqa))
 			{
@@ -695,7 +698,7 @@ class Quiz_model extends Base_model
                                 $scores += 1/$count_connected;
                                 $is_correct = ($scores > 0.9);
                             }
-                            else
+                            else//+1
                             {
                                 $scores += 1;
                                 $is_correct = ($scores === $count_connected);
@@ -709,22 +712,39 @@ class Quiz_model extends Base_model
 					ksort($cqa);
 					ksort($correct_question_answers);
 				}
-				else//checkbox/radio
+				else//checkbox/radio/digits3
 				{
 					$correct_question_answers = $this->getCorrectAnswersIDs($question_id);
 
 					sort($correct_question_answers);
 					sort($cqa);
 
-					if( $correct_question_answers != $cqa )
-					{
-						$result['correctArr'][$question_id] = FALSE;
-					}
-					else
-					{
-						$result['correctArr'][$question_id] = TRUE;
-						$result['scores']++;
-					}
+                    $is_digits3 = (count($answers) === 7 && count($correct_question_answers) === 3);
+
+                    if($is_digits3 && $this->digits3_scores_type === '+1')
+                    {
+                        for($i = 0; $i < 3; $i++)
+                        {
+                            if($correct_question_answers[$i] === $cqa[$i])
+                            {
+                                $result['scores']++;
+                            }
+
+                            $result['correctArr'][$question_id] = ($correct_question_answers === $cqa);
+                        }
+                    }
+                    else//1 or 0
+                    {
+                        if( $correct_question_answers != $cqa )
+                        {
+                            $result['correctArr'][$question_id] = FALSE;
+                        }
+                        else
+                        {
+                            $result['correctArr'][$question_id] = TRUE;
+                            $result['scores']++;
+                        }
+                    }
 				}
 			}
 			else //input
@@ -737,7 +757,7 @@ class Quiz_model extends Base_model
 				}
 			}
 			
-			$result['answers'][$question_id] = $this->getAnswers($question_id);
+			$result['answers'][$question_id] = $answers;
 			$result['correct_answers'][$question_id] = @$correct_question_answers;
 			$result['customer_answers'][$question_id] = $cqa;
 			$result['connected_answers'][$question_id] = $connected_answers;
