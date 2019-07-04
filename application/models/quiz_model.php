@@ -26,6 +26,8 @@ class Quiz_model extends Base_model
     protected $upload_path = './images/data/b/quiz/';
     //allowed file types
     protected $allowed_types = 'jpg|png';
+
+    private $connected_scores_type = '+1'; //"+1" or "+1/count"
 	
 	/**
 	 * Returns quizes array by $params.
@@ -681,17 +683,27 @@ class Quiz_model extends Base_model
 					$count_connected = count($connected_answers);
 
 					$scores = 0;
+                    $is_correct = FALSE;
 					foreach ($connected_answers as $connected_answer)
 					{
 						$correct_question_answers[$connected_answer['id']] = $connected_answer['connect_answer'];
 
 						if($cqa[$connected_answer['id']] == $connected_answer['connect_answer'])
 						{
-                            $scores += 1/$count_connected;
+						    if($this->connected_scores_type === '+1/count')
+                            {
+                                $scores += 1/$count_connected;
+                                $is_correct = ($scores > 0.9);
+                            }
+                            else
+                            {
+                                $scores += 1;
+                                $is_correct = ($scores === $count_connected);
+                            }
 						}
 					}
 
-					$result['correctArr'][$question_id] = ($scores > 0.9) ? TRUE : FALSE;
+					$result['correctArr'][$question_id] = ($is_correct) ? TRUE : FALSE;
                     $result['scores'] += $scores;
 					
 					ksort($cqa);
