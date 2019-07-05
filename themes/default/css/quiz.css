@@ -125,3 +125,21 @@
     float: left;
 }
 /* Multi-radio: end */
+
+.quiz-question-number{
+    display: inline-block;
+    border: 1px solid #0d4c70;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #000;
+}
+a.quiz-question-number:hover{
+    text-decoration: none;
+    color: #000;
+    background-color: #00A4E1;
+}
+span.quiz-question-number{
+    background-color: #00bce1;
+}

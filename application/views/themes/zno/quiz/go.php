@@ -4,7 +4,15 @@
 
 <h1><?=$BC->_getPageTitle()?></h1>
 
-<h3><?=language('progress')?>: <?=$amount_answered_questions+1?>/<?=$total_questions?></h3>
+<p>
+    <?for($question_number = 1; $question_number <= $total_questions; $question_number++):?>
+        <?if($amount_answered_questions+1 === $question_number):?>
+            <span class="quiz-question-number"><?=$question_number?></span>
+        <?else:?>
+            <a class="quiz-question-number" href="#"><?=$question_number?></a>
+        <?endif?>
+    <?endfor;?>
+</p>
 
 <div><?=htmlspecialchars($quiz['question']['question'])?></div>
 
