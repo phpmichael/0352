@@ -98,3 +98,5 @@
 var time_left = <?=$quiz['question']['time']?>;
 var are_you_sure = "<?=language('are_you_sure')?>";
 </script>
+
+<?load_theme_view('inc/question-show-type',array('quiz'=>$quiz));?>
