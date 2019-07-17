@@ -1,0 +1,2 @@
+ALTER TABLE `quiz_questions`
+  ADD COLUMN `sort` INT(5) UNSIGNED NOT NULL DEFAULT '0' AFTER `time`;

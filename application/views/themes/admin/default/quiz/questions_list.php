@@ -1,5 +1,7 @@
 <!--Load JS-->
 <?=load_inline_js('inc/js-select_all'); ?>
+<?=load_inline_js('inc/js-jquery-ui'); ?>
+<!--Load JS-->
 
 <script>
     window.quizListUrl = '<?=site_url($BC->_getBaseURI())?>';
@@ -29,6 +31,11 @@
     <?//link for delete selected records?>
     <p>
         <?=anchor__Delete_Selected()?>
+
+        <?if(userAccess($BC->_getController(),'edit')):?>
+            | <a id="save" href="javascript:void(0)"><?=language('save_sorting')?></a>
+        <?endif?>
+
         | <a href="#" id="copy-questions"><?=language('copy')?> <?=language('question')?></a>
     </p>
     
@@ -103,10 +110,18 @@
 
         $row['question_edit__output'] = anchor_admin('questions_edit',$row['id']);
     }
-    
-    show_records_table($cols,$rows,FALSE,FALSE);
+
+    show_records_sortable($cols,$rows,FALSE,FALSE);
     ?>
     
     </form>
 
 <?endif;?>
+
+<script>
+    var sort_process = {};
+    sort_process.save_sort_url = "<?=relative_url($BC->_getBaseURI()."/questions_sort/".$this->uri->segment($BC->_getSegmentsOffset()+3))?>";
+    sort_process.redirect_after_sort_url = "<?=site_url($BC->_getBaseURI()."/questions_list/".$this->uri->segment($BC->_getSegmentsOffset()+3))?>";
+</script>
+
+<?=load_inline_js('inc/js-sort-func')?>

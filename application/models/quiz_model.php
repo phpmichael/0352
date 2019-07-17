@@ -69,6 +69,7 @@ class Quiz_model extends Base_model
 	 */
 	public function getQuestions($quiz_id)
 	{
+        $this->db->order_by('sort');
 		return $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id))->result_array();
 	}
 	
@@ -1018,6 +1019,20 @@ class Quiz_model extends Base_model
         $row = $this->db->query($sql)->row_array();
 
         return $row['amount'];
+    }
+
+    /**
+     * Sort questions.
+     *
+     * @param array $sortables
+     * @param int $quiz_id
+     * @return void
+     */
+    public function sortQuestions($sortables,$quiz_id)
+    {
+        $this->c_table = 'quiz_questions';
+
+        parent::Sort($sortables,array('quiz_id'=>$quiz_id));
     }
 
 	

@@ -432,4 +432,13 @@ class Quiz extends Admin
         echo json_encode(array('success'=>1,'message'=>'Copied'));
     }
 
+    /**
+     * Sort questions
+     * @param int $quiz_id
+     */
+    public function Questions_Sort($quiz_id)
+    {
+        $this->quiz_model->sortQuestions($this->parseSortables(),$quiz_id);
+    }
+
 }
