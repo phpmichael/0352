@@ -111,9 +111,10 @@ function show_records_sortable( array $cols, array $rows, $__no_checkbox=FALSE, 
         </thead>
      </table>
      <ul id="sortable_group">
-        <?foreach ($rows as $row):?>
+        <?foreach ($rows as $idx=>$row):?>
         <?$id_field = (isset($row['id'])?'id':'data_key')?>
-        <li id="sortables_<?=$row['sort']?>" class="sortable_item">
+        <?$sort = $row['sort'] ? $row['sort'] : $idx?>
+        <li id="sortables_<?=$sort?>" class="sortable_item">
         	<table class="list">
                 <tbody>
                     <tr>
