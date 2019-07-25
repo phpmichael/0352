@@ -37,7 +37,7 @@ class Quiz_model extends Base_model
 	 * @param array $order
 	 * @return array
 	 */
-	public function getQuizRecords(array $params=array(), $order=array('orderby'=>'name','direction'=>'asc'))
+	public function getQuizRecords(array $params=array(), $order=array('orderby'=>'sort','direction'=>'asc'))
 	{
 		$this->db->order_by($order['orderby'], $order['direction']);
 	    return $this->db->get_where('quiz_list',$params)->result_array();

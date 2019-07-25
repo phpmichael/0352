@@ -1,5 +1,6 @@
 <!--Load JS-->
 <?=load_inline_js('inc/js-select_all'); ?>
+<?=load_inline_js('inc/js-jquery-ui'); ?>
 
 <script>
     window.quizCopyQuestionsUrl = '<?=site_url($BC->_getBaseURI().'/copyQuestions')?>';
@@ -25,7 +26,13 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
 <?if($query->num_rows()>0):?>
 
     <?//link for delete selected records?>
-    <p><?=anchor__Delete_Selected()?></p>
+    <p>
+        <?=anchor__Delete_Selected()?>
+
+        <?if(userAccess($BC->_getController(),'edit')):?>
+            | <a id="save" href="javascript:void(0)"><?=language('save_sorting')?></a>
+        <?endif?>
+    </p>
     
     <?//lopen form for delete records?>
     <?=aform_open__Delete_Selected()?>
@@ -40,17 +47,21 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
             'field'=>'name'
         ),
         array(
-            'field'=>'questions_count'
+            'field'=>'questions_count',
+            'width'=>100,
         ),
         array(
-            'field'=>'correct_count'
+            'field'=>'correct_count',
+            'width'=>100,
         ),
         array(
-            'field'=>'active'
+            'field'=>'active',
+            'width'=>100,
         ),
         array(
             'field'=>'added_questions',
-            'title'=>language('added_questions')
+            'title'=>language('added_questions'),
+            'width'=>100,
         )
     );
 
@@ -72,8 +83,8 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
         $row['active__output'] = (($row['active'])?language('yes'):language('no'));
         $row['added_questions__output'] = $BC->quiz_model->getTotalQuizQuestions($row['id']);
     }
-    
-    show_records_table($cols,$rows);
+
+    show_records_sortable($cols,$rows,FALSE,FALSE);
     ?>
     
     </form>
@@ -81,3 +92,11 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
     <div class="pagination"><?=$paginate?></div>
 
 <?endif;?>
+
+<script>
+    var sort_process = {};
+    sort_process.save_sort_url = "<?=relative_url($BC->_getBaseURI()."/sort")?>";
+    sort_process.redirect_after_sort_url = "<?=site_url($BC->_getBaseURI())?>";
+</script>
+
+<?=load_inline_js('inc/js-sort-func')?>

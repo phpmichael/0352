@@ -27,6 +27,8 @@ class Quiz extends Admin
 
 		// === Check is logged manager === //
 		$this->_CheckLogged();
+
+        $this->segment_orderby = $this->uri->segment($this->_getSegmentsOffset()+3,'sort');
 		
 		// === Load Models === //
 		$this->load->model('quiz_model');
@@ -430,6 +432,14 @@ class Quiz extends Admin
             $this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId']);
         }
         echo json_encode(array('success'=>1,'message'=>'Copied'));
+    }
+
+    /**
+     * Sort quiz list
+     */
+    public function Sort()
+    {
+        $this->quiz_model->sort($this->parseSortables());
     }
 
     /**
