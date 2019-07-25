@@ -14,7 +14,7 @@ class Quiz extends Admin
 	//name of quizes table
 	protected $c_table = "quiz_list";
 	//show records per page
-	protected $per_page = 10;
+	protected $per_page = 40;
 
     /**
      * Init models, set pages' titles, fields' titles, set languages' sections.
