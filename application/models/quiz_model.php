@@ -218,7 +218,7 @@ class Quiz_model extends Base_model
             $post['image'] = $image;
         }
 		
-		parent::insertOrUpdate($post);
+		return parent::insertOrUpdate($post);
 	}
 
     /**
@@ -958,16 +958,31 @@ class Quiz_model extends Base_model
     {
         $question = $this->getQuestionById($question_id);
         $answers = $this->getAnswers($question_id);
+        $connected_answers = $this->getConnectedAnswers($question_id);
 
+        //copy question record
         unset($question['id']);
         $question['quiz_id'] = $quiz_id;
         $question_copy_id = $this->insertOrUpdateQuestion($question);
 
+        //copy answers records
+        $answers_copy = array();
         foreach ($answers as $answer)
         {
+            $answer_id = $answer['id'];
             unset($answer['id']);
             $answer['question_id'] = $question_copy_id;
-            $this->insertOrUpdateAnswer($answer);
+            $copy_answer_id = $this->insertOrUpdateAnswer($answer);
+            $answers_copy[$answer_id] = $copy_answer_id;
+        }
+
+        //copy connected answers records
+        foreach ($connected_answers as $connected_answer)
+        {
+            unset($connected_answer['id']);
+            $connected_answer['question_id'] = $question_copy_id;
+            $connected_answer['connect_answer'] = (int)$answers_copy[$connected_answer['connect_answer']];
+            $this->insertOrUpdateAnswer($connected_answer);
         }
 
         $this->saveQuestionCopyReference($question_id, $question_copy_id);
