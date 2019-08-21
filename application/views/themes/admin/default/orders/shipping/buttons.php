@@ -5,7 +5,8 @@
         | <?=anchor_base("shipping/ukrposhtaSticker/".$orders_customer_info['doc_number'], 'Стікер Укрпошти', 'target="_blank"')?>
         <?if(!$orders_customer_info['doc_number_sent']):?>
             | <?=anchor_base("shipping/ukrposhtaDeleteShipment/".$id, 'Видалити з Укрпошти')?>
-            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id)?>'">Надіслати ЕН</a>
+            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id)?>'">Надіслати ЕН (E-mail)</a>
+            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id."/sms")?>'">Надіслати ЕН (SMS)</a>
         <?endif?>
     <?else:?>
         | <?=anchor_base("shipping/ukrposhtaSend/".$id, 'Надіслати до Укрпошти' )?>
@@ -15,7 +16,8 @@
     <?if($orders_customer_info['doc_number']):?>
         | <a href="https://my.novaposhta.ua/orders/printDocument/orders[]/<?=$orders_customer_info['doc_number']?>/type/pdf/apiKey/<?=@$BC->settings_model['novaposhta_apiKey']?>" target="_blank">Друк накладної</a>
         <?if(!$orders_customer_info['doc_number_sent']):?>
-            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id)?>'">Надіслати ЕН</a>
+            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id)?>'">Надіслати ЕН (E-mail)</a>
+            | <a href="javascript: if(confirm('<?=language("are_you_sure")?>')) location.href='<?=site_url($BC->_getBaseURL()."shipping/sendEN/".$id."/sms")?>'">Надіслати ЕН (SMS)</a>
         <?endif?>
     <?endif?>
 <?endif?>
