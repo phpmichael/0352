@@ -202,8 +202,9 @@ class Shipping extends Admin_fb
     /**
      * Send E-Invoice Number (novaposhta, ukrposhta)
      * @param int $orderId
+     * @param string $transport (email|sms)
      */
-    public function sendEN($orderId)
+    public function sendEN($orderId, $transport='email')
     {
         if(!$orderId) die('orderId is required');
 
@@ -218,9 +219,17 @@ class Shipping extends Admin_fb
         elseif($customer['shipping_type']=='novaposhta') $shipping_company = 'Новою поштою';
         else $shipping_company = '';
 
+        $tplVars = array('doc_number' => $customer['doc_number'], 'shipping_company' => $shipping_company);
+
         // === Mail Customer === //
-        $this->load->model('auto_responders_model');
-        $this->auto_responders_model->send(6,$customer['email'],array('doc_number'=>$customer['doc_number'],'shipping_company'=>$shipping_company));
+        if($transport === 'email') {
+            $this->load->model('auto_responders_model');
+            $this->auto_responders_model->send(6, $customer['email'], $tplVars);
+        }else{//sms
+            $tpl = $this->settings_model['turbosms_text_invoice_number'];
+            $this->load->library('Turbosms');
+            $this->turbosms->send($customer['phone'], $tpl, $tplVars);
+        }
 
         redirect($this->_getBaseURL().'orders/edit/id/desc/0/'.$order['id']);
     }
