@@ -1,5 +1,26 @@
 <?php
 
+if(!extension_loaded('soap')){
+    require_once APPPATH.'third_party/nusoap.php';
+
+    class SoapClient
+    {
+        private $client;
+
+        public function __construct($endpoint)
+        {
+            $this->client = new nusoap_client($endpoint, true);
+            $this->client->soap_defencoding = 'UTF-8';
+            $this->client->decode_utf8 = FALSE;
+        }
+
+        public function __call($name, $arguments)
+        {
+            return $this->client->call($name, $arguments);
+        }
+    }
+}
+
 class Turbosms
 {
     private $CI;
@@ -20,7 +41,13 @@ class Turbosms
 
         $result = $this->client->GetCreditBalance();
 
-        if(!(float)$result->GetCreditBalanceResult){
+        if(is_object($result)){
+            $balance = $result->GetCreditBalanceResult;
+        }else{
+            $balance = $result['GetCreditBalanceResult'];
+        }
+
+        if(!(float)$balance){
             throw new Exception('Wrong auth credentials or no money on credit balance');
         }
     }
@@ -51,6 +78,13 @@ class Turbosms
         ];
 
         $result = $this->client->SendSMS($sms);
-        return $result->SendSMSResult->ResultArray[1];//message ID
+
+        if(is_object($result)){
+            $messageId = $result->SendSMSResult->ResultArray[1];
+        }else{
+            $messageId = $result['SendSMSResult']['ResultArray'][1];
+        }
+
+        return $messageId;
     }
 }
