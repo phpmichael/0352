@@ -130,7 +130,7 @@ class Quiz extends Front
 
         $filter_data = $this->uri->uri_to_assoc($this->_getSegmentsOffset()+3);
         if(isset($filter_data['type'])){
-            $params['type_id'] = (int)$filter_data['type'];
+            $data['type_id'] = $params['type_id'] = (int)$filter_data['type'];
         }
 
         if($this->quiz_model->getQuizTypesCount() > 1 && !isset($params['type_id'])){
