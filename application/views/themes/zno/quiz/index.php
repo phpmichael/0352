@@ -11,7 +11,7 @@ $quizTypes = array(
 
 <?if(!empty($quiz_records)):?>
 	<?foreach ($quiz_records as $record):?>
-		<h2>
+		<h2 style="font-size: 100%">
 			<a href='<?=site_url($BC->_getBaseURL().'quiz/start/'.$record['id']);?>'><?=$record['name']?></a>
 		</h2>
 		<?if($record['description']):?>
