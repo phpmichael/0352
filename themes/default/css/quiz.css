@@ -143,3 +143,7 @@ a.quiz-question-number:hover{
 span.quiz-question-number{
     background-color: #00bce1;
 }
+#quiz-question-numbers{
+    border-bottom: 1px solid #00ABF0;
+    padding-bottom: 10px;
+}

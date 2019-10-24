@@ -2,9 +2,9 @@
 
 <div id="quiz-timer"></div>
 
-<h1><?=$BC->_getPageTitle()?></h1>
+<h1><?=htmlspecialchars($quiz['quiz']['name'])?></h1>
 
-<p>
+<p id="quiz-question-numbers">
     <?for($question_number = 1; $question_number <= $total_questions; $question_number++):?>
         <?if($amount_answered_questions+1 === $question_number):?>
             <span class="quiz-question-number"><?=$question_number?></span>

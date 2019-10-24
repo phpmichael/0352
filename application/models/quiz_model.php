@@ -330,8 +330,8 @@ class Quiz_model extends Base_model
 	 */
 	public function getNextQuestion($quiz_id,$customer_id)
 	{
-		//set quiz id
-		$record['quiz']['id'] = $quiz_id;
+		//set quiz
+		$record['quiz'] = $this->getOneById($quiz_id);
 		
 		//try if there is currently active question
 		if( $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
