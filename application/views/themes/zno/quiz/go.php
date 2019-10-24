@@ -108,3 +108,4 @@ var are_you_sure = "<?=language('are_you_sure')?>";
 </script>
 
 <?load_theme_view('inc/question-show-type',array('quiz'=>$quiz));?>
+<p>Знайшли помилку? Пишіть на <a href="mailto:znobooks@ukr.net">znobooks@ukr.net</a></p>
