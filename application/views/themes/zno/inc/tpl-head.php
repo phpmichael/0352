@@ -1,5 +1,4 @@
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title><?=$BC->_getPageTitle()?></title>
 <meta name='description' content='<?=$head['meta_description']?>' />
