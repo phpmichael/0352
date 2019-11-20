@@ -45,6 +45,7 @@ class Quiz extends Admin
 		$this->fields_titles['answer'] = language('answer');
 		$this->fields_titles['correct'] = language('correct');
 		$this->fields_titles['active'] = language('active');
+		$this->fields_titles['use_timer'] = language('use_timer');
 		$this->fields_titles['type_id'] = language('type');
 		$this->fields_titles['questions_count'] = language('questions_count');
 		$this->fields_titles['correct_count'] = language('correct_answered_count');
@@ -179,11 +180,11 @@ class Quiz extends Admin
 		$this->load->library('form_validation');
 		
 		$configValidation = array(
-            array(
+            /*array(
                  'field'   => 'time',
                  'label'   => parent::_getFieldTitle('time'),
                  'rules'   => 'trim|required|natural'
-              ),
+              ),*/
             array(
                  'field'   => 'question',
                  'label'   => parent::_getFieldTitle('question'),
@@ -331,14 +332,19 @@ class Quiz extends Admin
 	/**
 	 * Edit question.
 	 *
+     * @param integer $quiz_id
+     * @param mixed $mm not used
+     * @param mixed $nn not used
+     * @param integer $question_id
 	 * @return void
 	 */
-	public function Questions_Edit()
+	public function Questions_Edit($quiz_id,$mm,$nn,$question_id)
 	{
-		$id = $this->segment_item;
+        $quiz = $this->quiz_model->getOneById($quiz_id);
+        $this->load->vars(array('quiz'=>$quiz));
 
 		// === GET RECORD === //
-		$record = $this->quiz_model->getQuestionById($id);
+		$record = $this->quiz_model->getQuestionById($question_id);
 		
 		$this->_processInsertQuestion($record);
 	}

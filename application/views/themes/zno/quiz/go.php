@@ -1,6 +1,8 @@
 <?$BC->load->helper('quiz');?>
 
-<div id="quiz-timer"></div>
+<?if($quiz['quiz']['use_timer']):?>
+    <div id="quiz-timer"></div>
+<?endif?>
 
 <h1><?=htmlspecialchars($quiz['quiz']['name'])?></h1>
 
@@ -103,6 +105,7 @@
 </form>
 
 <script>
+var use_timer = <?=$quiz['quiz']['use_timer']?>;
 var time_left = <?=$quiz['question']['time']?>;
 var are_you_sure = "<?=language('are_you_sure')?>";
 </script>

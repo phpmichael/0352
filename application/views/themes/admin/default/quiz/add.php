@@ -22,6 +22,10 @@
 	<td><?=$BC->_getFieldTitle("active")?>:</td>
 	<td><?=form_dropdown("active",array(0=>language('no'),1=>language('yes')),set_value('active',@$active));?></td>
 </tr>
+<tr>
+    <td><?=$BC->_getFieldTitle("use_timer")?>:</td>
+    <td><?=form_dropdown("use_timer",array(0=>language('no'),1=>language('yes')),set_value('active',@$use_timer));?></td>
+</tr>
 <?if(@$BC->settings_model['quiz_field_type_id']):?>
 <tr>
     <td><?=$BC->_getFieldTitle("type_id")?>:</td>

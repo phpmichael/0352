@@ -1,5 +1,9 @@
 function quizTimer()
 {
+    if(!window.use_timer){
+        return false;
+    }
+
     //reduce time
     window.time_left--;
 

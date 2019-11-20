@@ -541,6 +541,11 @@ class Quiz_model extends Base_model
 	 */
 	public function ifAnsweredInTime($quiz_id,$customer_id,$question_id)
 	{
+	    $quiz = $this->getOneById($quiz_id);
+	    if(!$quiz['use_timer']){//if quiz timer disabled - always in time
+	        return true;
+        }
+
 	    $chance = 5;
 	    $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id);
 	    $question = $this->getQuestionById($question_id);

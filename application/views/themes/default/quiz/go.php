@@ -1,6 +1,8 @@
 <?load_theme_view('inc/tpl-cur-location')?>
 
-<div id="quiz-timer"></div>
+<?if($quiz['quiz']['use_timer']):?>
+    <div id="quiz-timer"></div>
+<?endif?>
 
 <h2><?=$BC->_getPageTitle()?></h2>
 
@@ -36,6 +38,7 @@
 </form>
 
 <script>
+var use_timer = <?=$quiz['quiz']['use_timer']?>;
 var time_left = <?=$quiz['question']['time']?>;
 var are_you_sure = "<?=language('are_you_sure')?>";
 </script>

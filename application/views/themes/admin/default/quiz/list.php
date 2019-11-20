@@ -61,6 +61,10 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
             'width'=>100,
         ),
         array(
+            'field'=>'use_timer',
+            'width'=>100,
+        ),
+        array(
             'field'=>'added_questions',
             'title'=>language('added_questions'),
             'width'=>100,
@@ -83,6 +87,7 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
     {
         $row['name__output'] = anchor($BC->_getBaseURI().'/questions_list/'.$row['id'],$row['name']);
         $row['active__output'] = (($row['active'])?language('yes'):language('no'));
+        $row['use_timer__output'] = (($row['use_timer'])?language('yes'):language('no'));
         $row['added_questions__output'] = $BC->quiz_model->getTotalQuizQuestions($row['id']);
     }
 
