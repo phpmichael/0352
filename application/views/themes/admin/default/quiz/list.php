@@ -29,9 +29,11 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
     <p>
         <?=anchor__Delete_Selected()?>
 
+        <!--
         <?if(userAccess($BC->_getController(),'edit')):?>
             | <a id="save" href="javascript:void(0)"><?=language('save_sorting')?></a>
         <?endif?>
+        -->
     </p>
     
     <?//lopen form for delete records?>
