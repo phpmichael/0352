@@ -119,7 +119,7 @@ class Ukrposhta
         $shipment['sender']['uuid'] = $this->sender_uuid;
         $shipment['recipient']['uuid'] = $recipientId;
         $shipment['deliveryType'] = 'W2W';
-        $shipment['onFailReceiveType'] = 'RETURN_AFTER_FREE_STORAGE';
+        $shipment['onFailReceiveType'] = 'RETURN_AFTER_7_DAYS';
         $shipment['paidByRecipient'] = ($params['PayerType'] == 'Recipient') ? true : false;
         $shipment['description'] = $params['description'];
         $shipment['postPay'] = $params['postPay'];
