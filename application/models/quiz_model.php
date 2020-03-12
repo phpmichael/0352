@@ -328,13 +328,18 @@ class Quiz_model extends Base_model
 	 * @param integer $customer_id
 	 * @return array
 	 */
-	public function getNextQuestion($quiz_id,$customer_id)
+	public function getNextQuestion($quiz_id,$customer_id,$question_number=0)
 	{
 		//set quiz
 		$record['quiz'] = $this->getOneById($quiz_id);
-		
+        $total_questions = $this->getRequiredAmountQuestions($quiz_id);
+
+		if($question_number>=1 && $question_number<=$total_questions && !$record['quiz']['use_timer'])
+		{
+            $record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id),1,$question_number-1)->row_array();
+        }
 		//try if there is currently active question
-		if( $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
+		elseif( $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
 		{
 		    $record['question'] =  $this->db->get_where('quiz_questions',array('id'=>$current_question['question_id']))->row_array();
 		    

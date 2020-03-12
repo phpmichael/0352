@@ -183,7 +183,7 @@ class Quiz extends Front
 	 * @param integer $quiz_id
 	 * @return void
 	 */
-	public function Go($quiz_id)
+	public function Go($quiz_id, $question_number=0)
 	{
 	    $customer_id = $this->session->userdata('customer_id');
 		
@@ -196,7 +196,7 @@ class Quiz extends Front
 			redirect($this->_getBaseURI().'/finish/'.$quiz_id);
 		}
 		
-		$data['quiz'] = $this->quiz_model->getNextQuestion($quiz_id,$customer_id);
+		$data['quiz'] = $this->quiz_model->getNextQuestion($quiz_id,$customer_id,(int)$question_number);
 		
 		//if no more time for question
 		if($data['quiz']['question']['time']<=0)

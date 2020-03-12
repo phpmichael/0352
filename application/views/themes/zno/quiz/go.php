@@ -11,7 +11,7 @@
         <?if($amount_answered_questions+1 === $question_number):?>
             <span class="quiz-question-number"><?=$question_number?></span>
         <?else:?>
-            <a class="quiz-question-number" href="#"><?=$question_number?></a>
+            <a class="quiz-question-number" href="<?=site_url($BC->_getBaseURL().'quiz/go/'.$quiz['quiz']['id'].'/'.$question_number)?>"><?=$question_number?></a>
         <?endif?>
     <?endfor;?>
 </p>
