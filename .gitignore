@@ -21,8 +21,10 @@ $RECYCLE.BIN/
 /application/logs
 /application/cache
 /images/captcha
+/images/data
 /user_guide
 /books-changes.txt
 *.minify.css
 *.minify.js
 /pi.php
+/favicon.ico
