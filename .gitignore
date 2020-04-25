@@ -28,3 +28,5 @@ $RECYCLE.BIN/
 *.minify.js
 /pi.php
 /favicon.ico
+/backups
+/store
