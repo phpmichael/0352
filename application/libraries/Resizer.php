@@ -156,7 +156,7 @@ class Resizer
 	{
 		$CI =& get_instance();
 
-		if(!isset($config['image_library'])) $config['image_library'] = 'GD2';
+		if(!isset($config['image_library'])) $config['image_library'] = 'imagemagick';
 		if(!isset($config['source_image'])) $config['source_image'] = $this->path;
 		if(!isset($config['style'])) $config['style'] = "optimal";
 		$config['maintain_ratio'] = FALSE;
