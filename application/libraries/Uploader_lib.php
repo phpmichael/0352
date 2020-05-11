@@ -30,6 +30,7 @@ class Uploader_lib
 	private $big_width = 500;
 	private $big_height = 500;
 	private $big_crop = FALSE;
+	private $big_watermark = FALSE;
 	private $medium_width = FALSE;
 	private $medium_height = FALSE;
 	private $medium_crop = TRUE;
@@ -165,6 +166,11 @@ class Uploader_lib
     			$config['mode'] = "-";
     			$this->CI->resizer->resize($config);
     		}
+
+            if($this->big_watermark)
+            {
+                $this->CI->resizer->watermark(['source_image' => $big_image]);
+            }
 		}
 		
 		// Medium Image 

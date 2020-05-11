@@ -205,4 +205,28 @@ class Resizer
 		$this->Crop($config);
 	}
 
+    /**
+     * Add watermark to image.
+     * @param array $config
+     */
+	public function watermark($config)
+    {
+        $CI =& get_instance();
+
+        //TODO: read config from settings table
+        $config['wm_text'] = $_SERVER['HTTP_HOST'];
+        $config['wm_type'] = 'text';
+        $config['wm_font_path'] = './fonts/arial.ttf';
+        $config['wm_font_size'] = '24';
+        $config['wm_font_color'] = 'ffffff';
+        $config['wm_vrt_alignment'] = 'middle';
+        $config['wm_hor_alignment'] = 'center';
+        $config['padding'] = '0';
+        $config['quality'] = '100';
+        $config['wm_shadow_color'] = '444444';
+
+        $CI->image_lib->initialize($config);
+        $CI->image_lib->watermark();
+    }
+
 }

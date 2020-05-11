@@ -1658,7 +1658,8 @@ class Formbuilder_model extends Base_model
         	if( $input['image_big_height'] ) $config['big_height'] = $input['image_big_height'];
         	if( $input['image_big_width'] ) $config['big_width'] = $input['image_big_width'];
         	$config['big_crop'] = $input['image_big_crop'];
-    		
+        	$config['big_watermark'] = $input['image_big_watermark'];//TODO: make editable in FormBuilder
+
     		$this->uploader_lib->initialize($config);
         	
         	$file_name = $this->uploadFile($file_field);
