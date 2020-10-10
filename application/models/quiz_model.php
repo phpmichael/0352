@@ -337,6 +337,7 @@ class Quiz_model extends Base_model
 		if($question_number>=1 && $question_number<=$total_questions && !$record['quiz']['use_timer'])
 		{
             $record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id),1,$question_number-1)->row_array();
+            $record['question']['question_number'] = $question_number;
         }
 		//try if there is currently active question
 		elseif( $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
