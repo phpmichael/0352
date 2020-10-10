@@ -18,6 +18,8 @@
     <?endfor;?>
 </p>
 
+<h4>Завдання <?=(isset($quiz['question']['question_number']) ? $quiz['question']['question_number'] : $amount_answered_questions+1)?></h4>
+
 <div><?=htmlspecialchars($quiz['question']['question'])?></div>
 
 <?if($quiz['question']['description']):?>
