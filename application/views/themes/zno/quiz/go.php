@@ -118,7 +118,7 @@ var are_you_sure = "<?=language('are_you_sure')?>";
 <?php if($origQuiz = $BC->quiz_model->getQuestionCopyOrigQuiz($quiz['question']['id'])):?>
 <p>
     <?=language('quiz')?>:
-    <?=anchor_base('quiz/start/'.$origQuiz['id'], language('quiz'), array('title'=>htmlspecialchars($origQuiz['name']), 'target'=>'_blank'))?>
+    <?=anchor_base('quiz/start/'.$origQuiz['id'], htmlspecialchars($origQuiz['name']), array('title'=>htmlspecialchars($origQuiz['name']), 'target'=>'_blank'))?>
 </p>
 <?endif?>
 
