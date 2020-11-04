@@ -70,7 +70,10 @@ $j(document).ready(function(){
                 data: {
                     modelName: "Address",
                     calledMethod: "getWarehouses",
-                    methodProperties: {CityRef: cityRef},
+                    methodProperties: {
+                        CityRef: cityRef,
+                        Page: 1
+                    },
                     apiKey: novaposhta.api.key
                 },
                 xhrFields: {
