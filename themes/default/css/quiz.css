@@ -140,6 +140,9 @@ a.quiz-question-number:hover{
     color: #000;
     background-color: #00A4E1;
 }
+.quiz-question-number.answered{
+    background-color: #AAA;
+}
 span.quiz-question-number{
     background-color: #00bce1;
 }

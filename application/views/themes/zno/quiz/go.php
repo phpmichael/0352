@@ -10,10 +10,10 @@
     <?for($question_number = 1; $question_number <= $total_questions; $question_number++):?>
         <?if($quiz['question']['question_number'] === $question_number):?>
             <span class="quiz-question-number"><?=$question_number?></span>
-        <?elseif(!isset($quiz['question']['question_number']) && $amount_answered_questions+1 === $question_number):?>
-            <span class="quiz-question-number"><?=$question_number?></span>
+        <?elseif($quiz['quiz']['use_timer']):?>
+            <span class="quiz-question-number answered"><?=$question_number?></span>
         <?else:?>
-            <a class="quiz-question-number" href="<?=site_url($BC->_getBaseURL().'quiz/go/'.$quiz['quiz']['id'].'/'.$question_number)?>"><?=$question_number?></a>
+            <a class="quiz-question-number<?if(in_array($question_number, $quiz['answered_questions_numbers'])):?> answered<?endif?>" href="<?=site_url($BC->_getBaseURL().'quiz/go/'.$quiz['quiz']['id'].'/'.$question_number)?>"><?=$question_number?></a>
         <?endif?>
     <?endfor;?>
 </p>

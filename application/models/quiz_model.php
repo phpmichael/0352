@@ -334,33 +334,48 @@ class Quiz_model extends Base_model
 		$record['quiz'] = $this->getOneById($quiz_id);
         $total_questions = $this->getRequiredAmountQuestions($quiz_id);
 
+        $questions = $this->getQuestions($quiz_id);
+        $questionsNumbers = $this->getQuestionsNumbers($questions);
+        $record['answered_questions_numbers'] = $this->getCustomerAnsweredQuestionsNumbers($quiz_id,$customer_id,$questionsNumbers);
+
 		if($question_number>=1 && $question_number<=$total_questions && !$record['quiz']['use_timer'])
 		{
+		    //TODO: move to function
+            $this->db->order_by('sort');
             $record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id),1,$question_number-1)->row_array();
             $record['question']['question_number'] = $question_number;
         }
 		//try if there is currently active question
-		elseif( $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
+		elseif( $record['quiz']['use_timer'] && $current_question = $this->getCurrentQuizQuestion($customer_id,$quiz_id) )
 		{
 		    $record['question'] =  $this->db->get_where('quiz_questions',array('id'=>$current_question['question_id']))->row_array();
-		    
+            $record['question']['question_number'] = $questionsNumbers[$record['question']['id']];
+
 		    //how much time left for answer
 		    $record['question']['time'] -= (time() - $current_question['start_time']);
 		}
 		else 
 		{
-		    //get what question already answered
-    		$answered_questions = $this->getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id);
-    		//get random not answered question from quiz
-    		//$this->db->order_by('RAND()');
-    		$this->db->order_by('sort');
-    		if( !empty($answered_questions) ) $this->db->where_not_in('id',$answered_questions);
-    		$record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id))->row_array();
-    		
-    		//mark question as started (run timer for it)
-		    $this->questionStarted($customer_id,$quiz_id,$record['question']['id']);
+            $lastAnsweredQuestionNumber = current($record['answered_questions_numbers']);
+            while (in_array($lastAnsweredQuestionNumber+1, $record['answered_questions_numbers'])){
+                $lastAnsweredQuestionNumber++;
+            }
+    		if($lastAnsweredQuestionNumber < $total_questions){
+                $record['question'] = $questions[$lastAnsweredQuestionNumber];
+            }else{
+                //get what question already answered
+                $answered_questions = $this->getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id);
+
+                $this->db->order_by('sort');
+                if( !empty($answered_questions) ) $this->db->where_not_in('id',$answered_questions);
+                $record['question'] = $this->db->get_where('quiz_questions',array('quiz_id'=>$quiz_id))->row_array();
+            }
+            $record['question']['question_number'] = $questionsNumbers[$record['question']['id']];
 		}
-		
+
+        //mark question as started (run timer for it)
+        $this->questionStarted($customer_id, $quiz_id, $record['question']['id']);
+
 		//get answers for question
 		$record['answers'] = $this->getAnswers($record['question']['id']);
 		//get correct answers for question
@@ -446,6 +461,24 @@ class Quiz_model extends Base_model
 		
 		return $answered_questions;
 	}
+
+	private function getQuestionsNumbers($questions)
+    {
+        foreach ($questions as $i => $question){
+            $numbers[$question['id']] = $i+1;
+        }
+        return $numbers;
+    }
+
+    private function getCustomerAnsweredQuestionsNumbers($quiz_id,$customer_id, $questionsNumbers)
+    {
+        $answeredQuestionsIDs = $this->getCustomerAnsweredQuestionsIDs($quiz_id,$customer_id);
+        $answeredNumbers = array();
+        foreach ($answeredQuestionsIDs as $answeredQuestionsID){
+            $answeredNumbers[$answeredQuestionsID] = $questionsNumbers[$answeredQuestionsID];
+        }
+        return $answeredNumbers;
+    }
 	
 	/**
 	 * Returns count of already answered questions.
@@ -874,6 +907,10 @@ class Quiz_model extends Base_model
 	 */
 	private function questionStarted($customer_id,$quiz_id,$question_id)
 	{
+        if($this->db->get_where('quiz_progress',array('customer_id'=>$customer_id,'quiz_id'=>$quiz_id,'question_id'=>$question_id))->row_array()){
+            return false;//if already started
+        }
+
 	    $post['customer_id'] = $customer_id;
 	    $post['quiz_id'] = $quiz_id;
 	    $post['question_id'] = $question_id;
@@ -925,7 +962,7 @@ class Quiz_model extends Base_model
 	{
 	    $this->db->select('quiz_questions.*,quiz_progress.start_time,quiz_progress.end_time');
 	    $this->db->join('quiz_progress',"quiz_progress.question_id=quiz_questions.id");
-	    $this->db->order_by('quiz_progress.start_time');
+	    $this->db->order_by('quiz_questions.sort');
 	    return $this->db->get_where('quiz_questions',array('quiz_questions.quiz_id'=>$quiz_id,'quiz_progress.customer_id'=>$customer_id))->result_array();
 	}
 	
