@@ -88,7 +88,7 @@
     </div>
 <?else:?>
     <?foreach ($quiz['answers'] as $aIndex=>$answer):?>
-        <div>
+        <div class="answer-row-<?=$quiz['type']?>">
             <?if($quiz['type']=='input'):?>
                 <?=form_input('custom_answer','')?>
             <?elseif($quiz['type']=='checkbox'):?>
