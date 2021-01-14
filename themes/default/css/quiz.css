@@ -155,3 +155,7 @@ span.quiz-question-number{
     display: inline;
     vertical-align: sub;
 }
+.quiz-answer-image{
+    float: left;
+    text-align: center;
+}
