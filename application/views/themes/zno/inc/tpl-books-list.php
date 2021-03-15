@@ -16,7 +16,7 @@
 
 	                    <div class="product_image_container">
 	                        <a title="<?=htmlspecialchars($row->name)?>" href="<?=site_url($BC->_getBaseURL().'book/'.$row->slug.url_category_addition())?>">
-                    			<?if(@$row->photo1) echo img(array('data-src'=>'images/data/m/books/'.$row->photo1, 'height'=>'160', 'width'=>'?', 'alt'=>htmlspecialchars($row->name)))?>
+                    			<?if(@$row->photo1) echo img(array('data-src'=>'images/data/m/books/'.$row->photo1, 'src' => $BC->_getTheme().'img2/loading.gif', 'height'=>'160', 'width'=>'?', 'alt'=>htmlspecialchars($row->name)))?>
                     		</a>
 	                    </div>
 
@@ -38,12 +38,12 @@
 
 	                    </div>
                     </div>
-	
+
 	             </form>
             </td>
             <td style="text-align:left;">
                 <div itemscope itemtype="https://schema.org/Book" itemid="#book-<?=$row->data_key?>">
-                
+
                     <h4 itemprop="name">
                         <?=anchor_base('book/'.$row->slug.url_category_addition(),$row->name,"class='product_name'")?>
                     </h4>
