@@ -160,6 +160,9 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 .pagination.pull-right{
     margin: 0;
 }
+.sort-direction{
+  padding: 0 12px;
+}
 
 /* footer */
 footer{background: #eee; margin-top: 20px; padding-top: 8px;}
