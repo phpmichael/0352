@@ -25,7 +25,7 @@ if ( ! function_exists('img'))
 
         if ( (isset($src['width']) && $src['width']=='?') || (isset($src['height']) && $src['height']=='?') )
         {
-            $source = isset($src['src']) ? $src['src'] : $src['data-src'];
+            $source = isset($src['data-src']) ? $src['data-src'] : $src['src'];
             $info = getImageInfo($source);
             if ( $src['width']=='?' ) $src['width'] = $info['width'];
             if ( $src['height']=='?' ) $src['height'] = $info['height'];
