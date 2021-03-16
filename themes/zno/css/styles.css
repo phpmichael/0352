@@ -16,7 +16,7 @@ h2{font-size: 130%;}
 .table-bordered{border-radius: 0;}
 
 .header{height: 115px;}
-header .navbar .nav>li>a{padding-left: 30px; padding-right: 30px;}
+header .navbar .nav>li>a{padding-left: 30px; padding-right: 30px;font-size: 125%;}
 header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-transform: uppercase;}
 
 .breadcrumb{padding: 0; background: none;}
@@ -62,7 +62,7 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 #cart h3{display:none;}
 
 /* catalog */
-.navbar h2.catalog{font-size: 16px; text-transform: uppercase; text-align: center; color: #fff; display: block; float: left; background: #E2A82B; width: 223px; height: 50px; line-height: 50px; margin: 0 50px 0 0; padding: 0;}
+.navbar h2.catalog{font-size: 125%; text-transform: uppercase; text-align: center; color: #fff; display: block; float: left; background: #E2A82B; width: 223px; height: 50px; line-height: 50px; margin: 0 50px 0 0; padding: 0;}
 .navbar h2.catalog i{vertical-align: middle; padding: 0 5px 5px 0;}
 
 
