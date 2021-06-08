@@ -1,13 +1,12 @@
 <?if($total_rows):?>
 
-<table class="table products-grid">
-<tbody>
-	<tr>
+<div class="products-grid">
+    <div class="row-fluid">
 		<?$i=0; foreach ($posts_list as $row): $i++?>
 
-		    <?if($i!=1 && !(($i-1)%3)):?></tr><tr><?endif?>
+		    <?if($i!=1 && !(($i-1)%3)):?></div><div class="row-fluid"><?endif?>
 
-		        <td>
+		        <div class="span4">
 		        	<form action="<?=relative_url($BC->_getBaseURL()."/cart/add")?>" class="add-product">
                         <?=form_hidden('id',$row->data_key)?>
                         <?=form_hidden('qty',1)?>
@@ -35,9 +34,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="pull-left">
+                                    <div class="pull-right">
                                         <?=form_button('add_to_cart','<i class="icon-shopping-cart"></i>'.language('buy'),"class='btn add-product-submit'")?>
                                     </div>
+                                    <div class="clearfix"></div>
                                 <?else:?>
                                     <?=language('not_in_stock')?>
                                 <?endif?>
@@ -46,13 +46,10 @@
                         </div>
 
 		             </form>
-	            </td>
+	            </div>
 
 		<?endforeach;?>
-
-		<?while($i%2):$i++?><td></td><?endwhile?>
-	</tr>
-</tbody>
-</table>
+    </div>
+</div>
 
 <?endif?>

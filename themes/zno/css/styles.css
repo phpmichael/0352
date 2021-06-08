@@ -116,12 +116,8 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 
 /* products grid */
 .products-grid {margin: 0;}
-.products-grid th,
-.products-grid td{ border: none; padding: 10px 10px 10px 0;}
-.products-grid td .add-product{
+.products-grid .add-product{
     margin: 3px 0 3px 3px;
-    width: 250px;
-    height: 260px;
     padding: 8px;
     border: 1px solid #ddd;
 }
