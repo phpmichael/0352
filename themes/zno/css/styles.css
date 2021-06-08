@@ -130,8 +130,9 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 .product-title a{color:#444;}
 .product-title a:hover{color:#3498db; text-decoration: none;}
 .product-buy{text-align: center;}
-.product-price{margin:5px 3px;font-weight: bold; font-size: 16px; color: #E2A82B;}
+.product-price{margin:5px 3px;font-weight: bold; font-size: 120%; color: #E2A82B;}
 .product-old-price{margin:5px 3px;font-weight: normal; font-size: 14px; text-decoration: line-through;}
+.btn.add-product-submit{font-size: 130%; line-height: 150%;}
 
 .post-tags a{
     background:#3BA9E9;
@@ -190,7 +191,7 @@ footer .phone-number{font-weight: normal;}
 
 .main>.fb-output-screen{width:auto; padding:5px;}
 .main>.fb-output-screen .error{color:red;}
-.main>.fb-output-screen form ul{margin:0;}
+.main>.fb-output-screen form ul{margin:0; font-size: 100%; line-height: 120%; }
 .main>.fb-output-screen form li{list-style-type:none;}
 .main>.fb-output-screen form li.list-row-odd{background:#fff;}
 .main>.fb-output-screen form li.list-row-even{background:#fff;}
@@ -202,3 +203,21 @@ footer .phone-number{font-weight: normal;}
 .main>.fb-output-screen .shipping-type span:last-child{top: 120px;}
 .main>.fb-output-screen .shipping-type span label.choice{width:100%;}
 .main>.fb-output-screen .shipping-type-desc{font-size: 80%; margin: 8px;}
+
+@media (max-width:1024px){
+    body{min-height: 100vh;}
+    #page{min-width: 100%;}
+    .wrapper,
+    .main{width: 98%; margin: 0 1%; }
+    header ul.nav li:first-child,
+    .left-sidebar>h2,
+    .left-sidebar>div.well,
+    .left-sidebar>ul,
+    #slider-container{display: none;}
+    header .navbar .nav>li>a{font-size: 160%; padding-left: 15px; padding-right: 15px;}
+    #products-categories{position: absolute; background-color: white; z-index: 99;}
+    #products-categories li a{font-size: 200%; line-height: 200%;}
+    #products-categories li{border-bottom: 1px solid #555;}
+    .cat-with-children, .cat-without-children{display: none;}
+    .main p, .main ul{font-size: 150%; line-height: 170%;}
+}

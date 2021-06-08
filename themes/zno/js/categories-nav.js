@@ -24,7 +24,6 @@ function set_level1_node(node)
 		node = $j(node).parent();
 		return set_level1_node(node);
 	}
-	return false;
 }
 
 $j(document).ready(function()
@@ -35,6 +34,14 @@ $j(document).ready(function()
 		{
 			e.preventDefault();
 			open_level1_node($j(this).parent());
+		}
+	});
+
+	//toggle on mobile
+	$j('nav .catalog').click(function(){
+		const catalog = $j('#products-categories');
+		if(catalog.css('position') === 'absolute' || catalog.is(':hidden')) {
+			catalog.toggle();
 		}
 	});
 });
