@@ -111,6 +111,11 @@ $j(document).ready(function(){
                 alert(xhr.responseText);
                 //alert(textStatus);
             });
+        },
+        helpDepartment: function (){
+            $j('.help-novaposhta-department').click(function(){
+                $j.facebox({ div: '#help-novaposhta-department' });
+            });
         }
     };
 
@@ -121,5 +126,7 @@ $j(document).ready(function(){
     if( cityRef !== ''){//fill department if saved
         novaposhta.fillDepartment(cityRef);
     }
+
+    novaposhta.helpDepartment();
 
 });
