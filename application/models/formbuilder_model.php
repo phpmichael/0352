@@ -147,6 +147,12 @@ class Formbuilder_model extends Base_model
 	public function insertOrUpdateInput($post)
 	{
 		$this->c_table = 'form_inputs';
+
+        foreach (['width','height','label_width','image_small_height','image_small_width','image_medium_height','image_medium_width','image_big_height','image_big_width'] as $field){
+            if(!$post[$field]){
+                $post[$field] = 0;
+            }
+        }
 		
 		//if new insert
 		if( !@$post[$this->id_column] ) $post['sort'] = $this->lastSortInput($post['form_id'],$post['container_id']);
