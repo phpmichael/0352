@@ -17,7 +17,7 @@ class Books_model extends Products_model
 	protected $id_column = 'data_key';
 	
 	//pagination
-	protected $per_page = 9;
+	protected $per_page = 12;
     
     /**
 	 * Make sql criterias based on $filter_data.
