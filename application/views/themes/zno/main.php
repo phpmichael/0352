@@ -25,12 +25,12 @@ $BC->lang->load('calendar');
                             <div class="span2">
                                 <?if($BC->config->item('language')!='ukrainian'):?>
                                     <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='UA'?'':'ua/')?>" title="<?=language('ukrainian')?>">
-                                        УК
+                                        UA
                                     </a>
                                 <?endif?>
                                 <?if($BC->config->item('language')!='russian'):?>
                                     <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='RU'?'':'ru/')?>" title="<?=language('russian')?>">
-                                        РУ
+                                        RU
                                     </a>
                                 <?endif?>
                             </div>
