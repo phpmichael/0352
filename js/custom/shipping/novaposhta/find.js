@@ -63,11 +63,9 @@ $j(document).ready(function(){
             });
         },
         fillDepartment: function(cityRef){
-            $j.ajax({
-                url: "https://api.novaposhta.ua/v2.0/json/",
-                contentType: "application/json",
-                dataType: 'jsonp',
-                data: {
+            $j.getJSON("https://api.novaposhta.ua/v2.0/json/",
+                {
+                    callback: "",
                     modelName: "Address",
                     calledMethod: "getWarehouses",
                     methodProperties: {
@@ -76,41 +74,34 @@ $j(document).ready(function(){
                     },
                     apiKey: novaposhta.api.key
                 },
-                xhrFields: {
-                    withCredentials: false
-                }
-            })
-            .done(function (data) {
-                var departmentRef = $j(novaposhta.inputs.department_ref).val();//get saved value
+                function(data){
+                    var departmentRef = $j(novaposhta.inputs.department_ref).val();//get saved value
 
-                $j(novaposhta.inputs.department).empty();
+                    $j(novaposhta.inputs.department).empty();
 
-                var i, item, option;
+                    var i, item, option;
 
-                option = new Option("Виберіть відділення Нової пошти","");
-                $j(novaposhta.inputs.department).append(option);
-
-                for(i in data.data){
-                    item = data.data[i];
-
-                    option = new Option(item.Description, item.Description);
-                    option.setAttribute('data-ref', item.Ref);
-                    if(item.Ref == departmentRef) {
-                        option.setAttribute('selected', true);
-                    }
+                    option = new Option("Виберіть відділення Нової пошти","");
                     $j(novaposhta.inputs.department).append(option);
-                }
 
-                $j(novaposhta.inputs.department).change(function(){
-                    var departmentRef = $j(this).find('option:selected').data('ref');
-                    //fill hidden input
-                    $j(novaposhta.inputs.department_ref).val(departmentRef);
-                });
-            })
-            .fail(function (xhr, textStatus, errorThrown) {
-                alert(xhr.responseText);
-                //alert(textStatus);
-            });
+                    for(i in data.data){
+                        item = data.data[i];
+
+                        option = new Option(item.Description, item.Description);
+                        option.setAttribute('data-ref', item.Ref);
+                        if(item.Ref == departmentRef) {
+                            option.setAttribute('selected', true);
+                        }
+                        $j(novaposhta.inputs.department).append(option);
+                    }
+
+                    $j(novaposhta.inputs.department).change(function(){
+                        var departmentRef = $j(this).find('option:selected').data('ref');
+                        //fill hidden input
+                        $j(novaposhta.inputs.department_ref).val(departmentRef);
+                    });
+                }
+            );
         },
         helpDepartment: function (){
             $j('.help-novaposhta-department').click(function(){
