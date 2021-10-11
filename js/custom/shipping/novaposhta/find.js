@@ -13,35 +13,26 @@ $j(document).ready(function(){
             $j(novaposhta.inputs.city).autocomplete({
                 minLength: 2,
                 source: function (request, response) {
-                    $j.ajax({
-                        url: "https://api.novaposhta.ua/v2.0/json/",
-                        contentType: "application/json",
-                        dataType: 'jsonp',
-                        data: {
+                    $j.getJSON( "https://api.novaposhta.ua/v2.0/json/",
+                        {
+                            callback: "",
                             modelName: "Address",
                             calledMethod: "getCities",
                             methodProperties: {FindByString: $j(novaposhta.inputs.city).val()},
                             apiKey: novaposhta.api.key
                         },
-                        xhrFields: {
-                            withCredentials: false
-                        }
-                    })
-                    .done(function (data) {
-                        response($j.map(data.data, function (item) {
-                            return {
-                                label: item.Description,
-                                value: item.Description,
-                                id: item.CityID,
-                                Ref: item.Ref
+                        function (data) {
+                            response($j.map(data.data, function (item) {
+                                return {
+                                    label: item.Description,
+                                    value: item.Description,
+                                    id: item.CityID,
+                                    Ref: item.Ref
 
-                            };
-                        }));
-                    })
-                    .fail(function (xhr, textStatus, errorThrown) {
-                        alert(xhr.responseText);
-                        //alert(textStatus);
-                    });
+                                };
+                            }));
+                        }
+                    );
                 },
                 //CITY SELECTED - FILL DEPARTMENTS
                 select: function (event, ui) {
