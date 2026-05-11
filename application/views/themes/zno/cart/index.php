@@ -84,7 +84,7 @@
                     <?load_theme_view('inc/tpl-products-attributes-display',array('item'=>$item))?>
 		    	  </td>
 		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('price')?>"><?=exchange($item['price'])?></td>
-		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('quantity')?>"><?=form_input(array('name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class'=>'input-mini'))?></td>
+		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('quantity')?>"><?=form_input(array('type' => 'number', 'name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class'=>'input-mini'))?></td>
 		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('delete')?>">
 		    	  	<a href="javascript:void(0)" title="<?=language('delete')?>" class="delete-item btn-remove" rel="<?=($i.'[qty]')?>"><i class="icon-trash"></i></a>
 		    	  </td>
