@@ -28,6 +28,15 @@ function set_level1_node(node)
 
 $j(document).ready(function()
 {
+	if(!($j(window).width() > 1199)) {
+		$j('.left-sidebar-toggle').each(function(){
+			var toggle = $j(this);
+			toggle.attr('aria-expanded', 'false');
+			toggle.find('.toggle-arrow').html('&#9654;');
+			toggle.next('.left-sidebar-content').hide();
+		});
+	}
+
 	$j('.nav-toggle').click(function(){
 		var nav = $j('#primary-nav');
 		var isExpanded = $j(this).attr('aria-expanded') === 'true';
