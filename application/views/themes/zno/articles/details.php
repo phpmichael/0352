@@ -10,8 +10,6 @@
 	
 <?load_theme_view('inc/box-post-tags',array('post_id'=>$article['id']));?>
 
-<p><?social_buttons();?></p>
-
 <div>
 	<?
 	    //show comments
