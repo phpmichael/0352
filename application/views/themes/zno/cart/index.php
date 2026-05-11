@@ -38,13 +38,13 @@
 			    
 			    <?if( $discount_coupon ):?>
 			    <tr class="sectiontableentry1">
-			      <td colspan="2"></td>
+			      <td colspan="2" class="cart-summary-spacer"></td>
 			   	  <td colspan="3" style="text-align:right;"><strong><?=language('discount_coupon')?></strong> <?if($discount_coupon['percents'])?>(<?=$discount_coupon['percents']?>%)</td>
 			      <td style="text-align:right;"><?=exchange($discount_coupon['amount'])?></td>
 			    </tr>
 			    <?elseif( ($discount_amount = $this->discounts_model->getDiscountAmount())>0 ):?>
 			    <tr class="sectiontableentry1">
-			      <td colspan="2"></td>
+			      <td colspan="2" class="cart-summary-spacer"></td>
 			   	  <td colspan="3" style="text-align:right;"><strong><?=language('discount')?></strong> (<?=$this->discounts_model->getDiscountPercent()?>%)</td>
 			      <td style="text-align:right;"><?=exchange($discount_amount)?></td>
 			    </tr>
@@ -61,7 +61,7 @@
 			    <?endif?>
 			    
 			    <tr class="sectiontableentry1">
-			      <td colspan="2"></td>
+			      <td colspan="2" class="cart-summary-spacer"></td>
 			   	  <td colspan="3" style="text-align:right;"><strong><?=language('grand_total')?></strong></td>
 			      <td style="text-align:right;"><strong><?=exchange($BC->orders_model->calcOrderTotal())?></strong></td>
 			    </tr>
