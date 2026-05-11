@@ -35,6 +35,21 @@ $j(document).ready(function()
 		nav.toggleClass('is-open');
 	});
 
+	$j('.left-sidebar-toggle').on('click keydown', function(e){
+		if(e.type === 'keydown' && e.which !== 13 && e.which !== 32) return;
+		e.preventDefault();
+
+		var toggle = $j(this);
+		var content = toggle.next('.left-sidebar-content');
+		var arrow = toggle.find('.toggle-arrow');
+
+		content.slideToggle(300, function(){
+			var isExpanded = content.is(':visible');
+			toggle.attr('aria-expanded', isExpanded ? 'true' : 'false');
+			arrow.html(isExpanded ? '&#9660;' : '&#9654;');
+		});
+	});
+
 	$j("#products-categories li a").click(function(e)
 	{
 		if( $j(this).parent().find('ul').length>0 )

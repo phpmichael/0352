@@ -4,18 +4,22 @@ $authors = $BC->zen->books_authors_model->getAuthorsList(200);
 ?>
 
 <?if(!empty($authors)):?>
-<h2><?=language('authors')?></h2>
+<h2 class="left-sidebar-toggle" role="button" tabindex="0" aria-expanded="true">
+    <span class="toggle-arrow">&#9660;</span> <?=language('authors')?>
+</h2>
 
-<div class="well">
-    
-	<ul class="unstyled" style="height: 350px;overflow: auto">
-	<?foreach ($authors as $author_name):?>
-        <?$full_name = explode(' ', $author_name);//use in link just surname?>
-		<li>
-			<?=anchor_base('books/search/author/'.urlencode($full_name[0]), $author_name)?>
-		</li>
-	<?endforeach?>
-	</ul>
-   
+<div class="left-sidebar-content">
+    <div class="well">
+
+        <ul class="unstyled" style="height: 350px;overflow: auto">
+        <?foreach ($authors as $author_name):?>
+            <?$full_name = explode(' ', $author_name);//use in link just surname?>
+            <li>
+                <?=anchor_base('books/search/author/'.urlencode($full_name[0]), $author_name)?>
+            </li>
+        <?endforeach?>
+        </ul>
+
+    </div>
 </div>
 <?endif?>
