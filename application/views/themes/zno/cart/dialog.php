@@ -32,7 +32,7 @@
     		<?=load_theme_view('inc/tpl-products-attributes-display',array('item'=>$item))?>
     	  </td>
     	  <td class="item-price-col"><?=exchange($item['price'])?></td>
-    	  <td class="item-qty-col"><?=form_input(array('name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class' => 'input-mini'))?></td>
+    	  <td class="item-qty-col"><?=form_input(array('type' => 'number', 'name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class' => 'input-mini'))?></td>
     	  <td class="item-subtotal-col"><?=exchange($item['subtotal'])?></td>
     	  <td class="item-delete-col"><a href="javascript:void(0)" class="delete-item" rel="<?=($i.'[qty]')?>"><?=language('delete')?></a></td>
     	</tr>
@@ -53,10 +53,10 @@
         <tr <?if($i%2):?>class="row-odd"<?else:?>class="row-even"<?endif?>>
        	  <td colspan="6">
        	  	<div style="float:left">
-       	  		<?=form_button('close', language('continue_shopping'),"class='close-facebox btn'"); ?>
+                <?=form_submit('update', language('update_cart'),"class='btn'"); ?>
        	  	</div>
        	  	<div style="float:right">
-	       	    <?=form_submit('update', language('update_cart'),"class='btn'"); ?>
+                <?=form_button('close', language('continue_shopping'),"class='close-facebox btn'"); ?>
 	       	    <?=form_button('go_to_cart', language('proceed_to_checkout'),"class='go-to-cart btn'"); ?>
 	       	</div>
        	  </td>
