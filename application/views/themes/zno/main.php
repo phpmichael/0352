@@ -68,7 +68,7 @@ $BC->lang->load('calendar');
                                     <div class="nav-collapse wrapper site-nav">
 
                                         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-                                            <?=language('catalog')?> / Menu
+                                            Головне меню
                                         </button>
 
                                         <h2 class="catalog"><i class="icon-list icon-white"></i><?=language('catalog')?></h2>
