@@ -28,13 +28,22 @@ function set_level1_node(node)
 
 $j(document).ready(function()
 {
-	if(!($j(window).width() > 1199)) {
+	var isMobileWidth = !($j(window).width() > 1199);
+
+	if(isMobileWidth) {
 		$j('.left-sidebar-toggle').each(function(){
 			var toggle = $j(this);
 			toggle.attr('aria-expanded', 'false');
 			toggle.find('.toggle-arrow').html('&#9654;');
 			toggle.next('.left-sidebar-content').hide();
 		});
+	}
+
+	if(isMobileWidth) {
+		var currentPath = window.location.pathname.replace(/\/+$/, '');
+		if(/\/books$/.test(currentPath) || /\/cart$/.test(currentPath) || currentPath.indexOf('/books/index') !== -1 || currentPath.indexOf('/orders/') !== -1) {
+			$j('#products-categories').hide();
+		}
 	}
 
 	$j('.nav-toggle').click(function(){
