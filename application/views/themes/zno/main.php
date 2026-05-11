@@ -22,7 +22,7 @@ $BC->lang->load('calendar');
 
                     <div class="info-bar">
                         <div class="wrapper row-fluid">
-                            <div class="span2">
+                            <div class="span2 info-bar-langs">
                                 <?if($BC->config->item('language')!='ukrainian'):?>
                                     <a href="<?=base_url().($BC->lang_model->getDefaultLangCode()=='UA'?'':'ua/')?>" title="<?=language('ukrainian')?>">
                                         UA
@@ -37,26 +37,26 @@ $BC->lang->load('calendar');
                             <div class="span7">
                                 <?load_theme_view('inc/phones-line')?>
                             </div>
-                            <div class="span3">
+                            <div class="span3 info-bar-extra">
 
                             </div>
                         </div>
                     </div>
 
                 	<div class="wrapper row-fluid header">
-                        <div class="span3">
+                        <div class="span3 header-logo">
                             <a class="main-logo" href="<?=base_url()?>"></a>
                         </div>
 
-                        <div class="span6">
+                        <div class="span6 header-tools">
                             <?load_theme_view('inc/search')?>
-                            <div>
+                            <div class="header-links">
                                 <a class="request-call" href="#"><?=language('request_a_call')?></a> <br/>
                                 <?=anchor_base($BC->config->item('language')=='ukrainian'?'page/vidstezhiti-vantazh':'page/otsledit-gruz', language('track_shipment'))?>
                             </div>
                         </div>
 
-                        <div class="span3">
+                        <div class="span3 header-cart">
                             <div id="cart"></div>
                         </div>
                 	</div>
@@ -65,11 +65,15 @@ $BC->lang->load('calendar');
                         <div class="navbar">
                             <div class="navbar-inner">
                                 <div class="container">
-                                    <div class="nav-collapse wrapper">
+                                    <div class="nav-collapse wrapper site-nav">
+
+                                        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+                                            <?=language('catalog')?> / Menu
+                                        </button>
 
                                         <h2 class="catalog"><i class="icon-list icon-white"></i><?=language('catalog')?></h2>
 
-                                        <ul class="nav">
+                                        <ul class="nav" id="primary-nav">
                                             <?=get_menu('left',"<li><a href='{link}'><span>{title}</span></a></li>")?>
                                         </ul>
 

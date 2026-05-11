@@ -1,12 +1,13 @@
 <?$BC->load->helper('text')?>
 <?if($total_rows):?>
 
-<table class="table table-bordered table-striped">
+<div class="table-responsive">
+<table class="table table-bordered table-striped responsive-table responsive-table-books">
 <tbody>
 
 		<?$i=0; foreach ($posts_list as $row): $i++?>
 		<tr>
-	        <td style="width:160px; text-align:center;">
+	        <td style="width:160px; text-align:center;" data-title="<?=language('thing_name')?>">
 	        	<form method="post" action="<?=relative_url($BC->_getBaseURL()."/cart/add")?>" class="add-product">
                     <?=form_hidden('id',$row->data_key)?>
                     <?=form_hidden('qty',1)?>
@@ -41,7 +42,7 @@
 
 	             </form>
             </td>
-            <td style="text-align:left;">
+            <td style="text-align:left;" data-title="<?=language('description')?>">
                 <div itemscope itemtype="https://schema.org/Book" itemid="#book-<?=$row->data_key?>">
 
                     <h4 itemprop="name">
@@ -91,5 +92,6 @@
 
 </tbody>
 </table>
+</div>
 
 <?endif?>

@@ -3,7 +3,8 @@
 <div>
     <?=form_open($BC->_getBaseURI().'/place')?>
 
-	<table class="table table-bordered table-striped">
+    <div class="table-responsive">
+	<table class="table table-bordered table-striped responsive-table order-confirm-table">
 	<thead>
 		<tr>
 		  <th><?=language('thing_name')?></th>
@@ -56,20 +57,21 @@
 		<?$i = 1?>
 		<?foreach ($this->cart->contents() as $item):?>
 		<tr>
-		  <td>
+		  <td data-title="<?=language('thing_name')?>">
 			<?=utf8_wordwrap($item['name'],50,' ')?>
 	
 			<?=load_theme_view('inc/tpl-products-attributes-display',array('item'=>$item))?>
 		  </td>
-		  <td style="text-align:right"><?=exchange($item['price'])?></td>
-		  <td style="text-align:right"><?=$item['qty']?></td>
-		  <td style="text-align:right"><?=exchange($item['subtotal'])?></td>
+		  <td style="text-align:right" data-title="<?=language('price')?>"><?=exchange($item['price'])?></td>
+		  <td style="text-align:right" data-title="<?=language('quantity')?>"><?=$item['qty']?></td>
+		  <td style="text-align:right" data-title="<?=language('subtotal')?>"><?=exchange($item['subtotal'])?></td>
 		</tr>
 		<?$i++?>
 		<?endforeach?>
 	</tbody>
 
 	</table>
+    </div>
 	
 	</form>
 </div>

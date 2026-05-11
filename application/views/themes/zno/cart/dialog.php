@@ -44,8 +44,7 @@
     
     <tfoot>
         <tr <?if($i%2):?>class="row-odd"<?else:?>class="row-even"<?endif?>>
-       	  <td colspan="3"></td>
-       	  <td style="text-align:right;"><strong><?=language('subtotal')?></strong></td>
+       	  <td colspan="4" style="text-align:right;"><strong><?=language('subtotal')?></strong></td>
           <td style="text-align:right;"><?=exchange($this->cart->total())?></td>
           <td></td>
         </tr>

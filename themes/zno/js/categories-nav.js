@@ -28,6 +28,13 @@ function set_level1_node(node)
 
 $j(document).ready(function()
 {
+	$j('.nav-toggle').click(function(){
+		var nav = $j('#primary-nav');
+		var isExpanded = $j(this).attr('aria-expanded') === 'true';
+		$j(this).attr('aria-expanded', isExpanded ? 'false' : 'true');
+		nav.toggleClass('is-open');
+	});
+
 	$j("#products-categories li a").click(function(e)
 	{
 		if( $j(this).parent().find('ul').length>0 )

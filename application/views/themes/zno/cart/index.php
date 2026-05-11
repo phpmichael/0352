@@ -8,8 +8,9 @@
 	<?if($cart_contents):?>
 	<div>
 	    <?=form_open($BC->_getBaseURI().'/update',"id='cart-form'")?>
-	    
-		    <table class="table table-bordered table-striped">
+
+            <div class="table-responsive">
+		    <table class="table table-bordered table-striped responsive-table cart-table">
             <thead>
                 <tr>
 			      <th style="width:65px;"></th>
@@ -70,30 +71,31 @@
 		    	<?$i = 1?>
 		    	<?foreach ($cart_contents as $item):?>
 		    	<tr class="sectiontableentry1">
-		    	  <td>
+		    	  <td data-title="<?=language('thing_name')?>">
 		    	  	<?=form_hidden($i.'[rowid]', $item['rowid']); ?>
 		    	  	<?$product = $BC->products_model->getOneById($item['id'])?>
             		<?=((@$product['photo1'])?anchor_base('books/name/'.$product['slug'],img('images/data/s/books/'.$product['photo1']),"title='".htmlspecialchars($product['name'])."'"):'')?>
 		    	  </td>
-		    	  <td style="vertical-align:middle">
+		    	  <td style="vertical-align:middle" data-title="<?=language('thing_name')?>">
                     <a title="<?=htmlspecialchars($product['name'])?>" href="<?=site_url($BC->_getBaseURL().'books/name/'.$product['slug'])?>">
                         <?=utf8_wordwrap($item['name'],50,' ')?>
                     </a>
                     
                     <?load_theme_view('inc/tpl-products-attributes-display',array('item'=>$item))?>
 		    	  </td>
-		    	  <td style="vertical-align:middle;text-align:right"><?=exchange($item['price'])?></td>
-		    	  <td style="vertical-align:middle;text-align:right"><?=form_input(array('name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class'=>'input-mini'))?></td>
-		    	  <td style="vertical-align:middle;text-align:right">
+		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('price')?>"><?=exchange($item['price'])?></td>
+		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('quantity')?>"><?=form_input(array('name' => $i.'[qty]', 'value' => $item['qty'], 'maxlength' => '3', 'size' => '2', 'class'=>'input-mini'))?></td>
+		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('delete')?>">
 		    	  	<a href="javascript:void(0)" title="<?=language('delete')?>" class="delete-item btn-remove" rel="<?=($i.'[qty]')?>"><i class="icon-trash"></i></a>
 		    	  </td>
-		    	  <td style="vertical-align:middle;text-align:right"><?=exchange($item['subtotal'])?></td>
+		    	  <td style="vertical-align:middle;text-align:right" data-title="<?=language('subtotal')?>"><?=exchange($item['subtotal'])?></td>
 		    	</tr>
 		    	<?$i++?>
 		    	<?endforeach?>
 		    </tbody>
 
 		    </table>
+            </div>
 		    
 	    </form>
     

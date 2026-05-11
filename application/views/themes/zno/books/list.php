@@ -1,6 +1,6 @@
 <h1><?=$BC->_getPageTitle()?></h1>
 
-<div id="find-book">
+<div id="find-book" class="book-list-toolbar">
     <?
         $search_url = '';
         if( trim(urldecode(@$keywords)) ){
@@ -22,7 +22,7 @@
     ?>
     <?=anchor_base('books/search/' . str_replace($display_style,'grid',$search_url) ,' ',"id='show-grid-icon' rel='nofollow'")?>
     <?=anchor_base('books/search/' . str_replace($display_style,'list',$search_url) ,' ',"id='show-list-icon' rel='nofollow'")?>
-    <div class="pull-left">
+    <div class="book-list-toolbar-controls">
         <?=language('sort_by')?>:
         <?=form_dropdown('sort_by',array(
             'priority'=>language('default'),
@@ -37,7 +37,7 @@
         </a>
     </div>
     <?if($paginate):?>
-        <div class="pagination pull-right"><?=$paginate?></div>
+        <div class="pagination book-list-pagination"><?=$paginate?></div>
     <?endif?>
     <div class="clearfix"></div>
 </div>
@@ -51,7 +51,7 @@
     </div>
 
     <?if($paginate):?>
-        <div class="pagination pull-right"><p><?=language('page')?>: </p><?=$paginate?></div>
+        <div class="pagination book-list-pagination"><p><?=language('page')?>: </p><?=$paginate?></div>
     <?endif?>
 
 <?else:?>

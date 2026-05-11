@@ -55,3 +55,21 @@
     text-align:right;
     width:10%;
 }
+
+@media (max-width:767px){
+    #dialog-cart-form{
+        width:100%;
+        max-width:100%;
+        box-sizing:border-box;
+        overflow-x:auto;
+    }
+    #dialog-cart-form table{
+        width:100%;
+        min-width:400px;
+    }
+    #dialog-cart-form td,
+    #dialog-cart-form th{
+        padding:4px;
+        font-size:12px;
+    }
+}
