@@ -39,18 +39,18 @@ $j(document).ready(function()
 		});
 	}
 
-	if(isMobileWidth) {
-		var currentPath = window.location.pathname.replace(/\/+$/, '');
-		if(/\/books$/.test(currentPath) || /\/cart$/.test(currentPath) || currentPath.indexOf('/books/index') !== -1 || currentPath.indexOf('/orders/') !== -1) {
-			$j('#products-categories').hide();
-		}
-	}
-
 	$j('.nav-toggle').click(function(){
 		var nav = $j('#primary-nav');
 		var isExpanded = $j(this).attr('aria-expanded') === 'true';
 		$j(this).attr('aria-expanded', isExpanded ? 'false' : 'true');
 		nav.toggleClass('is-open');
+	});
+
+	$j('.products-categories-toggle').click(function(){
+		var categories = $j('#products-categories');
+		var isExpanded = $j(this).attr('aria-expanded') === 'true';
+		$j(this).attr('aria-expanded', isExpanded ? 'false' : 'true');
+		categories.toggleClass('is-open');
 	});
 
 	$j('.left-sidebar-toggle').on('click keydown', function(e){
@@ -80,7 +80,7 @@ $j(document).ready(function()
 	//toggle on mobile
 	$j('nav .catalog').click(function(){
 		const catalog = $j('#products-categories');
-		if(catalog.css('position') === 'absolute' || catalog.is(':hidden')) {
+		if(catalog.css('position') === 'absolute') {
 			catalog.toggle();
 		}
 	});

@@ -1,4 +1,6 @@
 <?
+    echo '<button type="button" class="products-categories-toggle" aria-expanded="false" aria-controls="products-categories">'.language('catalog').'</button>';
+
     echo get_categories_tree(
         'books',
         0,

@@ -69,6 +69,7 @@ header .navbar .nav>li>a.btn{padding: 5px 10px; margin: 10px 0 0 10px; text-tran
 
 
 /* categories list */
+.products-categories-toggle{display:none;}
 #products-categories{margin: -20px 0 20px 0; padding: 10px 0 0 0; border: 1px solid #ddd; border-top: 3px solid #00ABF0; }
 #products-categories li{list-style-type:none;}
 #products-categories li{}
@@ -233,7 +234,7 @@ p.label { white-space: normal; word-wrap: break-word; line-height: 1.5; display:
     html, body { overflow-x: hidden; }
     body{min-height: 100vh;}
     #page{min-width: 100%;}
-    .navbar .container { width: auto !important; max-width: 100%; padding-left: 10px; padding-right: 10px; }
+    .navbar .container { width: auto !important; max-width: 100%; padding-left: 0; padding-right: 0; }
     .navbar-inner { background: transparent; border: none; box-shadow: none; padding: 0; min-height: 0; }
     .navbar { margin-bottom: 0; }
     .well { box-sizing: border-box; }
@@ -353,7 +354,19 @@ p.label { white-space: normal; word-wrap: break-word; line-height: 1.5; display:
         flex-direction: column;
     }
     .main { order: 1; }
-    .left-sidebar { order: 2; margin-bottom: 0; margin-top: 20px; }
+    .left-sidebar {
+        display: contents;
+    }
+    .products-categories-box {
+        order: 0;
+        width: auto;
+        margin: 0 10px 10px 10px;
+    }
+    .left-sidebar-secondary {
+        order: 2;
+        width: auto;
+        margin: 20px 10px 0 10px;
+    }
 
     /* #2: catalog/menu — visible dropdown items */
     .nav-toggle{
@@ -406,13 +419,31 @@ p.label { white-space: normal; word-wrap: break-word; line-height: 1.5; display:
     }
     .navbar .nav-collapse .nav li:last-child > a{border-bottom:0;}
 
-    /* #7: products-categories — blue links to be clear */
+    /* #7: products-categories — collapsed catalog menu */
+    .products-categories-toggle{
+        display:block;
+        margin:0;
+        background:#00ABF0;
+        color:#fff;
+        border:0;
+        text-transform:uppercase;
+        font-size:15px;
+        line-height:16px;
+        padding:12px 15px;
+        width:100%;
+        box-sizing:border-box;
+    }
     #products-categories{
+        display:none;
         position: static;
-        margin-top:15px;
+        margin:0 0 15px 0;
         background-color: white;
         z-index: 99;
+        border:3px solid #00ABF0;
+        border-top:0;
+        box-sizing:border-box;
     }
+    #products-categories.is-open{display:block;}
     #products-categories li a{font-size: 16px; line-height: 1.5; padding-top:10px; padding-bottom:10px; color:#337ab7;}
     #products-categories li a:hover{color:#23527c; text-decoration:underline;}
     #products-categories li{border-bottom: 1px solid #eee;}
