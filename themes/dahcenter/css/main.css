@@ -853,8 +853,8 @@ html, body { overflow-x: hidden; }
     #block-superfish-1 { display: none; width: 100%; border-top: 1px solid #E7E1DA; margin-top: 8px; }
     #block-superfish-1.nav-open { display: block; }
     #superfish-1 { float: none; width: 100% !important; }
-    #superfish-1 li { float: none; width: 100%; border-right: none; border-bottom: 1px solid #E7E1DA; }
-    #superfish-1 a, #superfish-1 a:visited { padding: 13px 4px !important; }
+    #superfish-1 li { float: none; width: 100%; text-align: left; border-right: none; border-bottom: 1px solid #E7E1DA; }
+    #superfish-1 a, #superfish-1 a:visited { display: block; padding: 13px 16px !important; }
     #superfish-1 ul { position: static !important; width: 100% !important; display: block !important; top: auto !important; left: auto !important; border-radius: 0; }
     #superfish-1 li:hover ul, #superfish-1 li.sfHover ul { top: auto; left: auto; }
 
