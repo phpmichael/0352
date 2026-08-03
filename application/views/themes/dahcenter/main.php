@@ -140,6 +140,7 @@ $BC->load->helper('text');
             var open = nav.classList.toggle('nav-open');
             btn.classList.toggle('nav-open', open);
             btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            document.body.classList.toggle('nav-open', open);
         });
     })();
     </script>

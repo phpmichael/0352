@@ -30,7 +30,7 @@
 </style>
 <![endif]-->
 
-<?=include_css($BC->_getTheme().'css/main.css?v=2026-08-03-16')?>
+<?=include_css($BC->_getTheme().'css/main.css?v=2026-08-03-20')?>
 
 <?=include_minified($BC->_getTheme().'css/poll.css','inline_css')?>
 

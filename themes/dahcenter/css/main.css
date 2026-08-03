@@ -820,7 +820,13 @@ html, body { overflow-x: hidden; }
 }
 
 @media (max-width: 767px) {
-    #header { padding: 0 16px; }
+    #header { padding: 0 16px; display: flex; flex-direction: column; }
+
+    /* nav toggle floats top-right, level with the logo row; taken out of flex flow so it
+       doesn't reserve its own row (the dropdown itself still opens as a fullscreen overlay) */
+    .section-2 { position: absolute; top: 14px; right: 0; padding: 0; height: auto; z-index: 1001; }
+    .section-3 { order: 1; }
+    .section-4 { order: 2; }
 
     /* header: stack logo row / title / search / social icons */
     .section-1 { height: auto; padding: 14px 0; }
@@ -838,25 +844,31 @@ html, body { overflow-x: hidden; }
     #search-block-form .form-text { width: 100%; box-sizing: border-box; }
     .clear2 { display: none; }
 
-    /* nav: hamburger toggle collapses the menu into a full-width dropdown */
-    .section-2 { padding: 4px 0; position: relative; }
+    /* nav: hamburger toggle opens the menu as a fullscreen overlay */
     #nav-toggle {
         display: flex; flex-direction: column; justify-content: center; gap: 4px;
-        width: 40px; height: 40px; padding: 0; margin: 0 0 0 auto;
+        width: 40px; height: 40px; padding: 0; margin: 0;
         border: 1px solid #E7E1DA; border-radius: 8px; background: #fff; cursor: pointer;
+        position: relative; z-index: 1002;
     }
     #nav-toggle span { display: block; width: 18px; height: 2px; background: #3F3D3A; margin: 0 auto; }
     #nav-toggle.nav-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
     #nav-toggle.nav-open span:nth-child(2) { opacity: 0; }
     #nav-toggle.nav-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-    #block-superfish-1 { display: none; width: 100%; border-top: 1px solid #E7E1DA; margin-top: 8px; }
-    #block-superfish-1.nav-open { display: block; }
+    #block-superfish-1 { display: none; }
+    #block-superfish-1.nav-open {
+        display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        margin: 0; border: none; background: #FAF7F3; z-index: 1000;
+        padding: 76px 16px 24px; box-sizing: border-box; overflow-y: auto;
+    }
     #superfish-1 { float: none; width: 100% !important; }
     #superfish-1 li { float: none; width: 100%; text-align: left; border-right: none; border-bottom: 1px solid #E7E1DA; }
     #superfish-1 a, #superfish-1 a:visited { display: block; padding: 13px 16px !important; }
     #superfish-1 ul { position: static !important; width: 100% !important; display: block !important; top: auto !important; left: auto !important; border-radius: 0; }
     #superfish-1 li:hover ul, #superfish-1 li.sfHover ul { top: auto; left: auto; }
+
+    body.nav-open { overflow: hidden; }
 
     /* slider */
     #block-views-slider-block { height: 220px; }
