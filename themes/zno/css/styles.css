@@ -195,6 +195,12 @@ footer .phone-number{font-weight: normal;}
 .main>.fb-output-screen form li.list-row-odd{background:#fff;}
 .main>.fb-output-screen form li.list-row-even{background:#fff;}
 .main>.fb-output-screen label.desc, .fb-output-screen legend.desc{font-weight: normal;}
+.main>.fb-output-screen .input-on-the-side input:not([type="radio"]):not([type="checkbox"]),
+.main>.fb-output-screen .input-on-the-side select,
+.main>.fb-output-screen .input-on-the-side textarea{
+    max-width: 100%;
+
+}
 
 .main>.fb-output-screen .shipping-type{position: relative;}
 .main>.fb-output-screen .shipping-type > div > span{
