@@ -74,10 +74,10 @@
 		    	  <td data-title="<?=language('thing_name')?>">
 		    	  	<?=form_hidden($i.'[rowid]', $item['rowid']); ?>
 		    	  	<?$product = $BC->products_model->getOneById($item['id'])?>
-            		<?=((@$product['photo1'])?anchor_base('books/name/'.$product['slug'],img('images/data/s/books/'.$product['photo1']),"title='".htmlspecialchars($product['name'])."'"):'')?>
+            		<?=((@$product['photo1'])?anchor_base('book/'.$product['slug'],img('images/data/s/books/'.$product['photo1']),"title='".htmlspecialchars($product['name'])."'"):'')?>
 		    	  </td>
 		    	  <td style="vertical-align:middle" data-title="<?=language('thing_name')?>">
-                    <a title="<?=htmlspecialchars($product['name'])?>" href="<?=site_url($BC->_getBaseURL().'books/name/'.$product['slug'])?>">
+                    <a title="<?=htmlspecialchars($product['name'])?>" href="<?=site_url($BC->_getBaseURL().'book/'.$product['slug'])?>">
                         <?=utf8_wordwrap($item['name'],50,' ')?>
                     </a>
                     
