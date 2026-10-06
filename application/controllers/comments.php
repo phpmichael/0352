@@ -45,7 +45,7 @@ class Comments extends Front
 	 */
 	public function _ip_not_in_blacklist()
 	{
-	    return !in_array($_SERVER['REMOTE_ADDR'],array_map('trim',explode("\n",@$this->settings_model['ip_blacklist'])));
+	    return !in_array($_SERVER['REMOTE_ADDR'],array_map('trim',explode("\n",(string) @$this->settings_model['ip_blacklist'])));
 	}
 	// === Custom validation : End === //
 

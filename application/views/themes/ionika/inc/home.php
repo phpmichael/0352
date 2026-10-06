@@ -2,7 +2,7 @@
 
 <div class="module-new">
 
-	<?if(trim(@$pages['top_news']['body'])):?>
+	<?if(isset($pages['top_news']['body']) && trim($pages['top_news']['body'])):?>
     <h3><span><span><?=language('news')?></span></span></h3>
     <div class="boxIndent">
         <div class="wrapper">

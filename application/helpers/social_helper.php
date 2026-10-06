@@ -31,7 +31,7 @@ function social_buttons(array $names=array())
 	{
 		$CI =& get_instance();
 		
-		$names = explode(',',@$CI->settings_model['default_social_buttons']);
+		$names = explode(',',(string) @$CI->settings_model['default_social_buttons']);
 	}
 	
 	foreach ($names as $name)

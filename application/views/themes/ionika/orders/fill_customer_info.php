@@ -1,5 +1,5 @@
 <?$page = $BC->pages_model->getByLink('orders/fill_customer_info');?>
-<?if(trim(@$page['body'])):?>
+<?if(isset($page['body']) && trim($page['body'])):?>
 <div id="page">
     <h2 class="title"><span><span><?=$BC->_getPageTitle()?></span></span></h2>
     

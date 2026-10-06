@@ -96,7 +96,7 @@ class Groups_model extends Base_model
 	{
 		if(!in_array($panel,$this->panels)) return array();
 	    
-		$sections = explode(',',@$this->CI->settings_model['available_'.$panel.'_sections']);
+		$sections = explode(',',(string) @$this->CI->settings_model['available_'.$panel.'_sections']);
 		if(!$sections[0])unset($sections[0]);
 	    
 	    return $sections;
