@@ -53,7 +53,7 @@ function show_records_table( array $cols, array $rows, $__no_checkbox=FALSE, $__
                 </td> 
             	<?foreach ($cols as $col): 
             	    //set output [col_name]__output if exists, if no - just [col_name]
-            	    $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : $row[$col['field']]);
+	            $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : (isset($row[$col['field']]) ? $row[$col['field']] : ''));
 					$bgColor = (isset($row[$col['field'].'__bgColor']) ? $row[$col['field'].'__bgColor'] : '');
             	?>
             	<td style="<?if($bgColor):?>background-color:<?=$bgColor?><?endif?>"><?=$output?></td>

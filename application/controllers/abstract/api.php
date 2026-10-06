@@ -169,7 +169,7 @@ abstract class API extends REST_Controller
      * @param null|string $password
      * @return bool
      */
-    protected function _perform_library_auth($email, $password)
+    protected function _perform_library_auth($email = '', $password = NULL)
     {
         return $this->hasAccess($email, $password);
     }
