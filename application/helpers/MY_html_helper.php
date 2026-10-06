@@ -25,10 +25,16 @@ if ( ! function_exists('img'))
 
         if ( (isset($src['width']) && $src['width']=='?') || (isset($src['height']) && $src['height']=='?') )
         {
-            $source = isset($src['data-src']) ? $src['data-src'] : $src['src'];
-            $info = getImageInfo($source);
-            if ( $src['width']=='?' ) $src['width'] = $info['width'];
-            if ( $src['height']=='?' ) $src['height'] = $info['height'];
+            $source = isset($src['data-src']) ? $src['data-src'] : (isset($src['src']) ? $src['src'] : '');
+            $info = $source === '' ? array() : getImageInfo($source);
+            foreach (array('width', 'height') as $dimension)
+            {
+                if (isset($src[$dimension]) && $src[$dimension] == '?')
+                {
+                    if (isset($info[$dimension])) $src[$dimension] = $info[$dimension];
+                    else unset($src[$dimension]);
+                }
+            }
         }
 
         $img = '<img';

@@ -154,7 +154,7 @@ class Format {
 			else
 			{
 				// add single node.
-				$value = htmlspecialchars(html_entity_decode($value, ENT_QUOTES, 'UTF-8'), ENT_QUOTES, "UTF-8");
+				$value = htmlspecialchars(html_entity_decode($value === NULL ? '' : $value, ENT_QUOTES, 'UTF-8'), ENT_QUOTES, "UTF-8");
 
 				$structure->addChild($key, $value);
 			}
@@ -217,14 +217,21 @@ class Format {
 		}
 
 		$output = '"'.implode('","', $headings).'"'.PHP_EOL;
-		foreach ($data as &$row)
+		foreach ($data as $row)
 		{
-            if (is_array($row)) {
-                throw new Exception('Format class does not support multi-dimensional arrays');
-            } else {
-                $row    = str_replace('"', '""', $row); // Escape dbl quotes per RFC 4180
-                $output .= '"'.implode('","', $row).'"'.PHP_EOL;                
+            if ( ! is_array($row)) {
+                throw new Exception('Format class requires CSV rows to be arrays');
             }
+
+            $values = array();
+            foreach ($row as $value) {
+                if (is_array($value) || is_object($value)) {
+                    throw new Exception('Format class does not support multi-dimensional arrays');
+                }
+                $values[] = str_replace('"', '""', (string) $value); // Escape dbl quotes per RFC 4180
+            }
+
+            $output .= '"'.implode('","', $values).'"'.PHP_EOL;
 
 		}
 
