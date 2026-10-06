@@ -246,7 +246,7 @@ class Quiz extends Front
                array(
                      'field'   => 'answers[]', 
                      'label'   => parent::_getFieldTitle('answer'), 
-                     'rules'   => 'callback__valid_quiz_answer'
+					 'rules'   => 'callback__valid_quiz_answer'
                   ),
             );
 		}

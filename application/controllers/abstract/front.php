@@ -152,9 +152,9 @@ abstract class Front extends Base
 		{ 
 		   $page_title = language('manufacturer').' "'.trim(urldecode_compat($filter_data['manufacturer'])).'"';
 		}
-        elseif( isset($filter_data['author']) && trim(urldecode_compat($filter_data['author'])) )// if author selected
+		elseif( isset($filter_data['author']) && trim(urldecode_compat($filter_data['author'])) )// if author selected
         {
-            $page_title = language('author').' "'.trim(urldecode_compat($filter_data['author'])).'"';
+			$page_title = language('author').' "'.trim(urldecode_compat($filter_data['author'])).'"';
         }
 		else $page_title = '';
 

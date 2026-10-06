@@ -774,7 +774,7 @@ class Quiz_model extends Base_model
                     {
                         for($i = 0; $i < 3; $i++)
                         {
-                            if(isset($cqa[$i]) && $correct_question_answers[$i] === $cqa[$i])
+							if(isset($cqa[$i]) && $correct_question_answers[$i] === $cqa[$i])
                             {
                                 $result['scores']++;
                             }
@@ -1002,28 +1002,28 @@ class Quiz_model extends Base_model
 	}
 
     /**
-     * Check whether the source question and destination quiz exist.
+	 * Check whether the source question and destination quiz exist.
      * @param integer $question_id
      * @param integer $quiz_id
-     * @return bool
-     */
+	 * @return bool
+	 */
 	public function canCopyQuestion($question_id,$quiz_id)
-    {
-        return (bool)$this->db->get_where('quiz_list', array('id'=>$quiz_id))->row_array()
-            && (bool)$this->db->get_where('quiz_questions', array('id'=>$question_id))->row_array();
-    }
+	{
+		return (bool)$this->db->get_where('quiz_list', array('id'=>$quiz_id))->row_array()
+			&& (bool)$this->db->get_where('quiz_questions', array('id'=>$question_id))->row_array();
+	}
 
-    /**
-     * Copy question to another quiz.
-     * @param integer $question_id
-     * @param integer $quiz_id
-     * @return bool
+	/**
+	 * Copy question to another quiz.
+	 * @param integer $question_id
+	 * @param integer $quiz_id
+	 * @return bool
      */
 	public function copyQuestion($question_id,$quiz_id)
     {
-        if (!$this->canCopyQuestion($question_id,$quiz_id)) return FALSE;
+		if (!$this->canCopyQuestion($question_id,$quiz_id)) return FALSE;
         $question = $this->getQuestionById($question_id);
-        if (empty($question)) return FALSE;
+		if (empty($question)) return FALSE;
         $answers = $this->getAnswers($question_id);
         $connected_answers = $this->getConnectedAnswers($question_id);
 
@@ -1053,7 +1053,7 @@ class Quiz_model extends Base_model
         }
 
         $this->saveQuestionCopyReference($question_id, $question_copy_id);
-        return TRUE;
+		return TRUE;
     }
 
     /**

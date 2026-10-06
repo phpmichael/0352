@@ -8,11 +8,11 @@
 <br class="clear" />
 <?if(@trim(urldecode_compat($keywords))):?>
 <div class="search-results-for">
-    <h4><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h4>
+	<h4><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h4>
 </div>
 <?elseif(@trim(urldecode_compat($tag))):?>
 <div class="search-results-for">
-    <h4><?=language('articles_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h4>
+	<h4><?=language('articles_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h4>
 </div>
 <?endif?>
 

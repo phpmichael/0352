@@ -151,13 +151,13 @@ class CI_Upload {
 		}
 
 		// Reject multiple-file payloads for this single-file API.
-        if (!is_array($_FILES[$field]) || !isset($_FILES[$field]['tmp_name'], $_FILES[$field]['name'], $_FILES[$field]['size'], $_FILES[$field]['error']) ||
-            !is_string($_FILES[$field]['tmp_name']) || !is_string($_FILES[$field]['name']) ||
-            !is_scalar($_FILES[$field]['size']) || !is_scalar($_FILES[$field]['error']))
-        {
-            $this->set_error('upload_no_file_selected');
-            return FALSE;
-        }
+		if (!is_array($_FILES[$field]) || !isset($_FILES[$field]['tmp_name'], $_FILES[$field]['name'], $_FILES[$field]['size'], $_FILES[$field]['error']) ||
+			!is_string($_FILES[$field]['tmp_name']) || !is_string($_FILES[$field]['name']) ||
+			!is_scalar($_FILES[$field]['size']) || !is_scalar($_FILES[$field]['error']))
+		{
+			$this->set_error('upload_no_file_selected');
+			return FALSE;
+		}
 
 		// Is the upload path valid?
 		if ( ! $this->validate_upload_path())

@@ -429,30 +429,30 @@ class Quiz extends Admin
      */
 	public function copyQuestions()
     {
-        if(!isset($_POST['questionsIds'], $_POST['quizId']) ||
-            !is_array($_POST['questionsIds']) || empty($_POST['questionsIds']) ||
-            !is_scalar($_POST['quizId']) || !ctype_digit((string) $_POST['quizId']) || (int) $_POST['quizId'] < 1
+		if(!isset($_POST['questionsIds'], $_POST['quizId']) ||
+			!is_array($_POST['questionsIds']) || empty($_POST['questionsIds']) ||
+			!is_scalar($_POST['quizId']) || !ctype_digit((string) $_POST['quizId']) || (int) $_POST['quizId'] < 1
         ){
-            echo json_encode(array('error'=>1,'message'=>language('error').' : require "questionsIds" and "quizId"'));
-            return;
+			echo json_encode(array('error'=>1,'message'=>language('error').' : require "questionsIds" and "quizId"'));
+			return;
         }
         foreach ($_POST['questionsIds'] as $questionsId) {
-            if (!is_scalar($questionsId) || !ctype_digit((string) $questionsId) || (int) $questionsId < 1) {
-                echo json_encode(array('error'=>1,'message'=>language('error').' : invalid question ID'));
-                return;
-            }
-        }
-        foreach ($_POST['questionsIds'] as $questionsId) {
-            if (!$this->quiz_model->canCopyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
-                echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
-                return;
-            }
-        }
-        foreach ($_POST['questionsIds'] as $questionsId) {
-            if (!$this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
-                echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
-                return;
-            }
+			if (!is_scalar($questionsId) || !ctype_digit((string) $questionsId) || (int) $questionsId < 1) {
+				echo json_encode(array('error'=>1,'message'=>language('error').' : invalid question ID'));
+				return;
+			}
+		}
+		foreach ($_POST['questionsIds'] as $questionsId) {
+			if (!$this->quiz_model->canCopyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
+				echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
+				return;
+			}
+		}
+		foreach ($_POST['questionsIds'] as $questionsId) {
+			if (!$this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
+				echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
+				return;
+			}
         }
         echo json_encode(array('success'=>1,'message'=>'Copied'));
     }

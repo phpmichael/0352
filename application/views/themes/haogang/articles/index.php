@@ -68,11 +68,11 @@
 			
 			<?if(@trim(urldecode_compat($keywords))):?>
             <div class="search-results-for">
-                <h2><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h2>
+				<h2><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h2>
             </div>
-            <?elseif(@trim(urldecode_compat($tag))):?>
+			<?elseif(@trim(urldecode_compat($tag))):?>
             <div class="search-results-for">
-                <h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h2>
+				<h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h2>
             </div>
             <?endif?>
 			
