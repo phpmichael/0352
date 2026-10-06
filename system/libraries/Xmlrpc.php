@@ -1416,14 +1416,14 @@ class XML_RPC_Values extends CI_Xmlrpc
 	{
 		if ($utc == 1)
 		{
-			$t = strftime("%Y%m%dT%H:%i:%s", $time);
+			$t = date("Ymd\TH:i:s", $time);
 		}
 		else
 		{
-			if (function_exists('gmstrftime'))
-				$t = gmstrftime("%Y%m%dT%H:%i:%s", $time);
+			if (function_exists('gmdate'))
+				$t = gmdate("Ymd\TH:i:s", $time);
 			else
-				$t = strftime("%Y%m%dT%H:%i:%s", $time - date('Z'));
+				$t = date("Ymd\TH:i:s", $time - date('Z'));
 		}
 		return $t;
 	}

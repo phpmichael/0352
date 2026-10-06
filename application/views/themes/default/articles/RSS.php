@@ -1,6 +1,6 @@
 <?
 // ==== Content-Type for all browsers - application/rss+xml, IE6 - text/xml === //
-if(strpos($_SERVER['HTTP_USER_AGENT'],"MSIE 6")) header("Content-type: text/xml; charset=UTF-8");
+if(strpos(isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',"MSIE 6") !== FALSE) header("Content-type: text/xml; charset=UTF-8");
 else header("Content-type: application/rss+xml; charset=UTF-8");
 // ==== Content-Type for all browsers - application/rss+xml, IE6 - text/xml === //
 $site_url = base_url();
@@ -21,8 +21,8 @@ $site_url = base_url();
 	<?foreach ($posts_list as $key=>$record):?>
 	
 	<item>
-		<title><?=htmlspecialchars($record->head)?></title>
-		<description><![CDATA[<?=character_limiter(strip_tags($record->body,260))?>]]></description>
+		<title><?=htmlspecialchars((string) $record->head)?></title>
+		<description><![CDATA[<?=character_limiter(strip_tags((string) $record->body),260)?>]]></description>
         <content:encoded><![CDATA[<?=$record->body?>]]></content:encoded>
 		<link><?=htmlspecialchars(site_url($BC->_getBaseURI().'/details/'.$record->id))?></link>
 		<guid isPermaLink="true"><?=htmlspecialchars(site_url($BC->_getBaseURI().'/details/'.$record->id))?></guid>

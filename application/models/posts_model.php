@@ -125,7 +125,8 @@ abstract class Posts_model extends Base_model
     {
 		$filter_data = $this->CI->input->post(NULL,TRUE);
 		
-    	if( isset($filter_data['keywords']) ) $filter_data['keywords'] = urlencode($filter_data['keywords']);
+    	if (isset($filter_data['keywords']) && !is_string($filter_data['keywords'])) unset($filter_data['keywords']);
+		if( isset($filter_data['keywords']) ) $filter_data['keywords'] = urlencode($filter_data['keywords']);
 		
 		//set default values for filters - requires for pagination
 		if( !@$filter_data['sort_by'] ) $filter_data['sort_by'] = 'pub_date';

@@ -284,6 +284,8 @@ class Customers_model extends Base_model
                 'rules'   => 'trim|min_length[5]|max_length[16]|md5'
             );
 
+            if (isset($data['password']) && !is_string($data['password'])) return FALSE;
+
             if(isset($data['password']) && trim($data['password']))
             {
                 $configValidation[] = array(

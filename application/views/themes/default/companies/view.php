@@ -23,7 +23,10 @@
 
 <h3><?=language('products_and_services')?>:</h3>
 
-<p><?=preg_replace("#([^\n]+)(\n|$)#e","'<a href='.site_url(\$BC->_getBaseURI().'/search/keywords/'.urlencode(trim(stripslashes('\\1')))).'>'.stripslashes('\\1').'</a><br/>'",$services)?></p>
+<p><?=preg_replace_callback("#([^\n]+)(\n|$)#", function ($matches) use ($BC) {
+    $service = $matches[1];
+    return anchor($BC->_getBaseURI().'/search/keywords/'.urlencode(trim($service)), htmlspecialchars($service)).'<br/>';
+}, (string) $services)?></p>
 
 <hr />
 

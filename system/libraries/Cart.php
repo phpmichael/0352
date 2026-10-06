@@ -323,7 +323,7 @@ class CI_Cart {
 	function _update($items = array())
 	{
 		// Without these array indexes there is nothing we can do
-		if ( ! isset($items['qty']) OR ! isset($items['rowid']) OR ! isset($this->_cart_contents[$items['rowid']]))
+		if ( ! isset($items['qty']) OR ! isset($items['rowid']) OR ! is_string($items['rowid']) OR ! is_scalar($items['qty']) OR ! isset($this->_cart_contents[$items['rowid']]))
 		{
 			return FALSE;
 		}

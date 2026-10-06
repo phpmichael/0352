@@ -87,8 +87,8 @@ class News extends Front
 	 */
 	public function Index()
 	{
-	    if($keywords = $this->input->post('keywords')) $filter_data['keywords'] = $keywords;
-	    elseif($keywords = $this->input->get('keywords')) $filter_data['keywords'] = $keywords;
+	    if(is_string($keywords = $this->input->post('keywords')) && $keywords !== '') $filter_data['keywords'] = $keywords;
+	    elseif(is_string($keywords = $this->input->get('keywords')) && $keywords !== '') $filter_data['keywords'] = $keywords;
 		else $filter_data = $this->uri->uri_to_assoc($this->_getSegmentsOffset()+3);
         
         $this->load->helper('text');

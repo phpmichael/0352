@@ -1156,6 +1156,7 @@ class Formbuilder_model extends Base_model
 	{
 		$answerset_value = $this->db->get_where('form_answersets_values',array("value"=>$value,'answerset_id'=>intval($answerset_id)))->row_array();
 		
+		if (empty($answerset_value)) return FALSE;
 		return $this->getAnswersetValueById($answerset_value['id']);
 	}
 
@@ -1181,6 +1182,7 @@ class Formbuilder_model extends Base_model
 				if(preg_match("/^a_(\d+)$/",$value,$matches))
 				{
 					$answerset_value = $this->getAnswersetValueById($matches[1]);
+					if (empty($answerset_value)) continue;
 					if(is_array($answerset_value['label'])) $answerset_value = $this->justCurrentLang($answerset_value);
 					if($answerset_value) $labels[] = $answerset_value['label'];
 				}
@@ -1579,7 +1581,7 @@ class Formbuilder_model extends Base_model
 	        if(!$input['validation']) continue;
 	        
 	        //for "callback__unique_field_for_edit[field,{data_key}]"
-	        $input['validation'] = str_replace("{data_key}",@$data['data_key'],$input['validation']);
+	        $input['validation'] = str_replace("{data_key}",isset($data['data_key']) ? $data['data_key'] : '',$input['validation']);
 	        
 	        if(stristr($input['name'],"[LANG]"))//if multilang field - add validation for each lang
 	        {

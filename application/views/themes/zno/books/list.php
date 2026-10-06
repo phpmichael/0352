@@ -69,6 +69,6 @@ if(!$search_category_description) {
 }
 ?>
 
-<p style="clear:both"><?=nl2br(@$search_category_description)?></p>
+<p style="clear:both"><?=nl2br(isset($search_category_description) ? $search_category_description : '')?></p>
 
 <script>var search_url = '<?=site_url('books/search/' . $search_url)?>';</script>

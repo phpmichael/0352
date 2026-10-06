@@ -590,7 +590,7 @@ abstract class REST_Controller extends CI_Controller
 		}
 
 		// A format has been passed as an argument in the URL and it is supported
-		if (isset($this->_get_args['format']) AND array_key_exists($this->_get_args['format'], $this->_supported_formats))
+		if (isset($this->_get_args['format']) AND is_string($this->_get_args['format']) AND array_key_exists($this->_get_args['format'], $this->_supported_formats))
 		{
 			return $this->_get_args['format'];
 		}

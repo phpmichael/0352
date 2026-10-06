@@ -20,7 +20,7 @@ class GoogleGeocoder
 
         if ($contents) {
             $resp = json_decode($contents);
-            if($resp->status = 'OK' && !empty($resp->results)){
+            if(is_object($resp) && isset($resp->status) && $resp->status === 'OK' && isset($resp->results[0]->geometry->location)){
                 return $resp->results[0]->geometry->location;
             } else {
                 return FALSE;
@@ -41,7 +41,7 @@ class GoogleGeocoder
 
         if ($contents) {
             $resp = json_decode($contents);
-            if($resp->status = 'OK'){
+            if(is_object($resp) && isset($resp->status) && $resp->status === 'OK' && isset($resp->results[0]->formatted_address)){
                 return $resp->results[0]->formatted_address;
             } else {
                 return FALSE;

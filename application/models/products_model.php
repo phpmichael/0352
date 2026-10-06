@@ -333,7 +333,7 @@ class Products_model extends Posts_model
 	 */
     private function changeStokeAvailability($arr,$availability)
 	{
-		if( !empty($arr) )
+		if( is_array($arr) && !empty($arr) )
 		{
 			foreach ($arr as $id=>$selected)
 			{
@@ -373,7 +373,7 @@ class Products_model extends Posts_model
 	 */
     private function changeFeatured($arr,$featured)
 	{
-		if( !empty($arr) )
+		if( is_array($arr) && !empty($arr) )
 		{
 			foreach ($arr as $id=>$selected)
 			{

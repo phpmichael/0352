@@ -39,7 +39,7 @@ class Discount_coupons_model extends Base_model
 	 */
 	public function getValidCoupon($code)
 	{
-		if( !preg_match("/^[a-zA-Z0-9]+$/",$code) ) //check if coupon is alphanumeric chars only
+		if( !is_string($code) || !preg_match("/^[a-zA-Z0-9]+$/",$code) ) //check if coupon is alphanumeric chars only
 		{
 			$this->setError("Coupon code id not valid.");
 			return FALSE;

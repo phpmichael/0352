@@ -133,6 +133,8 @@ abstract class Base extends CI_Controller
 	 */
 	public function _valid_youtube_url($field_value)
 	{
+        if ($field_value === NULL || $field_value === '') return TRUE;
+        if (!is_string($field_value)) return FALSE;
 		return (bool)preg_match("#(^$|^https?:\/\/(?:[a-zA_Z]{2,3}.)?(?:youtube\.com\/watch\?)((?:[\w\d\-\_\=]+&amp;(?:amp;)?)*v(?:&lt;[A-Z]+&gt;)?=([0-9a-zA-Z\-\_]+)))#i",$field_value);
 	}
 	

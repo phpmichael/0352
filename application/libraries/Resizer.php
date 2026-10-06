@@ -168,18 +168,18 @@ class Resizer
 		}
 		elseif($config['style']=='center')
 		{
-			if($this->width > $config['width'])	$config['x_axis'] = (int)($this->width - $config['width'])/2;
+			if($this->width > $config['width'])	$config['x_axis'] = (int)(($this->width - $config['width'])/2);
 			else $config['x_axis'] = 0;
 
-			if($this->height > $config['height']) $config['y_axis'] = (int)($this->height - $config['height'])/2;
+			if($this->height > $config['height']) $config['y_axis'] = (int)(($this->height - $config['height'])/2);
 			else $config['y_axis'] = 0;
 		}
 		elseif($config['style']=='optimal')
 		{
-			if($this->width > $config['width'])	$config['x_axis'] = (int)($this->width - $config['width'])/4;
+			if($this->width > $config['width'])	$config['x_axis'] = (int)(($this->width - $config['width'])/4);
 			else $config['x_axis'] = 0;
 
-			if($this->height > $config['height']) $config['y_axis'] = (int)($this->height - $config['height'])/4;
+			if($this->height > $config['height']) $config['y_axis'] = (int)(($this->height - $config['height'])/4);
 			else $config['y_axis'] = 0;
 		}
 

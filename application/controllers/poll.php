@@ -51,7 +51,7 @@ class Poll extends Front
 	 */
 	public function _valid_poll_answer($answer)
 	{
-	    if( abs(intval($answer)) != $answer ) return FALSE;
+	    if (!is_string($answer) || !ctype_digit($answer) || intval($answer) < 1) return FALSE;
 		
 		return TRUE;
 	}
@@ -103,6 +103,10 @@ class Poll extends Front
 		    if( !$this->poll_model->isVoted($poll_id,$customer_id) )
 			{
     		    $answer_id = intval(@$_POST['answer']);
+                $answer = $this->poll_model->getAnswerById($answer_id);
+                if (!$answer || (int)$answer['poll_id'] !== (int)$poll_id) {
+                    die(json_encode(array('result'=>'error','message'=>language('validation_error'))));
+                }
         		$this->poll_model->storeAnswer($poll_id,$answer_id,$customer_id);
         		
         		die(json_encode(array('result'=>'success','message'=>language('thank_you_for_your_vote'))));    

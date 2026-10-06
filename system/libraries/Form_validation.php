@@ -323,6 +323,16 @@ class CI_Form_validation {
 		// corresponding $_POST item and test for errors
 		foreach ($this->_field_data as $field => $row)
 		{
+			// Scalar fields must not accept array payloads.
+            if (!$row['is_array'] && isset($_POST[$field]) && is_array($_POST[$field]))
+            {
+                $message = $this->_translate_fieldname($row['label']).' must contain a single value.';
+                $this->_field_data[$field]['postdata'] = '';
+                $this->_field_data[$field]['error'] = $message;
+                $this->_error_array[$field] = $message;
+                continue;
+            }
+
 			// Fetch the data from the corresponding $_POST array and cache it in the _field_data array.
 			// Depending on whether the field name is an array or a string will determine where we get it from.
 

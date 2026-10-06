@@ -77,7 +77,7 @@ class Currency extends Admin
                array(
                      'field'   => 'exchange_rate', 
                      'label'   => parent::_getFieldTitle('exchange_rate'), 
-                     'rules'   => 'trim|required|numeric'
+                     'rules'   => 'trim|required|numeric|greater_than[0]'
                   ),
                array(
                      'field'   => 'symbol', 

@@ -187,7 +187,12 @@ class Tools extends Admin
                 $destination_filename = $filename;
 
                 $resource = imagecreatefromjpeg($filename);
+                if ($resource === FALSE) {
+                    log_message('error', 'Unable to decode JPEG: '.$filename);
+                    continue;
+                }
                 imagejpeg($resource, $destination_filename, $quality);
+                imagedestroy($resource);
             }
         }
     }

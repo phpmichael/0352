@@ -35,6 +35,10 @@ class Shipping extends Admin_fb
         else
         {
             $image = imagecreatefromjpeg($blankPath);
+            if ($image === FALSE) {
+                show_error('Unable to decode postal form image.');
+                return;
+            }
 
             $font['color'] = imagecolorallocate($image, 0, 0, 0);
             $font['path'] = $fontPath;

@@ -15,7 +15,7 @@
                 	<?=anchor($BC->_getBaseURI().'/go/'.$record['id'],$record['name'],array('target'=>'_blank'))?>
                 </p>
                 <p>
-                	<?=nl2br($record['description'])?>
+                	<?=nl2br((string) $record['description'])?>
                 </p>
                 <?endforeach;?>
                 

@@ -59,11 +59,18 @@ class Currency_model extends Base_model
     {
     	if(!$code) $code = $this->getCurrentCurrencyCode();
     	
-    	$currency = $this->enabled_currencies_codes[$code];//get currency data
+    	if (!is_string($code) || !isset($this->enabled_currencies_codes[$code]) || empty($this->default_currency)) return '';
+		$currency = $this->enabled_currencies_codes[$code];//get currency data
     	
     	if( $code!=$this->default_currency['code'] ) //do exchange
     	{
-    		$price = ($price/$this->default_currency['exchange_rate'])*$currency['exchange_rate'];
+    		if (!is_numeric($this->default_currency['exchange_rate']) || $this->default_currency['exchange_rate'] <= 0 ||
+                !is_numeric($currency['exchange_rate']) || $currency['exchange_rate'] <= 0)
+            {
+                log_message('error', 'Invalid currency exchange rate.');
+                return '';
+            }
+			$price = ($price/$this->default_currency['exchange_rate'])*$currency['exchange_rate'];
     	}
     	
     	$price = number_format(round($price,2),2,'.','');//format price
@@ -158,6 +165,7 @@ class Currency_model extends Base_model
 	 */
 	public function insertOrUpdate($post)
 	{
+	    if (!isset($post['exchange_rate']) || !is_numeric($post['exchange_rate']) || $post['exchange_rate'] <= 0) return FALSE;
 	    if($post['default']) 
 	    {
 	        $this->db->update($this->c_table, array('default'=>0));

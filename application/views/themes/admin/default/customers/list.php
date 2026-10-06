@@ -51,6 +51,7 @@ load_theme_view('inc/form-search',array('fields_names'=>$fields_names));
     //prepare rows for output
     foreach ($rows as &$row)
     {
+        $row['website'] = isset($row['website']) ? $row['website'] : '';
         $row['website__output'] = ((strlen($row['website'])>40)?substr($row['website'],0,30).'...':$row['website']);
         $row['reg_date__output'] = substr($row['reg_date'],0,16);
     }

@@ -8,7 +8,7 @@ foreach ($answers as $aIndex=>$answer) {
         $answerImagesHeight[] = $height;
     }
 }
-$imgLayerHeight = max($answerImagesHeight)+20;
+$imgLayerHeight = (empty($answerImagesHeight) ? 0 : max($answerImagesHeight))+20;
 ?>
 <?foreach ($answers as $aIndex=>$answer):?>
     <?if($answer['image']):?>

@@ -35,7 +35,7 @@ class Email_templater
 		{
 			foreach ($array as $field=>$value)
 			{
-			   $text = str_replace("{".$field."}",$value,$text);
+			   $text = str_replace("{".$field."}",$value === NULL ? '' : $value,$text);
 			}
 		}
 
@@ -44,11 +44,11 @@ class Email_templater
 
 		foreach ($settings as $field=>$value)
 		{
-		   $text = str_replace("{".$field."}",$value,$text);
+		   $text = str_replace("{".$field."}",$value === NULL ? '' : $value,$text);
 		}
 
 		// === Other === //
-		$text = str_replace("{site_title}",$CI->settings_model['site_title_'.strtoupper($CI->_getInterfaceLang(TRUE))],$text);
+		$text = str_replace("{site_title}",(string) $CI->settings_model['site_title_'.strtoupper($CI->_getInterfaceLang(TRUE))],$text);
 		$text = str_replace("{site_url}",base_url(),$text);
 		$text = str_replace("{now_date}",date("Y-m-d H:i:s"),$text);
 		$text = str_replace("{unsubscribe_link}",site_url("subscribe/unsubscribe"),$text);

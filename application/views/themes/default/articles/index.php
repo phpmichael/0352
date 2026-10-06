@@ -25,7 +25,7 @@
 			
 			<div class='clear' align='justify'>
 	
-				".character_limiter(strip_tags($record->body),260)."
+				".character_limiter(strip_tags((string) $record->body),260)."
 	
 				<a href='".site_url($BC->_getBaseURI().'/name/'.$record->slug)."'>".language('read_more')."</a>
 	
