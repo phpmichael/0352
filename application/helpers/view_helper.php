@@ -143,6 +143,8 @@ function include_combined(array $combine_files,$combined_file,$type,$media='all'
             		}
             		else unset($combine_files[$key]);
         		}
+
+				if (empty($lastmodify)) return '';
         		
         		if( !file_exists($combined_file) || max($lastmodify)>filemtime($combined_file) )
     			{
