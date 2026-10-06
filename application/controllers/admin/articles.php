@@ -68,9 +68,12 @@ class Articles extends Admin
 	{
 		if( isset($_POST['head']) )
 		{
+			if ( ! is_array($_POST['head'])) $_POST['head'] = array();
+			$_POST['slug'] = array();
 			// === Make Slug === //
 			foreach (get_multilang_codes() as $lang_code)
 			{
+				if ( ! isset($_POST['head'][$lang_code]) || ! is_string($_POST['head'][$lang_code])) $_POST['head'][$lang_code] = '';
 			    $_POST['slug'][$lang_code] = $this->articles_model->doSlug($_POST['head'][$lang_code]);
 			}
 		}

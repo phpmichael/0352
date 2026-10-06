@@ -69,9 +69,12 @@ class Pages extends Admin
 		
 		if( isset($_POST['page_title']) )
 		{
+			if ( ! is_array($_POST['page_title'])) $_POST['page_title'] = array();
+			$_POST['slug'] = array();
 			// === Make Slug === //
 			foreach (get_multilang_codes() as $lang_code)
 			{
+				if ( ! isset($_POST['page_title'][$lang_code]) || ! is_string($_POST['page_title'][$lang_code])) $_POST['page_title'][$lang_code] = '';
 			    $_POST['slug'][$lang_code] = $this->pages_model->doSlug($_POST['page_title'][$lang_code]);
 			}
 		}

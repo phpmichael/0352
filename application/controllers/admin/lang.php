@@ -115,6 +115,11 @@ class Lang extends Admin
      */
     public function gtranslate()
     {
+        if ( ! isset($_POST['text'], $_POST['from_lang']) || ! is_string($_POST['text']) || ! is_string($_POST['from_lang']) || ! in_array($_POST['from_lang'], get_multilang_codes(), TRUE))
+        {
+            echo json_encode(array('error' => 'Invalid translation data.'));
+            return;
+        }
     	$text = $_POST['text'];
     	$from_lang = $_POST['from_lang'];
     	
@@ -125,7 +130,7 @@ class Lang extends Admin
     		if($lang_code == $from_lang) continue;
     		
     		$lp = "{$from_lang}|{$lang_code}";
-    		$result[$lang_code] = $this->lang_model->translate($text,$lp,'html');
+	    		$result[$lang_code] = $text === '' ? '' : $this->lang_model->translate($text,$lp,'html');
     	}
     	
     	echo json_encode($result);

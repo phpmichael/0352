@@ -73,9 +73,12 @@ class Products extends Admin
 	    
 	    if( isset($_POST['name']) )
 		{
+			if ( ! is_array($_POST['name'])) $_POST['name'] = array();
+			$_POST['slug'] = array();
 			// === Make Slug === //
 			foreach (get_multilang_codes() as $lang_code)
 			{
+				if ( ! isset($_POST['name'][$lang_code]) || ! is_string($_POST['name'][$lang_code])) $_POST['name'][$lang_code] = '';
 			    $_POST['slug'][$lang_code] = $this->products_model->doSlug($_POST['name'][$lang_code]);
 			}
 		}
