@@ -68,7 +68,7 @@ class Cart extends Front
 	{
 	    $post = $this->input->post();
 	    $qty = max(1,intval($post['qty']));
-	    $products_attributes = isset($post['products_attributes'])?$post['products_attributes']:array();
+	    $products_attributes = (isset($post['products_attributes']) && is_array($post['products_attributes'])) ? $post['products_attributes'] : array();
 	    
 	    $product = $this->products_model->getOneById($post['id']);
 	    

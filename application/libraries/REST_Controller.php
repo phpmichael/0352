@@ -934,7 +934,7 @@ abstract class REST_Controller extends CI_Controller
 		}
 
 		// Grab proper GET variables
-		parse_str(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $get);
+		parse_str((string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $get);
 
 		// Merge both the URI segments and GET params
 		$this->_get_args = array_merge($this->_get_args, $get);
@@ -975,7 +975,7 @@ abstract class REST_Controller extends CI_Controller
 	protected function _parse_head()
 	{
 		// Grab proper HEAD variables
-		parse_str(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $head);
+		parse_str((string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $head);
 
 		// Merge both the URI segments and HEAD params
 		$this->_head_args = array_merge($this->_head_args, $head);
@@ -987,7 +987,7 @@ abstract class REST_Controller extends CI_Controller
 	protected function _parse_options()
 	{
 		// Grab proper OPTIONS variables
-		parse_str(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $options);
+		parse_str((string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $options);
 
 		// Merge both the URI segments and OPTIONS params
 		$this->_options_args = array_merge($this->_options_args, $options);
