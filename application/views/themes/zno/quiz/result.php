@@ -44,7 +44,7 @@
                                 <span><?=htmlspecialchars($connected_answer['answer'])?> - </span>
                             <?endif?>
 
-                            <?if($q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']]):?>
+                            <?if(isset($customer_answers[$q['id']][$connected_answer['id']]) && $q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']]):?>
                                 <?if($customer_answers[$q['id']][$connected_answer['id']] == $correct_answers[$q['id']][$connected_answer['id']]):?>
                                     <div class="quiz-answer quiz-answer-correct"></div>
                                     <?=quiz_answer($q_answer)?>
@@ -94,7 +94,7 @@
                             <?foreach ($answers[$q['id']] as $q_answer):?>
                                 <?
                                 $correct = ($q_answer['id'] == $correct_answers[$q['id']][$connected_answer['id']] ) ? 1 : 0 ;
-                                $checked = ($q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']] ) ? 1 : 0 ;
+                                $checked = (isset($customer_answers[$q['id']][$connected_answer['id']]) && $q_answer['id'] == $customer_answers[$q['id']][$connected_answer['id']] ) ? 1 : 0 ;
                                 if($checked){
                                     if(!$correct) $css_class = 'incorrect';
                                     else $css_class = 'correct checked';

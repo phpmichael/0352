@@ -69,11 +69,11 @@ class Quiz extends Front
 	 */
 	public function _valid_quiz_answers($answers)
 	{
-		if(empty($answers)) return FALSE;
+		if(!is_array($answers) || empty($answers)) return FALSE;
 		
 		foreach ($answers as $answer)
 		{
-			if( abs(intval($answer)) != $answer ) return FALSE;
+			if(!$this->_valid_quiz_answer($answer)) return FALSE;
 		}
 		
 		return TRUE;
@@ -87,7 +87,7 @@ class Quiz extends Front
 	 */
 	public function _valid_quiz_answer($answer)
 	{
-	    if( abs(intval($answer)) != $answer ) return FALSE;
+	    if(!is_string($answer) || !ctype_digit($answer) || intval($answer) <= 0) return FALSE;
 		
 		return TRUE;
 	}
@@ -246,7 +246,7 @@ class Quiz extends Front
                array(
                      'field'   => 'answers[]', 
                      'label'   => parent::_getFieldTitle('answer'), 
-                     'rules'   => 'callback__valid_quiz_answers'
+                     'rules'   => 'callback__valid_quiz_answer'
                   ),
             );
 		}
@@ -265,7 +265,9 @@ class Quiz extends Front
 		$this->form_validation->set_rules($configValidation);
 			
 		//if answered - store it and remove current question from session
-		if ($this->form_validation->run() != FALSE)
+		$valid_answers = isset($_POST['custom_answer']) || empty($_POST['answers'])
+			|| $this->_valid_quiz_answers($_POST['answers']);
+		if ($valid_answers && $this->form_validation->run() != FALSE)
 		{
 			//protect from answer on question twice
 		    if( !$this->quiz_model->questionAnswered($quiz_id,$customer_id,$question_id) )
