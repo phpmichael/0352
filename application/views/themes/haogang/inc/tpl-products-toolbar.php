@@ -2,16 +2,16 @@
     <?=form_open($BC->_getBaseURI()."/search",array('class'=>'form-products-toolbar'))?>
     <?=form_hidden('category[]',@$search_category_id)?>
     <?=form_hidden('sort_order',$sort_order)?>
-    <?=form_hidden('keywords',trim(urldecode(@$keywords)))?>
-    <?=form_hidden('tag',trim(urldecode(@$tag)))?>
+    <?=form_hidden('keywords',trim(urldecode_compat(@$keywords)))?>
+    <?=form_hidden('tag',trim(urldecode_compat(@$tag)))?>
     
-        <?if(@trim(urldecode($keywords))):?>
+        <?if(@trim(urldecode_compat($keywords))):?>
         <div class="search-results-for">
-            <h2><?=language('search_results_for')?>: " <i><?=trim(urldecode($keywords))?></i> "</h2>
+            <h2><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h2>
         </div>
-        <?elseif(@trim(urldecode($tag))):?>
+        <?elseif(@trim(urldecode_compat($tag))):?>
         <div class="search-results-for">
-            <h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode($tag))?></i> "</h2>
+            <h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h2>
         </div>
         <?endif?>
     

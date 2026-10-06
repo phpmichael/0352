@@ -29,6 +29,23 @@
 
 // ------------------------------------------------------------------------
 
+// PHP 7.2 removed each(); retain its PHP 5 behavior for legacy framework code.
+if ( ! function_exists('each'))
+{
+	function each(&$array)
+	{
+		$key = key($array);
+		if ($key === NULL)
+		{
+			return FALSE;
+		}
+
+		$value = current($array);
+		next($array);
+		return array(1 => $value, 'value' => $value, 0 => $key, 'key' => $key);
+	}
+}
+
 /**
 * Determines if the current version of PHP is greater then the supplied value
 *
@@ -346,7 +363,7 @@ if ( ! function_exists('show_404'))
 */
 if ( ! function_exists('log_message'))
 {
-	function log_message($level = 'error', $message, $php_error = FALSE)
+	function log_message($level = 'error', $message = '', $php_error = FALSE)
 	{
 		static $_log;
 

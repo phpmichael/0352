@@ -133,7 +133,7 @@ class Photos extends Front
 	    
 	    $category_id = intval($category_id);
 	    
-	    $tag = $this->security->xss_clean(trim(urldecode($tag)));
+	    $tag = $this->security->xss_clean(trim(urldecode_compat($tag)));
 	    
         $per_page = $settings['gallery_per_page'];
         

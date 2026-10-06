@@ -67,15 +67,28 @@ class CI_DB_mysqli_driver extends CI_DB {
 	 */
 	function db_connect()
 	{
-		if ($this->port != '')
+		// PHP 8.1 defaults mysqli to strict exceptions; this driver expects FALSE on errors.
+		if (function_exists('mysqli_report'))
 		{
-			return @mysqli_connect($this->hostname, $this->username, $this->password, $this->database, $this->port);
-		}
-		else
-		{
-			return @mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+			mysqli_report(MYSQLI_REPORT_OFF);
 		}
 
+		try
+		{
+			if ($this->port != '')
+			{
+				return @mysqli_connect($this->hostname, $this->username, $this->password, $this->database, $this->port);
+			}
+			else
+			{
+				return @mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+			}
+		}
+		catch (Exception $e)
+		{
+			// PHP 8.1 throws on connection failures where older versions returned FALSE.
+			return FALSE;
+		}
 	}
 
 	// --------------------------------------------------------------------

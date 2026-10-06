@@ -132,13 +132,13 @@ abstract class Front extends Base
 	 */
 	protected function appendPageTitleForListPages(array $filter_data, array $data)
 	{
-	    if( isset($filter_data['keywords']) && trim(urldecode($filter_data['keywords'])) )// if search smth
+	    if( isset($filter_data['keywords']) && trim(urldecode_compat($filter_data['keywords'])) )// if search smth
 		{ 
-		   $page_title = language('search_results_for').' "'.trim(urldecode($filter_data['keywords'])).'"';
+		   $page_title = language('search_results_for').' "'.trim(urldecode_compat($filter_data['keywords'])).'"';
 		}
-		elseif( isset($filter_data['tag']) && trim(urldecode($filter_data['tag'])) )// if tag selected
+		elseif( isset($filter_data['tag']) && trim(urldecode_compat($filter_data['tag'])) )// if tag selected
 		{ 
-		   $page_title = language($this->controller.'_with_tag').' "'.trim(urldecode($filter_data['tag'])).'"';
+		   $page_title = language($this->controller.'_with_tag').' "'.trim(urldecode_compat($filter_data['tag'])).'"';
 		}
 		elseif( isset($filter_data['category']) && $filter_data['category'] ) //if category selected
 	    {
@@ -148,13 +148,13 @@ abstract class Front extends Base
 	    {
 	       $page_title = language('manufacturer').' "'.$this->products_manufacturers_model->getManufacturerName($filter_data['manufacturer_id']).'"';
 	    }
-	    elseif( isset($filter_data['manufacturer']) && trim(urldecode($filter_data['manufacturer'])) )// if manufacturer selected
+	    elseif( isset($filter_data['manufacturer']) && trim(urldecode_compat($filter_data['manufacturer'])) )// if manufacturer selected
 		{ 
-		   $page_title = language('manufacturer').' "'.trim(urldecode($filter_data['manufacturer'])).'"';
+		   $page_title = language('manufacturer').' "'.trim(urldecode_compat($filter_data['manufacturer'])).'"';
 		}
-        elseif( isset($filter_data['author']) && trim(urldecode($filter_data['author'])) )// if author selected
+        elseif( isset($filter_data['author']) && trim(urldecode_compat($filter_data['author'])) )// if author selected
         {
-            $page_title = language('author').' "'.trim(urldecode($filter_data['author'])).'"';
+            $page_title = language('author').' "'.trim(urldecode_compat($filter_data['author'])).'"';
         }
 		else $page_title = '';
 

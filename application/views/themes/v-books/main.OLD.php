@@ -89,7 +89,7 @@ $BC->load->helper(array('customer','blog','poll','social','formbuilder'));
 								<?else:?>
 									<?=form_open($BC->_getBaseURL()."articles",array('class'=>'navbar-search pull-left'))?>
 								<?endif?>
-									  <?=form_input("keywords",trim(urldecode(@$keywords)),"class='search-query input-medium' placeholder='".language('search')."'")?> 						
+									  <?=form_input("keywords",trim(urldecode_compat(@$keywords)),"class='search-query input-medium' placeholder='".language('search')."'")?>
 								</form>
 					        </div><!-- /.nav-collapse -->
 					      </div>

@@ -40,7 +40,7 @@ class Jobs_model extends Posts_model
 	 */
     protected function _buildWhere($filter_data = array())
     {
-		$filter_data['keywords'] = trim(urldecode(@$filter_data['keywords']));
+		$filter_data['keywords'] = trim(urldecode_compat(@$filter_data['keywords']));
     	
     	$where = "title!=''";
 		

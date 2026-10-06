@@ -60,19 +60,19 @@
 
 			<div>
 				<form method="post" action="<?=site_url($BC->_getBaseURI())?>">
-					<?=form_input("keywords",trim(urldecode(@$keywords)));?>
+					<?=form_input("keywords",trim(urldecode_compat(@$keywords)));?>
 					<button type="submit" title="<?=language('search')?>" class="button"><span><span><?=language('search')?></span></span></button>
 				</form>
 			</div>
 			<br class="clear" />
 			
-			<?if(@trim(urldecode($keywords))):?>
+			<?if(@trim(urldecode_compat($keywords))):?>
             <div class="search-results-for">
-                <h2><?=language('search_results_for')?>: " <i><?=trim(urldecode($keywords))?></i> "</h2>
+                <h2><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h2>
             </div>
-            <?elseif(@trim(urldecode($tag))):?>
+            <?elseif(@trim(urldecode_compat($tag))):?>
             <div class="search-results-for">
-                <h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode($tag))?></i> "</h2>
+                <h2><?=language('products_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h2>
             </div>
             <?endif?>
 			

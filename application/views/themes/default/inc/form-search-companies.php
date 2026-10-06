@@ -6,7 +6,7 @@
 <table>
 <tr>
 	<td><?=language('search')?>:</td>
-	<td><?=form_input("keywords",trim(urldecode(@$keywords)))?></td>
+	<td><?=form_input("keywords",trim(urldecode_compat(@$keywords)))?></td>
 </tr>
 
 <?load_theme_view('inc/tpl-categories-search-select',array('categories_model'=>'categories'))?>

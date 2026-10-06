@@ -7,7 +7,7 @@
 		<?=form_open($BC->_getBaseURL()."articles")?>
 	<?endif?>
 			<div>	
-			  <?=form_input("keywords",trim(urldecode(@$keywords)),"class='input1'")?> 						
+			  <?=form_input("keywords",trim(urldecode_compat(@$keywords)),"class='input1'")?>
 			  <input type="image" src="<?=site_url($BC->_getTheme().'images/search.gif')?>" alt="Search" title=" Search " class="input2" />							
 			</div>
 		</form>

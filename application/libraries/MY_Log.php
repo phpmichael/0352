@@ -28,7 +28,7 @@ class MY_Log extends CI_Log
      * @param bool $php_error
      * @return bool|void
      */
-    public function write_log($level = 'error', $msg, $php_error = FALSE)
+    public function write_log($level = 'error', $msg = '', $php_error = FALSE)
 	{
 		//write logs
 	    if( 

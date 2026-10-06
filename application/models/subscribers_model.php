@@ -94,7 +94,7 @@ class Subscribers_model extends Posts_model
         $where = "1";
 
         //Email
-        if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode($filter_data['keywords'])))) )
+        if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['keywords'])))) )
         {
             $where .= " AND {$this->c_table}.email LIKE '%".$this->db->escape_str($keywords)."%'";
         }

@@ -629,7 +629,7 @@ if ( ! function_exists('form_prep'))
 			return $str;
 		}
 
-		if ($str === '')
+		if ($str === NULL OR $str === '')
 		{
 			return '';
 		}

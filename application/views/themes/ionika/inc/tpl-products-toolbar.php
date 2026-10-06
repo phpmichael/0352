@@ -3,21 +3,21 @@
  <?=form_open($BC->_getBaseURI()."/search",array('class'=>'form-products-toolbar'))?>
     <?if(@$search_category_id) echo form_hidden('category[]',$search_category_id)?>
     <?if(@$sort_order) echo form_hidden('sort_order',$sort_order)?>
-    <?if(@$keywords) echo form_hidden('keywords',trim(urldecode($keywords)))?>
-    <?if(@$tag) echo form_hidden('tag',trim(urldecode($tag)))?>
-    <?if(@$manufacturer) echo form_hidden('manufacturer',trim(urldecode($manufacturer)))?>
+    <?if(@$keywords) echo form_hidden('keywords',trim(urldecode_compat($keywords)))?>
+    <?if(@$tag) echo form_hidden('tag',trim(urldecode_compat($tag)))?>
+    <?if(@$manufacturer) echo form_hidden('manufacturer',trim(urldecode_compat($manufacturer)))?>
 
-    <?if(@trim(urldecode($keywords))):?>
+    <?if(@trim(urldecode_compat($keywords))):?>
     <div class="search-results-for">
-        <h4><?=language('search_results_for')?>: " <i><?=trim(urldecode($keywords))?></i> "</h4>
+        <h4><?=language('search_results_for')?>: " <i><?=trim(urldecode_compat($keywords))?></i> "</h4>
     </div>
-    <?elseif(@trim(urldecode($tag))):?>
+    <?elseif(@trim(urldecode_compat($tag))):?>
     <div class="search-results-for">
-        <h4><?=language('products_with_tag')?>: " <i><?=trim(urldecode($tag))?></i> "</h4>
+        <h4><?=language('products_with_tag')?>: " <i><?=trim(urldecode_compat($tag))?></i> "</h4>
     </div>
-    <?elseif(@trim(urldecode($manufacturer))):?>
+    <?elseif(@trim(urldecode_compat($manufacturer))):?>
     <div class="search-results-for">
-        <h4><?=language('manufacturer')?>: " <i><?=trim(urldecode($manufacturer))?></i> "</h4>
+        <h4><?=language('manufacturer')?>: " <i><?=trim(urldecode_compat($manufacturer))?></i> "</h4>
     </div>
     <?endif?>
 

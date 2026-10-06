@@ -2,8 +2,8 @@
 	<?=form_hidden('category[]',@$search_category_id)?>
     <?=form_hidden('sort_by',$sort_by)?>
     <?=form_hidden('sort_order',$sort_order)?>
-    <?=form_hidden('keywords',trim(urldecode(@$keywords)))?>
-    <?=form_hidden('tag',trim(urldecode(@$tag)))?>
+    <?=form_hidden('keywords',trim(urldecode_compat(@$keywords)))?>
+    <?=form_hidden('tag',trim(urldecode_compat(@$tag)))?>
 
     <div>
         <label><?=language('sort_by')?>:</label>

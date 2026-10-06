@@ -1,4 +1,4 @@
-<?$loc_length = @count($current_location_arr); $i=0;?>
+<?$loc_length = (isset($current_location_arr) && is_array($current_location_arr)) ? count($current_location_arr) : 0; $i=0;?>
 <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
     <?foreach ($current_location_arr as $loc_url=>$loc_title): $i++;?>
         <?$loc_url = str_replace('products','books',$loc_url);?>

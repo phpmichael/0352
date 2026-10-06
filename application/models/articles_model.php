@@ -34,7 +34,7 @@ class Articles_model extends Posts_model
 		{
 			$where .= " AND {$this->posts_categories_table}.category_id=".intval($filter_data['category']);
 		}
-		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode($filter_data['keywords'])))) )
+		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['keywords'])))) )
 		{
 			$where .= " AND CONCAT(".$this->prepareFieldForSearch('head').",'|',".$this->prepareFieldForSearch('body').") LIKE '%".$this->db->escape_str($keywords)."%'";
 		}
@@ -49,7 +49,7 @@ class Articles_model extends Posts_model
     		$where .= " AND `pub_date` LIKE '{$filter_data['year']}-{$filter_data['month']}%'";
     	}
     	//filter by tag
-		if( isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode($filter_data['tag'])))) )
+		if( isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['tag'])))) )
 		{
 		    $where .= " AND {$this->tags_table}.table='{$this->c_table}' AND {$this->tags_table}.tag='".$this->db->escape_str($tag)."'";
 		}

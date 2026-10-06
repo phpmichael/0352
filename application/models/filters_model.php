@@ -181,7 +181,7 @@ class Filters_model extends Base_model
 	 */
 	public function extract($filters)
 	{
-	    $filters = strtr(urldecode($filters),array('&#40;'=>'','&#41;'=>''));//&#40; equal "(", &#41; equal ")"
+	    $filters = strtr(urldecode_compat($filters),array('&#40;'=>'','&#41;'=>''));//&#40; equal "(", &#41; equal ")"
 		
 		return explode('-',$filters);
 	}

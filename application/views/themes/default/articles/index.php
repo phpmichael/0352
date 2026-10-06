@@ -55,7 +55,7 @@
 
 <div align="right">
 	<form method="post" action="<?=site_url($BC->_getBaseURI())?>">
-		<?=form_input("keywords",trim(urldecode(@$keywords)));?>
+		<?=form_input("keywords",trim(urldecode_compat(@$keywords)));?>
 		<?=form_submit("submit",language('search'));?>
 	</form>
 </div>

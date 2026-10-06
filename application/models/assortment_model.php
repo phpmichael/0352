@@ -66,7 +66,7 @@ class Assortment_model extends Posts_model
 		{
 			$where .= " AND {$this->posts_categories_table}.category_id=".intval($filter_data['category']);
 		}
-		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode($filter_data['keywords'])))) )
+		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['keywords'])))) )
 		{
 			$where .= " AND CONCAT(".$this->prepareFieldForSearch('name').",".$this->prepareFieldForSearch('country').",".$this->prepareFieldForSearch('type1').",".$this->prepareFieldForSearch('type2').",".$this->prepareFieldForSearch('type3').",".$this->prepareFieldForSearch('description').",".$this->prepareFieldForSearch('characteristics').",".$this->prepareFieldForSearch('assortment').",".$this->prepareFieldForSearch('accessories').") LIKE '%".$this->db->escape_str($keywords)."%'";
 		}

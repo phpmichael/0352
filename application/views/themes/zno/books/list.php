@@ -3,13 +3,13 @@
 <div id="find-book" class="book-list-toolbar">
     <?
         $search_url = '';
-        if( trim(urldecode(@$keywords)) ){
+        if( trim(urldecode_compat(@$keywords)) ){
             $search_url .= 'keywords/'.$keywords;
         }
-        elseif( trim(urldecode(@$manufacturer)) ){
+        elseif( trim(urldecode_compat(@$manufacturer)) ){
             $search_url .= 'manufacturer/'.$manufacturer;
         }
-        elseif( trim(urldecode(@$author)) ){
+        elseif( trim(urldecode_compat(@$author)) ){
             $search_url .= 'author/'.$author;
         }
         else{

@@ -83,7 +83,7 @@ abstract class Posts_model extends Base_model
 			{
 				foreach ($query_arr as &$val)
 				{
-					$val = urldecode($val);
+					$val = urldecode_compat($val);
 					$val = strtr($val,array("&#40;"=>"(","&#41;"=>")"));//&#40; equal "(", &#41; equal ")"
 					if(preg_match("/^Array\((.*)\)$/U",$val)) //if is Array
 					{
@@ -765,7 +765,7 @@ abstract class Posts_model extends Base_model
 	    }
     	
     	//filter by tag
-		if( (isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode($filter_data['tag']))))) || ( isset($filter_data['tags']) && ($tag = $this->CI->security->xss_clean(trim(urldecode($filter_data['tags'])))) ) )
+		if( (isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['tag']))))) || ( isset($filter_data['tags']) && ($tag = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['tags'])))) ) )
 		{
 			$join .= " JOIN {$this->tags_table} ON {$this->c_table}.id = {$this->tags_table}.post_id";
 		}

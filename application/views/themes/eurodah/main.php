@@ -32,7 +32,7 @@ $BC->load->helper('text');
 										<div>
 											<div class="container-inline">
 												<div> 
-													<input name="keywords" value="<?=trim(urldecode(@$keywords))?>" size="15" maxlength="128" class="form-text" type="text" />
+													<input name="keywords" value="<?=trim(urldecode_compat(@$keywords))?>" size="15" maxlength="128" class="form-text" type="text" />
 												</div>
 												<div>
 													<input value="Search" class="form-submit" type="submit" />

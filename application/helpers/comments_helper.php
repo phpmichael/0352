@@ -125,7 +125,7 @@ function show_comments($view,$comments,array $params=array())
 	
 	$params = array_merge($defaults,$params);
 	
-	if( @count($comments) )
+	if (is_array($comments) && count($comments) > 0)
 	{
 	?>
 	<ul class="<?=$params['list_class']?>">
@@ -154,7 +154,7 @@ function show_comments($view,$comments,array $params=array())
  * @param array $params
  * @param integer $i
  */
-function show_comment($view,$comment,array $params=array(),&$i)
+function show_comment($view,$comment,array $params=array(),&$i=0)
 {
     $i++; 
 	$oddcomment = $i%2;

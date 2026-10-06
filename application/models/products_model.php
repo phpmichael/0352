@@ -149,7 +149,7 @@ class Products_model extends Posts_model
     	$join = parent::_buildJoin($filter_data);
     	
     	//filter by manufacturer
-		if( (isset($filter_data['manufacturer']) && ($manufacturer = $this->CI->security->xss_clean(trim(urldecode($filter_data['manufacturer']))))) )
+		if( (isset($filter_data['manufacturer']) && ($manufacturer = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['manufacturer']))))) )
 		{
 			$join .= " JOIN {$this->manufacturers_table} ON {$this->manufacturers_table}.id = {$this->c_table}.manufacturer_id";
 		}
@@ -173,7 +173,7 @@ class Products_model extends Posts_model
 		{
 			$where .= " AND {$this->posts_categories_table}.category_id=".intval($filter_data['category']);
 		}
-		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode($filter_data['keywords'])))) )
+		if( isset($filter_data['keywords']) && ($keywords = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['keywords'])))) )
 		{
 			$where .= " AND CONCAT(".$this->prepareFieldForSearch('name').",".$this->prepareFieldForSearch('description').") LIKE '%".$this->db->escape_str($keywords)."%'";
 		}
@@ -182,17 +182,17 @@ class Products_model extends Posts_model
     		$where .= " AND `date` LIKE '".$filter_data['month']."%'";
     	}
     	//filter by tag
-		if( isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode($filter_data['tag'])))) )
+		if( isset($filter_data['tag']) && ($tag = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['tag'])))) )
 		{
 		    $where .= " AND {$this->tags_table}.table='{$this->c_table}' AND {$this->tags_table}.tag='".$this->db->escape_str($tag)."'";
 		}
 		//filter by manufacturer
-		if( isset($filter_data['manufacturer']) && ($manufacturer = $this->CI->security->xss_clean(trim(urldecode($filter_data['manufacturer'])))) )
+		if( isset($filter_data['manufacturer']) && ($manufacturer = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['manufacturer'])))) )
 		{
 		    $where .= " AND {$this->manufacturers_table}.name='".$this->db->escape_str($manufacturer)."'";
 		}
 		//filter by tags comma separated
-		if( isset($filter_data['tags']) && ($tags = $this->CI->security->xss_clean(trim(urldecode($filter_data['tags'])))) )
+		if( isset($filter_data['tags']) && ($tags = $this->CI->security->xss_clean(trim(urldecode_compat($filter_data['tags'])))) )
 		{
 		    $tagsArr = explode(",",$tags);
 		    

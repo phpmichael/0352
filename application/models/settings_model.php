@@ -52,6 +52,7 @@ class Settings_model extends CI_Model implements ArrayAccess
      * @param mixed $key
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($key)
     {
     	return isset($this->data[$key]);
@@ -62,6 +63,7 @@ class Settings_model extends CI_Model implements ArrayAccess
      * @param mixed $key
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
     	return $this->data[$key];
@@ -72,6 +74,7 @@ class Settings_model extends CI_Model implements ArrayAccess
      * @param mixed $key
      * @param mixed $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($key,$value)
     {
     	if($this->offsetExists($key)) $this->db->update($this->c_table,array('value'=>$value),array('param'=>$key));
@@ -84,6 +87,7 @@ class Settings_model extends CI_Model implements ArrayAccess
      * Unset item.
      * @param mixed $key
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($key)
     {
     	$this->data[$key] = '';

@@ -72,6 +72,11 @@ class Tags_model extends Base_model
 
 		$arr = $result = $this->db->query("SELECT *, COUNT(*) AS amount FROM `{$this->c_table}` WHERE `table` = '{$table}' GROUP BY tag ORDER BY RAND() LIMIT $count_tags")->result_array();
 
+		if (empty($result))
+		{
+			return '';
+		}
+
 		uasort($result,"sorttags");
 
 		$first = reset($result);

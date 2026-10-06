@@ -28,6 +28,18 @@
 // ------------------------------------------------------------------------
 
 /**
+ * Decode a URL value while preserving PHP 5 behavior for NULL inputs.
+ * PHP 8.1 deprecates passing NULL to urldecode().
+ */
+if ( ! function_exists('urldecode_compat'))
+{
+	function urldecode_compat($str)
+	{
+		return urldecode($str === NULL ? '' : $str);
+	}
+}
+
+/**
  * Site URL
  *
  * Create a local URL based on your basepath. Segments can be passed via the

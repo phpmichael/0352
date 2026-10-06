@@ -1,7 +1,7 @@
 <div>
     <div class="search-box">
         <?=form_open($BC->_getBaseURL()."books/search")?>
-            <?=form_input("keywords",trim(urldecode(@$keywords)))?>
+            <?=form_input("keywords",trim(urldecode_compat(@$keywords)))?>
             <input type="submit" value="<?=language('search')?>" />
         </form>
         <div class="search-example">

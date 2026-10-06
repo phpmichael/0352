@@ -62,7 +62,7 @@ class Keywords_lib{
 		
 		// calculate words again without the excluded words using str_word_count_utf8
 		$words_array = self::str_word_count_utf8($new_string, 1);
-		$words_array = array_filter($words_array, create_function('$var', 'return (mb_strlen($var) >= '.$min_word_char.');'));
+		$words_array = array_filter($words_array, function($var) use ($min_word_char) { return (mb_strlen($var) >= $min_word_char); });
 		
 		$popularity = array();
 		$unique_words_array = array_unique($words_array);
