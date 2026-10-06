@@ -654,12 +654,14 @@ class Quiz_model extends Base_model
 		$sql = "select * from quiz_archive where customer_id=? order by finished desc";
 		$records = $this->db->query($sql,array($customer_id))->result_array();
 		
-		foreach ($records as &$record)
+		$archives = array();
+		foreach ($records as $record)
 		{
 		    $record = $this->unserializeArchive($record);
+		    if ($record !== FALSE) $archives[] = $record;
 		}
 		
-		return $records;
+		return $archives;
 	}
 	
 	/**
@@ -670,7 +672,9 @@ class Quiz_model extends Base_model
 	 */
 	private function unserializeArchive($record)
 	{
-	    $data = unserialize($record['data']);
+	    if (!isset($record['data']) || !is_string($record['data'])) return FALSE;
+	    $data = @unserialize($record['data']);
+	    if (!is_array($data)) return FALSE;
 	    unset($record['data']);
 	    $record = array_merge($record,$data);
 	    
@@ -998,13 +1002,28 @@ class Quiz_model extends Base_model
 	}
 
     /**
-     * Copy question to another quiz
+     * Check whether the source question and destination quiz exist.
      * @param integer $question_id
      * @param integer $quiz_id
+     * @return bool
+     */
+	public function canCopyQuestion($question_id,$quiz_id)
+    {
+        return (bool)$this->db->get_where('quiz_list', array('id'=>$quiz_id))->row_array()
+            && (bool)$this->db->get_where('quiz_questions', array('id'=>$question_id))->row_array();
+    }
+
+    /**
+     * Copy question to another quiz.
+     * @param integer $question_id
+     * @param integer $quiz_id
+     * @return bool
      */
 	public function copyQuestion($question_id,$quiz_id)
     {
+        if (!$this->canCopyQuestion($question_id,$quiz_id)) return FALSE;
         $question = $this->getQuestionById($question_id);
+        if (empty($question)) return FALSE;
         $answers = $this->getAnswers($question_id);
         $connected_answers = $this->getConnectedAnswers($question_id);
 
@@ -1034,6 +1053,7 @@ class Quiz_model extends Base_model
         }
 
         $this->saveQuestionCopyReference($question_id, $question_copy_id);
+        return TRUE;
     }
 
     /**

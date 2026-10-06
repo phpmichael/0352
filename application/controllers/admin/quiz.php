@@ -443,7 +443,16 @@ class Quiz extends Admin
             }
         }
         foreach ($_POST['questionsIds'] as $questionsId) {
-            $this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId']);
+            if (!$this->quiz_model->canCopyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
+                echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
+                return;
+            }
+        }
+        foreach ($_POST['questionsIds'] as $questionsId) {
+            if (!$this->quiz_model->copyQuestion((int)$questionsId, (int)$_POST['quizId'])) {
+                echo json_encode(array('error'=>1,'message'=>language('error').' : question or quiz not found'));
+                return;
+            }
         }
         echo json_encode(array('success'=>1,'message'=>'Copied'));
     }
