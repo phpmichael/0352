@@ -258,7 +258,7 @@ class Quiz_model extends Base_model
 	 */
 	public function deleteSelectedQuiz($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -288,7 +288,7 @@ class Quiz_model extends Base_model
 	 */
 	public function deleteSelectedQuestions($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -310,7 +310,7 @@ class Quiz_model extends Base_model
 	 */
 	public function deleteSelectedAnswers($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -736,7 +736,7 @@ class Quiz_model extends Base_model
 					{
 						$correct_question_answers[$connected_answer['id']] = $connected_answer['connect_answer'];
 
-						if($cqa[$connected_answer['id']] == $connected_answer['connect_answer'])
+						if(isset($cqa[$connected_answer['id']]) && $cqa[$connected_answer['id']] == $connected_answer['connect_answer'])
 						{
 						    if($this->connected_scores_type === '+1/count')
                             {
@@ -770,7 +770,7 @@ class Quiz_model extends Base_model
                     {
                         for($i = 0; $i < 3; $i++)
                         {
-                            if($correct_question_answers[$i] === $cqa[$i])
+                            if(isset($cqa[$i]) && $correct_question_answers[$i] === $cqa[$i])
                             {
                                 $result['scores']++;
                             }

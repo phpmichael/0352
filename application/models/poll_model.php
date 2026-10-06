@@ -126,7 +126,7 @@ class Poll_model extends Base_model
 	 */
 	public function DeleteSelectedPoll($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -156,7 +156,7 @@ class Poll_model extends Base_model
 	 */
 	public function DeleteSelectedAnswers($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			$this->c_table = 'poll_answers';
 		    

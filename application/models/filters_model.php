@@ -130,7 +130,7 @@ class Filters_model extends Base_model
 	 */
 	public function DeleteSelectedGroups($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -160,7 +160,7 @@ class Filters_model extends Base_model
 	 */
 	public function DeleteSelectedFilters($delArr,$filter_group_id)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			$this->c_table = 'filters';
 		    

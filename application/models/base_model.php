@@ -144,7 +144,7 @@ abstract class Base_model extends CI_Model
 	 */
     public function DeleteSelected($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{

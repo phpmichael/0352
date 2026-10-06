@@ -70,7 +70,7 @@ class Menu_model extends Base_model
 	 */
 	public function DeleteSelectedInMenu($delArr,$menu)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{

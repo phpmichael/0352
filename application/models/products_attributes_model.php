@@ -192,7 +192,7 @@ class Products_attributes_model extends Base_model
 	 */
 	public function DeleteSelectedAttributes($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
@@ -223,7 +223,7 @@ class Products_attributes_model extends Base_model
 	 */
 	public function DeleteSelectedValues($delArr)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			$this->c_table = $this->tables['attributes_values'];
 		    

@@ -211,7 +211,7 @@ class Categories_model extends Base_model
 	 */
 	public function DeleteSelectedInParent($delArr,$parent_id)
 	{
-		if( !empty($delArr) )
+		if( is_array($delArr) && !empty($delArr) )
 		{
 			foreach ($delArr as $id=>$selected)
 			{
