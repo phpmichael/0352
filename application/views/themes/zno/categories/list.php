@@ -1,4 +1,4 @@
-<?if($search_category_id == 1):?>
+<?if(isset($search_category_id) && $search_category_id == 1):?>
     <?load_theme_view('categories/top-category');?>
 <?else:?>
 

@@ -164,7 +164,7 @@ class Products_attributes extends Admin
 	 * 
 	 * @return void
 	 */
-	public function Delete_Selected()
+	public function Delete_Selected($orderby = '', $orderseq = '', $offset = '')
 	{
 		$this->products_attributes_model->DeleteSelectedAttributes(@$_POST['check']);
 

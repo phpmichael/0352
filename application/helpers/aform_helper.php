@@ -123,7 +123,7 @@ function show_records_sortable( array $cols, array $rows, $__no_checkbox=FALSE, 
                         </td> 
                     	<?foreach ($cols as $col): 
                     	   //set output [col_name]__output if exists, if no - just [col_name]
-                    	   $output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : $row[$col['field']])
+							$output = (isset($row[$col['field'].'__output']) ? $row[$col['field'].'__output'] : (isset($row[$col['field']]) ? $row[$col['field']] : ''))
                     	?>
                     	<td <?if( isset($col['width']) ):?>style="width:<?=$col['width']?>px"<?endif?> <?if($col['field']=='sort'):?>class="sort_td"<?endif?>><?=$output?></td>
                     	<?endforeach?>

@@ -198,7 +198,7 @@ class Poll extends Admin
 	 * 
 	 * @return void
 	 */
-	public function Delete_Selected()
+	public function Delete_Selected($orderby = '', $orderseq = '', $offset = '')
 	{
 		$this->poll_model->DeleteSelectedPoll(@$_POST['check']);
 
