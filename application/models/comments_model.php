@@ -64,7 +64,7 @@ class Comments_model extends Base_model
     {
         $censor_words = @$this->CI->settings_model['comments_censor_list'];
         
-        $censor_words = explode("\n",$censor_words);
+        $censor_words = explode("\n",(string) $censor_words);
         
         foreach ($censor_words as $censor_word)
         {
