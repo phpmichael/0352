@@ -67,7 +67,11 @@ class Cart extends Front
 	public function add()
 	{
 	    $post = $this->input->post();
-	    $qty = max(1,intval($post['qty']));
+	    if ( ! is_array($post) || ! isset($post['id']) || ! is_scalar($post['id']) || ! ctype_digit((string) $post['id']) || intval($post['id']) < 1)
+	    {
+	        die(json_encode(array('error'=>1,'message'=>language('error').' : '.language('could_not_add_to_cart'))));
+	    }
+	    $qty = (isset($post['qty']) && is_numeric($post['qty'])) ? max(1,intval($post['qty'])) : 1;
 	    $products_attributes = (isset($post['products_attributes']) && is_array($post['products_attributes'])) ? $post['products_attributes'] : array();
 	    
 	    $product = $this->products_model->getOneById($post['id']);

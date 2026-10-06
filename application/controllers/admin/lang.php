@@ -70,14 +70,36 @@ class Lang extends Admin
 	 */
 	public function Update() 
     {	
-    	parse_str($_POST['tdata'],$tdata);
+        if ( ! isset($_POST['tdata']) || ! is_string($_POST['tdata']) || $_POST['tdata'] === '')
+        {
+            die(json_encode(array('error' => 'Invalid language data.')));
+        }
+        parse_str($_POST['tdata'],$tdata);
+        if (empty($tdata['tdata']) || ! is_array($tdata['tdata']))
+        {
+            die(json_encode(array('error' => 'Invalid language data.')));
+        }
 
         $textcodes = array();
+        $allowed_fields = array_merge(array('id', 'sections', 'code'), get_multilang_codes());
         
         foreach ($tdata['tdata'] as $key => $val)
         {
         	$tmp = explode("__",$key);
+            if (count($tmp) !== 2 || $tmp[0] === '' || ! in_array($tmp[1], $allowed_fields, TRUE) || ! is_string($val))
+            {
+                die(json_encode(array('error' => 'Invalid language data.')));
+            }
         	$textcodes[$tmp[0]][$tmp[1]] = $val;
+        }
+        if (count($textcodes) !== 1)
+        {
+            die(json_encode(array('error' => 'Invalid language data.')));
+        }
+        $code = key($textcodes);
+        foreach (get_multilang_codes() as $lang_code)
+        {
+            if ( ! isset($textcodes[$code][$lang_code])) $textcodes[$code][$lang_code] = '';
         }
         
 		$result = $this->lang_model->insertOrUpdate($textcodes);

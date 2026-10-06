@@ -478,8 +478,20 @@ abstract class Base extends CI_Controller
 	 */
 	protected function parseSortables()
 	{
-	    if( $_POST['sortables'] ) parse_str($_POST['sortables'],$sortables);
-		else die('Error: No sortables.');
+		if ( ! isset($_POST['sortables']) || ! is_string($_POST['sortables']) || $_POST['sortables'] === '')
+		{
+			die('Error: No sortables.');
+		}
+
+		parse_str($_POST['sortables'], $sortables);
+		if ( ! isset($sortables['sortables']) || ! is_array($sortables['sortables']))
+		{
+			die('Error: No sortables.');
+		}
+		foreach ($sortables['sortables'] as $value)
+		{
+			if ( ! is_string($value) || ! ctype_digit($value)) die('Error: Invalid sortables.');
+		}
 
 		return $sortables['sortables'];
 	}
