@@ -1033,7 +1033,7 @@ class CI_Upload {
 		if (function_exists('finfo_file'))
 		{
 			$finfo = finfo_open(FILEINFO_MIME);
-			if (is_resource($finfo)) // It is possible that a FALSE value is returned, if there is no magic MIME database file found on the system
+			if (is_resource($finfo) OR is_object($finfo)) // PHP 5 returns a resource; PHP 8.1 returns a finfo object. FALSE indicates failure.
 			{
 				$mime = @finfo_file($finfo, $file['tmp_name']);
 				finfo_close($finfo);

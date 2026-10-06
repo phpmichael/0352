@@ -139,7 +139,7 @@ class CI_FTP {
 	 */
 	function _is_conn()
 	{
-		if ( ! is_resource($this->conn_id))
+		if ( ! is_resource($this->conn_id) AND ! is_object($this->conn_id))
 		{
 			if ($this->debug == TRUE)
 			{

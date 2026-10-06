@@ -37,6 +37,11 @@ class Customers_model extends Base_model
 	 */
     public function checkLogin($email,$password)
     {
+        if ( ! is_string($email) || $email === '' || ! is_string($password) || $password === '')
+        {
+            return FALSE;
+        }
+
     	//hash password if it is not hashed yet
         if(strlen($password)!=32) $password = md5($password);
 
