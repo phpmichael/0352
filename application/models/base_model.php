@@ -977,8 +977,33 @@ abstract class Base_model extends CI_Model
 	{
 		$this->db->order_by('sort','asc');
 		$records = $this->db->get_where($this->c_table,$whereArr)->result_array();
-		
-		foreach ($sortables as $sort=>$val)
+
+		if (count($sortables) !== count($records))
+		{
+			show_error('Invalid sortable ordering.', 400);
+			return;
+		}
+
+		$order = array();
+		$seen = array();
+		foreach ($sortables as $value)
+		{
+			if ( ! is_int($value) && ( ! is_string($value) || ! ctype_digit($value)))
+			{
+				show_error('Invalid sortable ordering.', 400);
+				return;
+			}
+			$index = (int) $value;
+			if ( ! isset($records[$index]) || isset($seen[$index]))
+			{
+				show_error('Invalid sortable ordering.', 400);
+				return;
+			}
+			$seen[$index] = TRUE;
+			$order[] = $index;
+		}
+
+		foreach ($order as $sort=>$val)
 		{
 			$records[$val]['sort'] = $sort;
 
